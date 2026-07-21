@@ -1,0 +1,2408 @@
+{
+  "source": "Cuaderno anotación Battelle buena calidad.pdf",
+  "extraction_method": "renderizado de imágenes JPEG embebidas y lectura visual asistida; el PDF no contiene texto extraíble fiable",
+  "reglas_globales": {
+    "umbral": "puntuación 2 en dos ítems consecutivos de un nivel de edad",
+    "techo": "puntuación 0 en dos ítems consecutivos de un nivel de edad"
+  },
+  "areas": [
+    {
+      "nombre": "Adaptativa",
+      "subareas": [
+        {
+          "nombre": "Atención",
+          "items": [
+            "A 1",
+            "A 2",
+            "A 3",
+            "A 4",
+            "A 5",
+            "A 6",
+            "A 7",
+            "A 8",
+            "A 9",
+            "A 10"
+          ]
+        },
+        {
+          "nombre": "Comida",
+          "items": [
+            "A 11",
+            "A 12",
+            "A 13",
+            "A 14",
+            "A 15",
+            "A 16",
+            "A 17",
+            "A 18",
+            "A 19",
+            "A 20",
+            "A 21",
+            "A 22",
+            "A 23",
+            "A 24"
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Cognitiva",
+      "subareas": [
+        {
+          "nombre": "Discriminación perceptiva",
+          "items": [
+            "CG 1",
+            "CG 2",
+            "CG 3",
+            "CG 4",
+            "CG 5",
+            "CG 6",
+            "CG 7",
+            "CG 8",
+            "CG 9",
+            "CG 10"
+          ]
+        },
+        {
+          "nombre": "Memoria",
+          "items": [
+            "CG 11",
+            "CG 12",
+            "CG 13",
+            "CG 14",
+            "CG 15",
+            "CG 16",
+            "CG 17",
+            "CG 18",
+            "CG 19",
+            "CG 20"
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Personal/Social",
+      "subareas": [
+        {
+          "nombre": "Autoconcepto",
+          "items": [
+            "PS 31",
+            "PS 32",
+            "PS 33",
+            "PS 34",
+            "PS 35",
+            "PS 36",
+            "PS 37",
+            "PS 38",
+            "PS 39",
+            "PS 40",
+            "PS 41",
+            "PS 42",
+            "PS 43",
+            "PS 44"
+          ]
+        },
+        {
+          "nombre": "Colaboración",
+          "items": [
+            "PS 62",
+            "PS 63",
+            "PS 64",
+            "PS 65",
+            "PS 66",
+            "PS 67",
+            "PS 68",
+            "PS 69",
+            "PS 70",
+            "PS 71"
+          ]
+        },
+        {
+          "nombre": "Expresión de sentimientos/afecto",
+          "items": [
+            "PS 19",
+            "PS 20",
+            "PS 21",
+            "PS 22",
+            "PS 23",
+            "PS 24",
+            "PS 25",
+            "PS 26",
+            "PS 27",
+            "PS 28",
+            "PS 29",
+            "PS 30"
+          ]
+        },
+        {
+          "nombre": "Interacción con el adulto",
+          "items": [
+            "PS 1",
+            "PS 2",
+            "PS 3",
+            "PS 4",
+            "PS 5",
+            "PS 6",
+            "PS 7",
+            "PS 8",
+            "PS 9",
+            "PS 10",
+            "PS 11",
+            "PS 12",
+            "PS 13",
+            "PS 14",
+            "PS 15",
+            "PS 16",
+            "PS 17",
+            "PS 18"
+          ]
+        },
+        {
+          "nombre": "Interacción con los compañeros",
+          "items": [
+            "PS 45",
+            "PS 46",
+            "PS 47",
+            "PS 48",
+            "PS 49",
+            "PS 50",
+            "PS 51",
+            "PS 52",
+            "PS 53",
+            "PS 54",
+            "PS 55",
+            "PS 56",
+            "PS 57",
+            "PS 58",
+            "PS 59",
+            "PS 60",
+            "PS 61"
+          ]
+        },
+        {
+          "nombre": "Rol social",
+          "items": [
+            "PS 72",
+            "PS 73",
+            "PS 74",
+            "PS 75",
+            "PS 76",
+            "PS 77",
+            "PS 78",
+            "PS 79",
+            "PS 80",
+            "PS 81",
+            "PS 82",
+            "PS 83",
+            "PS 84",
+            "PS 85"
+          ]
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 1",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Muestra conocimiento de la gente.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 2",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Mira la cara del adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 3",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Sonríe o vocaliza en respuesta a la atención del adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 4",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Explora las facciones del adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 5",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Muestra deseos de ser cogido en brazos por una persona conocida.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 6",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Muestra deseos de recibir atención.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 7",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Participa en juegos como «cucú» o «el escondite».",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 8",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Distingue las personas conocidas de las no conocidas.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 9",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Sigue vocalizando cuando se le imita.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 10",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Reacciona cuando se nombra a un familiar.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 11",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Responde a las alabanzas, recompensas o promesas de recompensa del adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 12",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Ayuda en tareas domésticas sencillas.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 13",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Saluda espontáneamente a los adultos conocidos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 14",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Responde al contacto social de adultos conocidos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 15",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se separa fácilmente de sus padres.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 16",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Utiliza a los adultos (además de los padres), como recurso.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 17",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Inicia contactos con adultos conocidos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto",
+      "codigo": "PS 18",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Pide ayuda al adulto cuando lo necesita.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 19",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Reacciona con anticipación.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 20",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Muestra placer en juegos que implican movimientos bruscos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 21",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Expresa emociones.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 22",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Muestra afecto por las personas, animales u objetos personales.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 23",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Le gusta jugar con otros niños.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 24",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Le gusta que le lean cuentos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 25",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Expresa cariño o simpatía hacia un compañero.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 26",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Muestra entusiasmo en el trabajo o el juego.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 27",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Muestra simpatía hacia los demás.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 28",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Consuela a un compañero.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 29",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Describe sus sentimientos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto",
+      "codigo": "PS 30",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Muestra una actitud positiva hacia la escuela.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj43"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 31",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Muestra conocimiento de sus manos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 32",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Responde a su nombre.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 33",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Expresa propiedad o posesión.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 34",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Se reconoce en el espejo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 35",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Se enorgullece de sus éxitos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 36",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Conoce su nombre.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 37",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Utiliza un pronombre o su nombre para referirse a sí mismo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 38",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Habla positivamente de sí mismo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 39",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Conoce su edad.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 40",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Atrae la atención de los demás sobre su actividad.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 41",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Conoce su nombre y apellidos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 42",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Se «hace valer» socialmente.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 43",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Actúa para los demás.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto",
+      "codigo": "PS 44",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Demuestra capacidad para explicar o contar alguna cosa sin demasiada vergüenza.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 45",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Inicia un contacto social con compañeros.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 46",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Imita a otro niño.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 47",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Juega solo junto a otros compañeros.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 48",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Juega al lado de otro niño.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 49",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Participa en juegos de grupo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 50",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Comparte sus juguetes.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 51",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se relaciona con los compañeros.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 52",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Tiene amigos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 53",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Escoge a sus amigos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 54",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Participa en el juego.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 55",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Participa en actividades de grupo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 56",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Sabe compartir y esperar su turno.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 57",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Inicia contactos sociales e interacciones.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 58",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Participa en juegos competitivos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 59",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Utiliza a los compañeros para obtener ayuda.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 60",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Da ideas a otros niños y aprueba las de los demás.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros",
+      "codigo": "PS 61",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Actúa como líder en las relaciones con los compañeros.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj49"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 62",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Sigue normas de la vida cotidiana.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 63",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Sigue las reglas dadas por un adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 64",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Obedece las órdenes del adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 65",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Obedece las normas y órdenes de la clase.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 66",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Espera su turno para conseguir la atención del adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 67",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Busca alternativas para resolver un problema.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 68",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Hace frente a las burlas y riñas.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 69",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Participa en situaciones nuevas.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 70",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Utiliza al adulto para defenderse.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Colaboración",
+      "codigo": "PS 71",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Se enfrenta a la agresión de un compañero.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 72",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Juega representando papeles de adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 73",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Representa un papel.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 74",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Sabe si es niño o niña.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 75",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Reconoce las diferencias entre hombre y mujer.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 76",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Reconoce expresiones faciales de sentimientos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 77",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Juega representando el papel del adulto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 78",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Ayuda cuando es necesario.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 79",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Respeta las cosas de los demás.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 80",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Pide permiso para utilizar las cosas de otro.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 81",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Reconoce los sentimientos de los demás.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 82",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Distingue las conductas aceptables de las no aceptables.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 83",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Distingue roles presentes y futuros.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 84",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Demuestra responsabilidad.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Personal/Social",
+      "subarea": "Rol social",
+      "codigo": "PS 85",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Reconoce la responsabilidad de sus errores.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj55"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 1",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Dirige su mirada hacia un foco de luz.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 2",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Mira un objeto durante cinco segundos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 3",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Presta atención a un sonido continuo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 4",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Sigue con la mirada una luz en un arco de 180º.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 5",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Sigue con la mirada una luz en recorrido vertical.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 6",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Se entretiene sin solicitar atención.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 7",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Mira o señala un dibujo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 8",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Presta atención.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 9",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Presta atención estando en grupo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Atención",
+      "codigo": "A 10",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se concentra en su propia tarea.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 11",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Reacciona anticipadamente a la comida.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 12",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Come papilla con cuchara.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 13",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Come semisólidos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 14",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Sostiene su biberón.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 15",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Bebe en una taza con ayuda.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 16",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Come trocitos de comida.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 17",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Comienza a usar la cuchara o el tenedor para comer.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 18",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Pide comida o bebida con palabras o gestos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 19",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Bebe en taza o vaso, sin ayuda.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 20",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Utiliza la cuchara o el tenedor.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 21",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Distingue lo comestible de lo no comestible.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 22",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Obtiene agua del grifo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 23",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se sirve comida.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Comida",
+      "codigo": "A 24",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Utiliza el cuchillo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj61"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 1",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Explora su entorno visualmente.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 2",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Reacciona ante situaciones nuevas.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 3",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Explora objetos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 4",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Explora o investiga el entorno.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 5",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Coloca las piezas círculo y cuadrado en el tablero de encajes.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 6",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Empareja formas geométricas sencillas.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 7",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Empareja un círculo, un cuadrado y un triángulo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 8",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Identifica objetos sencillos por el tacto.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 9",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Empareja palabras sencillas.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva",
+      "codigo": "CG 10",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Reconoce diferencias visuales entre números, formas geométricas y letras similares.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 11",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Sigue un estímulo auditivo.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 12",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Sigue un estímulo visual.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 13",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Levanta una taza para conseguir un juguete.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 14",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Busca un objeto desaparecido.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 15",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Repite secuencias de dos dígitos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 16",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Elige la mano que esconde el juguete.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 17",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Recuerda objetos familiares.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 18",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Repite secuencias de cuatro dígitos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 19",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Recuerda hechos de una historia contada.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Memoria",
+      "codigo": "CG 20",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Repite secuencias de seis dígitos.",
+      "criterios_puntuacion": {
+        "2": "Conducta lograda/observada según el enunciado del ítem.",
+        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
+        "0": "Conducta no lograda/no observada según el enunciado del ítem."
+      },
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj103"
+      },
+      "confianza": "visual_alta"
+    }
+  ],
+  "validation": {
+    "item_count": 129,
+    "duplicate_codes": [],
+    "empty_required_fields": [],
+    "known_incomplete": true,
+    "notes": [
+      "Extracción estructurada real iniciada desde páginas renderizadas; quedan páginas/subáreas no transcritas en esta revisión por limitación de OCR automático del entorno."
+    ]
+  }
+}
