@@ -7,6 +7,126 @@
   },
   "areas": [
     {
+      "nombre": "Personal/Social",
+      "subareas": [
+        {
+          "nombre": "Interacción con el adulto",
+          "items": [
+            "PS 1",
+            "PS 2",
+            "PS 3",
+            "PS 4",
+            "PS 5",
+            "PS 6",
+            "PS 7",
+            "PS 8",
+            "PS 9",
+            "PS 10",
+            "PS 11",
+            "PS 12",
+            "PS 13",
+            "PS 14",
+            "PS 15",
+            "PS 16",
+            "PS 17",
+            "PS 18"
+          ]
+        },
+        {
+          "nombre": "Expresión de sentimientos/afecto",
+          "items": [
+            "PS 19",
+            "PS 20",
+            "PS 21",
+            "PS 22",
+            "PS 23",
+            "PS 24",
+            "PS 25",
+            "PS 26",
+            "PS 27",
+            "PS 28",
+            "PS 29",
+            "PS 30"
+          ]
+        },
+        {
+          "nombre": "Autoconcepto",
+          "items": [
+            "PS 31",
+            "PS 32",
+            "PS 33",
+            "PS 34",
+            "PS 35",
+            "PS 36",
+            "PS 37",
+            "PS 38",
+            "PS 39",
+            "PS 40",
+            "PS 41",
+            "PS 42",
+            "PS 43",
+            "PS 44"
+          ]
+        },
+        {
+          "nombre": "Interacción con los compañeros",
+          "items": [
+            "PS 45",
+            "PS 46",
+            "PS 47",
+            "PS 48",
+            "PS 49",
+            "PS 50",
+            "PS 51",
+            "PS 52",
+            "PS 53",
+            "PS 54",
+            "PS 55",
+            "PS 56",
+            "PS 57",
+            "PS 58",
+            "PS 59",
+            "PS 60",
+            "PS 61"
+          ]
+        },
+        {
+          "nombre": "Colaboración",
+          "items": [
+            "PS 62",
+            "PS 63",
+            "PS 64",
+            "PS 65",
+            "PS 66",
+            "PS 67",
+            "PS 68",
+            "PS 69",
+            "PS 70",
+            "PS 71"
+          ]
+        },
+        {
+          "nombre": "Rol social",
+          "items": [
+            "PS 72",
+            "PS 73",
+            "PS 74",
+            "PS 75",
+            "PS 76",
+            "PS 77",
+            "PS 78",
+            "PS 79",
+            "PS 80",
+            "PS 81",
+            "PS 82",
+            "PS 83",
+            "PS 84",
+            "PS 85"
+          ]
+        }
+      ]
+    },
+    {
       "nombre": "Adaptativa",
       "subareas": [
         {
@@ -41,6 +161,242 @@
             "A 22",
             "A 23",
             "A 24"
+          ]
+        },
+        {
+          "nombre": "Vestido",
+          "items": [
+            "A 25",
+            "A 26",
+            "A 27",
+            "A 28",
+            "A 29",
+            "A 30",
+            "A 31",
+            "A 32",
+            "A 33",
+            "A 34"
+          ]
+        },
+        {
+          "nombre": "Responsabilidad personal",
+          "items": [
+            "A 35",
+            "A 36",
+            "A 37",
+            "A 38",
+            "A 39",
+            "A 40",
+            "A 41",
+            "A 42",
+            "A 43",
+            "A 44",
+            "A 45",
+            "A 46",
+            "A 47",
+            "A 48",
+            "A 49",
+            "A 50",
+            "A 51",
+            "A 52",
+            "A 53"
+          ]
+        },
+        {
+          "nombre": "Aseo",
+          "items": [
+            "A 54",
+            "A 55",
+            "A 56",
+            "A 57",
+            "A 58",
+            "A 59"
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Motora",
+      "subareas": [
+        {
+          "nombre": "Control muscular",
+          "items": [
+            "M 1",
+            "M 2",
+            "M 3",
+            "M 4",
+            "M 5",
+            "M 6"
+          ]
+        },
+        {
+          "nombre": "Coordinación corporal",
+          "items": [
+            "M 7",
+            "M 8",
+            "M 9",
+            "M 10",
+            "M 11",
+            "M 12",
+            "M 13",
+            "M 14",
+            "M 15",
+            "M 16",
+            "M 17",
+            "M 18",
+            "M 19",
+            "M 20",
+            "M 21",
+            "M 22",
+            "M 23",
+            "M 24",
+            "M 25",
+            "M 26",
+            "M 27",
+            "M 28",
+            "M 29",
+            "M 30",
+            "M 31"
+          ]
+        },
+        {
+          "nombre": "Locomoción",
+          "items": [
+            "M 32",
+            "M 33",
+            "M 34",
+            "M 35",
+            "M 36",
+            "M 37",
+            "M 38",
+            "M 39",
+            "M 40",
+            "M 41",
+            "M 42",
+            "M 43",
+            "M 44"
+          ]
+        },
+        {
+          "nombre": "Motricidad fina",
+          "items": [
+            "M 45",
+            "M 46",
+            "M 47",
+            "M 48",
+            "M 49",
+            "M 50",
+            "M 51",
+            "M 52",
+            "M 53",
+            "M 54",
+            "M 55",
+            "M 56",
+            "M 57",
+            "M 58",
+            "M 59",
+            "M 60",
+            "M 61",
+            "M 62"
+          ]
+        },
+        {
+          "nombre": "Motricidad perceptiva",
+          "items": [
+            "M 63",
+            "M 64",
+            "M 65",
+            "M 66",
+            "M 67",
+            "M 68",
+            "M 69",
+            "M 70",
+            "M 71",
+            "M 72",
+            "M 73",
+            "M 74",
+            "M 75",
+            "M 76",
+            "M 77",
+            "M 78",
+            "M 79",
+            "M 80",
+            "M 81",
+            "M 82"
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Comunicación",
+      "subareas": [
+        {
+          "nombre": "Receptiva",
+          "items": [
+            "CM 1",
+            "CM 2",
+            "CM 3",
+            "CM 4",
+            "CM 5",
+            "CM 6",
+            "CM 7",
+            "CM 8",
+            "CM 9",
+            "CM 10",
+            "CM 11",
+            "CM 12",
+            "CM 13",
+            "CM 14",
+            "CM 15",
+            "CM 16",
+            "CM 17",
+            "CM 18",
+            "CM 19",
+            "CM 20",
+            "CM 21",
+            "CM 22",
+            "CM 23",
+            "CM 24",
+            "CM 25",
+            "CM 26",
+            "CM 27"
+          ]
+        },
+        {
+          "nombre": "Expresiva",
+          "items": [
+            "CM 28",
+            "CM 29",
+            "CM 30",
+            "CM 31",
+            "CM 32",
+            "CM 33",
+            "CM 34",
+            "CM 35",
+            "CM 36",
+            "CM 37",
+            "CM 38",
+            "CM 39",
+            "CM 40",
+            "CM 41",
+            "CM 42",
+            "CM 43",
+            "CM 44",
+            "CM 45",
+            "CM 46",
+            "CM 47",
+            "CM 48",
+            "CM 49",
+            "CM 50",
+            "CM 51",
+            "CM 52",
+            "CM 53",
+            "CM 54",
+            "CM 55",
+            "CM 56",
+            "CM 57",
+            "CM 58",
+            "CM 59"
           ]
         }
       ]
@@ -77,125 +433,51 @@
             "CG 19",
             "CG 20"
           ]
-        }
-      ]
-    },
-    {
-      "nombre": "Personal/Social",
-      "subareas": [
+        },
         {
-          "nombre": "Autoconcepto",
+          "nombre": "Razonamiento y habilidades escolares",
           "items": [
-            "PS 31",
-            "PS 32",
-            "PS 33",
-            "PS 34",
-            "PS 35",
-            "PS 36",
-            "PS 37",
-            "PS 38",
-            "PS 39",
-            "PS 40",
-            "PS 41",
-            "PS 42",
-            "PS 43",
-            "PS 44"
+            "CG 21",
+            "CG 22",
+            "CG 23",
+            "CG 24",
+            "CG 25",
+            "CG 26",
+            "CG 27",
+            "CG 28",
+            "CG 29",
+            "CG 30",
+            "CG 31",
+            "CG 32",
+            "CG 33",
+            "CG 34",
+            "CG 35",
+            "CG 36"
           ]
         },
         {
-          "nombre": "Colaboración",
+          "nombre": "Desarrollo conceptual",
           "items": [
-            "PS 62",
-            "PS 63",
-            "PS 64",
-            "PS 65",
-            "PS 66",
-            "PS 67",
-            "PS 68",
-            "PS 69",
-            "PS 70",
-            "PS 71"
-          ]
-        },
-        {
-          "nombre": "Expresión de sentimientos/afecto",
-          "items": [
-            "PS 19",
-            "PS 20",
-            "PS 21",
-            "PS 22",
-            "PS 23",
-            "PS 24",
-            "PS 25",
-            "PS 26",
-            "PS 27",
-            "PS 28",
-            "PS 29",
-            "PS 30"
-          ]
-        },
-        {
-          "nombre": "Interacción con el adulto",
-          "items": [
-            "PS 1",
-            "PS 2",
-            "PS 3",
-            "PS 4",
-            "PS 5",
-            "PS 6",
-            "PS 7",
-            "PS 8",
-            "PS 9",
-            "PS 10",
-            "PS 11",
-            "PS 12",
-            "PS 13",
-            "PS 14",
-            "PS 15",
-            "PS 16",
-            "PS 17",
-            "PS 18"
-          ]
-        },
-        {
-          "nombre": "Interacción con los compañeros",
-          "items": [
-            "PS 45",
-            "PS 46",
-            "PS 47",
-            "PS 48",
-            "PS 49",
-            "PS 50",
-            "PS 51",
-            "PS 52",
-            "PS 53",
-            "PS 54",
-            "PS 55",
-            "PS 56",
-            "PS 57",
-            "PS 58",
-            "PS 59",
-            "PS 60",
-            "PS 61"
-          ]
-        },
-        {
-          "nombre": "Rol social",
-          "items": [
-            "PS 72",
-            "PS 73",
-            "PS 74",
-            "PS 75",
-            "PS 76",
-            "PS 77",
-            "PS 78",
-            "PS 79",
-            "PS 80",
-            "PS 81",
-            "PS 82",
-            "PS 83",
-            "PS 84",
-            "PS 85"
+            "CG 37",
+            "CG 38",
+            "CG 39",
+            "CG 40",
+            "CG 41",
+            "CG 42",
+            "CG 43",
+            "CG 44",
+            "CG 45",
+            "CG 46",
+            "CG 47",
+            "CG 48",
+            "CG 49",
+            "CG 50",
+            "CG 51",
+            "CG 52",
+            "CG 53",
+            "CG 54",
+            "CG 55",
+            "CG 56"
           ]
         }
       ]
@@ -208,11 +490,6 @@
       "codigo": "PS 1",
       "rango_edad_meses": "0-5",
       "enunciado": "Muestra conocimiento de la gente.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -225,11 +502,6 @@
       "codigo": "PS 2",
       "rango_edad_meses": "0-5",
       "enunciado": "Mira la cara del adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -242,11 +514,6 @@
       "codigo": "PS 3",
       "rango_edad_meses": "0-5",
       "enunciado": "Sonríe o vocaliza en respuesta a la atención del adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -259,11 +526,6 @@
       "codigo": "PS 4",
       "rango_edad_meses": "0-5",
       "enunciado": "Explora las facciones del adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -276,11 +538,6 @@
       "codigo": "PS 5",
       "rango_edad_meses": "0-5",
       "enunciado": "Muestra deseos de ser cogido en brazos por una persona conocida.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -293,11 +550,6 @@
       "codigo": "PS 6",
       "rango_edad_meses": "6-11",
       "enunciado": "Muestra deseos de recibir atención.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -310,11 +562,6 @@
       "codigo": "PS 7",
       "rango_edad_meses": "6-11",
       "enunciado": "Participa en juegos como «cucú» o «el escondite».",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -327,11 +574,6 @@
       "codigo": "PS 8",
       "rango_edad_meses": "6-11",
       "enunciado": "Distingue las personas conocidas de las no conocidas.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -344,11 +586,6 @@
       "codigo": "PS 9",
       "rango_edad_meses": "12-17",
       "enunciado": "Sigue vocalizando cuando se le imita.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -361,11 +598,6 @@
       "codigo": "PS 10",
       "rango_edad_meses": "12-17",
       "enunciado": "Reacciona cuando se nombra a un familiar.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -378,11 +610,6 @@
       "codigo": "PS 11",
       "rango_edad_meses": "18-23",
       "enunciado": "Responde a las alabanzas, recompensas o promesas de recompensa del adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -395,11 +622,6 @@
       "codigo": "PS 12",
       "rango_edad_meses": "18-23",
       "enunciado": "Ayuda en tareas domésticas sencillas.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -412,11 +634,6 @@
       "codigo": "PS 13",
       "rango_edad_meses": "24-35",
       "enunciado": "Saluda espontáneamente a los adultos conocidos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -429,11 +646,6 @@
       "codigo": "PS 14",
       "rango_edad_meses": "36-47",
       "enunciado": "Responde al contacto social de adultos conocidos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -446,11 +658,6 @@
       "codigo": "PS 15",
       "rango_edad_meses": "36-47",
       "enunciado": "Se separa fácilmente de sus padres.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -463,11 +670,6 @@
       "codigo": "PS 16",
       "rango_edad_meses": "60-71",
       "enunciado": "Utiliza a los adultos (además de los padres), como recurso.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -480,11 +682,6 @@
       "codigo": "PS 17",
       "rango_edad_meses": "60-71",
       "enunciado": "Inicia contactos con adultos conocidos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -497,11 +694,6 @@
       "codigo": "PS 18",
       "rango_edad_meses": "72-83",
       "enunciado": "Pide ayuda al adulto cuando lo necesita.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -514,11 +706,6 @@
       "codigo": "PS 19",
       "rango_edad_meses": "0-5",
       "enunciado": "Reacciona con anticipación.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -531,11 +718,6 @@
       "codigo": "PS 20",
       "rango_edad_meses": "0-5",
       "enunciado": "Muestra placer en juegos que implican movimientos bruscos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -548,11 +730,6 @@
       "codigo": "PS 21",
       "rango_edad_meses": "0-5",
       "enunciado": "Expresa emociones.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -565,11 +742,6 @@
       "codigo": "PS 22",
       "rango_edad_meses": "12-17",
       "enunciado": "Muestra afecto por las personas, animales u objetos personales.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -582,11 +754,6 @@
       "codigo": "PS 23",
       "rango_edad_meses": "12-17",
       "enunciado": "Le gusta jugar con otros niños.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -599,11 +766,6 @@
       "codigo": "PS 24",
       "rango_edad_meses": "18-23",
       "enunciado": "Le gusta que le lean cuentos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -616,11 +778,6 @@
       "codigo": "PS 25",
       "rango_edad_meses": "24-35",
       "enunciado": "Expresa cariño o simpatía hacia un compañero.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -633,11 +790,6 @@
       "codigo": "PS 26",
       "rango_edad_meses": "36-47",
       "enunciado": "Muestra entusiasmo en el trabajo o el juego.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -650,11 +802,6 @@
       "codigo": "PS 27",
       "rango_edad_meses": "36-47",
       "enunciado": "Muestra simpatía hacia los demás.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -667,11 +814,6 @@
       "codigo": "PS 28",
       "rango_edad_meses": "48-59",
       "enunciado": "Consuela a un compañero.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -684,11 +826,6 @@
       "codigo": "PS 29",
       "rango_edad_meses": "48-59",
       "enunciado": "Describe sus sentimientos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -701,11 +838,6 @@
       "codigo": "PS 30",
       "rango_edad_meses": "60-71",
       "enunciado": "Muestra una actitud positiva hacia la escuela.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
@@ -718,11 +850,6 @@
       "codigo": "PS 31",
       "rango_edad_meses": "0-5",
       "enunciado": "Muestra conocimiento de sus manos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -735,11 +862,6 @@
       "codigo": "PS 32",
       "rango_edad_meses": "6-11",
       "enunciado": "Responde a su nombre.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -752,11 +874,6 @@
       "codigo": "PS 33",
       "rango_edad_meses": "18-23",
       "enunciado": "Expresa propiedad o posesión.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -769,11 +886,6 @@
       "codigo": "PS 34",
       "rango_edad_meses": "18-23",
       "enunciado": "Se reconoce en el espejo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -786,11 +898,6 @@
       "codigo": "PS 35",
       "rango_edad_meses": "24-35",
       "enunciado": "Se enorgullece de sus éxitos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -803,11 +910,6 @@
       "codigo": "PS 36",
       "rango_edad_meses": "24-35",
       "enunciado": "Conoce su nombre.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -820,11 +922,6 @@
       "codigo": "PS 37",
       "rango_edad_meses": "24-35",
       "enunciado": "Utiliza un pronombre o su nombre para referirse a sí mismo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -837,11 +934,6 @@
       "codigo": "PS 38",
       "rango_edad_meses": "24-35",
       "enunciado": "Habla positivamente de sí mismo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -854,11 +946,6 @@
       "codigo": "PS 39",
       "rango_edad_meses": "24-35",
       "enunciado": "Conoce su edad.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -871,11 +958,6 @@
       "codigo": "PS 40",
       "rango_edad_meses": "36-47",
       "enunciado": "Atrae la atención de los demás sobre su actividad.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -888,11 +970,6 @@
       "codigo": "PS 41",
       "rango_edad_meses": "36-47",
       "enunciado": "Conoce su nombre y apellidos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -905,11 +982,6 @@
       "codigo": "PS 42",
       "rango_edad_meses": "48-59",
       "enunciado": "Se «hace valer» socialmente.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -922,11 +994,6 @@
       "codigo": "PS 43",
       "rango_edad_meses": "60-71",
       "enunciado": "Actúa para los demás.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -939,11 +1006,6 @@
       "codigo": "PS 44",
       "rango_edad_meses": "60-71",
       "enunciado": "Demuestra capacidad para explicar o contar alguna cosa sin demasiada vergüenza.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -956,11 +1018,6 @@
       "codigo": "PS 45",
       "rango_edad_meses": "12-17",
       "enunciado": "Inicia un contacto social con compañeros.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -973,11 +1030,6 @@
       "codigo": "PS 46",
       "rango_edad_meses": "12-17",
       "enunciado": "Imita a otro niño.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -990,11 +1042,6 @@
       "codigo": "PS 47",
       "rango_edad_meses": "18-23",
       "enunciado": "Juega solo junto a otros compañeros.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1007,11 +1054,6 @@
       "codigo": "PS 48",
       "rango_edad_meses": "18-23",
       "enunciado": "Juega al lado de otro niño.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1024,11 +1066,6 @@
       "codigo": "PS 49",
       "rango_edad_meses": "24-35",
       "enunciado": "Participa en juegos de grupo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1041,11 +1078,6 @@
       "codigo": "PS 50",
       "rango_edad_meses": "24-35",
       "enunciado": "Comparte sus juguetes.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1058,11 +1090,6 @@
       "codigo": "PS 51",
       "rango_edad_meses": "36-47",
       "enunciado": "Se relaciona con los compañeros.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1075,11 +1102,6 @@
       "codigo": "PS 52",
       "rango_edad_meses": "48-59",
       "enunciado": "Tiene amigos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1092,11 +1114,6 @@
       "codigo": "PS 53",
       "rango_edad_meses": "48-59",
       "enunciado": "Escoge a sus amigos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1109,11 +1126,6 @@
       "codigo": "PS 54",
       "rango_edad_meses": "48-59",
       "enunciado": "Participa en el juego.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1126,11 +1138,6 @@
       "codigo": "PS 55",
       "rango_edad_meses": "48-59",
       "enunciado": "Participa en actividades de grupo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1143,11 +1150,6 @@
       "codigo": "PS 56",
       "rango_edad_meses": "48-59",
       "enunciado": "Sabe compartir y esperar su turno.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1160,11 +1162,6 @@
       "codigo": "PS 57",
       "rango_edad_meses": "60-71",
       "enunciado": "Inicia contactos sociales e interacciones.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1177,11 +1174,6 @@
       "codigo": "PS 58",
       "rango_edad_meses": "60-71",
       "enunciado": "Participa en juegos competitivos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1194,11 +1186,6 @@
       "codigo": "PS 59",
       "rango_edad_meses": "60-71",
       "enunciado": "Utiliza a los compañeros para obtener ayuda.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1211,11 +1198,6 @@
       "codigo": "PS 60",
       "rango_edad_meses": "60-71",
       "enunciado": "Da ideas a otros niños y aprueba las de los demás.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1228,11 +1210,6 @@
       "codigo": "PS 61",
       "rango_edad_meses": "72-83",
       "enunciado": "Actúa como líder en las relaciones con los compañeros.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
@@ -1245,11 +1222,6 @@
       "codigo": "PS 62",
       "rango_edad_meses": "18-23",
       "enunciado": "Sigue normas de la vida cotidiana.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1262,11 +1234,6 @@
       "codigo": "PS 63",
       "rango_edad_meses": "24-35",
       "enunciado": "Sigue las reglas dadas por un adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1279,11 +1246,6 @@
       "codigo": "PS 64",
       "rango_edad_meses": "48-59",
       "enunciado": "Obedece las órdenes del adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1296,11 +1258,6 @@
       "codigo": "PS 65",
       "rango_edad_meses": "60-71",
       "enunciado": "Obedece las normas y órdenes de la clase.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1313,11 +1270,6 @@
       "codigo": "PS 66",
       "rango_edad_meses": "60-71",
       "enunciado": "Espera su turno para conseguir la atención del adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1330,11 +1282,6 @@
       "codigo": "PS 67",
       "rango_edad_meses": "60-71",
       "enunciado": "Busca alternativas para resolver un problema.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1347,11 +1294,6 @@
       "codigo": "PS 68",
       "rango_edad_meses": "60-71",
       "enunciado": "Hace frente a las burlas y riñas.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1364,11 +1306,6 @@
       "codigo": "PS 69",
       "rango_edad_meses": "72-83",
       "enunciado": "Participa en situaciones nuevas.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1381,11 +1318,6 @@
       "codigo": "PS 70",
       "rango_edad_meses": "84-95",
       "enunciado": "Utiliza al adulto para defenderse.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1398,11 +1330,6 @@
       "codigo": "PS 71",
       "rango_edad_meses": "84-95",
       "enunciado": "Se enfrenta a la agresión de un compañero.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1415,11 +1342,6 @@
       "codigo": "PS 72",
       "rango_edad_meses": "24-35",
       "enunciado": "Juega representando papeles de adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1432,11 +1354,6 @@
       "codigo": "PS 73",
       "rango_edad_meses": "24-35",
       "enunciado": "Representa un papel.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1449,11 +1366,6 @@
       "codigo": "PS 74",
       "rango_edad_meses": "36-47",
       "enunciado": "Sabe si es niño o niña.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1466,11 +1378,6 @@
       "codigo": "PS 75",
       "rango_edad_meses": "36-47",
       "enunciado": "Reconoce las diferencias entre hombre y mujer.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1483,11 +1390,6 @@
       "codigo": "PS 76",
       "rango_edad_meses": "48-59",
       "enunciado": "Reconoce expresiones faciales de sentimientos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1500,11 +1402,6 @@
       "codigo": "PS 77",
       "rango_edad_meses": "48-59",
       "enunciado": "Juega representando el papel del adulto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1517,11 +1414,6 @@
       "codigo": "PS 78",
       "rango_edad_meses": "48-59",
       "enunciado": "Ayuda cuando es necesario.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1534,11 +1426,6 @@
       "codigo": "PS 79",
       "rango_edad_meses": "48-59",
       "enunciado": "Respeta las cosas de los demás.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1551,11 +1438,6 @@
       "codigo": "PS 80",
       "rango_edad_meses": "48-59",
       "enunciado": "Pide permiso para utilizar las cosas de otro.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1568,11 +1450,6 @@
       "codigo": "PS 81",
       "rango_edad_meses": "60-71",
       "enunciado": "Reconoce los sentimientos de los demás.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1585,11 +1462,6 @@
       "codigo": "PS 82",
       "rango_edad_meses": "60-71",
       "enunciado": "Distingue las conductas aceptables de las no aceptables.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1602,11 +1474,6 @@
       "codigo": "PS 83",
       "rango_edad_meses": "72-83",
       "enunciado": "Distingue roles presentes y futuros.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1619,11 +1486,6 @@
       "codigo": "PS 84",
       "rango_edad_meses": "84-95",
       "enunciado": "Demuestra responsabilidad.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1636,11 +1498,6 @@
       "codigo": "PS 85",
       "rango_edad_meses": "84-95",
       "enunciado": "Reconoce la responsabilidad de sus errores.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj55"
@@ -1653,11 +1510,6 @@
       "codigo": "A 1",
       "rango_edad_meses": "0-5",
       "enunciado": "Dirige su mirada hacia un foco de luz.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1670,11 +1522,6 @@
       "codigo": "A 2",
       "rango_edad_meses": "0-5",
       "enunciado": "Mira un objeto durante cinco segundos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1687,11 +1534,6 @@
       "codigo": "A 3",
       "rango_edad_meses": "0-5",
       "enunciado": "Presta atención a un sonido continuo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1704,11 +1546,6 @@
       "codigo": "A 4",
       "rango_edad_meses": "6-11",
       "enunciado": "Sigue con la mirada una luz en un arco de 180º.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1721,11 +1558,6 @@
       "codigo": "A 5",
       "rango_edad_meses": "6-11",
       "enunciado": "Sigue con la mirada una luz en recorrido vertical.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1738,11 +1570,6 @@
       "codigo": "A 6",
       "rango_edad_meses": "6-11",
       "enunciado": "Se entretiene sin solicitar atención.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1755,11 +1582,6 @@
       "codigo": "A 7",
       "rango_edad_meses": "12-17",
       "enunciado": "Mira o señala un dibujo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1772,11 +1594,6 @@
       "codigo": "A 8",
       "rango_edad_meses": "18-23",
       "enunciado": "Presta atención.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1789,11 +1606,6 @@
       "codigo": "A 9",
       "rango_edad_meses": "36-47",
       "enunciado": "Presta atención estando en grupo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1806,11 +1618,6 @@
       "codigo": "A 10",
       "rango_edad_meses": "36-47",
       "enunciado": "Se concentra en su propia tarea.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1823,11 +1630,6 @@
       "codigo": "A 11",
       "rango_edad_meses": "0-5",
       "enunciado": "Reacciona anticipadamente a la comida.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1840,11 +1642,6 @@
       "codigo": "A 12",
       "rango_edad_meses": "0-5",
       "enunciado": "Come papilla con cuchara.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1857,11 +1654,6 @@
       "codigo": "A 13",
       "rango_edad_meses": "6-11",
       "enunciado": "Come semisólidos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1874,11 +1666,6 @@
       "codigo": "A 14",
       "rango_edad_meses": "6-11",
       "enunciado": "Sostiene su biberón.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1891,11 +1678,6 @@
       "codigo": "A 15",
       "rango_edad_meses": "6-11",
       "enunciado": "Bebe en una taza con ayuda.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1908,11 +1690,6 @@
       "codigo": "A 16",
       "rango_edad_meses": "6-11",
       "enunciado": "Come trocitos de comida.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1925,11 +1702,6 @@
       "codigo": "A 17",
       "rango_edad_meses": "12-17",
       "enunciado": "Comienza a usar la cuchara o el tenedor para comer.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1942,11 +1714,6 @@
       "codigo": "A 18",
       "rango_edad_meses": "12-17",
       "enunciado": "Pide comida o bebida con palabras o gestos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1959,11 +1726,6 @@
       "codigo": "A 19",
       "rango_edad_meses": "18-23",
       "enunciado": "Bebe en taza o vaso, sin ayuda.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1976,11 +1738,6 @@
       "codigo": "A 20",
       "rango_edad_meses": "18-23",
       "enunciado": "Utiliza la cuchara o el tenedor.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -1993,11 +1750,6 @@
       "codigo": "A 21",
       "rango_edad_meses": "18-23",
       "enunciado": "Distingue lo comestible de lo no comestible.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -2010,11 +1762,6 @@
       "codigo": "A 22",
       "rango_edad_meses": "24-35",
       "enunciado": "Obtiene agua del grifo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -2027,11 +1774,6 @@
       "codigo": "A 23",
       "rango_edad_meses": "36-47",
       "enunciado": "Se sirve comida.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -2044,11 +1786,6 @@
       "codigo": "A 24",
       "rango_edad_meses": "72-83",
       "enunciado": "Utiliza el cuchillo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj61"
@@ -2061,11 +1798,6 @@
       "codigo": "CG 1",
       "rango_edad_meses": "0-5",
       "enunciado": "Explora su entorno visualmente.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2078,11 +1810,6 @@
       "codigo": "CG 2",
       "rango_edad_meses": "0-5",
       "enunciado": "Reacciona ante situaciones nuevas.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2095,11 +1822,6 @@
       "codigo": "CG 3",
       "rango_edad_meses": "0-5",
       "enunciado": "Explora objetos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2112,11 +1834,6 @@
       "codigo": "CG 4",
       "rango_edad_meses": "6-11",
       "enunciado": "Explora o investiga el entorno.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2129,11 +1846,6 @@
       "codigo": "CG 5",
       "rango_edad_meses": "12-23",
       "enunciado": "Coloca las piezas círculo y cuadrado en el tablero de encajes.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2146,11 +1858,6 @@
       "codigo": "CG 6",
       "rango_edad_meses": "24-35",
       "enunciado": "Empareja formas geométricas sencillas.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2163,11 +1870,6 @@
       "codigo": "CG 7",
       "rango_edad_meses": "24-35",
       "enunciado": "Empareja un círculo, un cuadrado y un triángulo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2180,11 +1882,6 @@
       "codigo": "CG 8",
       "rango_edad_meses": "36-47",
       "enunciado": "Identifica objetos sencillos por el tacto.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2197,11 +1894,6 @@
       "codigo": "CG 9",
       "rango_edad_meses": "60-71",
       "enunciado": "Empareja palabras sencillas.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2214,11 +1906,6 @@
       "codigo": "CG 10",
       "rango_edad_meses": "72-83",
       "enunciado": "Reconoce diferencias visuales entre números, formas geométricas y letras similares.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2231,11 +1918,6 @@
       "codigo": "CG 11",
       "rango_edad_meses": "0-5",
       "enunciado": "Sigue un estímulo auditivo.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2248,11 +1930,6 @@
       "codigo": "CG 12",
       "rango_edad_meses": "0-5",
       "enunciado": "Sigue un estímulo visual.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2265,11 +1942,6 @@
       "codigo": "CG 13",
       "rango_edad_meses": "6-11",
       "enunciado": "Levanta una taza para conseguir un juguete.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2282,11 +1954,6 @@
       "codigo": "CG 14",
       "rango_edad_meses": "6-11",
       "enunciado": "Busca un objeto desaparecido.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2299,11 +1966,6 @@
       "codigo": "CG 15",
       "rango_edad_meses": "24-35",
       "enunciado": "Repite secuencias de dos dígitos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2316,11 +1978,6 @@
       "codigo": "CG 16",
       "rango_edad_meses": "24-35",
       "enunciado": "Elige la mano que esconde el juguete.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2333,11 +1990,6 @@
       "codigo": "CG 17",
       "rango_edad_meses": "36-47",
       "enunciado": "Recuerda objetos familiares.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2350,11 +2002,6 @@
       "codigo": "CG 18",
       "rango_edad_meses": "72-83",
       "enunciado": "Repite secuencias de cuatro dígitos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2367,11 +2014,6 @@
       "codigo": "CG 19",
       "rango_edad_meses": "72-83",
       "enunciado": "Recuerda hechos de una historia contada.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
@@ -2384,25 +2026,2565 @@
       "codigo": "CG 20",
       "rango_edad_meses": "84-95",
       "enunciado": "Repite secuencias de seis dígitos.",
-      "criterios_puntuacion": {
-        "2": "Conducta lograda/observada según el enunciado del ítem.",
-        "1": "Conducta parcialmente lograda o emergente; requiere juicio clínico/anotación manual.",
-        "0": "Conducta no lograda/no observada según el enunciado del ítem."
-      },
       "fuente": {
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
       },
       "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 25",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Se quita prendas de ropa pequeñas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 26",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Ayuda a vestirse.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 27",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Se quita una prenda de ropa.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 28",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Se pone ropa.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 29",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Se pone el abrigo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 30",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se desabrocha la ropa.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 31",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se pone los zapatos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 32",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se abrocha uno o dos botones.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 33",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Se viste y se desnuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Vestido",
+      "codigo": "A 34",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Elige su ropa adecuadamente.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 35",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Se mueve independientemente.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 36",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Evita peligros comunes.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 37",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Sigue instrucciones dadas al grupo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 38",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Completa tareas de dos acciones.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 39",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Se mueve por su entorno inmediato.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 40",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Continúa una tarea con supervisión mínima.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 41",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Contesta preguntas del tipo: «¿Qué harías si...?»",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 42",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Cruza la calle con precaución.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 43",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Organiza sus propias actividades.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 44",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Se acuesta sin ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 45",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Contesta preguntas del tipo: «¿Qué harías si ...?»",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 46",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Va al colegio solo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 47",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Compra en una tienda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 48",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Maneja pequeñas cantidades de dinero.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 49",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Conoce su dirección.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 50",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Utiliza el teléfono.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 51",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Realiza tareas domésticas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 52",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Utiliza herramientas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal",
+      "codigo": "A 53",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Administra su dinero.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Aseo",
+      "codigo": "A 54",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Indica la necesidad de ir al lavabo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Aseo",
+      "codigo": "A 55",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Controla esfínteres.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Aseo",
+      "codigo": "A 56",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Se lava y seca las manos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Aseo",
+      "codigo": "A 57",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Duerme sin mojar la cama.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Aseo",
+      "codigo": "A 58",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Va al lavabo con autonomía.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Adaptativa",
+      "subarea": "Aseo",
+      "codigo": "A 59",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Se baña o ducha.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj67"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Control muscular",
+      "codigo": "M 1",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Mantiene erguida la cabeza.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Control muscular",
+      "codigo": "M 2",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Levanta la cabeza.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Control muscular",
+      "codigo": "M 3",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Sentado con apoyo gira la cabeza a ambos lados.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Control muscular",
+      "codigo": "M 4",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Permanece sentado momentáneamente, sin ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Control muscular",
+      "codigo": "M 5",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Permanece en pie 10 segundos, apoyándose en algo estable.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Control muscular",
+      "codigo": "M 6",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Permanece en pie sin ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 7",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Junta las manos en la línea media.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 8",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Se lleva un objeto a la boca.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 9",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Se pone de pie apoyándose en un mueble.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 10",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Se incorpora hasta la posición sentado.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 11",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Camina llevando un objeto.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 12",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Se agacha para coger un objeto.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 13",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Lanza la pelota.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 14",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Chuta la pelota.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 15",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Avanza 2 ó 3 pasos siguiendo una línea.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 16",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Se mantiene sobre un pie.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 17",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Lanza la pelota para que la coja otra persona.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 18",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Da una voltereta.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 19",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Imita posturas con los brazos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 20",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Salta sobre un pie.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 21",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Anda «punta-tacón».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 22",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Recorre tres metros saltando sobre un pie.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 23",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Coge una pelota.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 24",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Se mantiene sobre un solo pie, alternativamente, con los ojos cerrados.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 25",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Salta hacia adelante con los pies juntos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 26",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Se inclina y toca el suelo con las manos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 27",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Anda por una línea «punta-tacón».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 28",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Lanza la pelota a una diana.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 29",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Salta a la cuerda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 30",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Mantiene el equilibrio en cuclillas con los ojos cerrados.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Coordinación corporal",
+      "codigo": "M 31",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Coge la pelota con una mano.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj73"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 32",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Comienza a dar pasos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 33",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Gatea.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 34",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Camina con ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 35",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Sube escaleras gateando.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 36",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Camina sin ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 37",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Se levanta sin ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 38",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Sube escaleras con ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 39",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Baja escaleras con ayuda.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 40",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Corre tres metros sin caerse.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 41",
+      "rango_edad_meses": "18-23",
+      "enunciado": "Sube y baja escaleras sin ayuda, colocando ambos pies en cada escalón.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 42",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Salta con los pies juntos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 43",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Baja escaleras alternando los pies.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Locomoción",
+      "codigo": "M 44",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Brinca alternando los pies.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 45",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Mantiene las manos predominantemente abiertas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 46",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Sostiene un objeto con los dedos y la palma de la mano (presión cúbito-palmar).",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 47",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Coge un caramelo con varios dedos en oposición al pulgar (presión digital parcial).",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 48",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Se pasa un objeto de una mano a otra.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 49",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Abre cajones o armarios.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 50",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Entrega un juguete.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 51",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Coge un caramelo con los dedos índice y pulgar (pinza superior).",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 52",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Abre una puerta.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 53",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Ensarta 4 cuentas grandes.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 54",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Pasa páginas de un libro.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 55",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Sujeta el papel mientras dibuja.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 56",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Dobla una hoja de papel por la mitad.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 57",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Corta con tijeras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 58",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Dobla dos veces un papel.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 59",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Abre un candado con llave.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 60",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Hace una pelota arrugando papel.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 61",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Hace un nudo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad fina",
+      "codigo": "M 62",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Se toca con el pulgar las yemas de los dedos de la mano.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj79"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 63",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Toca un objeto.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 64",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Mete la pastilla en la botella.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 65",
+      "rango_edad_meses": "12-17",
+      "enunciado": "Construye una torre de 2 bloques.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 66",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Mete anillas en un soporte.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 67",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Saca la pastilla de la botella.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 68",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Copia una línea vertical.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 69",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Copia un círculo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 70",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Copia una cruz.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 71",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Corta con tijeras siguiendo una línea.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 72",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Copia las letras V, H y T.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 73",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Copia un triángulo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 74",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Dibuja una persona (incluyendo seis elementos).",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 75",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Copia un cuadrado.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 76",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Copia palabras sencillas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 77",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Copia los números del 1 al 5.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 78",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Copia palabras con letras mayúsculas y minúsculas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 79",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Copia flechas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 80",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Copia un rombo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 81",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Copia un triángulo inscrito en otro triángulo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva",
+      "codigo": "M 82",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Escribe una frase sencilla en letra cursiva.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj85"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 1",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Reacciona a un sonido que está fuera de su campo visual.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 2",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Reacciona a la voz.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 3",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Vuelve la cabeza hacia un sonido.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 4",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Reacciona a distintos tonos de voz.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 5",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Asocia palabras con acciones y objetos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 6",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Sigue tres o más órdenes sencillas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 7",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Sigue órdenes acompañadas de gestos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 8",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Comprende los conceptos «dentro, fuera, encima, delante, detrás, hacia».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 9",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Comprende formas posesivas sencillas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 10",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Comprende los adverbios flojo y fuerte.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 11",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Sigue órdenes verbales que implican dos acciones.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 12",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Comprende las expresiones «el más grande», y «el más largo».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 13",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Responde a preguntas que incluyen las palabras: “qué, quién, dónde y cuándo”.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 14",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Distingue entre palabras reales y otras, fonéticamente similares, que no tienen sentido.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 15",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Comprende negaciones sencillas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 16",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Comprende el plural.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 17",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Comprende el pasado de los verbos ser y estar.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 18",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Identifica palabras que riman.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 19",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Relaciona palabras con imágenes.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 20",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Recuerda hechos de una historia contada.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 21",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Comprende el futuro de los verbos ser y estar.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 22",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Reconoce palabras que no pertenecen a una categoría.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 23",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Sigue órdenes que implican tres acciones.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 24",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Identifica el sonido inicial de las palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 25",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Recuerda hechos de una historia contada.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 26",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Identifica el sonido final de las palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Receptiva",
+      "codigo": "CM 27",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Comprende los conceptos: dulce, duro y brillante.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj91"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 28",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Emite sonidos vocálicos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 29",
+      "rango_edad_meses": "0-5",
+      "enunciado": "Emite sonidos para expresar su estado de ánimo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 30",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Emite sonidos consonante-vocal.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 31",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Emite cadenas silábicas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 32",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Utiliza gestos para indicar sus necesidades.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 33",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Imita sonidos de palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 34",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Utiliza diez o más palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 35",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Utiliza diferentes patrones de entonación.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 36",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Emite sonidos, palabras o gestos asociados a objetos de su entorno.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 37",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Utiliza los pronombres «yo», «tú» y «mí».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 38",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Utiliza expresiones de dos palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 39",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Utiliza frases de tres palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 40",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Responde «sí» o «no» adecuadamente.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 41",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Da nombre a su trabajo creativo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 42",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Formula preguntas utilizando las palabras: «qué, quién, dónde, por qué y cómo».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 43",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Utiliza el plural terminado en «s».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 44",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Habla sobre sus experiencias.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 45",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Utiliza los artículos determinados e indeterminados (el, la, un, una).",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 46",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Utiliza el pasado en verbos regulares.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 47",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Repite palabras articulándolas correctamente.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 48",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Utiliza frases de cinco o seis palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 49",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Se comunica adecuadamente.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 50",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Interviene en una conversación.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 51",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Utiliza el plural terminado en «es».",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 52",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Utiliza el pasado en verbos irregulares.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 53",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Expresa sus sentimientos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 54",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Utiliza el comparativo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 55",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Asocia una palabra con su definición.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 56",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Utiliza el superlativo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 57",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Habla sobre cosas que pueden suceder.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 58",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Define palabras.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Comunicación",
+      "subarea": "Expresiva",
+      "codigo": "CM 59",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Nombra palabras de diversas categorías.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj97"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 21",
+      "rango_edad_meses": "6-11",
+      "enunciado": "Tira de una cuerda para obtener un juguete.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 22",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Extiende los brazos para obtener un juguete colocado detrás de una barrera.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 23",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Responde a una orden dos veces consecutivas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 24",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Identifica quien realiza algunas actividades conocidas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 25",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Entrega tres objetos por indicación.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 26",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Responde a preguntas lógicas sencillas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 27",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Completa analogías opuestas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 28",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Identifica el mayor de dos números.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 29",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Selecciona palabras sencillas presentadas visualmente.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 30",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Identifica las partes incompletas de un dibujo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 31",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Reconoce errores en dibujos absurdos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 32",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Escribe letras que representan sonidos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 33",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Ordena en secuencia historias corrientes.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 34",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Resuelve sumas y restas sencillas (números del 0 al 5).",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 35",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Resuelve problemas sencillos, presentados oralmente, que incluyen la sustracción.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares",
+      "codigo": "CG 36",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Resuelve multiplicaciones sencillas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 37",
+      "rango_edad_meses": "12-23",
+      "enunciado": "Se reconoce a sí mismo como causa de acontecimientos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 38",
+      "rango_edad_meses": "24-35",
+      "enunciado": "Identifica objetos familiares por su uso.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 39",
+      "rango_edad_meses": "36-47",
+      "enunciado": "Identifica los tamaños grande y pequeño.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 40",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Identifica el más largo de dos palos.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 41",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Clasifica objetos por su forma.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 42",
+      "rango_edad_meses": "48-59",
+      "enunciado": "Compara tamaños.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 43",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Identifica texturas (suave, lisa, rugosa).",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 44",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Identifica actividades presentes y pasadas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 45",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Identifica colores.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 46",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Forma un círculo con cuatro piezas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 47",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Clasifica objetos por su función.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 48",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Ordena cuadrados de menor a mayor.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 49",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Identifica los objetos primero y último de una fila.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 50",
+      "rango_edad_meses": "60-71",
+      "enunciado": "Completa un puzzle de seis piezas que representa una persona.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 51",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Conoce los lados derecho e izquierdo de su cuerpo.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 52",
+      "rango_edad_meses": "72-83",
+      "enunciado": "Identifica el objeto central de una fila.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 53",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Dice las horas y las medias horas.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 54",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Clasifica objetos por su forma y color.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 55",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Conserva el espacio bidimensional.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
+    },
+    {
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual",
+      "codigo": "CG 56",
+      "rango_edad_meses": "84-95",
+      "enunciado": "Conserva la longitud.",
+      "fuente": {
+        "documento": "Cuaderno anotación Battelle buena calidad.pdf",
+        "pagina_imagen": "obj109"
+      },
+      "confianza": "visual_alta"
     }
   ],
   "validation": {
-    "item_count": 129,
-    "duplicate_codes": [],
-    "empty_required_fields": [],
-    "known_incomplete": true,
-    "notes": [
-      "Extracción estructurada real iniciada desde páginas renderizadas; quedan páginas/subáreas no transcritas en esta revisión por limitación de OCR automático del entorno."
-    ]
+    "expected_total_items": 341,
+    "expected_counts_by_area": {
+      "Personal/Social": 85,
+      "Adaptativa": 59,
+      "Motora": 82,
+      "Comunicación": 59,
+      "Cognitiva": 56
+    }
   }
 }
