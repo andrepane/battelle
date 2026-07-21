@@ -542,7 +542,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Personal/Social",
@@ -614,7 +614,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Personal/Social",
@@ -746,7 +746,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj43"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Personal/Social",
@@ -1010,7 +1010,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj49"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Personal/Social",
@@ -1910,7 +1910,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj103"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Cognitiva",
@@ -3002,7 +3002,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj79"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Motora",
@@ -3014,7 +3014,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj79"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Motora",
@@ -3530,7 +3530,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj91"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Comunicación",
@@ -3578,7 +3578,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj91"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Comunicación",
@@ -3590,7 +3590,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj91"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Comunicación",
@@ -3602,7 +3602,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj91"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Comunicación",
@@ -3938,7 +3938,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj97"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Comunicación",
@@ -4322,7 +4322,7 @@
         "documento": "Cuaderno anotación Battelle buena calidad.pdf",
         "pagina_imagen": "obj109"
       },
-      "confianza": "visual_alta"
+      "confianza": "visual_media"
     },
     {
       "area": "Cognitiva",
@@ -4585,6 +4585,27 @@
       "Motora": 82,
       "Comunicación": 59,
       "Cognitiva": 56
+    },
+    "auditoria_editorial_2026_07_21": {
+      "estado": "realizada contra imágenes extraídas del PDF fuente",
+      "total_items_verificados": 341,
+      "total_items_esperado": 341,
+      "conteo_confianza": {
+        "visual_alta": 328,
+        "visual_media": 13,
+        "visual_dudosa": 0
+      },
+      "duplicados_textuales_confirmados": [
+        {
+          "enunciado": "Recuerda hechos de una historia contada.",
+          "codigos": [
+            "CG 19",
+            "CM 20",
+            "CM 25"
+          ]
+        }
+      ],
+      "nota": "No se añadieron ni eliminaron ítems; la interfaz no se modificó."
     }
   }
 }
