@@ -1,0 +1,15 @@
+{
+  "pdfs_expected_for_project": 2,
+  "pdfs_found": [
+    {
+      "file": "Battelle_Tablas de corrección.pdf",
+      "sha256": "8841e4515b20e926594bb7baf6f499348ad19645758566d29d6997f6df7475f0",
+      "bytes": 2048174
+    },
+    {
+      "file": "Cuaderno anotación Battelle buena calidad.pdf",
+      "sha256": "a8d3b85452c87fc890bc373e2181582199ed2fbf87ae05e60c9068fba60ecbfe",
+      "bytes": 4682076
+    }
+  ]
+}
