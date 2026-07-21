@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battelle - Registro básico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Inventario de desarrollo</p>
+      <h1>Battelle</h1>
+    </div>
+    <button id="newAssessmentBtn" class="primary-button">Nueva Battelle</button>
+  </header>
+
+  <main>
+    <section id="welcomeView" class="welcome-card">
+      <h2>Registro digital básico</h2>
+      <p>Pulsa <strong>Nueva Battelle</strong> para comenzar una evaluación.</p>
+    </section>
+
+    <section id="assessmentView" class="hidden">
+      <div class="patient-card">
+        <h2>Datos de la evaluación</h2>
+        <div class="form-grid">
+          <label>
+            Nombre o código
+            <input id="patientName" type="text" autocomplete="off">
+          </label>
+          <label>
+            Fecha de nacimiento
+            <input id="birthDate" type="date">
+          </label>
+          <label>
+            Fecha de evaluación
+            <input id="assessmentDate" type="date">
+          </label>
+          <label>
+            Edad en meses
+            <input id="ageMonths" type="number" min="0" max="95" placeholder="Automática o manual">
+          </label>
+        </div>
+        <div class="toolbar">
+          <span id="ageBandLabel" class="status-pill">Edad sin definir</span>
+          <button id="clearScoresBtn" class="secondary-button">Borrar puntuaciones</button>
+        </div>
+      </div>
+
+      <div class="layout">
+        <nav id="areaNav" class="area-nav" aria-label="Áreas Battelle"></nav>
+        <section class="content-panel">
+          <div id="resultsPanel" class="results-panel"></div>
+          <div id="itemsContainer"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
