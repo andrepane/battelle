@@ -1,0 +1,2207 @@
+{
+  "resumen": {
+    "fuentes_usadas": [
+      "Battelle_Tablas de corrección.pdf",
+      "data/tablas_conversion_battelle.json"
+    ],
+    "total_entradas_origen": 64,
+    "total_tablas_oficiales_detectadas": 63,
+    "normalizadas": 1,
+    "parciales": 12,
+    "tokens_sin_normalizar": 51,
+    "numeros_ausentes": [
+      "N-2",
+      "N-39"
+    ],
+    "numeros_duplicados": [],
+    "entradas_sin_numero_oficial": [
+      "tabla_001"
+    ],
+    "numeracion_incoherente": [
+      "N-39 ausente en la secuencia extraída; tabla_039 salta de N-38 a N-40",
+      "N-2 ausente en la secuencia extraída",
+      "tabla_001 es preámbulo y no tabla oficial N"
+    ],
+    "bloques_trabajo_propuestos": [
+      {
+        "bloque": "A",
+        "tablas": [
+          "N-1"
+        ],
+        "objetivo": "revisión final de tabla ya normalizada de puntuaciones típicas"
+      },
+      {
+        "bloque": "B",
+        "tablas": [
+          "N-4",
+          "N-5",
+          "N-7",
+          "N-9",
+          "N-10",
+          "N-12",
+          "N-13",
+          "N-14",
+          "N-15",
+          "N-17",
+          "N-18",
+          "N-19",
+          "N-20",
+          "N-22",
+          "N-23",
+          "N-24",
+          "N-25",
+          "N-27",
+          "N-28",
+          "N-29",
+          "N-30",
+          "N-32",
+          "N-33",
+          "N-34",
+          "N-35",
+          "N-36",
+          "N-37",
+          "N-38",
+          "N-40",
+          "N-42",
+          "N-43",
+          "N-44",
+          "N-45",
+          "N-47",
+          "N-48",
+          "N-49",
+          "N-50",
+          "N-51",
+          "N-52"
+        ],
+        "objetivo": "normalizar tablas de percentiles por edad, área/subárea y pares PD-PC"
+      },
+      {
+        "bloque": "C",
+        "tablas": [
+          "N-54",
+          "N-55",
+          "N-56",
+          "N-57",
+          "N-58",
+          "N-59",
+          "N-60",
+          "N-61",
+          "N-62",
+          "N-63",
+          "N-64",
+          "N-65"
+        ],
+        "objetivo": "normalizar intervalos de puntuación directa a edad equivalente en meses"
+      },
+      {
+        "bloque": "D",
+        "tablas": [
+          "N-53"
+        ],
+        "objetivo": "normalizar puntuaciones de criterio de screening"
+      },
+      {
+        "bloque": "E",
+        "tablas": [
+          "tabla_001",
+          "N-3",
+          "N-6",
+          "N-8",
+          "N-11",
+          "N-16",
+          "N-21",
+          "N-26",
+          "N-31",
+          "N-41",
+          "N-46",
+          "N-58"
+        ],
+        "objetivo": "relectura visual/OCR de tablas sin filas o sin encabezados suficientes"
+      }
+    ],
+    "tablas_necesitan_lectura_visual": [
+      "tabla_001",
+      "N-1",
+      "N-3",
+      "N-4",
+      "N-5",
+      "N-6",
+      "N-7",
+      "N-8",
+      "N-9",
+      "N-10",
+      "N-11",
+      "N-12",
+      "N-13",
+      "N-14",
+      "N-15",
+      "N-16",
+      "N-17",
+      "N-18",
+      "N-19",
+      "N-20",
+      "N-21",
+      "N-22",
+      "N-23",
+      "N-24",
+      "N-25",
+      "N-26",
+      "N-27",
+      "N-28",
+      "N-29",
+      "N-30",
+      "N-31",
+      "N-32",
+      "N-33",
+      "N-34",
+      "N-35",
+      "N-36",
+      "N-37",
+      "N-38",
+      "N-40",
+      "N-41",
+      "N-42",
+      "N-43",
+      "N-44",
+      "N-45",
+      "N-46",
+      "N-47",
+      "N-48",
+      "N-49",
+      "N-50",
+      "N-51",
+      "N-52",
+      "N-53",
+      "N-54",
+      "N-55",
+      "N-56",
+      "N-57",
+      "N-58",
+      "N-59",
+      "N-60",
+      "N-61",
+      "N-62",
+      "N-63",
+      "N-64",
+      "N-65"
+    ]
+  },
+  "inventario": [
+    {
+      "tabla": "tabla_001",
+      "id_origen": "tabla_001",
+      "numero_oficial": null,
+      "titulo_completo": "preámbulo",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "otra",
+      "area_o_subarea": "No determinada",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [],
+      "resultado_producido": [],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos"
+      ]
+    },
+    {
+      "tabla": "N-1",
+      "id_origen": "tabla_002",
+      "numero_oficial": "N-1",
+      "titulo_completo": "Tabla N-1 . Conversión de puntuaciones centiles en otras puntuaciones típicas : z, T, Cl y ECN PC z T Cl ECN",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "No determinada",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "normalizada",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [
+        "PC",
+        "z",
+        "T",
+        "CI",
+        "ECN"
+      ],
+      "numero_filas_detectadas": 138,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-3",
+      "id_origen": "tabla_003",
+      "numero_oficial": "N-3",
+      "titulo_completo": "Tabla N-3 . Área Personal-Social, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-4",
+      "id_origen": "tabla_004",
+      "numero_oficial": "N-4",
+      "titulo_completo": "Tabla N-4 . Área Adaptativa, conversión en centiles 0-5 MESES Atención Comida PUNTUACIóN TOTAL PD PC PD PC PD PC 16+",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": "0-5 MESES",
+        "edad_min_meses": 0,
+        "edad_max_meses": 5
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-5",
+      "id_origen": "tabla_005",
+      "numero_oficial": "N-5",
+      "titulo_completo": "Tabla N-5 . Área Motora, conversión en Gentiles Control muscular Coordinación corporal Motricidad fina MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD -",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-6",
+      "id_origen": "tabla_006",
+      "numero_oficial": "N-6",
+      "titulo_completo": "Tabla N-6 . Área Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-7",
+      "id_origen": "tabla_007",
+      "numero_oficial": "N-7",
+      "titulo_completo": "Tabla N-7 . Área Cognitiva, conversión en centiles 0-s MESES Receptiva Expresiva PUNTUACIÓN TOTAL PD PC PD PC PD PC 10+",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 5,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-8",
+      "id_origen": "tabla_008",
+      "numero_oficial": "N-8",
+      "titulo_completo": "Tabla N-8 . Área Personal-Social, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-9",
+      "id_origen": "tabla_009",
+      "numero_oficial": "N-9",
+      "titulo_completo": "Tabla N-9 . Área Adaptativa, conversión en centiles Interacción con el adulto Expresión de sentimientoslafecto Autoconcepto PUNTUACIÓN TOTAL PD PC PD PC",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-10",
+      "id_origen": "tabla_010",
+      "numero_oficial": "N-10",
+      "titulo_completo": "Tabla N-10 . Área Motora, conversión en centiles Control muscular Coordinación corporal locomoción Motricidad fina MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-11",
+      "id_origen": "tabla_011",
+      "numero_oficial": "N-11",
+      "titulo_completo": "Tabla N-11 . Área Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-12",
+      "id_origen": "tabla_012",
+      "numero_oficial": "N-12",
+      "titulo_completo": "Tabla N-12 . Área Cognitíva,conversión en centiles 6-11 MESES Receptiva Expresiva PUNTUACIÓN TOTAL PD PC PD PC PD PC 14+",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "No determinada",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": "6-11 MESES",
+        "edad_min_meses": 6,
+        "edad_max_meses": 11
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-13",
+      "id_origen": "tabla_013",
+      "numero_oficial": "N-13",
+      "titulo_completo": "Tabla N-13 . Área Personal-Social, conversión en centiles Interacción con el adulto Expresión de sentimientos/ afecto Autoconcepto Interacción con los compañeros PUNTUACIÓN",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-14",
+      "id_origen": "tabla_014",
+      "numero_oficial": "N-14",
+      "titulo_completo": "Tabla N-14 Área Adaptativa, conversión en centiles Atención Comida Vestido PUNTUACIÓN TOTAL PD PC PD PC PD PC PD PC 18+",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-15",
+      "id_origen": "tabla_015",
+      "numero_oficial": "N-15",
+      "titulo_completo": "Tabla N-15 . Área Motora, conversión en centiles Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-16",
+      "id_origen": "tabla_016",
+      "numero_oficial": "N-16",
+      "titulo_completo": "Tabla N-16 . Área Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-17",
+      "id_origen": "tabla_017",
+      "numero_oficial": "N-17",
+      "titulo_completo": "Tabla N-17 . Área Cognitiva, conversión en centiles Receptiva Expresiva PUNTUACIÓN TOTAL PD PC PD PC PD PC 17+",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-18",
+      "id_origen": "tabla_018",
+      "numero_oficial": "N-18",
+      "titulo_completo": "Tabla N-18 . Área Personal-Social, conversión en centiles Interacción con el adulto Expresión de sentimientos/ afecto Autoconcepto Interacción con los compañeros Colaboración",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-19",
+      "id_origen": "tabla_019",
+      "numero_oficial": "N-19",
+      "titulo_completo": "Tabla N-19 . Área Adaptativa, conversión en centiles Atención Comida Vestido Responsabilidad personal PUNTUACIÓN TOTAL PD PC PD PC PD PC PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-20",
+      "id_origen": "tabla_020",
+      "numero_oficial": "N-20",
+      "titulo_completo": "Tabla N-20 . Área Motora, conversión en centiles Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-21",
+      "id_origen": "tabla_021",
+      "numero_oficial": "N-21",
+      "titulo_completo": "Tabla N-21 . Área Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-22",
+      "id_origen": "tabla_022",
+      "numero_oficial": "N-22",
+      "titulo_completo": "Tabla N-22 . Área Cognitiva, conversión en centiles 18-23 MESES Receptiva Expresiva PUNTUACIÓN TOTAL PD PC PD PC PD PC 21+",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": "18-23 MESES",
+        "edad_min_meses": 18,
+        "edad_max_meses": 23
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-23",
+      "id_origen": "tabla_023",
+      "numero_oficial": "N-23",
+      "titulo_completo": "Tabla N-23 . Área Personal-Social, conversión en centiles Interacción con el adulto Expresión de sentimientos/ afecto Autoeoncepto Interacción con los compañeros Colaboración",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 4,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-24",
+      "id_origen": "tabla_024",
+      "numero_oficial": "N-24",
+      "titulo_completo": "Tabla N-24 : Área Adaptativa, conversión en centiles Atención Comida Vestido Responsabilidad personal Aseo PUNTUACIÓN TOTAL PD PC PD PC PD PC",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-25",
+      "id_origen": "tabla_025",
+      "numero_oficial": "N-25",
+      "titulo_completo": "Tabla N-25 . Área Motora, coversión en centfes Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-26",
+      "id_origen": "tabla_026",
+      "numero_oficial": "N-26",
+      "titulo_completo": "Tabla N-26 . Area Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-27",
+      "id_origen": "tabla_027",
+      "numero_oficial": "N-27",
+      "titulo_completo": "Tabla N-27 . Área Cognitiva, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 7,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-28",
+      "id_origen": "tabla_028",
+      "numero_oficial": "N-28",
+      "titulo_completo": "Tabla N-28 . Área Personal-Social, conversión en centiles Interacción con el adulto Expresión de sentimientos/ afecto Autoconcepto Interacción con los compañeros Colaboración",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 4,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-29",
+      "id_origen": "tabla_029",
+      "numero_oficial": "N-29",
+      "titulo_completo": "Tabla N-29 . Área Adaptativa, conversión de centiles Atención Comida Vestido Responsabilidad personal Aseo PUNTUACIÓN TOTAL PD PC PD PC PD PC",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-30",
+      "id_origen": "tabla_030",
+      "numero_oficial": "N-30",
+      "titulo_completo": "Tabla N-30 . Área Motora, conversión en Gentiles Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-31",
+      "id_origen": "tabla_031",
+      "numero_oficial": "N-31",
+      "titulo_completo": "Tabla N-31 . Área Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-32",
+      "id_origen": "tabla_032",
+      "numero_oficial": "N-32",
+      "titulo_completo": "Tabla N-32 . Área Cognitiva, conversión en centiles 36-47 MESES",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": "36-47 MESES",
+        "edad_min_meses": 36,
+        "edad_max_meses": 47
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 6,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-33",
+      "id_origen": "tabla_033",
+      "numero_oficial": "N-33",
+      "titulo_completo": "Tabla N-33 . Área Personal-Social, puntuación centil .",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 5,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-34",
+      "id_origen": "tabla_034",
+      "numero_oficial": "N-34",
+      "titulo_completo": "Tabla N-34 . Área Adaptativa, conversión en centiles Atención Comida Vestido Responsabilidad personal Aseo PUNTUACIÓN TOTAL PD PC PD PC PD PC",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-35",
+      "id_origen": "tabla_035",
+      "numero_oficial": "N-35",
+      "titulo_completo": "Tabla N-35 . Área Motora, conversión en centiles Coordinación corporal Locomoción Motricidad fina Motricidad percepuva Motora gruesa Motora fina PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-36",
+      "id_origen": "tabla_036",
+      "numero_oficial": "N-36",
+      "titulo_completo": "Tabla N-36 : Área Comunicación, conversión en centiles Receptiva Expresiva PUNTUACIÓN TOTAL PD PC PD PC PD PC PD PC 52+",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-37",
+      "id_origen": "tabla_037",
+      "numero_oficial": "N-37",
+      "titulo_completo": "Tabla N-37 . Área Cognitiva, conversión en centiles Discriminación perceptiva Memoria Razonamiento y habilidades escolares Desarrollo conceptual PUNTUACIbN TOTAL PD PC PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-38",
+      "id_origen": "tabla_038",
+      "numero_oficial": "N-38",
+      "titulo_completo": "Tabla N-38 . Área Personal-Social, conversión en centiles Interacción con el adulto Expresión de sentimientoslafecto Autoconcepto Interacción con los compañeros Colaboración Rol",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 6,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-40",
+      "id_origen": "tabla_039",
+      "numero_oficial": "N-40",
+      "titulo_completo": "Tabla N-40 . Área Motora, puntuación centil . Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-41",
+      "id_origen": "tabla_040",
+      "numero_oficial": "N-41",
+      "titulo_completo": "Tabla N-41 . Área Comunicación, conversión en Gentiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-42",
+      "id_origen": "tabla_041",
+      "numero_oficial": "N-42",
+      "titulo_completo": "Tabla N-42 . Área Cognitiva, conversión en centiles 60-71 MESES Discriminación perceptiva Memoria Razonamiento y habilidades escolares Desarrollo conceptual PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": "60-71 MESES",
+        "edad_min_meses": 60,
+        "edad_max_meses": 71
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-43",
+      "id_origen": "tabla_042",
+      "numero_oficial": "N-43",
+      "titulo_completo": "Tabla N-43 . Área Personal-Social, conversión en centiles Interacción con el adulto Expresión de sentimientoslafecto Autoconcepto Interacción con los compañeros Colaboración Rol",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-44",
+      "id_origen": "tabla_043",
+      "numero_oficial": "N-44",
+      "titulo_completo": "Tabla N-44 . Área Adaptativa, conversión en centiles Atención Comida Vestido Responsabilidad personal Aseo PUNTUACIÓN TOTAL PD PC PD PC PD PC",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-45",
+      "id_origen": "tabla_044",
+      "numero_oficial": "N-45",
+      "titulo_completo": "Tabla N-45 . Área Motora, conversión en centiles Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-46",
+      "id_origen": "tabla_045",
+      "numero_oficial": "N-46",
+      "titulo_completo": "Tabla N-46 . Área Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-47",
+      "id_origen": "tabla_046",
+      "numero_oficial": "N-47",
+      "titulo_completo": "Tabla N-47 . Área Cognitiva, conversión en centiles Discriminación perceptiva Memoria Razonamiento y habilidades escolares Desarrollo conceptual PUNTUACIÓN TOTAL PD PC PD",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-48",
+      "id_origen": "tabla_047",
+      "numero_oficial": "N-48",
+      "titulo_completo": "Tabla N-48 . Área Personal-Social, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-49",
+      "id_origen": "tabla_048",
+      "numero_oficial": "N-49",
+      "titulo_completo": "Tabla N-49 . Área Adaptativa, conversión en centiles Interacción con el adulto Expresión de sentimientoslafecto Autoconcepto Interacción con los compañeros Colaboración Rol",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 3,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-50",
+      "id_origen": "tabla_049",
+      "numero_oficial": "N-50",
+      "titulo_completo": "Tabla N-50 . Área Motora, conversión en centiles 84-95 MESES",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Motora",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": "84-95 MESES",
+        "edad_min_meses": 84,
+        "edad_max_meses": 95
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-51",
+      "id_origen": "tabla_050",
+      "numero_oficial": "N-51",
+      "titulo_completo": "Tabla N-51 . Área Comunicación, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 1,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-52",
+      "id_origen": "tabla_051",
+      "numero_oficial": "N-52",
+      "titulo_completo": "Tabla N-52 . Área Cognitiva, conversión en centiles",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "percentil",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa por área/subárea o total",
+        "tramo de edad cronológica"
+      ],
+      "resultado_producido": [
+        "percentil (PC)"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 5,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita",
+        "tramo de edad no detectado en título extraído"
+      ]
+    },
+    {
+      "tabla": "N-53",
+      "id_origen": "tabla_052",
+      "numero_oficial": "N-53",
+      "titulo_completo": "Tabla N-53 . Prueba de \"screening° : puntuaciones de criterio",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "criterio_screening",
+      "area_o_subarea": "Screening",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "edad cronológica",
+        "puntuaciones de screening por área"
+      ],
+      "resultado_producido": [
+        "puntuaciones de criterio"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 28,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-54",
+      "id_origen": "tabla_053",
+      "numero_oficial": "N-54",
+      "titulo_completo": "Tabla N-54 . Edades equivalentes, en meses, para las puntuaciones de la prueba de \"screening\" en cada área",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Screening",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 4,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-55",
+      "id_origen": "tabla_054",
+      "numero_oficial": "N-55",
+      "titulo_completo": "Tabla N-55 . Edades equivalentes, en meses, para las puntuaciones Totales de la Prueba de °screening\" PUNTUACION TOTAL Edad equivalente PUNTUACION TOTAL",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Screening",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-56",
+      "id_origen": "tabla_055",
+      "numero_oficial": "N-56",
+      "titulo_completo": "Tabla N-56 . Edades equivalentes, en meses, para las puntuaciones totales del Área Personal-Social PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Personal-Social",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-57",
+      "id_origen": "tabla_056",
+      "numero_oficial": "N-57",
+      "titulo_completo": "Tabla N-57 . Edades equivalentes, en meses, para las puntuaciones totales del Área Adaptativa PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Adaptativa",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-58",
+      "id_origen": "tabla_057",
+      "numero_oficial": "N-58",
+      "titulo_completo": "Tabla N-58 . Edades equivalentes, en meses, para las",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "No determinada",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "parcial",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 0,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "sin filas o encabezados extraídos"
+      ]
+    },
+    {
+      "tabla": "N-59",
+      "id_origen": "tabla_058",
+      "numero_oficial": "N-59",
+      "titulo_completo": "Tabla N-59 . Edades equivalentes, en meses, para las puntuaciones totales del Área Motora gruesa puntuaciones totales del Área Motora fina PUNTUACIÓN",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Subáreas Motora gruesa y Motora fina",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 4,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-60",
+      "id_origen": "tabla_059",
+      "numero_oficial": "N-60",
+      "titulo_completo": "Tabla N-60 . Edades equivalentes, en meses, para las puntuaciones totales del Área Motora PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Motora",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-61",
+      "id_origen": "tabla_060",
+      "numero_oficial": "N-61",
+      "titulo_completo": "Tabla N-61 . Edades equivalentes, en meses, para las puntuaciones totales de la Subárea Comunicación receptiva PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Subárea Comunicación receptiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-62",
+      "id_origen": "tabla_061",
+      "numero_oficial": "N-62",
+      "titulo_completo": "Tabla N-62 . Edades equivalentes, en meses, para las puntuaciones totales de la Subárea Comunicación Expresiva PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Subárea Comunicación expresiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-63",
+      "id_origen": "tabla_062",
+      "numero_oficial": "N-63",
+      "titulo_completo": "Tabla N-63 . Edades equivalentes, en meses, para las puntuaciones totales del Área Comunicación PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Comunicación",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-64",
+      "id_origen": "tabla_063",
+      "numero_oficial": "N-64",
+      "titulo_completo": "Tabla N-64 . Edades equivalentes, en meses, para las puntuaciones totales del Área Cognitiva PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Cognitiva",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    },
+    {
+      "tabla": "N-65",
+      "id_origen": "tabla_064",
+      "numero_oficial": "N-65",
+      "titulo_completo": "Tabla N-65 . Edades equivalentes, en meses, para las puntuaciones totales del Battelle PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN",
+      "pagina_pdf": null,
+      "pagina_pdf_estado": "pendiente_lectura_visual",
+      "finalidad": "edad_equivalente",
+      "area_o_subarea": "Total Battelle",
+      "tramo_edad_cronologica_aplicable": {
+        "valor_original": null,
+        "edad_min_meses": null,
+        "edad_max_meses": null
+      },
+      "variables_entrada": [
+        "puntuación directa total"
+      ],
+      "resultado_producido": [
+        "edad equivalente en meses"
+      ],
+      "estado_actual_normalizacion": "tokens_sin_normalizar",
+      "criterio_estado": "normalizada solo si cada fila tiene encabezados explícitos; las filas valores[] no son consultables sin deducir posiciones",
+      "columnas_detectadas": [],
+      "numero_filas_detectadas": 2,
+      "requiere_lectura_visual": true,
+      "motivos_lectura_visual": [
+        "pagina del PDF no disponible en extracción JSON",
+        "filas tokenizadas sin correspondencia explícita"
+      ]
+    }
+  ]
+}
