@@ -1,91 +1,79 @@
-# Informe de validación de extracción Battelle
+# Informe de extracción y auditoría del inventario de tablas Battelle
 
-## Fuentes
-- El proyecto usa exclusivamente los dos PDF disponibles: `Cuaderno anotación Battelle buena calidad.pdf` y `Battelle_Tablas de corrección.pdf`.
-- No se considera incidencia la ausencia de un tercer PDF.
+## Alcance de esta corrección
 
-## Cuaderno de anotación
-- El cuaderno no contiene texto seleccionable fiable; se extrajeron/consultaron imágenes JPEG embebidas y se realizó lectura visual asistida sobre páginas renderizadas del cuaderno.
-- Ítems estructurados transcritos: 341.
-- Cobertura por área:
-  - Personal/Social: 85 ítems.
-  - Adaptativa: 59 ítems.
-  - Motora: 82 ítems.
-  - Comunicación: 59 ítems.
-  - Cognitiva: 56 ítems.
-- Se retiraron de `data/items_areas_subareas.json` los criterios genéricos 2/1/0 que estaban repetidos dentro de cada ítem, por no ser transcripción documental específica del cuaderno.
-- Las reglas generales de puntuación basal/techo se conservan separadas en `data/reglas_puntuacion_basal_techo.json`.
-- Regla global leída visualmente: UMBRAL = puntuación 2 en dos ítems consecutivos de un nivel de edad; TECHO = puntuación 0 en dos ítems consecutivos de un nivel de edad.
+Este commit corrige la auditoría previa del inventario de `Battelle_Tablas de corrección.pdf`. La corrección no modifica valores de baremos y se limita a metadatos: título visual confirmado, área visual confirmada, páginas localizadas, variables de entrada/salida, tokens contaminantes, confianza y validaciones automatizables.
 
-## Procedencia de la extracción visual
-- `obj43`, `obj49`, `obj55` y `obj61`: área Personal/Social.
-- `obj61` y `obj67`: área Adaptativa.
-- `obj73`, `obj79` y `obj85`: área Motora.
-- `obj91` y `obj97`: área Comunicación.
-- `obj103` y `obj109`: área Cognitiva.
+## Criterio corregido de clasificación
 
-## Validación automática
-Se añadió `scripts/validar_items.py` para comprobar automáticamente:
-- total exacto de 341 ítems;
-- recuento esperado por área;
-- códigos duplicados;
-- saltos en la numeración por prefijo (`PS`, `A`, `M`, `CM`, `CG`);
-- campos obligatorios vacíos;
-- coincidencia entre los ítems y las subáreas declaradas.
+La auditoría anterior usó indebidamente tokens desplazados del extractor para reclasificar tablas. Desde esta corrección, el área no se decide por palabras presentes en el bloque extraído cuando contradicen el título literal y la secuencia oficial. Los tokens sospechosos se guardan separadamente en:
 
-Resultado de `python scripts/validar_items.py`:
+- `tokens_contaminantes`;
+- `posible_tabla_origen_tokens`.
 
-```text
-Validación Battelle
-Total ítems: 341
-Recuentos por área:
-  Personal/Social: 85
-  Adaptativa: 59
-  Motora: 82
-  Comunicación: 59
-  Cognitiva: 56
-OK: total, recuentos, códigos, campos obligatorios y subáreas coinciden.
-```
+La secuencia oficial aplicada a las tablas de conversión en centiles N-3 a N-52 es:
 
-## Tablas de corrección
-- No se modificaron las tablas de conversión en esta pasada.
-- Se mantienen los registros JSON existentes con `encabezados_columnas`, `encabezados_filas` y `filas`.
+1. Personal-Social;
+2. Adaptativa;
+3. Motora;
+4. Comunicación;
+5. Cognitiva.
 
-## Limitaciones pendientes antes de tocar la interfaz
-- Aunque el recuento y la numeración de ítems ya están completos, conviene realizar una segunda revisión editorial contra el PDF original antes de exponer los datos en la interfaz.
-- No se modificaron `index.html`, `styles.css` ni `script.js`.
+Por ejemplo, N-3..N-12 quedan como: N-3 Personal-Social, N-4 Adaptativa, N-5 Motora, N-6 Comunicación, N-7 Cognitiva, N-8 Personal-Social, N-9 Adaptativa, N-10 Motora, N-11 Comunicación y N-12 Cognitiva.
 
-## Inventario de tablas de corrección (fase 1)
+## Reasignaciones revertidas o corregidas
 
-Se añadió `data/inventario_tablas.json` como inventario completo de las 64 entradas extraídas desde `Battelle_Tablas de corrección.pdf` y contrastadas con `data/tablas_conversion_battelle.json`.
+Se revisaron explícitamente N-7, N-9, N-12, N-13, N-17, N-18, N-22, N-23, N-28, N-33, N-38, N-43, N-48 y N-49. Cuando los encabezados extraídos contradicen la secuencia oficial o el título visual, quedan registrados como contaminación, no como criterio de área.
 
-### Criterio de normalización aplicado
+Casos principales:
 
-Una tabla se marca como `normalizada` solo cuando sus filas son relaciones explícitas con encabezados utilizables por código. Las entradas que conservan filas del tipo `{"valores": [...]}` se clasifican como `tokens_sin_normalizar`, porque aún obligan a deducir posiciones dentro de una lista. Las entradas sin filas o sin encabezados suficientes se clasifican como `parcial`.
+- N-7, N-12, N-17 y N-22 vuelven a **Cognitiva** aunque el bloque extraído contenga `Receptiva`/`Expresiva`.
+- N-9 vuelve a **Adaptativa** aunque el bloque extraído contenga tokens de Personal-Social.
+- N-49 vuelve a **Adaptativa** aunque el bloque extraído contenga tokens de Personal-Social.
+- Las tablas Personal-Social que ya coinciden con la secuencia se mantienen como Personal-Social.
 
-### Resultado cuantitativo
+## N-1
 
-- Entradas inventariadas: 64.
-- Tablas oficiales detectadas por numeración `N-*`: 63.
-- Tablas realmente normalizadas: 1 (`N-1`).
-- Tablas parciales: 12.
-- Tablas con tokens sin normalizar: 51.
+N-1 conserva `estado_actual_normalizacion: "normalizada"` porque sus filas PC→z/T/CI/ECN están estructuradas con encabezados explícitos y son consultables. Se eliminó la observación que sugería que no era consultable.
 
-### Numeración y coherencia
+## N-2 y N-39
 
-- Números oficiales ausentes en la extracción actual: `N-2`, `N-39`.
-- Identificadores oficiales duplicados: ninguno detectado.
-- Entrada sin número oficial: `tabla_001` (`preámbulo`).
-- Salto incoherente detectado: `tabla_039` aparece como `N-40`, por lo que `N-39` no está representada como tabla independiente en el JSON actual.
+N-2 y N-39 no se declaran ausentes por el mero hecho de faltar en el JSON de extracción. En esta versión quedan documentadas como **ausencias pendientes de confirmación visual independiente**. El validador permite que no estén presentes, pero las informa como pendientes y no como ausencias confirmadas.
 
-### Tablas que necesitan lectura visual
+## Páginas y dudas pendientes
 
-Necesitan lectura visual todas las entradas salvo la revisión de estructura ya explícita de `N-1`; aun así `N-1` queda marcada para comprobación visual de página/título porque la extracción actual no conserva página del PDF. En concreto: `tabla_001`, `N-1`, `N-3`, `N-4`, `N-5`, `N-6`, `N-7`, `N-8`, `N-9`, `N-10`, `N-11`, `N-12`, `N-13`, `N-14`, `N-15`, `N-16`, `N-17`, `N-18`, `N-19`, `N-20`, `N-21`, `N-22`, `N-23`, `N-24`, `N-25`, `N-26`, `N-27`, `N-28`, `N-29`, `N-30`, `N-31`, `N-32`, `N-33`, `N-34`, `N-35`, `N-36`, `N-37`, `N-38`, `N-40`, `N-41`, `N-42`, `N-43`, `N-44`, `N-45`, `N-46`, `N-47`, `N-48`, `N-49`, `N-50`, `N-51`, `N-52`, `N-53`, `N-54`, `N-55`, `N-56`, `N-57`, `N-58`, `N-59`, `N-60`, `N-61`, `N-62`, `N-63`, `N-64`, `N-65`.
+Se mantienen las páginas ya localizadas en el inventario. Las dudas pendientes se concentran en:
 
-### Bloques de trabajo propuestos
+- confirmación visual independiente de N-2 y N-39;
+- revisión manual de tablas con tokens contaminantes;
+- normalización futura de las tablas que siguen en `tokens_sin_normalizar`;
+- lectura celda a celda de baremos, que no forma parte de esta tarea.
 
-1. **Bloque A — N-1**: revisar la tabla de conversión de centiles a puntuaciones típicas (`z`, `T`, `CI`, `ECN`) y completar metadatos visuales.
-2. **Bloque B — Percentiles por edad y área/subárea**: normalizar las tablas tokenizadas de percentiles (`N-4`, `N-5`, `N-7`, `N-9`, `N-10`, `N-12`, `N-13`, `N-14`, `N-15`, `N-17`, `N-18`, `N-19`, `N-20`, `N-22`, `N-23`, `N-24`, `N-25`, `N-27`, `N-28`, `N-29`, `N-30`, `N-32`, `N-33`, `N-34`, `N-35`, `N-36`, `N-37`, `N-38`, `N-40`, `N-42`, `N-43`, `N-44`, `N-45`, `N-47`, `N-48`, `N-49`, `N-50`, `N-51`, `N-52`).
-3. **Bloque C — Edades equivalentes**: normalizar intervalos de puntuación directa y límites abiertos en `N-54` a `N-65`.
-4. **Bloque D — Screening**: normalizar criterios de `N-53` y separar variables de edad/puntuación por área.
-5. **Bloque E — Relectura/OCR visual prioritaria**: resolver entradas parciales o vacías (`tabla_001`, `N-3`, `N-6`, `N-8`, `N-11`, `N-16`, `N-21`, `N-26`, `N-31`, `N-41`, `N-46`, `N-58`) y confirmar las ausencias `N-2` y `N-39`.
+## Recuento final por finalidad
+
+- `conversion_pd_a_percentil`: 49 tablas.
+- `conversion_percentil_a_puntuaciones_tipicas`: 1 tabla.
+- `criterio_screening`: 1 tabla.
+- `edad_equivalente`: 12 tablas.
+
+## Recuento por nivel de confianza
+
+- `alta`: 1 entrada.
+- `media`: 18 entradas.
+- `baja`: 45 entradas.
+
+## Validación automatizada
+
+El validador `scripts/validar_tablas.py` comprueba ahora:
+
+- presencia de las tablas oficiales esperadas, dejando N-2 y N-39 como pendientes de confirmación visual;
+- ausencia de identificadores y números oficiales duplicados;
+- `pagina_pdf` no nula y `paginas_pdf` no vacía;
+- campos separados `titulo_visual_confirmado`, `area_visual_confirmada`, `tokens_contaminantes` y `posible_tabla_origen_tokens`;
+- regla semántica de N-1: entrada PC y salidas z, T, CI y ECN;
+- área contra la secuencia oficial explícita N-3..N-52;
+- documentación de origen posible cuando hay tokens contaminantes;
+- coherencia básica entre título, finalidad, entradas y resultados;
+- estados de normalización y niveles de confianza válidos.
+
+El script ya no reclasifica ni falla una tabla por contener `Receptiva`, `Expresiva`, `Interacción con el adulto` o `Autoconcepto` si esos tokens están documentados como contaminación.
