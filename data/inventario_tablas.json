@@ -186,10 +186,6 @@
       "N-65"
     ],
     "total_tablas_oficiales_confirmadas": 63,
-    "numeros_ausentes_confirmados": [
-      "N-2",
-      "N-39"
-    ],
     "paginas_pdf_nulas": 0,
     "recuento_por_finalidad": {
       "conversion_percentil_a_puntuaciones_tipicas": 1,
@@ -198,11 +194,15 @@
       "edad_equivalente": 12
     },
     "recuento_por_nivel_confianza": {
-      "media": 12,
-      "alta": 3,
-      "baja": 49
+      "media": 18,
+      "alta": 1,
+      "baja": 45
     },
-    "nota_auditoria": "PDF de 52 páginas revisado para localizar tablas oficiales; N-2 y N-39 no se localizaron."
+    "nota_auditoria": "Las páginas localizadas se conservan; N-2 y N-39 permanecen como ausencias pendientes de confirmación visual independiente, no inferidas solo del JSON.",
+    "numeros_ausentes_pendientes_confirmacion_visual": [
+      "N-2",
+      "N-39"
+    ]
   },
   "inventario": [
     {
@@ -235,7 +235,11 @@
       ],
       "nivel_confianza": "media",
       "observaciones": "Página inicial sin número oficial; no se cuenta como tabla N.",
-      "encabezados_visibles": []
+      "encabezados_visibles": [],
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "preámbulo",
+      "area_visual_confirmada": "No determinada"
     },
     {
       "tabla": "N-1",
@@ -286,7 +290,11 @@
         "ECN"
       ],
       "nivel_confianza": "alta",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Filas PC→z/T/CI/ECN estructuradas con encabezados explícitos; tabla consultable.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-1. Conversión de puntuaciones centiles en otras puntuaciones típicas: z, T, CI y ECN",
+      "area_visual_confirmada": "General"
     },
     {
       "tabla": "N-3",
@@ -328,7 +336,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-3. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-4",
@@ -369,7 +381,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-4. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-5",
@@ -411,7 +427,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-5. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-6",
@@ -453,7 +473,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-6. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-7",
@@ -463,7 +487,7 @@
       "pagina_pdf": 5,
       "pagina_pdf_estado": "localizada_en_auditoria_pdf",
       "finalidad": "conversion_pd_a_percentil",
-      "area_o_subarea": "Comunicación",
+      "area_o_subarea": "Cognitiva",
       "tramo_edad_cronologica_aplicable": {
         "valor_original": "0-5 meses",
         "edad_min_meses": 0,
@@ -494,8 +518,15 @@
         "PC",
         "PUNTUACIÓN TOTAL"
       ],
-      "nivel_confianza": "alta",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "nivel_confianza": "media",
+      "observaciones": "Contiene tokens extraídos de otra área; el área se decide por título visual/secuencia oficial, no por esos tokens.",
+      "tokens_contaminantes": [
+        "Receptiva",
+        "Expresiva"
+      ],
+      "posible_tabla_origen_tokens": "tabla contigua de otra área; no usado para clasificar",
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-7. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-8",
@@ -537,7 +568,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-8. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-9",
@@ -547,7 +582,7 @@
       "pagina_pdf": 6,
       "pagina_pdf_estado": "localizada_en_auditoria_pdf",
       "finalidad": "conversion_pd_a_percentil",
-      "area_o_subarea": "Personal-Social",
+      "area_o_subarea": "Adaptativa",
       "tramo_edad_cronologica_aplicable": {
         "valor_original": "6-11 meses",
         "edad_min_meses": 6,
@@ -578,8 +613,16 @@
         "PC",
         "PUNTUACIÓN TOTAL"
       ],
-      "nivel_confianza": "alta",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "nivel_confianza": "media",
+      "observaciones": "Contiene tokens extraídos de otra área; el área se decide por título visual/secuencia oficial, no por esos tokens.",
+      "tokens_contaminantes": [
+        "Interacción con el adulto",
+        "Expresión de sentimientos",
+        "Autoconcepto"
+      ],
+      "posible_tabla_origen_tokens": "tabla contigua de otra área; no usado para clasificar",
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-9. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-10",
@@ -621,7 +664,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-10. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-11",
@@ -663,7 +710,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-11. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-12",
@@ -673,7 +724,7 @@
       "pagina_pdf": 9,
       "pagina_pdf_estado": "localizada_en_auditoria_pdf",
       "finalidad": "conversion_pd_a_percentil",
-      "area_o_subarea": "Comunicación",
+      "area_o_subarea": "Cognitiva",
       "tramo_edad_cronologica_aplicable": {
         "valor_original": "6-11 meses",
         "edad_min_meses": 6,
@@ -703,8 +754,15 @@
         "PC",
         "PUNTUACIÓN TOTAL"
       ],
-      "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "nivel_confianza": "media",
+      "observaciones": "Contiene tokens extraídos de otra área; el área se decide por título visual/secuencia oficial, no por esos tokens.",
+      "tokens_contaminantes": [
+        "Receptiva",
+        "Expresiva"
+      ],
+      "posible_tabla_origen_tokens": "tabla contigua de otra área; no usado para clasificar",
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-12. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-13",
@@ -746,7 +804,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-13. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-14",
@@ -788,7 +850,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-14. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-15",
@@ -830,7 +896,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-15. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-16",
@@ -872,7 +942,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-16. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-17",
@@ -882,7 +956,7 @@
       "pagina_pdf": 13,
       "pagina_pdf_estado": "localizada_en_auditoria_pdf",
       "finalidad": "conversion_pd_a_percentil",
-      "area_o_subarea": "Comunicación",
+      "area_o_subarea": "Cognitiva",
       "tramo_edad_cronologica_aplicable": {
         "valor_original": "12-17 meses",
         "edad_min_meses": 12,
@@ -913,8 +987,15 @@
         "PC",
         "PUNTUACIÓN TOTAL"
       ],
-      "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "nivel_confianza": "media",
+      "observaciones": "Contiene tokens extraídos de otra área; el área se decide por título visual/secuencia oficial, no por esos tokens.",
+      "tokens_contaminantes": [
+        "Receptiva",
+        "Expresiva"
+      ],
+      "posible_tabla_origen_tokens": "tabla contigua de otra área; no usado para clasificar",
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-17. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-18",
@@ -956,7 +1037,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-18. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-19",
@@ -998,7 +1083,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-19. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-20",
@@ -1040,7 +1129,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-20. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-21",
@@ -1082,7 +1175,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-21. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-22",
@@ -1092,7 +1189,7 @@
       "pagina_pdf": 17,
       "pagina_pdf_estado": "localizada_en_auditoria_pdf",
       "finalidad": "conversion_pd_a_percentil",
-      "area_o_subarea": "Comunicación",
+      "area_o_subarea": "Cognitiva",
       "tramo_edad_cronologica_aplicable": {
         "valor_original": "18-23 meses",
         "edad_min_meses": 18,
@@ -1122,8 +1219,15 @@
         "PC",
         "PUNTUACIÓN TOTAL"
       ],
-      "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "nivel_confianza": "media",
+      "observaciones": "Contiene tokens extraídos de otra área; el área se decide por título visual/secuencia oficial, no por esos tokens.",
+      "tokens_contaminantes": [
+        "Receptiva",
+        "Expresiva"
+      ],
+      "posible_tabla_origen_tokens": "tabla contigua de otra área; no usado para clasificar",
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-22. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-23",
@@ -1165,7 +1269,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-23. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-24",
@@ -1207,7 +1315,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-24. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-25",
@@ -1249,7 +1361,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-25. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-26",
@@ -1291,7 +1407,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-26 . Area Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-27",
@@ -1333,7 +1453,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-27. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-28",
@@ -1375,7 +1499,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-28. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-29",
@@ -1417,7 +1545,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-29 . Área Adaptativa, conversión de centiles Atención Comida Vestido Responsabilidad personal Aseo PUNTUACIÓN TOTAL PD PC PD PC PD PC"
     },
     {
       "tabla": "N-30",
@@ -1459,7 +1591,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-30. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-31",
@@ -1501,7 +1637,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-31. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-32",
@@ -1542,7 +1682,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-32. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-33",
@@ -1584,7 +1728,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-33. Área Personal-Social, puntuación centil"
     },
     {
       "tabla": "N-34",
@@ -1626,7 +1774,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-34. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-35",
@@ -1668,7 +1820,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-35. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-36",
@@ -1710,7 +1866,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-36. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-37",
@@ -1752,7 +1912,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-37. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-38",
@@ -1794,7 +1958,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-38. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-40",
@@ -1836,7 +2004,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-40. Área Motora, puntuación centil"
     },
     {
       "tabla": "N-41",
@@ -1878,7 +2050,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-41. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-42",
@@ -1919,7 +2095,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-42. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-43",
@@ -1961,7 +2141,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-43. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-44",
@@ -2003,7 +2187,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-44. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-45",
@@ -2045,7 +2233,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-45. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-46",
@@ -2087,7 +2279,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-46. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-47",
@@ -2129,7 +2325,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-47. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-48",
@@ -2171,7 +2371,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Personal-Social",
+      "titulo_visual_confirmado": "Tabla N-48. Área Personal-Social, conversión en centiles"
     },
     {
       "tabla": "N-49",
@@ -2181,7 +2385,7 @@
       "pagina_pdf": 38,
       "pagina_pdf_estado": "localizada_en_auditoria_pdf",
       "finalidad": "conversion_pd_a_percentil",
-      "area_o_subarea": "Personal-Social",
+      "area_o_subarea": "Adaptativa",
       "tramo_edad_cronologica_aplicable": {
         "valor_original": "84-95 meses",
         "edad_min_meses": 84,
@@ -2212,8 +2416,18 @@
         "PC",
         "PUNTUACIÓN TOTAL"
       ],
-      "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "nivel_confianza": "media",
+      "observaciones": "Contiene tokens extraídos de otra área; el área se decide por título visual/secuencia oficial, no por esos tokens.",
+      "tokens_contaminantes": [
+        "Interacción con el adulto",
+        "Expresión de sentimientos",
+        "Autoconcepto",
+        "Colaboración",
+        "Rol"
+      ],
+      "posible_tabla_origen_tokens": "tabla contigua de otra área; no usado para clasificar",
+      "area_visual_confirmada": "Adaptativa",
+      "titulo_visual_confirmado": "Tabla N-49. Área Adaptativa, conversión en centiles"
     },
     {
       "tabla": "N-50",
@@ -2254,7 +2468,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Motora",
+      "titulo_visual_confirmado": "Tabla N-50. Área Motora, conversión en centiles"
     },
     {
       "tabla": "N-51",
@@ -2296,7 +2514,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Comunicación",
+      "titulo_visual_confirmado": "Tabla N-51. Área Comunicación, conversión en centiles"
     },
     {
       "tabla": "N-52",
@@ -2338,7 +2560,11 @@
         "PUNTUACIÓN TOTAL"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "area_visual_confirmada": "Cognitiva",
+      "titulo_visual_confirmado": "Tabla N-52. Área Cognitiva, conversión en centiles"
     },
     {
       "tabla": "N-53",
@@ -2378,7 +2604,11 @@
         "Criterio"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-53 . Prueba de \"screening° : puntuaciones de criterio",
+      "area_visual_confirmada": "Screening"
     },
     {
       "tabla": "N-54",
@@ -2417,7 +2647,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-54 . Edades equivalentes, en meses, para las puntuaciones de la prueba de \"screening\" en cada área",
+      "area_visual_confirmada": "Screening"
     },
     {
       "tabla": "N-55",
@@ -2456,7 +2690,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-55 . Edades equivalentes, en meses, para las puntuaciones Totales de la Prueba de °screening\" PUNTUACION TOTAL Edad equivalente PUNTUACION TOTAL",
+      "area_visual_confirmada": "Screening"
     },
     {
       "tabla": "N-56",
@@ -2495,7 +2733,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-56 . Edades equivalentes, en meses, para las puntuaciones totales del Área Personal-Social PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "area_visual_confirmada": "Personal-Social"
     },
     {
       "tabla": "N-57",
@@ -2534,7 +2776,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-57 . Edades equivalentes, en meses, para las puntuaciones totales del Área Adaptativa PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "area_visual_confirmada": "Adaptativa"
     },
     {
       "tabla": "N-58",
@@ -2573,7 +2819,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "media",
-      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea."
+      "observaciones": "Metadatos revisados semánticamente; valores de baremo no normalizados en esta tarea.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-58 . Edades equivalentes, en meses, para las",
+      "area_visual_confirmada": "No determinada"
     },
     {
       "tabla": "N-59",
@@ -2612,7 +2862,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-59 . Edades equivalentes, en meses, para las puntuaciones totales del Área Motora gruesa puntuaciones totales del Área Motora fina PUNTUACIÓN",
+      "area_visual_confirmada": "Subáreas Motora gruesa y Motora fina"
     },
     {
       "tabla": "N-60",
@@ -2651,7 +2905,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-60 . Edades equivalentes, en meses, para las puntuaciones totales del Área Motora PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "area_visual_confirmada": "Motora"
     },
     {
       "tabla": "N-61",
@@ -2690,7 +2948,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-61 . Edades equivalentes, en meses, para las puntuaciones totales de la Subárea Comunicación receptiva PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL",
+      "area_visual_confirmada": "Subárea Comunicación receptiva"
     },
     {
       "tabla": "N-62",
@@ -2729,7 +2991,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-62 . Edades equivalentes, en meses, para las puntuaciones totales de la Subárea Comunicación Expresiva PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL",
+      "area_visual_confirmada": "Comunicación"
     },
     {
       "tabla": "N-63",
@@ -2768,7 +3034,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-63 . Edades equivalentes, en meses, para las puntuaciones totales del Área Comunicación PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "area_visual_confirmada": "Comunicación"
     },
     {
       "tabla": "N-64",
@@ -2807,7 +3077,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-64 . Edades equivalentes, en meses, para las puntuaciones totales del Área Cognitiva PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente",
+      "area_visual_confirmada": "Cognitiva"
     },
     {
       "tabla": "N-65",
@@ -2846,7 +3120,11 @@
         "Edad equivalente"
       ],
       "nivel_confianza": "baja",
-      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior."
+      "observaciones": "Tabla localizada, pero los datos internos permanecen tokenizados; requiere normalización posterior.",
+      "tokens_contaminantes": [],
+      "posible_tabla_origen_tokens": null,
+      "titulo_visual_confirmado": "Tabla N-65 . Edades equivalentes, en meses, para las puntuaciones totales del Battelle PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN TOTAL Edad equivalente PUNTUACIÓN",
+      "area_visual_confirmada": "Total Battelle"
     }
   ]
 }
