@@ -2,21 +2,322 @@
   "checksum_protegido_n3_n12": "46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d",
   "comando_generacion": "python scripts/generar_battelle_desde_excel.py --output-dir tmp/battelle_generado_excel",
   "comando_validacion": "python scripts/validar_generado_excel.py --output-dir tmp/battelle_generado_excel",
-  "incidencias": 57,
-  "registros_pd_generados": 4555,
+  "conteos_por_tabla": {
+    "N-1": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-10": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 172,
+      "pendientes": 172,
+      "protegidos": 98
+    },
+    "N-11": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 46,
+      "pendientes": 46,
+      "protegidos": 36
+    },
+    "N-12": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 46,
+      "pendientes": 46,
+      "protegidos": 24
+    },
+    "N-13": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-14": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-15": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 136,
+      "pendientes": 136,
+      "protegidos": 0
+    },
+    "N-16": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 89,
+      "pendientes": 89,
+      "protegidos": 0
+    },
+    "N-17": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 89,
+      "pendientes": 89,
+      "protegidos": 0
+    },
+    "N-18": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 164,
+      "pendientes": 164,
+      "protegidos": 0
+    },
+    "N-19": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-2": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-20": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 106,
+      "pendientes": 106,
+      "protegidos": 0
+    },
+    "N-21": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 108,
+      "pendientes": 108,
+      "protegidos": 0
+    },
+    "N-22": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 108,
+      "pendientes": 108,
+      "protegidos": 0
+    },
+    "N-23": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-24": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 60,
+      "pendientes": 60,
+      "protegidos": 0
+    },
+    "N-25": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 104,
+      "pendientes": 104,
+      "protegidos": 0
+    },
+    "N-26": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 90,
+      "pendientes": 90,
+      "protegidos": 0
+    },
+    "N-27": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 90,
+      "pendientes": 90,
+      "protegidos": 0
+    },
+    "N-28": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 178,
+      "pendientes": 178,
+      "protegidos": 0
+    },
+    "N-29": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-3": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 62,
+      "pendientes": 62,
+      "protegidos": 57
+    },
+    "N-30": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 75,
+      "pendientes": 75,
+      "protegidos": 0
+    },
+    "N-31": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 114,
+      "pendientes": 114,
+      "protegidos": 0
+    },
+    "N-32": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 114,
+      "pendientes": 114,
+      "protegidos": 0
+    },
+    "N-33": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 130,
+      "pendientes": 130,
+      "protegidos": 0
+    },
+    "N-34": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-35": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 136,
+      "pendientes": 136,
+      "protegidos": 0
+    },
+    "N-36": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 104,
+      "pendientes": 104,
+      "protegidos": 0
+    },
+    "N-37": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 166,
+      "pendientes": 166,
+      "protegidos": 0
+    },
+    "N-38": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 0
+    },
+    "N-39": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 66,
+      "pendientes": 66,
+      "protegidos": 0
+    },
+    "N-4": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 62,
+      "pendientes": 62,
+      "protegidos": 49
+    },
+    "N-40": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 142,
+      "pendientes": 142,
+      "protegidos": 0
+    },
+    "N-41": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 195,
+      "pendientes": 195,
+      "protegidos": 0
+    },
+    "N-42": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 195,
+      "pendientes": 195,
+      "protegidos": 0
+    },
+    "N-43": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 58,
+      "pendientes": 58,
+      "protegidos": 0
+    },
+    "N-44": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 38,
+      "pendientes": 38,
+      "protegidos": 0
+    },
+    "N-45": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 29,
+      "pendientes": 29,
+      "protegidos": 0
+    },
+    "N-46": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 89,
+      "pendientes": 89,
+      "protegidos": 0
+    },
+    "N-47": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 89,
+      "pendientes": 89,
+      "protegidos": 0
+    },
+    "N-48": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 31,
+      "pendientes": 31,
+      "protegidos": 0
+    },
+    "N-49": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 32,
+      "pendientes": 32,
+      "protegidos": 0
+    },
+    "N-5": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 59
+    },
+    "N-50": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 65,
+      "pendientes": 65,
+      "protegidos": 0
+    },
+    "N-51": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 1144,
+      "pendientes": 1144,
+      "protegidos": 0
+    },
+    "N-6": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 68,
+      "pendientes": 68,
+      "protegidos": 36
+    },
+    "N-7": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 68,
+      "pendientes": 68,
+      "protegidos": 29
+    },
+    "N-8": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 42
+    },
+    "N-9": {
+      "estado": "PENDIENTE_REVISION_VISUAL",
+      "normalizados": 0,
+      "pendientes": 0,
+      "protegidos": 31
+    }
+  },
+  "incidencias": 64,
+  "registros_automaticos": 6099,
+  "registros_pd_generados": 6560,
+  "registros_pendientes": 6560,
   "registros_protegidos": 461,
+  "registros_rechazados": 0,
+  "registros_utilizables": 0,
   "tablas_esperadas": 52,
-  "tablas_faltantes": [
-    "N-4",
-    "N-9",
-    "N-10",
-    "N-12",
-    "N-17",
-    "N-19",
-    "N-22",
-    "N-32",
-    "N-42",
-    "N-47"
-  ],
-  "tablas_localizadas": 42
+  "tablas_faltantes": [],
+  "tablas_localizadas": 52
 }

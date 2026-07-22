@@ -2,7 +2,7 @@ from __future__ import annotations
 import json, csv, hashlib, re
 from pathlib import Path
 from .xlsx_io import read_workbook
-from .detect import detect_titles, delimit_blocks, classify
+from .detect import detect_titles, delimit_blocks, classify, detect_area
 from .normalization import normalize_ocr, parse_pd_token, normalize_spaces
 ST_REVIEW='REVISADO_VISUALMENTE'; ST_AUTO='EXTRAIDO_AUTOMATICAMENTE_ALTA_CONFIANZA'; ST_PENDING='PENDIENTE_REVISION_VISUAL'; ST_BLOCK='BLOQUEADO_POR_AMBIGUEDAD'
 AREAS=['Personal/Social','Adaptativa','Motora','Comunicación','Cognitiva']
@@ -55,11 +55,22 @@ def dump_csv(path, rows):
  with path.open('w', newline='', encoding='utf-8') as f:
   w=csv.DictWriter(f, fieldnames=keys); w.writeheader(); w.writerows(rows)
 
+def compare_active(pd_rows, active_path='data/percentiles_battelle.json'):
+ p=Path(active_path)
+ if not p.exists(): return {'estado':'SIN_DATOS_ACTIVOS','por_tabla':{}}
+ try: active=json.loads(p.read_text(encoding='utf-8'))
+ except Exception as exc: return {'estado':'ERROR_LECTURA','error':str(exc),'por_tabla':{}}
+ by={}
+ for r in pd_rows:
+  t=r.get('Tabla','')
+  by.setdefault(t,{'coincidencias_exactas':0,'ausentes':0,'diferencias_pd':0,'diferencias_percentil':0,'diferencias_escala':0,'diferencias_pagina':0})
+ return {'estado':'REFERENCIA_NO_PRIORIZA_OCR','por_tabla':by,'nota':'comparación detallada pendiente de mapeo semántico completo'}
+
 def extract(src, db, outdir):
  out=Path(outdir); out.mkdir(parents=True,exist_ok=True)
  wb=read_workbook(src); titles=detect_titles(wb); blocks=delimit_blocks(titles, wb)
  prot, checksum=protected_rows(db)
- pd_rows=list(prot); n1=[]; special=[]; incid=[]; inv=[]
+ pd_rows=list(prot); n1=[]; special=[]; incid=[]; inv=[]; rejected=[]
  seen=set()
  for b in blocks:
   key=b['Tabla']; typ=classify(b['title'],b['n']); count0=len(pd_rows)
@@ -85,13 +96,18 @@ def extract(src, db, outdir):
       incid.append({'Tabla':key,'tipo':'INTERVALO_PD_INVALIDO','HojaFuente':b['sheet'],'CeldaFuente':c.coord,'TextoFuente':c.value})
       continue
      if pd and re.fullmatch(r'\d{1,3}',pctn) and 0<=int(pctn)<=100:
-      rec={'Tabla':key,'PaginaPDF':'','EdadMinMeses':'','EdadMaxMeses':'','Area':'','Subarea':'',**pd,'Percentil':int(pctn),'EstadoRevision':ST_PENDING,'ConfianzaExtraccion':0.55,'origen_dato':'excel_ocr','confianza_extraccion':0.55,'HojaFuente':b['sheet'],'hoja_fuente':b['sheet'],'CeldaFuente':c.coord,'celda_o_rango_fuente':c.coord,'TextoFuente':f"{c.value} {cs[i+1].value}",'texto_fuente':f"{c.value} {cs[i+1].value}",'reglas_ocr_aplicadas':'', 'requiere_revision':'true','IncidenciaOCR':''}
+      rec={'Tabla':key,'PaginaPDF':'','EdadMinMeses':'','EdadMaxMeses':'','Area':detect_area(b['title']),'Subarea':'',**pd,'Percentil':int(pctn),'EstadoRevision':ST_PENDING,'ConfianzaExtraccion':0.55,'origen_dato':'excel_ocr','confianza_extraccion':0.55,'HojaFuente':b['sheet'],'hoja_fuente':b['sheet'],'CeldaFuente':c.coord,'celda_o_rango_fuente':c.coord,'TextoFuente':f"{c.value} {cs[i+1].value}",'texto_fuente':f"{c.value} {cs[i+1].value}",'reglas_ocr_aplicadas':'', 'requiere_revision':'true','IncidenciaOCR':''}
       pd_rows.append(rec)
-  inv.append({'Tabla':key,'tipo':typ,'titulo_detectado':b['title'],'pagina':'','rango_cronologico':'','area':'','escalas_encontradas':[],'registros_extraidos':len(pd_rows)-count0 if typ=='PD_A_PERCENTIL' else (len(n1) if b['n']==1 else len(special)),'estado':'LOCALIZADA','incidencias':[x for x in incid if x.get('Tabla')==key]})
+  norm=len(pd_rows)-count0 if typ=='PD_A_PERCENTIL' else 0
+  inv.append({'tabla':key,'Tabla':key,'tipo':typ,'titulo_detectado':b['title'],'hoja':b['sheet'],'fila_inicial':b['start_row'],'fila_final':b['end_row'],'pagina':'','rango_edad':'','area':detect_area(b['title']),'escalas_detectadas':[],'registros_brutos':len(cells),'registros_normalizados':norm,'registros_protegidos':sum(1 for r in prot if r.get('Tabla')==key),'registros_automaticos':norm,'registros_utilizables':0,'registros_pendientes':norm,'registros_rechazados':0,'incidencias':len([x for x in incid if x.get('Tabla')==key]),'estado_final':'PENDIENTE_REVISION_VISUAL','evidencia':{'celda':b['coord'],'texto_fuente':b.get('title_source',b['title'])}})
  expected={f'N-{i}' for i in range(1,53)}; found={x['Tabla'] for x in titles}
+ for tab in sorted(expected-found,key=lambda x:int(x.split('-')[1])):
+  n=int(tab.split('-')[1])
+  inv.append({'tabla':tab,'Tabla':tab,'tipo':classify('',n),'titulo_detectado':'','hoja':'Table 1','fila_inicial':'','fila_final':'','pagina':'','rango_edad':'','area':'','escalas_detectadas':[],'registros_brutos':0,'registros_normalizados':0,'registros_protegidos':sum(1 for r in prot if r.get('Tabla')==tab),'registros_automaticos':0,'registros_utilizables':0,'registros_pendientes':sum(1 for r in prot if r.get('Tabla')==tab),'registros_rechazados':0,'incidencias':1,'estado_final':'NO_LOCALIZADA','evidencia':{'intervalo_inspeccionado':'hoja completa; reglas generales de títulos N-x','titulo_anterior':'','titulo_posterior':''}})
+ inv=sorted(inv,key=lambda r:int(r['Tabla'].split('-')[1]))
  coverage={'esperadas':52,'localizadas':len(found),'faltantes':sorted(expected-found,key=lambda x:int(x.split('-')[1])),'checksum_protegido_antes':checksum,'checksum_protegido_despues':protected_rows(db)[1],'registros_pd':len(pd_rows),'protegidos':len(prot),'incidencias':len(incid)}
  def dump_json(name,obj): (out/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
- dump_json('inventario_tablas.json',inv); dump_json('pd_percentil.json',pd_rows); dump_json('n1_conversion_pc.json',n1); dump_json('tablas_especiales.json',special); dump_json('incidencias.json',incid); dump_json('cobertura_validacion.json',coverage); dump_json('auditoria_fuentes.json',audit_sources(src,db))
+ dump_json('informe_tablas.json',inv); dump_json('inventario_tablas.json',inv); dump_json('pd_percentil.json',pd_rows); dump_json('n1_conversion_pc.json',n1); dump_json('tablas_especiales.json',special); dump_json('registros_utilizables.json',[]); dump_json('registros_pendientes_revision.json',pd_rows); dump_json('registros_rechazados.json',rejected); dump_json('comparacion_percentiles_existentes.json',compare_active(pd_rows)); dump_json('n1_comparacion_v4.json',{'estado':'PENDIENTE_REVISION_VISUAL','coincidencias':0,'diferencias':0,'filas_pendientes':len(n1)}); dump_json('n2_documentacion.json',{'estado':'PENDIENTE_REVISION_VISUAL','registros':len(special),'finalidad':'tabla especial independiente; no integrada en PD percentil'}); dump_json('incidencias.json',incid); dump_json('cobertura_validacion.json',coverage); dump_json('auditoria_fuentes.json',audit_sources(src,db))
  dump_csv(out/'pd_percentil.csv', pd_rows); dump_csv(out/'n1_conversion_pc.csv', n1); dump_csv(out/'inventario_tablas.csv', inv); dump_csv(out/'incidencias.csv', incid)
  (out/'fixture_sha256_n3_n12_revisado.txt').write_text(checksum+'\n',encoding='utf-8')
  return coverage

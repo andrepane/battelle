@@ -25,3 +25,49 @@ class T(unittest.TestCase):
   a=json.dumps([{'b':1,'a':2}],sort_keys=True); self.assertEqual(a,json.dumps([{'a':2,'b':1}],sort_keys=True))
  def test_preservation_state_constant(self): self.assertEqual(ST_REVIEW,'REVISADO_VISUALMENTE')
 if __name__=='__main__': unittest.main()
+
+class RegressionMissingTables(unittest.TestCase):
+ def test_fragmented_and_deformed_titles_for_initially_missing_tables(self):
+  Cell=lambda row,col,coord,value: type('C',(),{'sheet':'S','row':row,'col':col,'coord':coord,'value':value})()
+  wb={'sheets':[{'name':'S','max_row':120,'max_col':3,'cells':[
+   Cell(1,1,'A1','Tabla N-3. Área Personal-Social Tabla N-4. Área Adaptativa'),
+   Cell(10,1,'A10','Tabla N-8. Área Personal-Social Tabla N-9. Área Adaptativa'),
+   Cell(20,1,'A20','Tabla N-11. Área Comunicación Tabla N-12. Área Cognitiva'),
+   Cell(30,1,'A30','Tabla N-16. Área Comunicación Tabla N-17. Área Cognitiva'),
+   Cell(40,1,'A40','Tabla N•19. Área Adaptativa'),
+   Cell(50,1,'A50','Tabla N-21. Área Comunicación Tabla N-22. Área Cognitiva'),
+   Cell(60,1,'A60','Tabla N-31. Área Comunicación Tabla N-32. Área Cognitiva'),
+   Cell(70,1,'A70','Tabla N-41. Área Comunicación Tabla N-42. Área Cognitiva'),
+   Cell(80,1,'A80','Tabla N-46. Área Comunicación Tabla N-47. Área Cognitiva'),
+  ]}]}
+  tabs={t['Tabla'] for t in detect_titles(wb)}
+  for tab in ['N-4','N-9','N-10','N-12','N-17','N-19','N-22','N-32','N-42','N-47']:
+   self.assertIn(tab,tabs)
+
+class RealExcelIntegration(unittest.TestCase):
+ def test_real_excels_detection_preservation_and_idempotence(self):
+  from pathlib import Path
+  from scripts.battelle_parser.xlsx_io import read_workbook
+  from scripts.battelle_parser.extract import extract, protected_rows
+  if not Path('Battelle_Tablas_de_correccion.xlsx').exists() or not Path('Battelle_DB_transcripcion_v4_fuente_excel_indexada.xlsx').exists():
+   self.skipTest('Excel reales no disponibles')
+  wb=read_workbook('Battelle_Tablas_de_correccion.xlsx')
+  tabs={t['Tabla'] for t in detect_titles(wb)}
+  self.assertEqual(len(tabs),52)
+  for tab in ['N-4','N-9','N-10','N-12','N-17','N-19','N-22','N-32','N-42','N-47']:
+   self.assertIn(tab,tabs)
+  prot, checksum=protected_rows('Battelle_DB_transcripcion_v4_fuente_excel_indexada.xlsx')
+  self.assertEqual(len(prot),461)
+  self.assertEqual(checksum,'46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d')
+  import tempfile, hashlib, os
+  def hashes(d):
+   out=[]
+   for path in sorted(Path(d).rglob('*')):
+    if path.is_file(): out.append((str(path.relative_to(d)), hashlib.sha256(path.read_bytes()).hexdigest()))
+   return out
+  with tempfile.TemporaryDirectory() as a, tempfile.TemporaryDirectory() as b:
+   ca=extract('Battelle_Tablas_de_correccion.xlsx','Battelle_DB_transcripcion_v4_fuente_excel_indexada.xlsx',a)
+   cb=extract('Battelle_Tablas_de_correccion.xlsx','Battelle_DB_transcripcion_v4_fuente_excel_indexada.xlsx',b)
+   self.assertEqual(ca['checksum_protegido_antes'], ca['checksum_protegido_despues'])
+   self.assertEqual(ca, cb)
+   self.assertEqual(hashes(a), hashes(b))
