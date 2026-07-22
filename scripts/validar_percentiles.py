@@ -77,6 +77,13 @@ def validate_group(errors, tramo_key, registros, expected, maxima, pages):
         pc = r.get("percentil")
         if not isinstance(pc, int) or not (1 <= pc <= 99):
             errors.append(f"percentil inválido: {r}")
+        if min_m == 6:
+            if r.get("auditoria_visual_completa") is not True:
+                errors.append(f"auditoría visual incompleta {tab}/{esc}")
+            if r.get("filas_transcritas") != r.get("filas_visibles_esperadas"):
+                errors.append(f"filas transcritas no coinciden {tab}/{esc}: {r.get('filas_transcritas')} != {r.get('filas_visibles_esperadas')}")
+            if r.get("confianza") == "baja":
+                errors.append(f"confianza baja no apta para uso clínico {tab}/{esc}")
         if tab in expected and r.get("pagina_pdf") != expected[tab]["pagina"]:
             errors.append(f"página inválida {tab}/{esc}: {r.get('pagina_pdf')}")
         if tab in pages and r.get("pagina_pdf") != pages[tab]:
@@ -94,6 +101,11 @@ def validate_group(errors, tramo_key, registros, expected, maxima, pages):
             if not rs:
                 errors.append(f"falta escala {tab} {esc}")
                 continue
+            if tramo_key == (6, 11):
+                visibles = {r.get("filas_visibles_esperadas") for r in rs}
+                transcritas = {r.get("filas_transcritas") for r in rs}
+                if visibles != {len(rs)} or transcritas != {len(rs)}:
+                    errors.append(f"recuento visual incoherente {tab} {esc}: visibles={visibles}, transcritas={transcritas}, registros={len(rs)}")
             maxpd = maxima[esc]["max"]
             covered = {}
             for r in rs:
@@ -113,6 +125,18 @@ def validate_group(errors, tramo_key, registros, expected, maxima, pages):
                 errors.append(f"posible columna sin separar {tab} {esc}")
 
 
+def validate_dudosas(errors, data):
+    registros = data.get("tramos", [])
+    flat = [r for tramo in registros for r in tramo.get("registros", [])]
+    for duda in data.get("celdas_dudosas", []):
+        tab = duda.get("tabla")
+        if tab not in {"N-8", "N-9", "N-10", "N-11", "N-12"}:
+            continue
+        matches = [r for r in flat if r.get("tabla") == tab and (not duda.get("escala") or r.get("escala") == duda.get("escala")) and (not duda.get("valor_original_pd") or r.get("valor_original_pd") == duda.get("valor_original_pd"))]
+        if not matches:
+            errors.append(f"celda dudosa sin registro correspondiente: {duda}")
+
+
 def main():
     maxima = load_theoretical_maxima()
     pages = inventario_pages()
@@ -121,6 +145,7 @@ def main():
     errors = []
     if hashlib.sha256(json.dumps(tramos.get((0, 5), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_0_5_SHA256:
         errors.append("el bloque validado 0-5 fue modificado")
+    validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():
         tramo = tramos.get(tramo_key)
         if not tramo:

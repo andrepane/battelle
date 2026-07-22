@@ -184,3 +184,35 @@ Celdas dudosas documentadas:
 - N-12: aparece un token final `12-17` contaminante del tramo siguiente; no se normalizó como registro 6-11.
 
 El validador de percentiles ahora valida conjuntamente N-3 a N-7 para 0-5 meses y N-8 a N-12 para 6-11 meses. La validación se agrupa por tramo, tabla y escala para impedir que la cobertura de una edad tape huecos de otra, y comprueba columnas esperadas, cobertura completa, huecos, solapamientos, máximos teóricos, límites abiertos, percentiles, páginas del inventario y conservación del bloque 0-5.
+
+### Corrección visual exhaustiva de N-10 a N-12
+
+Se reemplazaron los intervalos artificiales de N-10, N-11 y N-12 por la transcripción fila a fila de las columnas impresas. En esta corrección no se añadieron intervalos inferidos para rellenar extremos: cada registro conserva el intervalo PD visible, y solo los intervalos con `+` se extienden hasta su máximo teórico.
+
+Recuentos visuales por escala del tramo 6-11 meses:
+
+| Tabla | Escala | Filas visibles esperadas | Filas transcritas | Auditoría visual completa |
+| --- | --- | ---: | ---: | --- |
+| N-8 | Interacción con el adulto | 12 | 12 | true |
+| N-8 | Expresión de sentimientos/afecto | 9 | 9 | true |
+| N-8 | Autoconcepto | 6 | 6 | true |
+| N-8 | Personal/Social total | 15 | 15 | true |
+| N-9 | Atención | 7 | 7 | true |
+| N-9 | Comida | 11 | 11 | true |
+| N-9 | Adaptativa total | 13 | 13 | true |
+| N-10 | Control muscular | 7 | 7 | true |
+| N-10 | Coordinación corporal | 10 | 10 | true |
+| N-10 | Locomoción | 11 | 11 | true |
+| N-10 | Motricidad fina | 12 | 12 | true |
+| N-10 | Motora gruesa | 21 | 21 | true |
+| N-10 | Motora fina | 13 | 13 | true |
+| N-10 | Motora total | 22 | 22 | true |
+| N-11 | Receptiva | 8 | 8 | true |
+| N-11 | Expresiva | 11 | 11 | true |
+| N-11 | Comunicación total | 17 | 17 | true |
+| N-12 | Discriminación perceptiva | 4 | 4 | true |
+| N-12 | Memoria | 6 | 6 | true |
+| N-12 | Razonamiento y habilidades escolares | 4 | 4 | true |
+| N-12 | Cognitiva total | 10 | 10 | true |
+
+El validador ahora falla si los recuentos `filas_visibles_esperadas` y `filas_transcritas` no coinciden, si falta `auditoria_visual_completa: true`, si una escala mantiene `confianza: baja`, o si una celda dudosa documentada no tiene un registro correspondiente en el JSON.
