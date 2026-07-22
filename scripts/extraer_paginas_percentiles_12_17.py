@@ -35,6 +35,7 @@ TABLE_AUDIT = {
         "dudas_visuales": [],
     },
     "N-14": {
+        "edad_texto_sin_etiqueta_meses_confirmada_visualmente": True,
         "titulo_visible_confirmado": "Tabla N-14. Área Adaptativa, conversión en centiles",
         "pagina_pdf_numero_humano": 11,
         "pagina_impresa": None,
@@ -101,9 +102,9 @@ AUDITS["18-23"] = (("N-18", "N-19", "N-20", "N-21", "N-22"), {
 AUDITS["24-35"] = (("N-23", "N-24", "N-25", "N-26", "N-27"), {
     "N-23": {"titulo_visible_confirmado": "Tabla N-23. Área Personal-Social, conversión en centiles", "pagina_pdf_numero_humano": 18, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Interacción con el adulto": 14, "Expresión de sentimientos/afecto": 13, "Autoconcepto": 20, "Interacción con los compañeros": 22, "Colaboración": 16, "Rol social": 19, "Personal/Social total": 52}, "dudas_visuales": []},
     "N-24": {"titulo_visible_confirmado": "Tabla N-24. Área Adaptativa, conversión en centiles", "pagina_pdf_numero_humano": 19, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Atención": 5, "Comida": 8, "Vestido": 15, "Responsabilidad personal": 11, "Aseo": 13, "Adaptativa total": 32}, "dudas_visuales": []},
-    "N-25": {"titulo_visible_confirmado": "Tabla N-25. Área Motora, conversión en centiles", "pagina_pdf_numero_humano": 20, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Coordinación corporal": 18, "Locomoción": 5, "Motricidad fina": 18, "Motricidad perceptiva": 9, "Motora gruesa": 22, "Motora fina": 23, "Motora total": 33}, "dudas_visuales": []},
-    "N-26": {"titulo_visible_confirmado": "Tabla N-26. Área Comunicación, conversión en centiles", "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Receptiva": 20, "Expresiva": 23, "Comunicación total": 33}, "dudas_visuales": []},
-    "N-27": {"titulo_visible_confirmado": "Tabla N-27. Área Cognitiva, conversión en centiles", "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Discriminación perceptiva": 10, "Memoria": 9, "Razonamiento y habilidades escolares": 10, "Desarrollo conceptual": 12, "Cognitiva total": 25}, "dudas_visuales": []},
+    "N-25": {"titulo_visible_confirmado": "Tabla N-25. Área Motora, conversión en centiles", "edad_texto_sin_intervalo_confirmada_visualmente": True, "edad_texto_sin_etiqueta_meses_confirmada_visualmente": True, "pagina_pdf_numero_humano": 20, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Coordinación corporal": 18, "Locomoción": 5, "Motricidad fina": 18, "Motricidad perceptiva": 9, "Motora gruesa": 22, "Motora fina": 23, "Motora total": 33}, "dudas_visuales": []},
+    "N-26": {"titulo_visible_confirmado": "Tabla N-26. Área Comunicación, conversión en centiles", "edad_texto_compacta_confirmada": True, "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Receptiva": 20, "Expresiva": 23, "Comunicación total": 33}, "dudas_visuales": []},
+    "N-27": {"titulo_visible_confirmado": "Tabla N-27. Área Cognitiva, conversión en centiles", "edad_texto_compacta_confirmada": True, "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Discriminación perceptiva": 10, "Memoria": 9, "Razonamiento y habilidades escolares": 10, "Desarrollo conceptual": 12, "Cognitiva total": 25}, "dudas_visuales": []},
 })
 
 
@@ -226,21 +227,21 @@ def contains_required_word(normalized_text, required, max_distance=0):
     return any(word == required or (max_distance and levenshtein_distance(word, required) <= max_distance) for word in words)
 
 
-def printed_age_is_confirmed(normalized_text, edad_impresa):
-    normalized_age = normalize_for_title_compare(edad_impresa)
-    compact_age = normalized_age.replace("-", "")
+def printed_age_is_confirmed(normalized_text, spec):
+    normalized_age = normalize_for_title_compare(spec.get("edad_impresa", "12-17 MESES"))
     age_interval = normalized_age.split()[0]
-    age_bounds = age_interval.split("-", 1)
-    has_age_interval = age_interval in normalized_text or compact_age.split()[0] in normalized_text
-    if not has_age_interval and len(age_bounds) == 2:
-        has_age_interval = all(contains_required_word(normalized_text, bound) for bound in age_bounds)
-    has_age_label = contains_required_word(normalized_text, "meses")
-    if has_age_interval and has_age_label:
+    compact_age = age_interval.replace("-", "")
+    interval_pattern = r"\s*-\s*".join(re.escape(part) for part in age_interval.split("-"))
+    contiguous_interval = re.search(rf"\b{interval_pattern}\b", normalized_text) is not None
+    compact_interval = bool(spec.get("edad_texto_compacta_confirmada")) and contains_required_word(normalized_text, compact_age)
+    interval_confirmed = contiguous_interval or compact_interval
+    if not interval_confirmed and spec.get("edad_texto_sin_intervalo_confirmada_visualmente"):
+        interval_confirmed = True
+    if not interval_confirmed:
+        return False
+    if contains_required_word(normalized_text, "meses"):
         return True
-    # Some pages have a malformed PDF text layer that omits the visible MESES label
-    # although the linked page image contains it. Keep the exact interval mandatory
-    # in the text comparison; the manifest preserves the documentary edad_impresa.
-    return has_age_interval
+    return bool(spec.get("edad_texto_sin_etiqueta_meses_confirmada_visualmente"))
 
 
 def title_is_confirmed(text, table, table_audit=TABLE_AUDIT):
@@ -248,13 +249,12 @@ def title_is_confirmed(text, table, table_audit=TABLE_AUDIT):
     title = spec["titulo_visible_confirmado"]
     normalized_text = normalize_for_title_compare(text)
     area = title.split("Área ")[1].split(",")[0]
-    edad = spec.get("edad_impresa", "12-17 MESES")
     return (
         contains_required_word(normalized_text, table)
         and contains_required_word(normalized_text, area)
         and contains_required_word(normalized_text, "conversión", max_distance=1)
         and contains_required_word(normalized_text, "centiles", max_distance=2)
-        and printed_age_is_confirmed(normalized_text, edad)
+        and printed_age_is_confirmed(normalized_text, spec)
     )
 
 

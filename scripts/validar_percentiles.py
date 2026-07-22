@@ -334,6 +334,28 @@ def validate_dudosas(errors, data):
             errors.append(f"celda dudosa sin registro correspondiente: {duda}")
 
 
+def validate_title_confirmation_helpers(errors):
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("percentile_extractor", "scripts/extraer_paginas_percentiles_12_17.py")
+    extractor = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(extractor)
+    audit_24_35 = {
+        "N-23": {"titulo_visible_confirmado": "Tabla N-23. Área Personal-Social, conversión en centiles", "edad_impresa": "24-35 MESES"},
+        "N-24": {"titulo_visible_confirmado": "Tabla N-24. Área Adaptativa, conversión en centiles", "edad_impresa": "24-35 MESES"},
+    }
+    cases = [
+        ("N-23", "24 ... texto distinto ... 35 MESES Tabla N-23. Área Personal-Social, conversión en centiles", False, "intervalo de edad no contiguo aceptado"),
+        ("N-23", "24-35 MESES Tabla N-23. Área Personal-Social, conversión en centiles", True, "24-35 MESES rechazado"),
+        ("N-23", "24 – 35 meses Tabla N-23. Area Personal-Social, conversión en centiles", True, "24 – 35 meses rechazado"),
+        ("N-23", "18-23 MESES Tabla N-23. Área Personal-Social, conversión en centiles", False, "edad 18-23 aceptada para 24-35"),
+        ("N-23", "24-35 MESES Tabla N-24. Área Personal-Social, conversión en centiles", False, "N-23 confundida con N-24"),
+    ]
+    for table, text, expected, message in cases:
+        if extractor.title_is_confirmed(text, table, audit_24_35) is not expected:
+            errors.append(f"comprobación interna title_is_confirmed: {message}")
+
+
 def main():
     maxima = load_theoretical_maxima()
     pages = inventario_pages()
@@ -348,6 +370,7 @@ def main():
         errors.append("el bloque validado 12-17 fue modificado")
     if hashlib.sha256(json.dumps(tramos.get((18, 23), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_18_23_SHA256:
         errors.append("el bloque validado 18-23 fue modificado")
+    validate_title_confirmation_helpers(errors)
     validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():
         tramo = tramos.get(tramo_key)
