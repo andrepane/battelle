@@ -21,9 +21,9 @@ EXPECTED = {
     },
     (12, 17): {
         "N-13": {"pagina": 10, "escalas": ["Interacción con el adulto", "Expresión de sentimientos/afecto", "Autoconcepto", "Interacción con los compañeros", "Personal/Social total"]},
-        "N-14": {"pagina": 10, "escalas": ["Atención", "Comida", "Vestido", "Adaptativa total"]},
-        "N-15": {"pagina": 11, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
-        "N-16": {"pagina": 12, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
+        "N-14": {"pagina": 11, "escalas": ["Atención", "Comida", "Vestido", "Adaptativa total"]},
+        "N-15": {"pagina": 12, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
+        "N-16": {"pagina": 13, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
         "N-17": {"pagina": 13, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
     },
 }
@@ -88,6 +88,30 @@ def indirect_object(body, key):
     return int(match.group(1)) if match else None
 
 
+def page_tree_order(bodies):
+    import re
+
+    root = next(obj for obj, body in bodies.items() if b"/Type/Pages" in body and b"/Parent" not in body)
+    ordered = []
+
+    def kids(body):
+        match = re.search(rb"/Kids\s*\[(.*?)\]", body, re.S)
+        if not match:
+            return []
+        return [int(obj) for obj in re.findall(rb"(\d+)\s+0\s+R", match.group(1))]
+
+    def walk(obj):
+        body = bodies[obj]
+        if re.search(rb"/Type\s*/Page\b", body) and not re.search(rb"/Type\s*/Pages\b", body):
+            ordered.append(obj)
+            return
+        for child in kids(body):
+            walk(child)
+
+    walk(root)
+    return ordered
+
+
 def manifest_by_scale(errors, data):
     if not MANIFEST_PATH.exists():
         errors.append(f"falta manifiesto de auditoría visual: {MANIFEST_PATH}")
@@ -100,26 +124,45 @@ def manifest_by_scale(errors, data):
     if manifest.get("sha256_pdf_fuente") != expected_pdf_sha or actual_pdf_sha != expected_pdf_sha:
         errors.append("sha256 del PDF fuente no coincide entre manifiesto, data/fuentes.json y archivo local")
     bodies = object_bodies(pdf_bytes)
+    ordered_pages = page_tree_order(bodies)
     table_entries = manifest.get("tablas", [])
     if {entry.get("tabla") for entry in table_entries} != {"N-13", "N-14", "N-15", "N-16", "N-17"}:
         errors.append("el manifiesto no contiene exactamente N-13..N-17")
+    if any("registros_json" in scale for entry in table_entries for scale in entry.get("escalas_visibles", [])):
+        errors.append("el manifiesto no debe contener registros_json copiados; el validador los calcula desde percentiles_battelle.json")
+    tramo_12_17 = next((t for t in data.get("tramos", []) if (t.get("edad_cronologica_min_meses"), t.get("edad_cronologica_max_meses")) == (12, 17)), {})
+    record_counts = {}
+    for record in tramo_12_17.get("registros", []):
+        key = (record.get("tabla"), record.get("escala"))
+        record_counts[key] = record_counts.get(key, 0) + 1
     manifest_tables = {}
     manifest_scales = {}
     total_records = 0
     total_scales = 0
+    image_pages = {}
     for entry in table_entries:
         tab = entry.get("tabla")
         manifest_tables[tab] = entry
-        required = ["pagina", "objeto_pdf_pagina", "objeto_imagen", "sha256_flujo_imagen", "sha256_pdf_fuente"]
+        required = ["pagina_pdf_indice_cero", "pagina_pdf_numero_humano", "titulo_visible_confirmado", "objeto_pdf_pagina", "objeto_imagen", "sha256_flujo_imagen", "sha256_pdf_fuente", "metodo_recuento_filas"]
         for field in required:
-            if not entry.get(field):
+            if entry.get(field) in (None, ""):
                 errors.append(f"manifiesto sin {field} para {tab}")
+        if entry.get("titulo_visible_estado") != "confirmado_en_pagina_auditada":
+            errors.append(f"título visible no confirmado en manifiesto {tab}")
+        page_zero = entry.get("pagina_pdf_indice_cero")
+        if not isinstance(page_zero, int) or page_zero < 0 or page_zero >= len(ordered_pages) or ordered_pages[page_zero] != entry.get("objeto_pdf_pagina"):
+            errors.append(f"página no coincide con el orden real del árbol /Pages para {tab}")
+        if entry.get("pagina_pdf_numero_humano") != page_zero + 1:
+            errors.append(f"pagina_pdf_numero_humano inválida para {tab}")
+        if entry.get("pagina_inventario") != entry.get("pagina_pdf_numero_humano"):
+            errors.append(f"inventario y manifiesto difieren en página para {tab}: {entry.get('pagina_inventario')} != {entry.get('pagina_pdf_numero_humano')}")
         page_body = bodies.get(entry.get("objeto_pdf_pagina"), b"")
         resources_obj = indirect_object(page_body, "Resources") if page_body else None
         resources_body = bodies.get(resources_obj, b"") if resources_obj else b""
         image_obj = entry.get("objeto_imagen")
         if not resources_body or f"/background_Page_0 {image_obj} 0 R".encode() not in resources_body:
             errors.append(f"imagen no vinculada a la página PDF en manifiesto {tab}: página={entry.get('objeto_pdf_pagina')} imagen={image_obj}")
+        image_pages.setdefault(image_obj, set()).add(page_zero)
         image_body = bodies.get(image_obj, b"")
         if b"stream" in image_body:
             start = image_body.find(b"stream")
@@ -132,15 +175,21 @@ def manifest_by_scale(errors, data):
             key = (tab, scale.get("escala"))
             manifest_scales[key] = scale
             total_scales += 1
-            total_records += scale.get("registros_json", 0)
-            if scale.get("estado_cotejo") != "coincide":
-                errors.append(f"cotejo visual no coincide en manifiesto {tab}/{scale.get('escala')}")
-            if scale.get("filas_visibles") != scale.get("registros_json"):
-                errors.append(f"filas visuales y registros JSON difieren en manifiesto {tab}/{scale.get('escala')}")
+            independent_rows = scale.get("filas_visibles_independientes")
+            if not isinstance(independent_rows, int) or independent_rows <= 0:
+                errors.append(f"faltan filas independientes en manifiesto {tab}/{scale.get('escala')}")
+                continue
+            records = record_counts.get(key, 0)
+            total_records += records
+            if independent_rows != records:
+                errors.append(f"filas visuales independientes y registros JSON difieren {tab}/{scale.get('escala')}: {independent_rows} != {records}")
+    for image_obj, pages in image_pages.items():
+        if len(pages) > 1:
+            errors.append(f"dos tablas de páginas distintas comparten imagen {image_obj}: páginas {sorted(pages)}")
     if total_scales != 24:
         errors.append(f"el manifiesto debe cotejar 24 escalas; tiene {total_scales}")
     if total_records != 299:
-        errors.append(f"el manifiesto debe cotejar 299 registros; tiene {total_records}")
+        errors.append(f"el tramo 12-17 debe cotejar 299 registros desde JSON; tiene {total_records}")
     return manifest_tables, manifest_scales
 
 
@@ -166,8 +215,8 @@ def validate_table_audit_metadata(errors, tramo_key, tramo, expected, manifest_t
             manifest_scale = manifest_scales.get((tab, escala))
             if not manifest_scale:
                 errors.append(f"tramo {min_m}-{max_m}: falta escala en manifiesto {label}")
-            elif audit.get("filas_transcritas") != manifest_scale.get("filas_visibles"):
-                errors.append(f"tramo {min_m}-{max_m}: filas transcritas no coinciden con manifiesto {label}: {audit.get('filas_transcritas')} != {manifest_scale.get('filas_visibles')}")
+            elif audit.get("filas_transcritas") != manifest_scale.get("filas_visibles_independientes"):
+                errors.append(f"tramo {min_m}-{max_m}: filas transcritas no coinciden con manifiesto {label}: {audit.get('filas_transcritas')} != {manifest_scale.get('filas_visibles_independientes')}")
             if audit.get("filas_visibles_esperadas") != audit.get("filas_transcritas"):
                 errors.append(f"tramo {min_m}-{max_m}: filas visibles/transcritas no coinciden en metadatos {label}: {audit.get('filas_visibles_esperadas')} != {audit.get('filas_transcritas')}")
             if audit.get("confianza") == "baja":

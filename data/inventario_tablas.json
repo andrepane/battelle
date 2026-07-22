@@ -815,8 +815,8 @@
       "id_origen": "tabla_014",
       "numero_oficial": "N-14",
       "titulo_completo": "Tabla N-14 Área Adaptativa, conversión en centiles Atención Comida Vestido PUNTUACIÓN TOTAL PD PC PD PC PD PC PD PC 18+",
-      "pagina_pdf": 10,
-      "pagina_pdf_estado": "localizada_en_auditoria_pdf",
+      "pagina_pdf": 11,
+      "pagina_pdf_estado": "corregida_por_auditoria_visual_pdf",
       "finalidad": "conversion_pd_a_percentil",
       "area_o_subarea": "Adaptativa",
       "tramo_edad_cronologica_aplicable": {
@@ -842,7 +842,7 @@
         "tramo de edad no detectado en título extraído"
       ],
       "paginas_pdf": [
-        10
+        11
       ],
       "encabezados_visibles": [
         "PD",
@@ -861,8 +861,8 @@
       "id_origen": "tabla_015",
       "numero_oficial": "N-15",
       "titulo_completo": "Tabla N-15 . Área Motora, conversión en centiles Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
-      "pagina_pdf": 11,
-      "pagina_pdf_estado": "localizada_en_auditoria_pdf",
+      "pagina_pdf": 12,
+      "pagina_pdf_estado": "corregida_por_auditoria_visual_pdf",
       "finalidad": "conversion_pd_a_percentil",
       "area_o_subarea": "Motora",
       "tramo_edad_cronologica_aplicable": {
@@ -888,7 +888,7 @@
         "tramo de edad no detectado en título extraído"
       ],
       "paginas_pdf": [
-        11
+        12
       ],
       "encabezados_visibles": [
         "PD",
@@ -907,8 +907,8 @@
       "id_origen": "tabla_016",
       "numero_oficial": "N-16",
       "titulo_completo": "Tabla N-16 . Área Comunicación, conversión en centiles",
-      "pagina_pdf": 12,
-      "pagina_pdf_estado": "localizada_en_auditoria_pdf",
+      "pagina_pdf": 13,
+      "pagina_pdf_estado": "corregida_por_auditoria_visual_pdf",
       "finalidad": "conversion_pd_a_percentil",
       "area_o_subarea": "Comunicación",
       "tramo_edad_cronologica_aplicable": {
@@ -934,7 +934,7 @@
         "tramo de edad no detectado en título extraído"
       ],
       "paginas_pdf": [
-        12
+        13
       ],
       "encabezados_visibles": [
         "PD",
@@ -954,7 +954,7 @@
       "numero_oficial": "N-17",
       "titulo_completo": "Tabla N-17 . Área Cognitiva, conversión en centiles Receptiva Expresiva PUNTUACIÓN TOTAL PD PC PD PC PD PC 17+",
       "pagina_pdf": 13,
-      "pagina_pdf_estado": "localizada_en_auditoria_pdf",
+      "pagina_pdf_estado": "corregida_por_auditoria_visual_pdf",
       "finalidad": "conversion_pd_a_percentil",
       "area_o_subarea": "Cognitiva",
       "tramo_edad_cronologica_aplicable": {
