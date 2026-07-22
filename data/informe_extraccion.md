@@ -221,7 +221,7 @@ El validador ahora falla si los recuentos `filas_visibles_esperadas` y `filas_tr
 
 Se completó el tramo de edad cronológica 12-17 meses en `data/percentiles_battelle.json` con `edad_cronologica_min_meses: 12` y `edad_cronologica_max_meses: 17` en todos los registros. Las páginas se localizaron desde `data/inventario_tablas.json`: N-13 y N-14 en página PDF 10, N-15 en página PDF 11, y N-16/N-17 en las páginas PDF 12 y 13 documentadas por inventario.
 
-La lectura se auditó sobre los flujos renderizables del PDF y la imagen de fondo CCITT de cada página; no se dependió de `data/tablas_conversion_battelle.json`, ni se modificó ese archivo. Se mantuvieron intactos los bloques 0-5 y 6-11 meses, protegidos por checksum en `scripts/validar_percentiles.py`.
+La lectura se auditó sobre los flujos renderizables del PDF y la imagen de fondo CCITT de cada página; no se dependió de `data/tablas_conversion_battelle.json`, ni se modificó ese archivo. Para dejar el procedimiento reproducible se añadió `scripts/extraer_paginas_percentiles_12_17.py`, que localiza las páginas desde `data/inventario_tablas.json`, extrae las imágenes CCITT de alta resolución como TIFF y vuelca los tokens posicionados usados para cotejo columna/fila. Se mantuvieron intactos los bloques 0-5 y 6-11 meses, protegidos por checksum en `scripts/validar_percentiles.py`.
 
 Columnas normalizadas del tramo 12-17 meses:
 
@@ -252,6 +252,6 @@ Columnas normalizadas del tramo 12-17 meses:
 | N-17 | Desarrollo conceptual | 6 | 6 | true | alta |
 | N-17 | Cognitiva total | 12 | 12 | true | alta |
 
-Se transcribieron 299 registros PD-PC para N-13..N-17. Los intervalos abiertos terminados en `+` se extendieron exclusivamente hasta el máximo teórico calculado desde `data/items_areas_subareas.json`; los demás intervalos conservan sus límites impresos. No se añadieron intervalos artificiales ni se usaron columnas resumidas con solo PC 1 inferior y un límite superior.
+Se transcribieron 299 registros PD-PC para N-13..N-17 y cada escala quedó con `estado: normalizada`. Los intervalos abiertos terminados en `+` se extendieron exclusivamente hasta el máximo teórico calculado desde `data/items_areas_subareas.json`; los demás intervalos conservan sus límites impresos. No se añadieron intervalos artificiales ni se usaron columnas resumidas con solo PC 1 inferior y un límite superior.
 
 El validador de percentiles valida ahora por separado 0-5, 6-11 y 12-17 meses; protege por checksum los bloques 0-5 y 6-11; exige coincidencia entre filas visibles y filas transcritas; exige auditoría visual completa; rechaza confianza baja; comprueba celdas dudosas; y valida páginas, percentiles, cobertura, huecos, solapamientos y extensión correcta de límites abiertos.

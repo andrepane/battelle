@@ -77,20 +77,24 @@ def validate_table_audit_metadata(errors, tramo_key, tramo, expected):
     if min_m < 12:
         return
     metas = tramo.get("tablas", [])
-    by_tab = {m.get("tabla"): m for m in metas}
+    by_scale = {(m.get("tabla"), m.get("escala")): m for m in metas}
     for tab, meta in expected.items():
-        audit = by_tab.get(tab)
-        if not audit:
-            errors.append(f"tramo {min_m}-{max_m}: falta metadato de auditoría para {tab}")
-            continue
-        if audit.get("pagina_pdf") != meta["pagina"]:
-            errors.append(f"tramo {min_m}-{max_m}: página de auditoría inválida {tab}: {audit.get('pagina_pdf')}")
-        if audit.get("auditoria_visual_completa") is not True:
-            errors.append(f"tramo {min_m}-{max_m}: auditoría visual incompleta en metadatos {tab}")
-        if audit.get("filas_visibles_esperadas") != audit.get("filas_transcritas"):
-            errors.append(f"tramo {min_m}-{max_m}: filas visibles/transcritas no coinciden en metadatos {tab}: {audit.get('filas_visibles_esperadas')} != {audit.get('filas_transcritas')}")
-        if audit.get("confianza") == "baja":
-            errors.append(f"tramo {min_m}-{max_m}: confianza baja en metadatos {tab}")
+        for escala in meta["escalas"]:
+            audit = by_scale.get((tab, escala))
+            label = f"{tab}/{escala}"
+            if not audit:
+                errors.append(f"tramo {min_m}-{max_m}: falta metadato de auditoría para {label}")
+                continue
+            if audit.get("estado") != "normalizada":
+                errors.append(f"tramo {min_m}-{max_m}: escala no normalizada en metadatos {label}: {audit.get('estado')}")
+            if audit.get("pagina_pdf") != meta["pagina"]:
+                errors.append(f"tramo {min_m}-{max_m}: página de auditoría inválida {label}: {audit.get('pagina_pdf')}")
+            if audit.get("auditoria_visual_completa") is not True:
+                errors.append(f"tramo {min_m}-{max_m}: auditoría visual incompleta en metadatos {label}")
+            if audit.get("filas_visibles_esperadas") != audit.get("filas_transcritas"):
+                errors.append(f"tramo {min_m}-{max_m}: filas visibles/transcritas no coinciden en metadatos {label}: {audit.get('filas_visibles_esperadas')} != {audit.get('filas_transcritas')}")
+            if audit.get("confianza") == "baja":
+                errors.append(f"tramo {min_m}-{max_m}: confianza baja en metadatos {label}")
 
 
 def validate_group(errors, tramo_key, registros, expected, maxima, pages):

@@ -6693,7 +6693,8 @@
           "filas_visibles_esperadas": 19,
           "filas_transcritas": 19,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-13",
@@ -6702,7 +6703,8 @@
           "filas_visibles_esperadas": 14,
           "filas_transcritas": 14,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-13",
@@ -6711,7 +6713,8 @@
           "filas_visibles_esperadas": 9,
           "filas_transcritas": 9,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-13",
@@ -6720,7 +6723,8 @@
           "filas_visibles_esperadas": 14,
           "filas_transcritas": 14,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-13",
@@ -6729,7 +6733,8 @@
           "filas_visibles_esperadas": 26,
           "filas_transcritas": 26,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-14",
@@ -6738,7 +6743,8 @@
           "filas_visibles_esperadas": 7,
           "filas_transcritas": 7,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-14",
@@ -6747,7 +6753,8 @@
           "filas_visibles_esperadas": 11,
           "filas_transcritas": 11,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-14",
@@ -6756,7 +6763,8 @@
           "filas_visibles_esperadas": 9,
           "filas_transcritas": 9,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-14",
@@ -6765,7 +6773,8 @@
           "filas_visibles_esperadas": 20,
           "filas_transcritas": 20,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-15",
@@ -6774,7 +6783,8 @@
           "filas_visibles_esperadas": 8,
           "filas_transcritas": 8,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-15",
@@ -6783,7 +6793,8 @@
           "filas_visibles_esperadas": 13,
           "filas_transcritas": 13,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-15",
@@ -6792,7 +6803,8 @@
           "filas_visibles_esperadas": 7,
           "filas_transcritas": 7,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-15",
@@ -6801,7 +6813,8 @@
           "filas_visibles_esperadas": 11,
           "filas_transcritas": 11,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-15",
@@ -6810,7 +6823,8 @@
           "filas_visibles_esperadas": 19,
           "filas_transcritas": 19,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-15",
@@ -6819,7 +6833,8 @@
           "filas_visibles_esperadas": 13,
           "filas_transcritas": 13,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-15",
@@ -6828,7 +6843,8 @@
           "filas_visibles_esperadas": 26,
           "filas_transcritas": 26,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-16",
@@ -6837,7 +6853,8 @@
           "filas_visibles_esperadas": 9,
           "filas_transcritas": 9,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-16",
@@ -6846,7 +6863,8 @@
           "filas_visibles_esperadas": 13,
           "filas_transcritas": 13,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-16",
@@ -6855,7 +6873,8 @@
           "filas_visibles_esperadas": 17,
           "filas_transcritas": 17,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-17",
@@ -6864,7 +6883,8 @@
           "filas_visibles_esperadas": 6,
           "filas_transcritas": 6,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-17",
@@ -6873,7 +6893,8 @@
           "filas_visibles_esperadas": 5,
           "filas_transcritas": 5,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-17",
@@ -6882,7 +6903,8 @@
           "filas_visibles_esperadas": 5,
           "filas_transcritas": 5,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-17",
@@ -6891,7 +6913,8 @@
           "filas_visibles_esperadas": 6,
           "filas_transcritas": 6,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         },
         {
           "tabla": "N-17",
@@ -6900,7 +6923,8 @@
           "filas_visibles_esperadas": 12,
           "filas_transcritas": 12,
           "auditoria_visual_completa": true,
-          "confianza": "alta"
+          "confianza": "alta",
+          "estado": "normalizada"
         }
       ],
       "registros": [
