@@ -263,11 +263,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--rango", choices=sorted(AUDITS), default="12-17", help="Intervalo de edad a auditar")
     parser.add_argument("--manifest", default=None, help="Ruta del manifiesto JSON versionable")
-    parser.add_argument("--tiff-dir", default="tmp/percentiles_12_17_auditoria", help="Directorio no versionado para TIFFs reproducibles")
+    parser.add_argument("--tiff-dir", default=None, help="Directorio no versionado para TIFFs reproducibles")
     args = parser.parse_args()
     manifest_path = Path(args.manifest) if args.manifest else (DEFAULT_MANIFEST if args.rango == "12-17" else Path(f"data/auditorias/percentiles_{args.rango.replace('-', '_')}_manifest.json"))
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    tiff_dir = Path(args.tiff_dir)
+    tiff_dir = Path(args.tiff_dir) if args.tiff_dir else Path(f"tmp/percentiles_{args.rango.replace('-', '_')}_auditoria")
     tiff_dir.mkdir(parents=True, exist_ok=True)
     targets, table_audit = AUDITS[args.rango]
     manifest = build_manifest(tiff_dir, targets, table_audit)
