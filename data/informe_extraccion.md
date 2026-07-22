@@ -77,3 +77,26 @@ El validador `scripts/validar_tablas.py` comprueba ahora:
 - estados de normalización y niveles de confianza válidos.
 
 El script ya no reclasifica ni falla una tabla por contener `Receptiva`, `Expresiva`, `Interacción con el adulto` o `Autoconcepto` si esos tokens están documentados como contaminación.
+
+## Edades equivalentes N-54 a N-65
+
+Se añadió `data/edades_equivalentes.json` como archivo independiente para las tablas de edades equivalentes N-54 a N-65, sin reemplazar todavía `data/tablas_conversion_battelle.json`.
+
+Criterios aplicados:
+
+- Cada correspondencia conserva el intervalo de puntuación directa, la edad equivalente en meses, los valores originales de puntuación/edad, la página PDF y la confianza.
+- Los intervalos cerrados se expanden lógicamente en la validación para asegurar que cada puntuación directa corresponde a una única edad equivalente.
+- Los límites abiertos (`117+`, `162+`, `672+`, etc.) conservan el valor original y usan como `puntuacion_max` el máximo teórico/documental de la escala para poder validar solapes.
+- Las edades máximas expresadas como intervalos (`90-95`) se conservan en `valor_original_edad` y se normalizan por el límite inferior en `edad_equivalente_meses`.
+- Las celdas con OCR dudoso o particiones visibles en la extracción quedan documentadas en notas o en `dudas_visuales`; en particular, N-54 queda marcada como tabla pendiente de transcripción visual exhaustiva por mezcla de encabezados y celdas partidas.
+
+Comprobaciones específicas añadidas para Battelle total N-65:
+
+- PD 386 → edad equivalente 37 meses.
+- PD 421 → edad equivalente 41 meses.
+- PD 436 → edad equivalente 43 meses.
+- PD 464 → edad equivalente 47 meses.
+- PD 537 → edad equivalente 57 meses.
+- PD 562 → edad equivalente 60 meses.
+
+El validador `scripts/validar_edades_equivalentes.py` comprueba presencia de N-54 a N-65, ausencia de intervalos solapados, orden ascendente, unicidad por puntuación directa, campos numéricos válidos, conservación de valores originales y documentación de dudas visuales.
