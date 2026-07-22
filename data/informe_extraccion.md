@@ -216,3 +216,42 @@ Recuentos visuales por escala del tramo 6-11 meses:
 | N-12 | Cognitiva total | 10 | 10 | true |
 
 El validador ahora falla si los recuentos `filas_visibles_esperadas` y `filas_transcritas` no coinciden, si falta `auditoria_visual_completa: true`, si una escala mantiene `confianza: baja`, o si una celda dudosa documentada no tiene un registro correspondiente en el JSON.
+
+## Ampliación de percentiles 12-17 meses (N-13 a N-17)
+
+Se completó el tramo de edad cronológica 12-17 meses en `data/percentiles_battelle.json` con `edad_cronologica_min_meses: 12` y `edad_cronologica_max_meses: 17` en todos los registros. Las páginas se localizaron recorriendo el árbol `/Pages` real del PDF y se corrigió `data/inventario_tablas.json` cuando el inventario previo no coincidía con el título visible: N-13 queda en la página humana 10, N-14 en la 11, N-15 en la 12, y N-16/N-17 comparten visualmente la página humana 13 porque la misma imagen muestra ambos títulos.
+
+La lectura se auditó sobre los flujos renderizables del PDF y la imagen de fondo CCITT de cada página; no se dependió de `data/tablas_conversion_battelle.json`, ni se modificó ese archivo. Para dejar el procedimiento reproducible se añadió `scripts/extraer_paginas_percentiles_12_17.py`, que localiza las páginas desde `data/inventario_tablas.json`, relaciona tabla → página PDF → objeto de página → XObject de imagen → TIFF reproducible, extrae las imágenes CCITT de alta resolución como TIFF y vuelca `data/auditorias/percentiles_12_17_manifest.json` con `pagina_pdf_indice_cero`, `pagina_pdf_numero_humano`, `pagina_impresa`, hashes del PDF, hashes de flujos de imagen, dimensiones y recuentos visuales independientes por escala. El manifiesto ya no copia `registros_json`; el validador los calcula desde `data/percentiles_battelle.json` y los compara contra `filas_visibles_independientes`. Se mantuvieron intactos los bloques 0-5 y 6-11 meses, protegidos por checksum en `scripts/validar_percentiles.py`.
+
+Columnas normalizadas del tramo 12-17 meses:
+
+| Tabla | Escala | Filas visibles esperadas | Filas transcritas | Auditoría visual completa | Confianza |
+| --- | --- | ---: | ---: | --- | --- |
+| N-13 | Interacción con el adulto | 19 | 19 | true | alta |
+| N-13 | Expresión de sentimientos/afecto | 14 | 14 | true | alta |
+| N-13 | Autoconcepto | 9 | 9 | true | alta |
+| N-13 | Interacción con los compañeros | 14 | 14 | true | alta |
+| N-13 | Personal/Social total | 26 | 26 | true | alta |
+| N-14 | Atención | 7 | 7 | true | alta |
+| N-14 | Comida | 11 | 11 | true | alta |
+| N-14 | Vestido | 9 | 9 | true | alta |
+| N-14 | Adaptativa total | 20 | 20 | true | alta |
+| N-15 | Coordinación corporal | 8 | 8 | true | alta |
+| N-15 | Locomoción | 13 | 13 | true | alta |
+| N-15 | Motricidad fina | 7 | 7 | true | alta |
+| N-15 | Motricidad perceptiva | 11 | 11 | true | alta |
+| N-15 | Motora gruesa | 19 | 19 | true | alta |
+| N-15 | Motora fina | 13 | 13 | true | alta |
+| N-15 | Motora total | 26 | 26 | true | alta |
+| N-16 | Receptiva | 9 | 9 | true | alta |
+| N-16 | Expresiva | 13 | 13 | true | alta |
+| N-16 | Comunicación total | 17 | 17 | true | alta |
+| N-17 | Discriminación perceptiva | 6 | 6 | true | alta |
+| N-17 | Memoria | 5 | 5 | true | alta |
+| N-17 | Razonamiento y habilidades escolares | 5 | 5 | true | alta |
+| N-17 | Desarrollo conceptual | 6 | 6 | true | alta |
+| N-17 | Cognitiva total | 12 | 12 | true | alta |
+
+Se transcribieron 299 registros PD-PC para N-13..N-17 y cada escala quedó con `estado: normalizada`. El manifiesto confirma las celdas llamativas N-14 Atención `0-12'`, N-15 Coordinación corporal `16+`→PC 81, N-17 Memoria `10+`→PC 95 y N-17 Razonamiento y habilidades escolares `5+`→PC 98; el apóstrofo de `0-12'` se conserva literalmente como marca impresa/OCR, no como límite abierto. Los intervalos abiertos terminados en `+` se extendieron exclusivamente hasta el máximo teórico calculado desde `data/items_areas_subareas.json`; los demás intervalos conservan sus límites impresos. No se añadieron intervalos artificiales ni se usaron columnas resumidas con solo PC 1 inferior y un límite superior.
+
+El validador de percentiles valida ahora por separado 0-5, 6-11 y 12-17 meses; protege por checksum los bloques 0-5 y 6-11; exige coincidencia entre filas visibles y filas transcritas; exige auditoría visual completa; rechaza confianza baja; comprueba celdas dudosas; y valida páginas, percentiles, cobertura, huecos, solapamientos y extensión correcta de límites abiertos.
