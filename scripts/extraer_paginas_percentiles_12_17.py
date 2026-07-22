@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import struct
+import unicodedata
 import zlib
 from pathlib import Path
 
@@ -34,6 +35,7 @@ TABLE_AUDIT = {
         "dudas_visuales": [],
     },
     "N-14": {
+        "edad_texto_sin_etiqueta_meses_confirmada_visualmente": True,
         "titulo_visible_confirmado": "Tabla N-14. Área Adaptativa, conversión en centiles",
         "pagina_pdf_numero_humano": 11,
         "pagina_impresa": None,
@@ -95,6 +97,14 @@ AUDITS["18-23"] = (("N-18", "N-19", "N-20", "N-21", "N-22"), {
     "N-20": {"titulo_visible_confirmado": "Tabla N-20. Área Motora, conversión en centiles", "pagina_pdf_numero_humano": 16, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Coordinación corporal": 12, "Locomoción": 9, "Motricidad fina": 8, "Motricidad perceptiva": 7, "Motora gruesa": 12, "Motora fina": 12, "Motora total": 18}, "dudas_visuales": []},
     "N-21": {"titulo_visible_confirmado": "Tabla N-21. Área Comunicación, conversión en centiles", "pagina_pdf_numero_humano": 17, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Receptiva": 11, "Expresiva": 13, "Comunicación total": 15}, "dudas_visuales": []},
     "N-22": {"titulo_visible_confirmado": "Tabla N-22. Área Cognitiva, conversión en centiles", "pagina_pdf_numero_humano": 17, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Discriminación perceptiva": 7, "Memoria": 4, "Razonamiento y habilidades escolares": 5, "Desarrollo conceptual": 7, "Cognitiva total": 11}, "dudas_visuales": []},
+})
+
+AUDITS["24-35"] = (("N-23", "N-24", "N-25", "N-26", "N-27"), {
+    "N-23": {"titulo_visible_confirmado": "Tabla N-23. Área Personal-Social, conversión en centiles", "pagina_pdf_numero_humano": 18, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Interacción con el adulto": 14, "Expresión de sentimientos/afecto": 13, "Autoconcepto": 20, "Interacción con los compañeros": 22, "Colaboración": 16, "Rol social": 19, "Personal/Social total": 52}, "dudas_visuales": []},
+    "N-24": {"titulo_visible_confirmado": "Tabla N-24. Área Adaptativa, conversión en centiles", "pagina_pdf_numero_humano": 19, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Atención": 5, "Comida": 8, "Vestido": 15, "Responsabilidad personal": 11, "Aseo": 13, "Adaptativa total": 32}, "dudas_visuales": []},
+    "N-25": {"titulo_visible_confirmado": "Tabla N-25. Área Motora, conversión en centiles", "edad_texto_sin_intervalo_confirmada_visualmente": True, "edad_texto_sin_etiqueta_meses_confirmada_visualmente": True, "pagina_pdf_numero_humano": 20, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Coordinación corporal": 18, "Locomoción": 5, "Motricidad fina": 18, "Motricidad perceptiva": 9, "Motora gruesa": 22, "Motora fina": 23, "Motora total": 33}, "dudas_visuales": []},
+    "N-26": {"titulo_visible_confirmado": "Tabla N-26. Área Comunicación, conversión en centiles", "edad_texto_compacta_confirmada": True, "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Receptiva": 20, "Expresiva": 23, "Comunicación total": 33}, "dudas_visuales": []},
+    "N-27": {"titulo_visible_confirmado": "Tabla N-27. Área Cognitiva, conversión en centiles", "edad_texto_compacta_confirmada": True, "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Discriminación perceptiva": 10, "Memoria": 9, "Razonamiento y habilidades escolares": 10, "Desarrollo conceptual": 12, "Cognitiva total": 25}, "dudas_visuales": []},
 })
 
 
@@ -189,11 +199,63 @@ def decode_text_stream(data):
         return ""
 
 
+def normalize_for_title_compare(value):
+    normalized = unicodedata.normalize("NFKD", value.lower())
+    normalized = "".join(char for char in normalized if not unicodedata.combining(char))
+    normalized = normalized.replace("–", "-").replace("—", "-").replace("−", "-")
+    normalized = re.sub(r"[^a-z0-9-]+", " ", normalized)
+    return re.sub(r"\s+", " ", normalized).strip()
+
+
+def levenshtein_distance(left, right):
+    if left == right:
+        return 0
+    if len(left) < len(right):
+        left, right = right, left
+    previous = list(range(len(right) + 1))
+    for i, left_char in enumerate(left, 1):
+        current = [i]
+        for j, right_char in enumerate(right, 1):
+            current.append(min(previous[j] + 1, current[j - 1] + 1, previous[j - 1] + (left_char != right_char)))
+        previous = current
+    return previous[-1]
+
+
+def contains_required_word(normalized_text, required, max_distance=0):
+    words = normalized_text.split()
+    required = normalize_for_title_compare(required)
+    return any(word == required or (max_distance and levenshtein_distance(word, required) <= max_distance) for word in words)
+
+
+def printed_age_is_confirmed(normalized_text, spec):
+    normalized_age = normalize_for_title_compare(spec.get("edad_impresa", "12-17 MESES"))
+    age_interval = normalized_age.split()[0]
+    compact_age = age_interval.replace("-", "")
+    interval_pattern = r"\s*-\s*".join(re.escape(part) for part in age_interval.split("-"))
+    contiguous_interval = re.search(rf"\b{interval_pattern}\b", normalized_text) is not None
+    compact_interval = bool(spec.get("edad_texto_compacta_confirmada")) and contains_required_word(normalized_text, compact_age)
+    interval_confirmed = contiguous_interval or compact_interval
+    if not interval_confirmed and spec.get("edad_texto_sin_intervalo_confirmada_visualmente"):
+        interval_confirmed = True
+    if not interval_confirmed:
+        return False
+    if contains_required_word(normalized_text, "meses"):
+        return True
+    return bool(spec.get("edad_texto_sin_etiqueta_meses_confirmada_visualmente"))
+
+
 def title_is_confirmed(text, table, table_audit=TABLE_AUDIT):
     spec = table_audit[table]
     title = spec["titulo_visible_confirmado"]
-    required = [table, title.split("Área ")[1].split(",")[0], "conversión", "centiles"]
-    return all(token in text for token in required)
+    normalized_text = normalize_for_title_compare(text)
+    area = title.split("Área ")[1].split(",")[0]
+    return (
+        contains_required_word(normalized_text, table)
+        and contains_required_word(normalized_text, area)
+        and contains_required_word(normalized_text, "conversión", max_distance=1)
+        and contains_required_word(normalized_text, "centiles", max_distance=2)
+        and printed_age_is_confirmed(normalized_text, spec)
+    )
 
 
 def build_manifest(tiff_dir, targets=TARGETS, table_audit=TABLE_AUDIT):

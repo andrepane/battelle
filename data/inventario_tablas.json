@@ -1326,8 +1326,8 @@
       "id_origen": "tabla_025",
       "numero_oficial": "N-25",
       "titulo_completo": "Tabla N-25 . Área Motora, conversión en centiles Coordinación corporal Locomoción Motricidad fina Motricidad perceptiva MOTORA GRUESA MOTORA FINA PUNTUACIÓN TOTAL PD",
-      "pagina_pdf": 19,
-      "pagina_pdf_estado": "localizada_en_auditoria_pdf",
+      "pagina_pdf": 20,
+      "pagina_pdf_estado": "corregida_en_auditoria_pdf_24_35",
       "finalidad": "conversion_pd_a_percentil",
       "area_o_subarea": "Motora",
       "tramo_edad_cronologica_aplicable": {
@@ -1353,7 +1353,7 @@
         "tramo de edad no detectado en título extraído"
       ],
       "paginas_pdf": [
-        19
+        20
       ],
       "encabezados_visibles": [
         "PD",
@@ -1372,8 +1372,8 @@
       "id_origen": "tabla_026",
       "numero_oficial": "N-26",
       "titulo_completo": "Tabla N-26 . Area Comunicación, conversión en centiles",
-      "pagina_pdf": 20,
-      "pagina_pdf_estado": "localizada_en_auditoria_pdf",
+      "pagina_pdf": 21,
+      "pagina_pdf_estado": "corregida_en_auditoria_pdf_24_35",
       "finalidad": "conversion_pd_a_percentil",
       "area_o_subarea": "Comunicación",
       "tramo_edad_cronologica_aplicable": {
@@ -1399,7 +1399,7 @@
         "tramo de edad no detectado en título extraído"
       ],
       "paginas_pdf": [
-        20
+        21
       ],
       "encabezados_visibles": [
         "PD",

@@ -33,20 +33,35 @@ EXPECTED = {
         "N-21": {"pagina": 17, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
         "N-22": {"pagina": 17, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
     },
+    (24, 35): {
+        "N-23": {"pagina": 18, "escalas": ["Interacción con el adulto", "Expresión de sentimientos/afecto", "Autoconcepto", "Interacción con los compañeros", "Colaboración", "Rol social", "Personal/Social total"]},
+        "N-24": {"pagina": 19, "escalas": ["Atención", "Comida", "Vestido", "Responsabilidad personal", "Aseo", "Adaptativa total"]},
+        "N-25": {"pagina": 20, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
+        "N-26": {"pagina": 21, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
+        "N-27": {"pagina": 21, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
+    },
 }
 
 VALIDATED_0_5_SHA256 = "58eb37230c046640e0c44b001ac5be1283d5426c620be638229dfafcf630b17c"
 VALIDATED_6_11_SHA256 = "683b6f8459ad384873ca3ad2a4d54d0f5c4c4a52f69631cbb6065836e8cf7ae7"
 VALIDATED_12_17_SHA256 = "fb756b48fb08a06adb71a1bdd2c5781742d9f417e11cd03528c50bb3dae9d1ce"
+VALIDATED_18_23_SHA256 = "cfd9ed575788a33efb9bafbc3443aff301f48e8bd37d3e61e77fd5df7778d567"
 MANIFEST_PATHS = {
     (12, 17): Path("data/auditorias/percentiles_12_17_manifest.json"),
     (18, 23): Path("data/auditorias/percentiles_18_23_manifest.json"),
+    (24, 35): Path("data/auditorias/percentiles_24_35_manifest.json"),
 }
 EXPECTED_RECORD_COUNTS = {
     (12, 17): 299,
     (18, 23): 300,
+    (24, 35): 510,
 }
-EXPECTED_TOTAL_RECORDS = 1058
+EXPECTED_SCALE_COUNTS = {
+    (12, 17): 24,
+    (18, 23): 26,
+    (24, 35): 28,
+}
+EXPECTED_TOTAL_RECORDS = 1568
 PDF_SOURCE = Path("Battelle_Tablas de corrección.pdf")
 
 AREA_ALIASES = {"Personal/Social": "Personal/Social", "Adaptativa": "Adaptativa", "Motora": "Motora", "Comunicación": "Comunicación", "Cognitiva": "Cognitiva"}
@@ -206,7 +221,10 @@ def manifest_by_scale(errors, data, tramo_key):
     for image_obj, pages in image_pages.items():
         if len(pages) > 1:
             errors.append(f"dos tablas de páginas distintas comparten imagen {image_obj}: páginas {sorted(pages)}")
-    expected_scales = sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values())
+    expected_scales = EXPECTED_SCALE_COUNTS.get(tramo_key, sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values()))
+    declared_scales = sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values())
+    if declared_scales != expected_scales:
+        errors.append(f"la expectativa independiente de escalas para {tramo_key[0]}-{tramo_key[1]} es {expected_scales}; EXPECTED declara {declared_scales}")
     if total_scales != expected_scales:
         errors.append(f"el manifiesto debe cotejar {expected_scales} escalas; tiene {total_scales}")
     expected_records = EXPECTED_RECORD_COUNTS.get(tramo_key)
@@ -316,6 +334,28 @@ def validate_dudosas(errors, data):
             errors.append(f"celda dudosa sin registro correspondiente: {duda}")
 
 
+def validate_title_confirmation_helpers(errors):
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("percentile_extractor", "scripts/extraer_paginas_percentiles_12_17.py")
+    extractor = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(extractor)
+    audit_24_35 = {
+        "N-23": {"titulo_visible_confirmado": "Tabla N-23. Área Personal-Social, conversión en centiles", "edad_impresa": "24-35 MESES"},
+        "N-24": {"titulo_visible_confirmado": "Tabla N-24. Área Adaptativa, conversión en centiles", "edad_impresa": "24-35 MESES"},
+    }
+    cases = [
+        ("N-23", "24 ... texto distinto ... 35 MESES Tabla N-23. Área Personal-Social, conversión en centiles", False, "intervalo de edad no contiguo aceptado"),
+        ("N-23", "24-35 MESES Tabla N-23. Área Personal-Social, conversión en centiles", True, "24-35 MESES rechazado"),
+        ("N-23", "24 – 35 meses Tabla N-23. Area Personal-Social, conversión en centiles", True, "24 – 35 meses rechazado"),
+        ("N-23", "18-23 MESES Tabla N-23. Área Personal-Social, conversión en centiles", False, "edad 18-23 aceptada para 24-35"),
+        ("N-23", "24-35 MESES Tabla N-24. Área Personal-Social, conversión en centiles", False, "N-23 confundida con N-24"),
+    ]
+    for table, text, expected, message in cases:
+        if extractor.title_is_confirmed(text, table, audit_24_35) is not expected:
+            errors.append(f"comprobación interna title_is_confirmed: {message}")
+
+
 def main():
     maxima = load_theoretical_maxima()
     pages = inventario_pages()
@@ -328,6 +368,9 @@ def main():
         errors.append("el bloque validado 6-11 fue modificado")
     if hashlib.sha256(json.dumps(tramos.get((12, 17), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_12_17_SHA256:
         errors.append("el bloque validado 12-17 fue modificado")
+    if hashlib.sha256(json.dumps(tramos.get((18, 23), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_18_23_SHA256:
+        errors.append("el bloque validado 18-23 fue modificado")
+    validate_title_confirmation_helpers(errors)
     validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():
         tramo = tramos.get(tramo_key)
@@ -351,11 +394,12 @@ def main():
         return 1
     total = sum(len(tramos[k].get("registros", [])) for k in EXPECTED)
     if total != EXPECTED_TOTAL_RECORDS:
-        print(f"ERROR: total N-3..N-22 debe contener exactamente {EXPECTED_TOTAL_RECORDS} registros; tiene {total}", file=sys.stderr)
+        print(f"ERROR: total N-3..N-27 debe contener exactamente {EXPECTED_TOTAL_RECORDS} registros; tiene {total}", file=sys.stderr)
         return 1
     print("OK: 12-17 meses: 24 escalas, 299 registros.")
     print("OK: 18-23 meses: 26 escalas, 300 registros.")
-    print(f"OK: total N-3..N-22: exactamente {EXPECTED_TOTAL_RECORDS} registros validados (0-5, 6-11, 12-17 y 18-23 meses).")
+    print("OK: 24-35 meses: 28 escalas, 510 registros.")
+    print(f"OK: total N-3..N-27: exactamente {EXPECTED_TOTAL_RECORDS} registros validados (0-5, 6-11, 12-17, 18-23 y 24-35 meses).")
     return 0
 
 
