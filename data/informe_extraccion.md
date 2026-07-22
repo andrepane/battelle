@@ -312,3 +312,23 @@ Validación ejecutada: se regeneraron los manifiestos 12-17, 18-23 y 24-35 con v
 ### Corrección de confirmación textual de edad en auditoría 24-35
 
 La confirmación automatizada de títulos ahora exige un intervalo de edad contiguo en la capa textual normalizada (`24-35`, variantes con espacios/guiones tipográficos o compacta `2435` solo si está declarada por tabla) y no acepta límites separados en celdas distintas. Excepciones documentadas por defectos de la capa textual frente a la imagen auditada: N-14 conserva `12-17` pero omite la palabra `MESES`; N-25 omite en la capa textual el encabezado de edad visible en la imagen enlazada; N-26 y N-27 representan el intervalo visible `24-35` como `2435` en la capa textual. Estas excepciones no modifican los manifiestos ni los registros PD→PC.
+
+## Auditoría percentiles Battelle completo 36-47 meses (N-28..N-32)
+
+Se amplió el extractor parametrizado `scripts/extraer_paginas_percentiles_12_17.py` con `--rango 36-47` y salida por defecto `tmp/percentiles_36_47_auditoria`. La auditoría localizó visualmente las tablas oficiales N-28, N-29, N-30, N-31 y N-32 en el PDF incluido `Battelle_Tablas de corrección.pdf`, sin usar fuentes externas ni el archivo `battelle original.xlsx`.
+
+Tablas auditadas:
+
+- N-28: página PDF humana 22, área Personal-Social, 36-47 MESES, conversión en centiles.
+- N-29: página PDF humana 23, área Adaptativa, 36-47 MESES, conversión en centiles; pendiente de revisión visual porque el flujo `/Contents` está vacío y la tabla queda solo en la imagen vinculada.
+- N-30: página PDF humana 24, área Motora, 36-47 MESES, conversión en centiles; excepción OCR documentada porque el texto extraíble lee “Gentiles”, aunque el título visible corresponde a centiles.
+- N-31: página PDF humana 25, área Comunicación, 36-47 MESES, conversión en centiles. Discrepancia: `data/inventario_tablas.json` declara `pagina_pdf: 24`, pero el recorrido real `/Pages` y el título visible la ubican en la página humana 25, compartida con N-32.
+- N-32: página PDF humana 25, área Cognitiva, 36-47 MESES, conversión en centiles.
+
+Escalas encontradas visualmente: 28 escalas (7 Personal-Social, 6 Adaptativa, 7 Motora, 3 Comunicación y 5 Cognitiva). No aparece Battelle total en estas tablas. La solicitud mencionaba las 22 subáreas documentales; el tramo visible contiene subáreas, agregados motores y totales de área, pero no todas las subáreas documentales aparecen como columnas independientes.
+
+Registros añadidos: 0 registros normalizados. El tramo 36-47 se dejó como `pendiente_revision_visual` en `data/percentiles_battelle.json` porque N-29 no puede leerse con seguridad desde el flujo textual del PDF en este entorno y no se deben inventar ni interpolar celdas. Nuevo total acumulado validado N-3..N-27: 1568 registros; N-28..N-32 permanece pendiente y por tanto el total N-3..N-32 no se fija todavía.
+
+Método de auditoría: recorrido recursivo del árbol `/Pages`, vinculación de página, objeto de contenido, XObject `background_Page_0`, dimensiones, SHA-256 del flujo de imagen y TIFF CCITT reproducible. El manifiesto independiente `data/auditorias/percentiles_36_47_manifest.json` no copia `registros_json`.
+
+Ausencia de interpolación: no se normalizó ningún valor 36-47 porque hay dudas visuales pendientes. Los percentiles disponibles en la aplicación siguen normalizados hasta 35 meses; 36-95 meses continúan pendientes de normalización efectiva hasta completar transcripción visual segura. No se modificaron ítems, modelo de escalas, edades equivalentes, diseño de interfaz ni reglas basal/techo/puntuación.

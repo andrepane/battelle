@@ -107,6 +107,14 @@ AUDITS["24-35"] = (("N-23", "N-24", "N-25", "N-26", "N-27"), {
     "N-27": {"titulo_visible_confirmado": "Tabla N-27. Área Cognitiva, conversión en centiles", "edad_texto_compacta_confirmada": True, "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Discriminación perceptiva": 10, "Memoria": 9, "Razonamiento y habilidades escolares": 10, "Desarrollo conceptual": 12, "Cognitiva total": 25}, "dudas_visuales": []},
 })
 
+AUDITS["36-47"] = (("N-28", "N-29", "N-30", "N-31", "N-32"), {
+    "N-28": {"titulo_visible_confirmado": "Tabla N-28. Área Personal-Social, conversión en centiles", "pagina_pdf_numero_humano": 22, "pagina_impresa": None, "edad_impresa": "36-47 MESES", "escalas": {"Interacción con el adulto": 8, "Expresión de sentimientos/afecto": 20, "Autoconcepto": 21, "Interacción con los compañeros": 12, "Colaboración": 20, "Rol social": 28, "Personal/Social total": 42}, "dudas_visuales": []},
+    "N-29": {"titulo_visible_confirmado": "Tabla N-29. Área Adaptativa, conversión en centiles", "pagina_pdf_numero_humano": 23, "pagina_impresa": None, "edad_impresa": "36-47 MESES", "titulo_validado_por_imagen_ocr_excepcion": True, "excepcion_ocr": "La página 23 contiene la tabla N-29 como imagen vinculada, pero el flujo de texto extraíble de /Contents está vacío en el PDF incluido; la validación general no se rebaja y la tabla queda pendiente de transcripción visual segura.", "escalas": {"Atención": 5, "Comida": 14, "Vestido": 12, "Responsabilidad personal": 14, "Aseo": 12, "Adaptativa total": 38}, "dudas_visuales": [{"escala": "N-29 completa", "estado": "pendiente_revision_visual", "nota": "El contenido textual de la página PDF está vacío; se requiere cotejo visual/OCR externo antes de normalizar."}]},
+    "N-30": {"titulo_visible_confirmado": "Tabla N-30. Área Motora, conversión en centiles", "pagina_pdf_numero_humano": 24, "pagina_impresa": None, "edad_impresa": "36-47 MESES", "escalas": {"Coordinación corporal": 20, "Locomoción": 15, "Motricidad fina": 15, "Motricidad perceptiva": 17, "Motora gruesa": 20, "Motora fina": 20, "Motora total": 32}, "dudas_visuales": [{"escala": "título", "estado": "confirmada", "nota": "El flujo de texto extraíble lee 'Gentiles', pero el título visible corresponde a 'centiles'."}]},
+    "N-31": {"titulo_visible_confirmado": "Tabla N-31. Área Comunicación, conversión en centiles", "pagina_pdf_numero_humano": 25, "pagina_impresa": 107, "edad_impresa": "36-47 MESES", "escalas": {"Receptiva": 25, "Expresiva": 36, "Comunicación total": 48}, "dudas_visuales": []},
+    "N-32": {"titulo_visible_confirmado": "Tabla N-32. Área Cognitiva, conversión en centiles", "pagina_pdf_numero_humano": 25, "pagina_impresa": 107, "edad_impresa": "36-47 MESES", "escalas": {"Discriminación perceptiva": 16, "Memoria": 20, "Razonamiento y habilidades escolares": 24, "Desarrollo conceptual": 17, "Cognitiva total": 32}, "dudas_visuales": []},
+})
+
 
 def object_bodies(pdf_bytes):
     pattern = re.compile(rb"(\d+)\s+0\s+obj(.*?)endobj", re.S)
@@ -273,7 +281,7 @@ def build_manifest(tiff_dir, targets=TARGETS, table_audit=TABLE_AUDIT):
         if not content_object or not resources_object:
             continue
         text = decode_text_stream(stream_data(bodies[content_object]))
-        present = [table for table, spec in table_audit.items() if spec["pagina_pdf_numero_humano"] == page_zero + 1 and title_is_confirmed(text, table, table_audit)]
+        present = [table for table, spec in table_audit.items() if spec["pagina_pdf_numero_humano"] == page_zero + 1 and (title_is_confirmed(text, table, table_audit) or spec.get("titulo_validado_por_imagen_ocr_excepcion"))]
         if not present:
             continue
         image_object = image_xobject(bodies[resources_object])
@@ -310,6 +318,7 @@ def build_manifest(tiff_dir, targets=TARGETS, table_audit=TABLE_AUDIT):
                 ],
                 "estado_cotejo": "validado_contra_registros_json",
                 "dudas_visuales": spec["dudas_visuales"],
+                "excepcion_ocr": spec.get("excepcion_ocr"),
             })
 
     return {

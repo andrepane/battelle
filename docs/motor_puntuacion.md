@@ -68,3 +68,9 @@ Las edades equivalentes proceden de `data/edades_equivalentes.json` y usan las t
 La persistencia usa `localStorage` con la clave versionada `battelleAssessmentV2`. Solo se serializan metadatos, respuestas observadas y observaciones del examinador; PD, basal, techo, percentiles y edades equivalentes se recalculan al cargar. La clave antigua `battellePrototype` solo se notifica y puede descartarse, sin migración silenciosa.
 
 Limitaciones: esta interfaz no debe considerarse lista para uso clínico definitivo mientras falten percentiles normalizados para 36-95 meses y la tabla N-1 no tenga una normalización segura. Quedan fuera de alcance z, T, CI, ECN, PDF, exportación, cuentas, almacenamiento remoto, históricos multipaciente y screening.
+
+### Estado percentiles 36-47 meses
+
+La auditoría visual de las tablas N-28..N-32 del Battelle completo fue registrada en `data/auditorias/percentiles_36_47_manifest.json`. El extractor parametrizado acepta `--rango 36-47` y genera TIFFs reproducibles en `tmp/percentiles_36_47_auditoria` por defecto.
+
+El tramo 36-47 meses queda marcado como `pendiente_revision_visual`: no se exponen percentiles nuevos en el motor hasta que todas las celdas PD→PC se cotejen visualmente sin dudas, especialmente la tabla N-29, cuyo flujo textual PDF está vacío. La selección de tramos mantiene 24-35 meses como último tramo normalizado y 36-95 meses como `percentiles_pendientes_normalizacion`; no hay interpolación.

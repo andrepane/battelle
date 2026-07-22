@@ -40,26 +40,38 @@ EXPECTED = {
         "N-26": {"pagina": 21, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
         "N-27": {"pagina": 21, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
     },
+    (36, 47): {
+        "N-28": {"pagina": 22, "escalas": ["Interacción con el adulto", "Expresión de sentimientos/afecto", "Autoconcepto", "Interacción con los compañeros", "Colaboración", "Rol social", "Personal/Social total"]},
+        "N-29": {"pagina": 23, "escalas": ["Atención", "Comida", "Vestido", "Responsabilidad personal", "Aseo", "Adaptativa total"]},
+        "N-30": {"pagina": 24, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
+        "N-31": {"pagina": 25, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
+        "N-32": {"pagina": 25, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
+    },
 }
 
 VALIDATED_0_5_SHA256 = "58eb37230c046640e0c44b001ac5be1283d5426c620be638229dfafcf630b17c"
 VALIDATED_6_11_SHA256 = "683b6f8459ad384873ca3ad2a4d54d0f5c4c4a52f69631cbb6065836e8cf7ae7"
 VALIDATED_12_17_SHA256 = "fb756b48fb08a06adb71a1bdd2c5781742d9f417e11cd03528c50bb3dae9d1ce"
 VALIDATED_18_23_SHA256 = "cfd9ed575788a33efb9bafbc3443aff301f48e8bd37d3e61e77fd5df7778d567"
+VALIDATED_24_35_SHA256 = "924cc0dacc518bc0e51e40f566a20072f5535babdec16e00ec6ac58f4612be0e"
 MANIFEST_PATHS = {
     (12, 17): Path("data/auditorias/percentiles_12_17_manifest.json"),
     (18, 23): Path("data/auditorias/percentiles_18_23_manifest.json"),
     (24, 35): Path("data/auditorias/percentiles_24_35_manifest.json"),
+    (36, 47): Path("data/auditorias/percentiles_36_47_manifest.json"),
 }
 EXPECTED_RECORD_COUNTS = {
     (12, 17): 299,
     (18, 23): 300,
     (24, 35): 510,
 }
+EXPECTED_36_47_SCALE_COUNT = 28
+EXPECTED_36_47_RECORD_COUNT = None  # pendiente hasta transcripción visual segura de N-29
 EXPECTED_SCALE_COUNTS = {
     (12, 17): 24,
     (18, 23): 26,
     (24, 35): 28,
+    (36, 47): EXPECTED_36_47_SCALE_COUNT,
 }
 EXPECTED_TOTAL_RECORDS = 1568
 PDF_SOURCE = Path("Battelle_Tablas de corrección.pdf")
@@ -184,6 +196,8 @@ def manifest_by_scale(errors, data, tramo_key):
             errors.append(f"título visible no confirmado en manifiesto {tab}")
         if entry.get("estado_cotejo") != "validado_contra_registros_json":
             errors.append(f"estado_cotejo inválido en manifiesto {tab}: {entry.get('estado_cotejo')}")
+        if tramo_key == (36, 47) and any(d.get("estado") == "pendiente_revision_visual" for d in entry.get("dudas_visuales", [])):
+            errors.append(f"{tab} queda pendiente_revision_visual; normalización 36-47 bloqueada hasta confirmar visualmente las filas afectadas")
         page_zero = entry.get("pagina_pdf_indice_cero")
         if not isinstance(page_zero, int) or page_zero < 0 or page_zero >= len(ordered_pages) or ordered_pages[page_zero] != entry.get("objeto_pdf_pagina"):
             errors.append(f"página no coincide con el orden real del árbol /Pages para {tab}")
@@ -370,6 +384,8 @@ def main():
         errors.append("el bloque validado 12-17 fue modificado")
     if hashlib.sha256(json.dumps(tramos.get((18, 23), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_18_23_SHA256:
         errors.append("el bloque validado 18-23 fue modificado")
+    if hashlib.sha256(json.dumps(tramos.get((24, 35), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_24_35_SHA256:
+        errors.append("el bloque validado 24-35 fue modificado")
     validate_title_confirmation_helpers(errors)
     validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():

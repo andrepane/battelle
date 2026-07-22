@@ -26039,6 +26039,16 @@
           "confianza": "alta"
         }
       ]
+    },
+    {
+      "edad_cronologica_min_meses": 36,
+      "edad_cronologica_max_meses": 47,
+      "modalidad": "Battelle completo",
+      "estado": "pendiente_revision_visual",
+      "motivo": "La tabla N-29 (Adaptativa) está en una página cuyo flujo /Contents no expone texto extraíble; no se normaliza el tramo hasta completar cotejo visual seguro de todas las celdas oficiales.",
+      "auditoria_visual": "data/auditorias/percentiles_36_47_manifest.json",
+      "tablas": [],
+      "registros": []
     }
   ],
   "celdas_dudosas": [
