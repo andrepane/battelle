@@ -71,3 +71,24 @@ class RealExcelIntegration(unittest.TestCase):
    self.assertEqual(ca['checksum_protegido_antes'], ca['checksum_protegido_despues'])
    self.assertEqual(ca, cb)
    self.assertEqual(hashes(a), hashes(b))
+
+class ComparisonAndSets(unittest.TestCase):
+ def test_canonical_key_and_percentile_difference(self):
+  from scripts.battelle_parser.extract import canonical_key_record, compare_active
+  a={'tabla':'N-3','edad_cronologica_min_meses':0,'edad_cronologica_max_meses':5,'escala':'Autoconcepto','puntuacion_directa_min':6,'puntuacion_directa_max':'','valor_original_pd':'6+','percentil':96}
+  r={'Tabla':'N-3','EdadMinMeses':'0','EdadMaxMeses':'5','Subarea':'Autoconcepto','PDMin':'6','PDMax':'','LimiteSuperiorAbierto':'1','Percentil':95,'origen_dato':'excel_ocr'}
+  self.assertEqual(canonical_key_record(a), canonical_key_record(r))
+ def test_mutually_exclusive_sets_no_n3_n12_duplication(self):
+  from scripts.battelle_parser.extract import split_sets
+  rows=[{'Tabla':'N-3','EdadMinMeses':'0','EdadMaxMeses':'5','Subarea':'A','PDMin':'1','PDMax':'1','LimiteSuperiorAbierto':'0','Percentil':'50','origen_dato':'v4_revisado'}, {'Tabla':'N-13','EdadMinMeses':'12','EdadMaxMeses':'23','Subarea':'B','PDMin':'1','PDMax':'1','LimiteSuperiorAbierto':'0','Percentil':'50','origen_dato':'excel_ocr'}]
+  p,c,pend,rej,dup=split_sets(rows)
+  self.assertEqual((len(p),len(c),len(pend),len(rej),len(dup)),(1,0,1,0,0))
+  self.assertEqual(len(p),1)
+ def test_title_observed_vs_inferred_and_shared_row_blocks(self):
+  Cell=lambda row,col,coord,value: type('C',(),{'sheet':'S','row':row,'col':col,'coord':coord,'value':value})()
+  wb={'sheets':[{'name':'S','max_row':25,'max_col':1,'cells':[Cell(1,1,'A1','Tabla N-8 Tabla N-9'),Cell(20,1,'A20','Tabla N-11')]}]}
+  titles=detect_titles(wb)
+  self.assertTrue(any(t['Tabla']=='N-10' and t.get('reconstructed') for t in titles))
+  self.assertTrue(any(t['Tabla']=='N-9' and not t.get('reconstructed') for t in titles))
+  blocks=delimit_blocks(titles,wb)
+  self.assertTrue(all(b['end_row']>=b['start_row'] for b in blocks))

@@ -1,7 +1,9 @@
 {
+  "conjuntos_suman_total": true,
   "estado": "OK",
-  "nota": "validación estructural superada; filas automáticas permanecen pendientes hasta revisión visual/semántica completa",
-  "registros_pendientes": 6560,
-  "registros_utilizables": 0,
+  "interseccion_conjuntos_vacia": true,
+  "nota": "validación estructural de conjunto superada; filas automáticas no cotejadas permanecen pendientes",
+  "registros_pendientes": 6099,
+  "registros_utilizables": 461,
   "validado_con": "python scripts/validar_generado_excel.py --output-dir tmp/battelle_generado_excel"
 }

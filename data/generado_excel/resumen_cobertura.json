@@ -1,7 +1,51 @@
 {
+  "aumento_4555_a_6560": {
+    "bloques_solapados_detectados": 11,
+    "celdas_asignadas_multiple": "diagnóstico pendiente; registros OCR no utilizables",
+    "por_tablas_inicialmente_ausentes": {
+      "N-10": 172,
+      "N-12": 46,
+      "N-17": 89,
+      "N-19": 0,
+      "N-22": 108,
+      "N-32": 114,
+      "N-4": 62,
+      "N-42": 195,
+      "N-47": 89,
+      "N-9": 0
+    },
+    "total_incremento_vs_version_4555": 2005
+  },
   "checksum_protegido_n3_n12": "46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d",
+  "clasificacion_pendientes": {
+    "pendiente_por_ambiguedad_ocr": 0,
+    "pendiente_por_escala_desconocida": 6099,
+    "pendiente_por_huecos": 0,
+    "pendiente_por_solapamientos": 0,
+    "pendiente_revision_visual_estructuralmente_valido": 0,
+    "rechazado_por_estructura_invalida": 0
+  },
   "comando_generacion": "python scripts/generar_battelle_desde_excel.py --output-dir tmp/battelle_generado_excel",
   "comando_validacion": "python scripts/validar_generado_excel.py --output-dir tmp/battelle_generado_excel",
+  "comparacion_percentiles_activos": {
+    "candidatos_ocr_sin_equivalente_activo": 6099,
+    "coincidencias_exactas": 0,
+    "coincidencias_multiples_ambiguas": 0,
+    "diferencias_escala": 0,
+    "diferencias_pagina": 0,
+    "diferencias_pdmin_pdmax": 0,
+    "diferencias_percentil": 0,
+    "diferencias_tabla": 0,
+    "diferencias_tramo_cronologico": 0,
+    "registros_activos_sin_candidato_ocr": 1568,
+    "registros_activos_totales": 1568
+  },
+  "conjuntos_mutuamente_excluyentes": {
+    "automaticos_pendientes_revision": 6099,
+    "rechazados": 0,
+    "utilizables_cotejados_con_datos_activos": 0,
+    "utilizables_protegidos_v4": 461
+  },
   "conteos_por_tabla": {
     "N-1": {
       "estado": "PENDIENTE_REVISION_VISUAL",
@@ -311,13 +355,25 @@
     }
   },
   "incidencias": 64,
+  "n1": {
+    "ausencias": 0,
+    "coincidencias": 0,
+    "diferencias": 0,
+    "duplicados": 0,
+    "estado": "PENDIENTE_REVISION_VISUAL",
+    "filas_esperadas": "PC_GENERAL_N1"
+  },
+  "n2": {
+    "estado": "PENDIENTE_REVISION_VISUAL",
+    "finalidad": "Puntuación total Battelle, conversión en centiles todas las edades",
+    "fuera_flujo_principal": true,
+    "modalidad": "especial/no cronológica PD-percentil",
+    "registros_extraidos": 1
+  },
   "registros_automaticos": 6099,
-  "registros_pd_generados": 6560,
-  "registros_pendientes": 6560,
   "registros_protegidos": 461,
-  "registros_rechazados": 0,
-  "registros_utilizables": 0,
   "tablas_esperadas": 52,
   "tablas_faltantes": [],
-  "tablas_localizadas": 52
+  "tablas_localizadas": 52,
+  "total_registros": 6560
 }

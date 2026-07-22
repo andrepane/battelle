@@ -16,8 +16,8 @@ También puede indicarse cualquier otro destino mediante `--output-dir`.
 - Tablas esperadas: 52.
 - Tablas localizadas tras detección fragmentada/deformada: 52.
 - Registros PD→percentil generables en la salida completa temporal actual: 6560.
-- Registros protegidos N-3..N-12 procedentes del v4: 461.
+- Registros protegidos N-3..N-12 procedentes del v4 y utilizables: 461.
 - Incidencias estructuradas de referencia: 64.
 - Checksum protegido N-3..N-12: `46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d`.
 
-El informe completo por tabla, la comparación con percentiles activos, N-1, N-2 y los conjuntos `registros_utilizables`, `registros_pendientes_revision` y `registros_rechazados` se generan en `tmp/`. Los registros automáticos no se versionan completos y no sustituyen a `data/percentiles_battelle.json`. Ninguna fila nueva debe tratarse como `REVISADO_VISUALMENTE` hasta completar la validación visual y semántica.
+El informe completo por tabla, la comparación con percentiles activos, N-1, N-2 y los conjuntos excluyentes `utilizables_protegidos_v4`, `utilizables_cotejados_con_datos_activos`, `registros_pendientes_revision` y `registros_rechazados` se generan en `tmp/`. Recuento actual: protegidos utilizables 461, cotejados con activos 0, automáticos pendientes 6099, rechazados 0. Los registros automáticos no se versionan completos y no sustituyen a `data/percentiles_battelle.json`. Ninguna fila nueva debe tratarse como `REVISADO_VISUALMENTE` hasta completar la validación visual y semántica.

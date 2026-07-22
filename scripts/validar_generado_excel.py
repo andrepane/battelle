@@ -21,6 +21,10 @@ def main():
     pd = load_json(p/'pd_percentil.json')
     cov = load_json(p/'cobertura_validacion.json')
     usable = load_json(p/'registros_utilizables.json') if (p/'registros_utilizables.json').exists() else []
+    protected = load_json(p/'utilizables_protegidos_v4.json') if (p/'utilizables_protegidos_v4.json').exists() else []
+    cotejados = load_json(p/'utilizables_cotejados_con_datos_activos.json') if (p/'utilizables_cotejados_con_datos_activos.json').exists() else []
+    pending = load_json(p/'registros_pendientes_revision.json') if (p/'registros_pendientes_revision.json').exists() else []
+    rejected = load_json(p/'registros_rechazados.json') if (p/'registros_rechazados.json').exists() else []
     errs=[]
     tabs={r['Tabla'] for r in inv}
     if len(tabs) != 52:
@@ -33,6 +37,16 @@ def main():
         errs.append('N-2 mezclada en PD')
     if cov['checksum_protegido_antes'] != cov['checksum_protegido_despues']:
         errs.append('checksum protegido cambia')
+    def rid(r): return str(r.get('origen_dato'))+'|'+str(r.get('Tabla'))+'|'+str(r.get('hoja_fuente'))+'|'+str(r.get('celda_o_rango_fuente'))+'|'+str(r.get('PDMin'))+'|'+str(r.get('PDMax'))+'|'+str(r.get('Percentil'))
+    sets=[protected,cotejados,pending,rejected]
+    all_ids=[]
+    for ss in sets: all_ids.extend(rid(r) for r in ss)
+    if len(all_ids) != len(set(all_ids)): errs.append('intersección no vacía o identificador duplicado entre conjuntos')
+    if len(all_ids) != len(pd): errs.append('unión de conjuntos no suma total')
+    if cov.get('utilizables_protegidos_v4') != len(protected): errs.append('conteo protegidos incoherente')
+    if cov.get('utilizables_cotejados_con_datos_activos') != len(cotejados): errs.append('conteo cotejados incoherente')
+    if cov.get('automaticos_pendientes_revision') != len(pending): errs.append('conteo pendientes incoherente')
+    if cov.get('rechazados') != len(rejected): errs.append('conteo rechazados incoherente')
     seen=set()
     for r in pd:
         for k in REQUIRED_TRACE:
