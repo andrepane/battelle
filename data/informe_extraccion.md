@@ -123,3 +123,21 @@ La tabla N-56 se corrigió para cubrir la PD 51 en el intervalo original `51-53`
 Importante: N-54 no queda marcada como normalizada. Permanece en estado `pendiente_revision_visual` porque la extracción disponible mezcla encabezados, columnas y celdas partidas, y no permite una transcripción completa segura en esta corrección. En consecuencia, el bloque N-54..N-65 aún no está completo y `scripts/validar_edades_equivalentes.py` debe fallar mientras N-54 no tenga registros normalizados.
 
 El validador se amplió para exigir registros en todas las tablas, cobertura continua desde 0 hasta el máximo teórico, ausencia de huecos y solapes, extensión correcta de límites abiertos, edades equivalentes con mínimo y máximo, conservación de valores originales, coincidencia de página con `data/inventario_tablas.json` y los seis casos conocidos de N-65.
+
+## Alcance de aplicación: Battelle completo de 341 ítems
+
+La aplicación implementa únicamente el flujo de evaluación completa del Battelle de 341 ítems. La prueba de screening es una modalidad abreviada independiente y no forma parte del motor de corrección principal.
+
+Clasificación aplicada en `data/edades_equivalentes.json`:
+
+- N-54 y N-55: `modalidad: "screening"`, `estado_proyecto: "fuera_alcance"`.
+- N-56 a N-65: `modalidad: "battelle_completo"`, `estado_proyecto: "obligatoria"`.
+
+N-54 conserva sus dudas documentadas y no se inventan registros. N-55 puede permanecer normalizada como referencia documental, pero el motor de corrección del Battelle completo no debe consumirla.
+
+El validador de edades equivalentes ahora determina la completitud del bloque principal solo con las diez tablas obligatorias N-56..N-65. Además informa por separado el estado de las tablas de screening y mantiene las comprobaciones de cobertura continua, huecos, solapes, máximos teóricos, intervalos de edad equivalente y los seis casos conocidos de N-65.
+
+Salida esperada del validador cuando el bloque principal está correcto:
+
+- `Screening: fuera del alcance de esta aplicación`.
+- `Battelle completo: N-56..N-65 validadas`.

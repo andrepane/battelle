@@ -996,7 +996,9 @@
           "pagina_pdf": 43,
           "confianza": "alta"
         }
-      ]
+      ],
+      "modalidad": "screening",
+      "estado_proyecto": "fuera_alcance"
     },
     "N-56 personal_social_total": {
       "tabla": "N-56",
@@ -1818,7 +1820,9 @@
           "pagina_pdf": 44,
           "confianza": "alta"
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-57 adaptativa_total": {
       "tabla": "N-57",
@@ -2727,7 +2731,9 @@
           "confianza": "alta",
           "notas": "Límite abierto transcrito; puntuacion_max se fija al máximo teórico/documental de la escala para validación."
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-60 motora_total": {
       "tabla": "N-60",
@@ -3614,7 +3620,9 @@
           "confianza": "alta",
           "notas": "Límite abierto transcrito; puntuacion_max se fija al máximo teórico/documental de la escala para validación."
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-61 comunicacion_receptiva": {
       "tabla": "N-61",
@@ -4203,7 +4211,9 @@
           "pagina_pdf": 48,
           "confianza": "alta"
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-62 comunicacion_expresiva": {
       "tabla": "N-62",
@@ -4891,7 +4901,9 @@
           "pagina_pdf": 49,
           "confianza": "alta"
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-63 comunicacion_total": {
       "tabla": "N-63",
@@ -5789,7 +5801,9 @@
           "confianza": "alta",
           "notas": "Límite abierto transcrito; puntuacion_max se fija al máximo teórico/documental de la escala para validación."
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-64 cognitiva_total": {
       "tabla": "N-64",
@@ -6665,7 +6679,9 @@
           "confianza": "alta",
           "notas": "Límite abierto transcrito; puntuacion_max se fija al máximo teórico/documental de la escala para validación."
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-65 battelle_total": {
       "tabla": "N-65",
@@ -7673,7 +7689,9 @@
           "confianza": "alta",
           "notas": "Límite abierto transcrito; puntuacion_max se fija al máximo teórico/documental de la escala para validación."
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-58 motora_gruesa": {
       "tabla": "N-58",
@@ -8350,7 +8368,9 @@
           "pagina_pdf": 46,
           "confianza": "alta"
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-59 motora_fina": {
       "tabla": "N-59",
@@ -9116,7 +9136,9 @@
           "confianza": "alta",
           "notas": "Límite abierto transcrito; puntuacion_max se fija al máximo teórico/documental de la escala para validación."
         }
-      ]
+      ],
+      "modalidad": "battelle_completo",
+      "estado_proyecto": "obligatoria"
     },
     "N-54 screening_areas": {
       "tabla": "N-54",
@@ -10103,8 +10125,29 @@
         }
       ],
       "estado": "pendiente_revision_visual",
-      "pagina_pdf": 42
+      "pagina_pdf": 42,
+      "modalidad": "screening",
+      "estado_proyecto": "fuera_alcance"
     }
   },
-  "nota_estado": "Bloque N-54..N-65 incompleto mientras N-54 permanezca sin registros; el validador debe fallar en ese estado."
+  "nota_estado": "Bloque N-54..N-65 incompleto mientras N-54 permanezca sin registros; el validador debe fallar en ese estado.",
+  "alcance_proyecto": {
+    "descripcion": "La aplicación implementa únicamente el Battelle completo de 341 ítems. Las tablas de screening N-54 y N-55 se conservan como referencia/auditoría, pero están fuera del flujo principal.",
+    "battelle_completo_obligatorias": [
+      "N-56",
+      "N-57",
+      "N-58",
+      "N-59",
+      "N-60",
+      "N-61",
+      "N-62",
+      "N-63",
+      "N-64",
+      "N-65"
+    ],
+    "screening_fuera_alcance": [
+      "N-54",
+      "N-55"
+    ]
+  }
 }
