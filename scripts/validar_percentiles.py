@@ -26,11 +26,22 @@ EXPECTED = {
         "N-16": {"pagina": 13, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
         "N-17": {"pagina": 13, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
     },
+    (18, 23): {
+        "N-18": {"pagina": 14, "escalas": ["Interacción con el adulto", "Expresión de sentimientos/afecto", "Autoconcepto", "Interacción con los compañeros", "Colaboración", "Personal/Social total"]},
+        "N-19": {"pagina": 15, "escalas": ["Atención", "Comida", "Vestido", "Responsabilidad personal", "Adaptativa total"]},
+        "N-20": {"pagina": 16, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
+        "N-21": {"pagina": 17, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
+        "N-22": {"pagina": 17, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
+    },
 }
 
 VALIDATED_0_5_SHA256 = "58eb37230c046640e0c44b001ac5be1283d5426c620be638229dfafcf630b17c"
 VALIDATED_6_11_SHA256 = "683b6f8459ad384873ca3ad2a4d54d0f5c4c4a52f69631cbb6065836e8cf7ae7"
-MANIFEST_PATH = Path("data/auditorias/percentiles_12_17_manifest.json")
+VALIDATED_12_17_SHA256 = "fb756b48fb08a06adb71a1bdd2c5781742d9f417e11cd03528c50bb3dae9d1ce"
+MANIFEST_PATHS = {
+    (12, 17): Path("data/auditorias/percentiles_12_17_manifest.json"),
+    (18, 23): Path("data/auditorias/percentiles_18_23_manifest.json"),
+}
 PDF_SOURCE = Path("Battelle_Tablas de corrección.pdf")
 
 AREA_ALIASES = {"Personal/Social": "Personal/Social", "Adaptativa": "Adaptativa", "Motora": "Motora", "Comunicación": "Comunicación", "Cognitiva": "Cognitiva"}
@@ -112,11 +123,12 @@ def page_tree_order(bodies):
     return ordered
 
 
-def manifest_by_scale(errors, data):
-    if not MANIFEST_PATH.exists():
-        errors.append(f"falta manifiesto de auditoría visual: {MANIFEST_PATH}")
+def manifest_by_scale(errors, data, tramo_key):
+    manifest_path = MANIFEST_PATHS[tramo_key]
+    if not manifest_path.exists():
+        errors.append(f"falta manifiesto de auditoría visual: {manifest_path}")
         return {}, {}
-    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     fuentes = json.loads(Path("data/fuentes.json").read_text(encoding="utf-8"))
     expected_pdf_sha = next((entry["sha256"] for entry in fuentes["pdfs_found"] if entry["file"] == str(PDF_SOURCE)), None)
     pdf_bytes = PDF_SOURCE.read_bytes()
@@ -126,13 +138,14 @@ def manifest_by_scale(errors, data):
     bodies = object_bodies(pdf_bytes)
     ordered_pages = page_tree_order(bodies)
     table_entries = manifest.get("tablas", [])
-    if {entry.get("tabla") for entry in table_entries} != {"N-13", "N-14", "N-15", "N-16", "N-17"}:
-        errors.append("el manifiesto no contiene exactamente N-13..N-17")
+    expected_tables = set(EXPECTED[tramo_key])
+    if {entry.get("tabla") for entry in table_entries} != expected_tables:
+        errors.append(f"el manifiesto no contiene exactamente {sorted(expected_tables)}")
     if any("registros_json" in scale for entry in table_entries for scale in entry.get("escalas_visibles", [])):
         errors.append("el manifiesto no debe contener registros_json copiados; el validador los calcula desde percentiles_battelle.json")
-    tramo_12_17 = next((t for t in data.get("tramos", []) if (t.get("edad_cronologica_min_meses"), t.get("edad_cronologica_max_meses")) == (12, 17)), {})
+    tramo_data = next((t for t in data.get("tramos", []) if (t.get("edad_cronologica_min_meses"), t.get("edad_cronologica_max_meses")) == tramo_key), {})
     record_counts = {}
-    for record in tramo_12_17.get("registros", []):
+    for record in tramo_data.get("registros", []):
         key = (record.get("tabla"), record.get("escala"))
         record_counts[key] = record_counts.get(key, 0) + 1
     manifest_tables = {}
@@ -186,10 +199,11 @@ def manifest_by_scale(errors, data):
     for image_obj, pages in image_pages.items():
         if len(pages) > 1:
             errors.append(f"dos tablas de páginas distintas comparten imagen {image_obj}: páginas {sorted(pages)}")
-    if total_scales != 24:
-        errors.append(f"el manifiesto debe cotejar 24 escalas; tiene {total_scales}")
-    if total_records != 299:
-        errors.append(f"el tramo 12-17 debe cotejar 299 registros desde JSON; tiene {total_records}")
+    expected_scales = sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values())
+    if total_scales != expected_scales:
+        errors.append(f"el manifiesto debe cotejar {expected_scales} escalas; tiene {total_scales}")
+    if total_records != sum(record_counts.values()):
+        errors.append(f"el tramo {tramo_key[0]}-{tramo_key[1]} tiene recuento incoherente desde JSON; {total_records} != {sum(record_counts.values())}")
     return manifest_tables, manifest_scales
 
 
@@ -304,7 +318,8 @@ def main():
         errors.append("el bloque validado 0-5 fue modificado")
     if hashlib.sha256(json.dumps(tramos.get((6, 11), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_6_11_SHA256:
         errors.append("el bloque validado 6-11 fue modificado")
-    manifest_tables, manifest_scales = manifest_by_scale(errors, data)
+    if hashlib.sha256(json.dumps(tramos.get((12, 17), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_12_17_SHA256:
+        errors.append("el bloque validado 12-17 fue modificado")
     validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():
         tramo = tramos.get(tramo_key)
@@ -316,6 +331,9 @@ def main():
             errors.append(f"tramo 12-17 debe contener 299 registros; tiene {len(registros)}")
         if any(r.get("valores") == [] for r in registros):
             errors.append(f"tramo {tramo_key[0]}-{tramo_key[1]} contiene filas con valores: []")
+        manifest_tables, manifest_scales = ({}, {})
+        if tramo_key in MANIFEST_PATHS:
+            manifest_tables, manifest_scales = manifest_by_scale(errors, data, tramo_key)
         validate_table_audit_metadata(errors, tramo_key, tramo, expected, manifest_tables, manifest_scales)
         validate_group(errors, tramo_key, registros, expected, maxima, pages)
     if errors:
@@ -323,7 +341,7 @@ def main():
             print("ERROR:", e, file=sys.stderr)
         return 1
     total = sum(len(tramos[k].get("registros", [])) for k in EXPECTED)
-    print(f"OK: {total} registros validados para N-3 a N-17 (0-5, 6-11 y 12-17 meses).")
+    print(f"OK: {total} registros validados para N-3 a N-22 (0-5, 6-11, 12-17 y 18-23 meses).")
     return 0
 
 
