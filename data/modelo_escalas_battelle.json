@@ -3,15 +3,194 @@
   "fuente_items": "data/items_areas_subareas.json",
   "nota": "Modelo de composición de escalas por áreas y subáreas; no duplica ítems.",
   "escalas": {
-    "personal_social_total": { "nombre": "Personal/Social total", "tipo": "area", "areas": ["Personal/Social"] },
-    "adaptativa_total": { "nombre": "Adaptativa total", "tipo": "area", "areas": ["Adaptativa"] },
-    "motora_gruesa": { "nombre": "Motora gruesa", "tipo": "subareas", "subareas": ["Motora|Control muscular", "Motora|Coordinación corporal", "Motora|Locomoción"] },
-    "motora_fina": { "nombre": "Motora fina", "tipo": "subareas", "subareas": ["Motora|Motricidad fina", "Motora|Motricidad perceptiva"] },
-    "motora_total": { "nombre": "Motora total", "tipo": "area", "areas": ["Motora"] },
-    "comunicacion_receptiva": { "nombre": "Comunicación receptiva", "tipo": "subareas", "subareas": ["Comunicación|Receptiva"] },
-    "comunicacion_expresiva": { "nombre": "Comunicación expresiva", "tipo": "subareas", "subareas": ["Comunicación|Expresiva"] },
-    "comunicacion_total": { "nombre": "Comunicación total", "tipo": "area", "areas": ["Comunicación"] },
-    "cognitiva_total": { "nombre": "Cognitiva total", "tipo": "area", "areas": ["Cognitiva"] },
-    "battelle_total": { "nombre": "Battelle total", "tipo": "areas", "areas": ["Personal/Social", "Adaptativa", "Motora", "Comunicación", "Cognitiva"] }
+    "personal_social_total": {
+      "nombre": "Personal/Social total",
+      "tipo": "area",
+      "areas": [
+        "Personal/Social"
+      ]
+    },
+    "adaptativa_total": {
+      "nombre": "Adaptativa total",
+      "tipo": "area",
+      "areas": [
+        "Adaptativa"
+      ]
+    },
+    "motora_gruesa": {
+      "nombre": "Motora gruesa",
+      "tipo": "subareas",
+      "subareas": [
+        "Motora|Control muscular",
+        "Motora|Coordinación corporal",
+        "Motora|Locomoción"
+      ]
+    },
+    "motora_fina": {
+      "nombre": "Motora fina",
+      "tipo": "subareas",
+      "subareas": [
+        "Motora|Motricidad fina",
+        "Motora|Motricidad perceptiva"
+      ]
+    },
+    "motora_total": {
+      "nombre": "Motora total",
+      "tipo": "area",
+      "areas": [
+        "Motora"
+      ]
+    },
+    "comunicacion_receptiva": {
+      "nombre": "Comunicación receptiva",
+      "tipo": "subareas",
+      "subareas": [
+        "Comunicación|Receptiva"
+      ]
+    },
+    "comunicacion_expresiva": {
+      "nombre": "Comunicación expresiva",
+      "tipo": "subareas",
+      "subareas": [
+        "Comunicación|Expresiva"
+      ]
+    },
+    "comunicacion_total": {
+      "nombre": "Comunicación total",
+      "tipo": "area",
+      "areas": [
+        "Comunicación"
+      ]
+    },
+    "cognitiva_total": {
+      "nombre": "Cognitiva total",
+      "tipo": "area",
+      "areas": [
+        "Cognitiva"
+      ]
+    },
+    "battelle_total": {
+      "nombre": "Battelle total",
+      "tipo": "areas",
+      "areas": [
+        "Personal/Social",
+        "Adaptativa",
+        "Motora",
+        "Comunicación",
+        "Cognitiva"
+      ]
+    }
+  },
+  "subareas": {
+    "personal_social_interaccion_con_el_adulto": {
+      "nombre": "Interacción con el adulto",
+      "area": "Personal/Social",
+      "subarea": "Interacción con el adulto"
+    },
+    "personal_social_expresion_de_sentimientos_afecto": {
+      "nombre": "Expresión de sentimientos/afecto",
+      "area": "Personal/Social",
+      "subarea": "Expresión de sentimientos/afecto"
+    },
+    "personal_social_autoconcepto": {
+      "nombre": "Autoconcepto",
+      "area": "Personal/Social",
+      "subarea": "Autoconcepto"
+    },
+    "personal_social_interaccion_con_los_companeros": {
+      "nombre": "Interacción con los compañeros",
+      "area": "Personal/Social",
+      "subarea": "Interacción con los compañeros"
+    },
+    "personal_social_colaboracion": {
+      "nombre": "Colaboración",
+      "area": "Personal/Social",
+      "subarea": "Colaboración"
+    },
+    "personal_social_rol_social": {
+      "nombre": "Rol social",
+      "area": "Personal/Social",
+      "subarea": "Rol social"
+    },
+    "adaptativa_atencion": {
+      "nombre": "Atención",
+      "area": "Adaptativa",
+      "subarea": "Atención"
+    },
+    "adaptativa_comida": {
+      "nombre": "Comida",
+      "area": "Adaptativa",
+      "subarea": "Comida"
+    },
+    "adaptativa_vestido": {
+      "nombre": "Vestido",
+      "area": "Adaptativa",
+      "subarea": "Vestido"
+    },
+    "adaptativa_responsabilidad_personal": {
+      "nombre": "Responsabilidad personal",
+      "area": "Adaptativa",
+      "subarea": "Responsabilidad personal"
+    },
+    "adaptativa_aseo": {
+      "nombre": "Aseo",
+      "area": "Adaptativa",
+      "subarea": "Aseo"
+    },
+    "motora_control_muscular": {
+      "nombre": "Control muscular",
+      "area": "Motora",
+      "subarea": "Control muscular"
+    },
+    "motora_coordinacion_corporal": {
+      "nombre": "Coordinación corporal",
+      "area": "Motora",
+      "subarea": "Coordinación corporal"
+    },
+    "motora_locomocion": {
+      "nombre": "Locomoción",
+      "area": "Motora",
+      "subarea": "Locomoción"
+    },
+    "motora_motricidad_fina": {
+      "nombre": "Motricidad fina",
+      "area": "Motora",
+      "subarea": "Motricidad fina"
+    },
+    "motora_motricidad_perceptiva": {
+      "nombre": "Motricidad perceptiva",
+      "area": "Motora",
+      "subarea": "Motricidad perceptiva"
+    },
+    "comunicacion_receptiva": {
+      "nombre": "Receptiva",
+      "area": "Comunicación",
+      "subarea": "Receptiva"
+    },
+    "comunicacion_expresiva": {
+      "nombre": "Expresiva",
+      "area": "Comunicación",
+      "subarea": "Expresiva"
+    },
+    "cognitiva_discriminacion_perceptiva": {
+      "nombre": "Discriminación perceptiva",
+      "area": "Cognitiva",
+      "subarea": "Discriminación perceptiva"
+    },
+    "cognitiva_memoria": {
+      "nombre": "Memoria",
+      "area": "Cognitiva",
+      "subarea": "Memoria"
+    },
+    "cognitiva_razonamiento_y_habilidades_escolares": {
+      "nombre": "Razonamiento y habilidades escolares",
+      "area": "Cognitiva",
+      "subarea": "Razonamiento y habilidades escolares"
+    },
+    "cognitiva_desarrollo_conceptual": {
+      "nombre": "Desarrollo conceptual",
+      "area": "Cognitiva",
+      "subarea": "Desarrollo conceptual"
+    }
   }
 }
