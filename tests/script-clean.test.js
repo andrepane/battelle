@@ -1,0 +1,2 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import { readFile } from 'node:fs/promises'; import { loadAndNormalizeItems } from '../src/battelle-data.js';
+test('script.js no contiene datos ni baremos manuales y los JSON cargan 341 ítems', async()=>{ const s=await readFile('script.js','utf8'); assert.equal(/const\s+DATA\b/.test(s),false); assert.equal(s.includes('NORMS_0_5'),false); assert.equal(/PD\s*[-→]/.test(s),false); assert.equal((await loadAndNormalizeItems()).length,341); });
