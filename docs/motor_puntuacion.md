@@ -52,3 +52,19 @@ Cada subárea o escala informa `pd_parcial` como suma de ítems con puntuación 
 ## Limitaciones actuales
 
 El motor calcula solo puntuaciones directas, agregados, completitud, basales, techos, errores e inconsistencias. Todavía no convierte PD a percentiles, edades equivalentes ni puntuaciones típicas, y todavía no está integrado con la interfaz de usuario.
+
+## Interfaz modular de evaluación
+
+La aplicación del navegador se inicia desde `index.html` mediante `script.js` como módulo ES. Durante la carga recupera `data/items_areas_subareas.json`, `data/modelo_escalas_battelle.json`, `data/percentiles_battelle.json` y `data/edades_equivalentes.json`; después normaliza los 341 ítems, valida el modelo de escalas y bloquea la administración si algún recurso falla.
+
+El flujo crea un único borrador activo con identificador, nombre/código, fechas, edad cronológica, respuestas observadas, observaciones, fechas de creación/modificación y versión de esquema. La opción “Nueva Battelle” descarta el estado anterior solo tras confirmación cuando hay cambios y no reutiliza respuestas previas.
+
+La PD se calcula exclusivamente con `scoreAssessment()`: las respuestas no administradas son `null`, el motor produce respuestas efectivas, basal, techo, PD parcial, PD válida, pendientes, inconsistencias y agregados. La interfaz no guarda ni recalcula en paralelo resultados derivados.
+
+Los percentiles proceden de `data/percentiles_battelle.json` y solo están disponibles para tramos 0-5, 6-11, 12-17, 18-23 y 24-35 meses. La consulta exige coincidencia exacta de tramo, escala e intervalo de PD, no interpola y devuelve errores estructurados si faltan datos o hay ambigüedad. Para 36-95 meses se informa que los percentiles están pendientes de normalización.
+
+Las edades equivalentes proceden de `data/edades_equivalentes.json` y usan las tablas N-56 a N-65 para las escalas principales del Battelle completo. Las tablas N-54 y N-55 quedan excluidas del flujo principal porque corresponden al screening.
+
+La persistencia usa `localStorage` con la clave versionada `battelleAssessmentV2`. Solo se serializan metadatos, respuestas observadas y observaciones del examinador; PD, basal, techo, percentiles y edades equivalentes se recalculan al cargar. La clave antigua `battellePrototype` solo se notifica y puede descartarse, sin migración silenciosa.
+
+Limitaciones: esta interfaz no debe considerarse lista para uso clínico definitivo mientras falten percentiles normalizados para 36-95 meses y la tabla N-1 no tenga una normalización segura. Quedan fuera de alcance z, T, CI, ECN, PDF, exportación, cuentas, almacenamiento remoto, históricos multipaciente y screening.
