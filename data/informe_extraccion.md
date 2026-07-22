@@ -77,3 +77,67 @@ El validador `scripts/validar_tablas.py` comprueba ahora:
 - estados de normalización y niveles de confianza válidos.
 
 El script ya no reclasifica ni falla una tabla por contener `Receptiva`, `Expresiva`, `Interacción con el adulto` o `Autoconcepto` si esos tokens están documentados como contaminación.
+
+## Edades equivalentes N-54 a N-65
+
+Se añadió `data/edades_equivalentes.json` como archivo independiente para las tablas de edades equivalentes N-54 a N-65, sin reemplazar todavía `data/tablas_conversion_battelle.json`.
+
+Criterios aplicados:
+
+- Cada correspondencia conserva el intervalo de puntuación directa, la edad equivalente en meses, los valores originales de puntuación/edad, la página PDF y la confianza.
+- Los intervalos cerrados se expanden lógicamente en la validación para asegurar que cada puntuación directa corresponde a una única edad equivalente.
+- Los límites abiertos (`117+`, `162+`, `672+`, etc.) conservan el valor original y usan como `puntuacion_max` el máximo teórico/documental de la escala para poder validar solapes.
+- Las edades máximas expresadas como intervalos (`90-95`) se conservan en `valor_original_edad` y se normalizan por el límite inferior en `edad_equivalente_meses`.
+- Las celdas con OCR dudoso o particiones visibles en la extracción quedan documentadas en notas o en `dudas_visuales`; en particular, N-54 queda marcada como tabla pendiente de transcripción visual exhaustiva por mezcla de encabezados y celdas partidas.
+
+Comprobaciones específicas añadidas para Battelle total N-65:
+
+- PD 386 → edad equivalente 37 meses.
+- PD 421 → edad equivalente 41 meses.
+- PD 436 → edad equivalente 43 meses.
+- PD 464 → edad equivalente 47 meses.
+- PD 537 → edad equivalente 57 meses.
+- PD 562 → edad equivalente 60 meses.
+
+El validador `scripts/validar_edades_equivalentes.py` comprueba presencia de N-54 a N-65, ausencia de intervalos solapados, orden ascendente, unicidad por puntuación directa, campos numéricos válidos, conservación de valores originales y documentación de dudas visuales.
+
+## Corrección PR #6: estado de N-54..N-65
+
+Se corrigió el esquema de `data/edades_equivalentes.json` para representar las edades equivalentes como intervalo (`edad_equivalente_min_meses` y `edad_equivalente_max_meses`) y no perder valores originales como `90-95`. También se añadió `puntuacion_limite_abierto` y se extendieron los límites abiertos hasta el máximo teórico de cada escala.
+
+Máximos teóricos usados por el validador:
+
+- Personal/Social: 170.
+- Adaptativa: 118.
+- Motora gruesa: 88.
+- Motora fina: 76.
+- Motora total: 164.
+- Comunicación receptiva: 54.
+- Comunicación expresiva: 64.
+- Comunicación total: 118.
+- Cognitiva: 112.
+- Battelle total: 682.
+
+La tabla N-56 se corrigió para cubrir la PD 51 en el intervalo original `51-53`, documentando la corrección frente al hueco detectado en la extracción previa.
+
+Importante: N-54 no queda marcada como normalizada. Permanece en estado `pendiente_revision_visual` porque la extracción disponible mezcla encabezados, columnas y celdas partidas, y no permite una transcripción completa segura en esta corrección. En consecuencia, el bloque N-54..N-65 aún no está completo y `scripts/validar_edades_equivalentes.py` debe fallar mientras N-54 no tenga registros normalizados.
+
+El validador se amplió para exigir registros en todas las tablas, cobertura continua desde 0 hasta el máximo teórico, ausencia de huecos y solapes, extensión correcta de límites abiertos, edades equivalentes con mínimo y máximo, conservación de valores originales, coincidencia de página con `data/inventario_tablas.json` y los seis casos conocidos de N-65.
+
+## Alcance de aplicación: Battelle completo de 341 ítems
+
+La aplicación implementa únicamente el flujo de evaluación completa del Battelle de 341 ítems. La prueba de screening es una modalidad abreviada independiente y no forma parte del motor de corrección principal.
+
+Clasificación aplicada en `data/edades_equivalentes.json`:
+
+- N-54 y N-55: `modalidad: "screening"`, `estado_proyecto: "fuera_alcance"`.
+- N-56 a N-65: `modalidad: "battelle_completo"`, `estado_proyecto: "obligatoria"`.
+
+N-54 conserva sus dudas documentadas y no se inventan registros. N-55 puede permanecer normalizada como referencia documental, pero el motor de corrección del Battelle completo no debe consumirla.
+
+El validador de edades equivalentes ahora determina la completitud del bloque principal solo con las diez tablas obligatorias N-56..N-65. Además informa por separado el estado de las tablas de screening y mantiene las comprobaciones de cobertura continua, huecos, solapes, máximos teóricos, intervalos de edad equivalente y los seis casos conocidos de N-65.
+
+Salida esperada del validador cuando el bloque principal está correcto:
+
+- `Screening: fuera del alcance de esta aplicación`.
+- `Battelle completo: N-56..N-65 validadas`.
