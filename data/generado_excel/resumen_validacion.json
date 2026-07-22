@@ -1,0 +1,4 @@
+{
+  "estado": "OK",
+  "validado_con": "python scripts/validar_generado_excel.py --output-dir tmp/battelle_generado_excel"
+}

@@ -1,0 +1,22 @@
+{
+  "checksum_protegido_n3_n12": "46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d",
+  "comando_generacion": "python scripts/generar_battelle_desde_excel.py --output-dir tmp/battelle_generado_excel",
+  "comando_validacion": "python scripts/validar_generado_excel.py --output-dir tmp/battelle_generado_excel",
+  "incidencias": 57,
+  "registros_pd_generados": 4555,
+  "registros_protegidos": 461,
+  "tablas_esperadas": 52,
+  "tablas_faltantes": [
+    "N-4",
+    "N-9",
+    "N-10",
+    "N-12",
+    "N-17",
+    "N-19",
+    "N-22",
+    "N-32",
+    "N-42",
+    "N-47"
+  ],
+  "tablas_localizadas": 42
+}

@@ -1,0 +1,6 @@
+# Salidas completas reproducibles del parser Battelle (generar con --output-dir).
+/tmp/
+/data/generado_excel/*
+!/data/generado_excel/README.md
+!/data/generado_excel/resumen_cobertura.json
+!/data/generado_excel/resumen_validacion.json

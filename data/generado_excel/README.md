@@ -1,18 +1,23 @@
-# Generación Battelle desde Excel OCR
+# Salidas generadas del parser Battelle
 
-Este directorio contiene salidas no autoritativas generadas en cuarentena desde los Excel `Battelle_Tablas_de_correccion.xlsx` y `Battelle_DB_transcripcion_v4_fuente_excel_indexada.xlsx`.
+Este directorio conserva solo documentación y resúmenes pequeños. Las salidas completas (`pd_percentil.json/csv`, `n1_conversion_pc.*`, inventario completo, incidencias completas y auditorías OCR) son reproducibles y se generan por defecto en `tmp/battelle_generado_excel/`, que está ignorado por Git para mantener el PR revisable.
 
-## Arquitectura
+## Regeneración local
 
-El parser se divide en módulos: lectura XLSX (`xlsx_io.py`), normalización OCR y PD (`normalization.py`), detección/clasificación de tablas (`detect.py`), extracción, preservación y exportación (`extract.py`) y validación (`validar_generado_excel.py`).
+```bash
+python scripts/generar_battelle_desde_excel.py --output-dir tmp/battelle_generado_excel
+python scripts/validar_generado_excel.py --output-dir tmp/battelle_generado_excel
+```
 
-## Resultado actual
+También puede indicarse cualquier otro destino mediante `--output-dir`.
+
+## Estado de la generación de referencia
 
 - Tablas esperadas: 52.
-- Tablas localizadas de forma única por título OCR: 42.
-- Registros PD→percentil exportados: 4555.
-- Registros protegidos N-3..N-12 conservados desde v4: 461.
-- Incidencias OCR/estructura: 57.
-- Checksum protegido antes y después: `46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d`.
+- Tablas localizadas por la versión inicial del parser: 42.
+- Registros PD→percentil generables en la salida completa inicial: 4555.
+- Registros protegidos N-3..N-12 procedentes del v4: 461.
+- Incidencias estructuradas de referencia: 57.
+- Checksum protegido N-3..N-12: `46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d`.
 
-Las tablas no localizadas o dudosas quedan reportadas en `cobertura_validacion.json` e `incidencias.json`; no se interpolan datos ni se marca ninguna fila nueva como `REVISADO_VISUALMENTE`.
+Los registros automáticos no se versionan completos y no sustituyen a `data/percentiles_battelle.json`. Ninguna fila nueva debe tratarse como `REVISADO_VISUALMENTE` hasta completar la validación visual y semántica.

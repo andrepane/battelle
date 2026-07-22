@@ -21,7 +21,7 @@ def summarize(wb):
  return [{'nombre':s['name'],'filas':s['max_row'],'columnas':s['max_col'],'encabezados':sheet_headers(s['cells'])} for s in wb['sheets']]
 
 def protected_rows(db_path):
- wb=read_workbook(db_path); rows=[]
+ wb=read_workbook(db_path); rows=[]; canon_rows=[]
  for s in wb['sheets']:
   grid={(c.row,c.col):c.value for c in s['cells']}
   headers={normalize_spaces(v):col for (row,col),v in grid.items() if row==1}
@@ -30,8 +30,18 @@ def protected_rows(db_path):
    tabla=grid.get((r,headers.get('Tabla',-1)),'')
    estado=grid.get((r,headers['EstadoRevision']),'')
    if re.fullmatch(r'N-(?:[3-9]|1[0-2])',str(tabla)) and normalize_spaces(estado) in [ST_REVIEW,'REVISADO VISUALMENTE']:
-    rows.append({h:grid.get((r,c),'') for h,c in headers.items()})
- canon=json.dumps(sorted(rows,key=lambda x:json.dumps(x,sort_keys=True,ensure_ascii=False)),sort_keys=True,ensure_ascii=False,separators=(',',':'))
+    base={h:grid.get((r,c),'') for h,c in headers.items()}
+    canon_rows.append(base)
+    rec=dict(base)
+    rec.setdefault('origen_dato','v4_revisado')
+    rec.setdefault('confianza_extraccion','1.0')
+    rec.setdefault('hoja_fuente',s['name'])
+    rec.setdefault('celda_o_rango_fuente',f"fila {r}")
+    rec.setdefault('texto_fuente','registro protegido v4')
+    rec.setdefault('reglas_ocr_aplicadas','')
+    rec.setdefault('requiere_revision','false')
+    rows.append(rec)
+ canon=json.dumps(sorted(canon_rows,key=lambda x:json.dumps(x,sort_keys=True,ensure_ascii=False)),sort_keys=True,ensure_ascii=False,separators=(',',':'))
  return rows, hashlib.sha256(canon.encode()).hexdigest()
 
 
@@ -75,7 +85,7 @@ def extract(src, db, outdir):
       incid.append({'Tabla':key,'tipo':'INTERVALO_PD_INVALIDO','HojaFuente':b['sheet'],'CeldaFuente':c.coord,'TextoFuente':c.value})
       continue
      if pd and re.fullmatch(r'\d{1,3}',pctn) and 0<=int(pctn)<=100:
-      rec={'Tabla':key,'PaginaPDF':'','EdadMinMeses':'','EdadMaxMeses':'','Area':'','Subarea':'',**pd,'Percentil':int(pctn),'EstadoRevision':ST_PENDING,'ConfianzaExtraccion':0.55,'HojaFuente':b['sheet'],'CeldaFuente':c.coord,'TextoFuente':f"{c.value} {cs[i+1].value}",'IncidenciaOCR':''}
+      rec={'Tabla':key,'PaginaPDF':'','EdadMinMeses':'','EdadMaxMeses':'','Area':'','Subarea':'',**pd,'Percentil':int(pctn),'EstadoRevision':ST_PENDING,'ConfianzaExtraccion':0.55,'origen_dato':'excel_ocr','confianza_extraccion':0.55,'HojaFuente':b['sheet'],'hoja_fuente':b['sheet'],'CeldaFuente':c.coord,'celda_o_rango_fuente':c.coord,'TextoFuente':f"{c.value} {cs[i+1].value}",'texto_fuente':f"{c.value} {cs[i+1].value}",'reglas_ocr_aplicadas':'', 'requiere_revision':'true','IncidenciaOCR':''}
       pd_rows.append(rec)
   inv.append({'Tabla':key,'tipo':typ,'titulo_detectado':b['title'],'pagina':'','rango_cronologico':'','area':'','escalas_encontradas':[],'registros_extraidos':len(pd_rows)-count0 if typ=='PD_A_PERCENTIL' else (len(n1) if b['n']==1 else len(special)),'estado':'LOCALIZADA','incidencias':[x for x in incid if x.get('Tabla')==key]})
  expected={f'N-{i}' for i in range(1,53)}; found={x['Tabla'] for x in titles}
