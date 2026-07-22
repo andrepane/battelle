@@ -216,3 +216,13 @@ Recuentos visuales por escala del tramo 6-11 meses:
 | N-12 | Cognitiva total | 10 | 10 | true |
 
 El validador ahora falla si los recuentos `filas_visibles_esperadas` y `filas_transcritas` no coinciden, si falta `auditoria_visual_completa: true`, si una escala mantiene `confianza: baja`, o si una celda dudosa documentada no tiene un registro correspondiente en el JSON.
+
+## Ampliación pendiente de percentiles 12-17 meses (N-13 a N-17)
+
+Se añadió la estructura del tramo 12-17 meses en `data/percentiles_battelle.json` con edad cronológica mínima 12 y máxima 17. Las escalas esperadas se ajustaron a las columnas visibles/documentadas para el tramo: N-13 Personal/Social incluye Interacción con los compañeros; N-14 Adaptativa incluye Vestido; N-15 Motora omite Control muscular e incluye Motricidad perceptiva; N-16 Comunicación conserva Receptiva, Expresiva y Comunicación total; N-17 Cognitiva queda limitada a las columnas del tramo 12-17, sin copiar automáticamente columnas de 6-11.
+
+La transcripción del bloque queda deliberadamente pendiente: no se generaron intervalos PD-PC artificiales ni se completaron columnas con un único intervalo inferior PC 1 y otro superior. Cada tabla del tramo declara `filas_visibles_esperadas`, `filas_transcritas`, `auditoria_visual_completa` y `confianza` como metadatos de bloqueo; al no existir una auditoría visual completa fiable en esta ejecución, el validador debe fallar hasta que todas las filas impresas sean renderizadas, contadas y transcritas visualmente.
+
+El validador de percentiles se amplió para validar por separado 0-5, 6-11 y 12-17 meses; proteger por checksum los bloques 0-5 y 6-11; exigir coincidencia entre filas visibles y filas transcritas; exigir auditoría visual completa; rechazar confianza baja; comprobar celdas dudosas; y validar páginas, percentiles, cobertura, huecos, solapamientos y extensión de límites abiertos únicamente cuando el valor original termina en `+`.
+
+Estado esperado actual: `scripts/validar_percentiles.py` falla por el tramo 12-17 pendiente, tal como exige la política de no sustituir tablas incompletas por intervalos inferidos.

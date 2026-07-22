@@ -6681,6 +6681,90 @@
           "auditoria_visual_completa": true
         }
       ]
+    },
+    {
+      "edad_cronologica_min_meses": 12,
+      "edad_cronologica_max_meses": 17,
+      "tablas": [
+        {
+          "tabla": "N-13",
+          "pagina_pdf": 10,
+          "escalas": [
+            "Interacción con el adulto",
+            "Expresión de sentimientos/afecto",
+            "Autoconcepto",
+            "Interacción con los compañeros",
+            "Personal/Social total"
+          ],
+          "filas_visibles_esperadas": null,
+          "filas_transcritas": 0,
+          "auditoria_visual_completa": false,
+          "confianza": "baja",
+          "estado": "pendiente_transcripcion_visual"
+        },
+        {
+          "tabla": "N-14",
+          "pagina_pdf": 10,
+          "escalas": [
+            "Atención",
+            "Comida",
+            "Vestido",
+            "Adaptativa total"
+          ],
+          "filas_visibles_esperadas": null,
+          "filas_transcritas": 0,
+          "auditoria_visual_completa": false,
+          "confianza": "baja",
+          "estado": "pendiente_transcripcion_visual"
+        },
+        {
+          "tabla": "N-15",
+          "pagina_pdf": 11,
+          "escalas": [
+            "Coordinación corporal",
+            "Locomoción",
+            "Motricidad fina",
+            "Motricidad perceptiva",
+            "Motora gruesa",
+            "Motora fina",
+            "Motora total"
+          ],
+          "filas_visibles_esperadas": null,
+          "filas_transcritas": 0,
+          "auditoria_visual_completa": false,
+          "confianza": "baja",
+          "estado": "pendiente_transcripcion_visual"
+        },
+        {
+          "tabla": "N-16",
+          "pagina_pdf": 12,
+          "escalas": [
+            "Receptiva",
+            "Expresiva",
+            "Comunicación total"
+          ],
+          "filas_visibles_esperadas": null,
+          "filas_transcritas": 0,
+          "auditoria_visual_completa": false,
+          "confianza": "baja",
+          "estado": "pendiente_transcripcion_visual"
+        },
+        {
+          "tabla": "N-17",
+          "pagina_pdf": 13,
+          "escalas": [
+            "Discriminación perceptiva",
+            "Memoria",
+            "Cognitiva total"
+          ],
+          "filas_visibles_esperadas": null,
+          "filas_transcritas": 0,
+          "auditoria_visual_completa": false,
+          "confianza": "baja",
+          "estado": "pendiente_transcripcion_visual"
+        }
+      ],
+      "registros": []
     }
   ],
   "celdas_dudosas": [

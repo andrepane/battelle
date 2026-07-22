@@ -19,9 +19,17 @@ EXPECTED = {
         "N-11": {"pagina": 8, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
         "N-12": {"pagina": 9, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Cognitiva total"]},
     },
+    (12, 17): {
+        "N-13": {"pagina": 10, "escalas": ["Interacción con el adulto", "Expresión de sentimientos/afecto", "Autoconcepto", "Interacción con los compañeros", "Personal/Social total"]},
+        "N-14": {"pagina": 10, "escalas": ["Atención", "Comida", "Vestido", "Adaptativa total"]},
+        "N-15": {"pagina": 11, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
+        "N-16": {"pagina": 12, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
+        "N-17": {"pagina": 13, "escalas": ["Discriminación perceptiva", "Memoria", "Cognitiva total"]},
+    },
 }
 
 VALIDATED_0_5_SHA256 = "58eb37230c046640e0c44b001ac5be1283d5426c620be638229dfafcf630b17c"
+VALIDATED_6_11_SHA256 = "683b6f8459ad384873ca3ad2a4d54d0f5c4c4a52f69631cbb6065836e8cf7ae7"
 
 AREA_ALIASES = {"Personal/Social": "Personal/Social", "Adaptativa": "Adaptativa", "Motora": "Motora", "Comunicación": "Comunicación", "Cognitiva": "Cognitiva"}
 AGGREGATES = {
@@ -64,6 +72,27 @@ def inventario_pages():
     return {e["numero_oficial"]: e["pagina_pdf"] for e in inv if e.get("numero_oficial")}
 
 
+def validate_table_audit_metadata(errors, tramo_key, tramo, expected):
+    min_m, max_m = tramo_key
+    if min_m < 12:
+        return
+    metas = tramo.get("tablas", [])
+    by_tab = {m.get("tabla"): m for m in metas}
+    for tab, meta in expected.items():
+        audit = by_tab.get(tab)
+        if not audit:
+            errors.append(f"tramo {min_m}-{max_m}: falta metadato de auditoría para {tab}")
+            continue
+        if audit.get("pagina_pdf") != meta["pagina"]:
+            errors.append(f"tramo {min_m}-{max_m}: página de auditoría inválida {tab}: {audit.get('pagina_pdf')}")
+        if audit.get("auditoria_visual_completa") is not True:
+            errors.append(f"tramo {min_m}-{max_m}: auditoría visual incompleta en metadatos {tab}")
+        if audit.get("filas_visibles_esperadas") != audit.get("filas_transcritas"):
+            errors.append(f"tramo {min_m}-{max_m}: filas visibles/transcritas no coinciden en metadatos {tab}: {audit.get('filas_visibles_esperadas')} != {audit.get('filas_transcritas')}")
+        if audit.get("confianza") == "baja":
+            errors.append(f"tramo {min_m}-{max_m}: confianza baja en metadatos {tab}")
+
+
 def validate_group(errors, tramo_key, registros, expected, maxima, pages):
     by = {}
     min_m, max_m = tramo_key
@@ -77,7 +106,7 @@ def validate_group(errors, tramo_key, registros, expected, maxima, pages):
         pc = r.get("percentil")
         if not isinstance(pc, int) or not (1 <= pc <= 99):
             errors.append(f"percentil inválido: {r}")
-        if min_m == 6:
+        if min_m >= 6:
             if r.get("auditoria_visual_completa") is not True:
                 errors.append(f"auditoría visual incompleta {tab}/{esc}")
             if r.get("filas_transcritas") != r.get("filas_visibles_esperadas"):
@@ -101,7 +130,7 @@ def validate_group(errors, tramo_key, registros, expected, maxima, pages):
             if not rs:
                 errors.append(f"falta escala {tab} {esc}")
                 continue
-            if tramo_key == (6, 11):
+            if min_m >= 6:
                 visibles = {r.get("filas_visibles_esperadas") for r in rs}
                 transcritas = {r.get("filas_transcritas") for r in rs}
                 if visibles != {len(rs)} or transcritas != {len(rs)}:
@@ -130,8 +159,6 @@ def validate_dudosas(errors, data):
     flat = [r for tramo in registros for r in tramo.get("registros", [])]
     for duda in data.get("celdas_dudosas", []):
         tab = duda.get("tabla")
-        if tab not in {"N-8", "N-9", "N-10", "N-11", "N-12"}:
-            continue
         matches = [r for r in flat if r.get("tabla") == tab and (not duda.get("escala") or r.get("escala") == duda.get("escala")) and (not duda.get("valor_original_pd") or r.get("valor_original_pd") == duda.get("valor_original_pd"))]
         if not matches:
             errors.append(f"celda dudosa sin registro correspondiente: {duda}")
@@ -145,6 +172,8 @@ def main():
     errors = []
     if hashlib.sha256(json.dumps(tramos.get((0, 5), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_0_5_SHA256:
         errors.append("el bloque validado 0-5 fue modificado")
+    if hashlib.sha256(json.dumps(tramos.get((6, 11), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_6_11_SHA256:
+        errors.append("el bloque validado 6-11 fue modificado")
     validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():
         tramo = tramos.get(tramo_key)
@@ -154,13 +183,14 @@ def main():
         registros = tramo.get("registros", [])
         if any(r.get("valores") == [] for r in registros):
             errors.append(f"tramo {tramo_key[0]}-{tramo_key[1]} contiene filas con valores: []")
+        validate_table_audit_metadata(errors, tramo_key, tramo, expected)
         validate_group(errors, tramo_key, registros, expected, maxima, pages)
     if errors:
         for e in errors:
             print("ERROR:", e, file=sys.stderr)
         return 1
     total = sum(len(tramos[k].get("registros", [])) for k in EXPECTED)
-    print(f"OK: {total} registros validados para N-3 a N-12 (0-5 y 6-11 meses).")
+    print(f"OK: {total} registros validados para N-3 a N-17 (0-5, 6-11 y 12-17 meses).")
     return 0
 
 
