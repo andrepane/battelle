@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "fuente_items": "data/items_areas_subareas.json",
+  "nota": "Modelo de composición de escalas por áreas y subáreas; no duplica ítems.",
+  "escalas": {
+    "personal_social_total": { "nombre": "Personal/Social total", "tipo": "area", "areas": ["Personal/Social"] },
+    "adaptativa_total": { "nombre": "Adaptativa total", "tipo": "area", "areas": ["Adaptativa"] },
+    "motora_gruesa": { "nombre": "Motora gruesa", "tipo": "subareas", "subareas": ["Motora|Control muscular", "Motora|Coordinación corporal", "Motora|Locomoción"] },
+    "motora_fina": { "nombre": "Motora fina", "tipo": "subareas", "subareas": ["Motora|Motricidad fina", "Motora|Motricidad perceptiva"] },
+    "motora_total": { "nombre": "Motora total", "tipo": "area", "areas": ["Motora"] },
+    "comunicacion_receptiva": { "nombre": "Comunicación receptiva", "tipo": "subareas", "subareas": ["Comunicación|Receptiva"] },
+    "comunicacion_expresiva": { "nombre": "Comunicación expresiva", "tipo": "subareas", "subareas": ["Comunicación|Expresiva"] },
+    "comunicacion_total": { "nombre": "Comunicación total", "tipo": "area", "areas": ["Comunicación"] },
+    "cognitiva_total": { "nombre": "Cognitiva total", "tipo": "area", "areas": ["Cognitiva"] },
+    "battelle_total": { "nombre": "Battelle total", "tipo": "areas", "areas": ["Personal/Social", "Adaptativa", "Motora", "Comunicación", "Cognitiva"] }
+  }
+}

@@ -58,5 +58,11 @@ def main(path='data/items_areas_subareas.json'):
         for e in errors: print(f'  - {e}')
         return 1
     print('OK: total, recuentos, códigos, campos obligatorios y subáreas coinciden.')
+    try:
+        import subprocess
+        r = subprocess.run([sys.executable, 'scripts/validar_modelo_escalas.py'], check=False)
+        if r.returncode != 0: return r.returncode
+    except FileNotFoundError:
+        pass
     return 0
 if __name__ == '__main__': sys.exit(main(*(sys.argv[1:])))
