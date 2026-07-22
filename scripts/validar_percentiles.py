@@ -30,6 +30,8 @@ EXPECTED = {
 
 VALIDATED_0_5_SHA256 = "58eb37230c046640e0c44b001ac5be1283d5426c620be638229dfafcf630b17c"
 VALIDATED_6_11_SHA256 = "683b6f8459ad384873ca3ad2a4d54d0f5c4c4a52f69631cbb6065836e8cf7ae7"
+MANIFEST_PATH = Path("data/auditorias/percentiles_12_17_manifest.json")
+PDF_SOURCE = Path("Battelle_Tablas de corrección.pdf")
 
 AREA_ALIASES = {"Personal/Social": "Personal/Social", "Adaptativa": "Adaptativa", "Motora": "Motora", "Comunicación": "Comunicación", "Cognitiva": "Cognitiva"}
 AGGREGATES = {
@@ -72,7 +74,77 @@ def inventario_pages():
     return {e["numero_oficial"]: e["pagina_pdf"] for e in inv if e.get("numero_oficial")}
 
 
-def validate_table_audit_metadata(errors, tramo_key, tramo, expected):
+def object_bodies(pdf_bytes):
+    import re
+
+    pattern = re.compile(rb"(\d+)\s+0\s+obj(.*?)endobj", re.S)
+    return {int(match.group(1)): match.group(2) for match in pattern.finditer(pdf_bytes)}
+
+
+def indirect_object(body, key):
+    import re
+
+    match = re.search(rb"/" + key.encode() + rb"\s+(\d+)\s+0\s+R", body)
+    return int(match.group(1)) if match else None
+
+
+def manifest_by_scale(errors, data):
+    if not MANIFEST_PATH.exists():
+        errors.append(f"falta manifiesto de auditoría visual: {MANIFEST_PATH}")
+        return {}, {}
+    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    fuentes = json.loads(Path("data/fuentes.json").read_text(encoding="utf-8"))
+    expected_pdf_sha = next((entry["sha256"] for entry in fuentes["pdfs_found"] if entry["file"] == str(PDF_SOURCE)), None)
+    pdf_bytes = PDF_SOURCE.read_bytes()
+    actual_pdf_sha = hashlib.sha256(pdf_bytes).hexdigest()
+    if manifest.get("sha256_pdf_fuente") != expected_pdf_sha or actual_pdf_sha != expected_pdf_sha:
+        errors.append("sha256 del PDF fuente no coincide entre manifiesto, data/fuentes.json y archivo local")
+    bodies = object_bodies(pdf_bytes)
+    table_entries = manifest.get("tablas", [])
+    if {entry.get("tabla") for entry in table_entries} != {"N-13", "N-14", "N-15", "N-16", "N-17"}:
+        errors.append("el manifiesto no contiene exactamente N-13..N-17")
+    manifest_tables = {}
+    manifest_scales = {}
+    total_records = 0
+    total_scales = 0
+    for entry in table_entries:
+        tab = entry.get("tabla")
+        manifest_tables[tab] = entry
+        required = ["pagina", "objeto_pdf_pagina", "objeto_imagen", "sha256_flujo_imagen", "sha256_pdf_fuente"]
+        for field in required:
+            if not entry.get(field):
+                errors.append(f"manifiesto sin {field} para {tab}")
+        page_body = bodies.get(entry.get("objeto_pdf_pagina"), b"")
+        resources_obj = indirect_object(page_body, "Resources") if page_body else None
+        resources_body = bodies.get(resources_obj, b"") if resources_obj else b""
+        image_obj = entry.get("objeto_imagen")
+        if not resources_body or f"/background_Page_0 {image_obj} 0 R".encode() not in resources_body:
+            errors.append(f"imagen no vinculada a la página PDF en manifiesto {tab}: página={entry.get('objeto_pdf_pagina')} imagen={image_obj}")
+        image_body = bodies.get(image_obj, b"")
+        if b"stream" in image_body:
+            start = image_body.find(b"stream")
+            start = image_body.find(b"\n", start) + 1
+            end = image_body.rfind(b"endstream")
+            image_stream = image_body[start:end].rstrip(b"\r\n")
+            if hashlib.sha256(image_stream).hexdigest() != entry.get("sha256_flujo_imagen"):
+                errors.append(f"sha256 de flujo de imagen no coincide para {tab}")
+        for scale in entry.get("escalas_visibles", []):
+            key = (tab, scale.get("escala"))
+            manifest_scales[key] = scale
+            total_scales += 1
+            total_records += scale.get("registros_json", 0)
+            if scale.get("estado_cotejo") != "coincide":
+                errors.append(f"cotejo visual no coincide en manifiesto {tab}/{scale.get('escala')}")
+            if scale.get("filas_visibles") != scale.get("registros_json"):
+                errors.append(f"filas visuales y registros JSON difieren en manifiesto {tab}/{scale.get('escala')}")
+    if total_scales != 24:
+        errors.append(f"el manifiesto debe cotejar 24 escalas; tiene {total_scales}")
+    if total_records != 299:
+        errors.append(f"el manifiesto debe cotejar 299 registros; tiene {total_records}")
+    return manifest_tables, manifest_scales
+
+
+def validate_table_audit_metadata(errors, tramo_key, tramo, expected, manifest_tables, manifest_scales):
     min_m, max_m = tramo_key
     if min_m < 12:
         return
@@ -91,6 +163,11 @@ def validate_table_audit_metadata(errors, tramo_key, tramo, expected):
                 errors.append(f"tramo {min_m}-{max_m}: página de auditoría inválida {label}: {audit.get('pagina_pdf')}")
             if audit.get("auditoria_visual_completa") is not True:
                 errors.append(f"tramo {min_m}-{max_m}: auditoría visual incompleta en metadatos {label}")
+            manifest_scale = manifest_scales.get((tab, escala))
+            if not manifest_scale:
+                errors.append(f"tramo {min_m}-{max_m}: falta escala en manifiesto {label}")
+            elif audit.get("filas_transcritas") != manifest_scale.get("filas_visibles"):
+                errors.append(f"tramo {min_m}-{max_m}: filas transcritas no coinciden con manifiesto {label}: {audit.get('filas_transcritas')} != {manifest_scale.get('filas_visibles')}")
             if audit.get("filas_visibles_esperadas") != audit.get("filas_transcritas"):
                 errors.append(f"tramo {min_m}-{max_m}: filas visibles/transcritas no coinciden en metadatos {label}: {audit.get('filas_visibles_esperadas')} != {audit.get('filas_transcritas')}")
             if audit.get("confianza") == "baja":
@@ -178,6 +255,7 @@ def main():
         errors.append("el bloque validado 0-5 fue modificado")
     if hashlib.sha256(json.dumps(tramos.get((6, 11), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_6_11_SHA256:
         errors.append("el bloque validado 6-11 fue modificado")
+    manifest_tables, manifest_scales = manifest_by_scale(errors, data)
     validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():
         tramo = tramos.get(tramo_key)
@@ -185,9 +263,11 @@ def main():
             errors.append(f"falta tramo {tramo_key[0]}-{tramo_key[1]}")
             continue
         registros = tramo.get("registros", [])
+        if tramo_key == (12, 17) and len(registros) != 299:
+            errors.append(f"tramo 12-17 debe contener 299 registros; tiene {len(registros)}")
         if any(r.get("valores") == [] for r in registros):
             errors.append(f"tramo {tramo_key[0]}-{tramo_key[1]} contiene filas con valores: []")
-        validate_table_audit_metadata(errors, tramo_key, tramo, expected)
+        validate_table_audit_metadata(errors, tramo_key, tramo, expected, manifest_tables, manifest_scales)
         validate_group(errors, tramo_key, registros, expected, maxima, pages)
     if errors:
         for e in errors:
