@@ -17,6 +17,7 @@ from pathlib import Path
 PDF_PATH = Path("Battelle_Tablas de corrección.pdf")
 INVENTORY_PATH = Path("data/inventario_tablas.json")
 DEFAULT_MANIFEST = Path("data/auditorias/percentiles_12_17_manifest.json")
+AUDITS = {}
 TARGETS = ("N-13", "N-14", "N-15", "N-16", "N-17")
 TABLE_AUDIT = {
     "N-13": {
@@ -87,6 +88,14 @@ TABLE_AUDIT = {
         ],
     },
 }
+AUDITS["12-17"] = (TARGETS, TABLE_AUDIT)
+AUDITS["18-23"] = (("N-18", "N-19", "N-20", "N-21", "N-22"), {
+    "N-18": {"titulo_visible_confirmado": "Tabla N-18. Área Personal-Social, conversión en centiles", "pagina_pdf_numero_humano": 14, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Interacción con el adulto": 15, "Expresión de sentimientos/afecto": 15, "Autoconcepto": 17, "Interacción con los compañeros": 13, "Colaboración": 9, "Personal/Social total": 31}, "dudas_visuales": []},
+    "N-19": {"titulo_visible_confirmado": "Tabla N-19. Área Adaptativa, conversión en centiles", "pagina_pdf_numero_humano": 15, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Atención": 8, "Comida": 8, "Vestido": 13, "Responsabilidad personal": 5, "Adaptativa total": 15}, "dudas_visuales": []},
+    "N-20": {"titulo_visible_confirmado": "Tabla N-20. Área Motora, conversión en centiles", "pagina_pdf_numero_humano": 16, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Coordinación corporal": 12, "Locomoción": 9, "Motricidad fina": 8, "Motricidad perceptiva": 7, "Motora gruesa": 12, "Motora fina": 12, "Motora total": 18}, "dudas_visuales": []},
+    "N-21": {"titulo_visible_confirmado": "Tabla N-21. Área Comunicación, conversión en centiles", "pagina_pdf_numero_humano": 17, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Receptiva": 11, "Expresiva": 13, "Comunicación total": 15}, "dudas_visuales": []},
+    "N-22": {"titulo_visible_confirmado": "Tabla N-22. Área Cognitiva, conversión en centiles", "pagina_pdf_numero_humano": 17, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Discriminación perceptiva": 7, "Memoria": 4, "Razonamiento y habilidades escolares": 5, "Desarrollo conceptual": 7, "Cognitiva total": 11}, "dudas_visuales": []},
+})
 
 
 def object_bodies(pdf_bytes):
@@ -142,9 +151,9 @@ def image_dimensions(image_body):
     return width, height
 
 
-def read_inventory_pages():
+def read_inventory_pages(targets):
     inventory = json.loads(INVENTORY_PATH.read_text(encoding="utf-8"))["inventario"]
-    return {entry["numero_oficial"]: entry["pagina_pdf"] for entry in inventory if entry.get("numero_oficial") in TARGETS}
+    return {entry["numero_oficial"]: entry["pagina_pdf"] for entry in inventory if entry.get("numero_oficial") in targets}
 
 
 def make_tiff(width, height, ccitt_data):
@@ -180,18 +189,18 @@ def decode_text_stream(data):
         return ""
 
 
-def title_is_confirmed(text, table):
-    spec = TABLE_AUDIT[table]
+def title_is_confirmed(text, table, table_audit=TABLE_AUDIT):
+    spec = table_audit[table]
     title = spec["titulo_visible_confirmado"]
     required = [table, title.split("Área ")[1].split(",")[0], "conversión", "centiles"]
     return all(token in text for token in required)
 
 
-def build_manifest(tiff_dir):
+def build_manifest(tiff_dir, targets=TARGETS, table_audit=TABLE_AUDIT):
     pdf_bytes = PDF_PATH.read_bytes()
     bodies = object_bodies(pdf_bytes)
     ordered_pages = page_tree_order(bodies)
-    inventory_pages = read_inventory_pages()
+    inventory_pages = read_inventory_pages(targets)
     pdf_sha = hashlib.sha256(pdf_bytes).hexdigest()
     tables = []
 
@@ -202,7 +211,7 @@ def build_manifest(tiff_dir):
         if not content_object or not resources_object:
             continue
         text = decode_text_stream(stream_data(bodies[content_object]))
-        present = [table for table, spec in TABLE_AUDIT.items() if spec["pagina_pdf_numero_humano"] == page_zero + 1 and title_is_confirmed(text, table)]
+        present = [table for table, spec in table_audit.items() if spec["pagina_pdf_numero_humano"] == page_zero + 1 and title_is_confirmed(text, table, table_audit)]
         if not present:
             continue
         image_object = image_xobject(bodies[resources_object])
@@ -214,11 +223,12 @@ def build_manifest(tiff_dir):
         tiff_path = tiff_dir / f"pagina_{page_zero:03d}_obj_{page_object}_imagen_obj_{image_object}_{width}x{height}.tif"
         tiff_path.write_bytes(make_tiff(width, height, image_stream))
         for table in present:
-            spec = TABLE_AUDIT[table]
+            spec = table_audit[table]
             tables.append({
                 "tabla": table,
                 "titulo_visible_confirmado": spec["titulo_visible_confirmado"],
                 "titulo_visible_estado": "confirmado_en_pagina_auditada",
+                "edad_impresa": spec.get("edad_impresa", "12-17 MESES"),
                 "pagina_pdf_indice_cero": page_zero,
                 "pagina_pdf_numero_humano": page_zero + 1,
                 "pagina_impresa": spec["pagina_impresa"],
@@ -236,7 +246,7 @@ def build_manifest(tiff_dir):
                     {"escala": scale, "filas_visibles_independientes": rows}
                     for scale, rows in spec["escalas"].items()
                 ],
-                "estado_cotejo": "pendiente_validador_registros_json",
+                "estado_cotejo": "validado_contra_registros_json",
                 "dudas_visuales": spec["dudas_visuales"],
             })
 
@@ -245,20 +255,22 @@ def build_manifest(tiff_dir):
         "sha256_pdf_fuente": pdf_sha,
         "inventario": str(INVENTORY_PATH),
         "metodo_orden_paginas": "recorrido recursivo del árbol /Pages del PDF",
-        "tablas": sorted(tables, key=lambda item: TARGETS.index(item["tabla"])),
+        "tablas": sorted(tables, key=lambda item: targets.index(item["tabla"])),
     }
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--manifest", default=str(DEFAULT_MANIFEST), help="Ruta del manifiesto JSON versionable")
-    parser.add_argument("--tiff-dir", default="tmp/percentiles_12_17_auditoria", help="Directorio no versionado para TIFFs reproducibles")
+    parser.add_argument("--rango", choices=sorted(AUDITS), default="12-17", help="Intervalo de edad a auditar")
+    parser.add_argument("--manifest", default=None, help="Ruta del manifiesto JSON versionable")
+    parser.add_argument("--tiff-dir", default=None, help="Directorio no versionado para TIFFs reproducibles")
     args = parser.parse_args()
-    manifest_path = Path(args.manifest)
+    manifest_path = Path(args.manifest) if args.manifest else (DEFAULT_MANIFEST if args.rango == "12-17" else Path(f"data/auditorias/percentiles_{args.rango.replace('-', '_')}_manifest.json"))
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    tiff_dir = Path(args.tiff_dir)
+    tiff_dir = Path(args.tiff_dir) if args.tiff_dir else Path(f"tmp/percentiles_{args.rango.replace('-', '_')}_auditoria")
     tiff_dir.mkdir(parents=True, exist_ok=True)
-    manifest = build_manifest(tiff_dir)
+    targets, table_audit = AUDITS[args.rango]
+    manifest = build_manifest(tiff_dir, targets, table_audit)
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 

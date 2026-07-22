@@ -255,3 +255,46 @@ Columnas normalizadas del tramo 12-17 meses:
 Se transcribieron 299 registros PD-PC para N-13..N-17 y cada escala quedó con `estado: normalizada`. El manifiesto confirma las celdas llamativas N-14 Atención `0-12'`, N-15 Coordinación corporal `16+`→PC 81, N-17 Memoria `10+`→PC 95 y N-17 Razonamiento y habilidades escolares `5+`→PC 98; el apóstrofo de `0-12'` se conserva literalmente como marca impresa/OCR, no como límite abierto. Los intervalos abiertos terminados en `+` se extendieron exclusivamente hasta el máximo teórico calculado desde `data/items_areas_subareas.json`; los demás intervalos conservan sus límites impresos. No se añadieron intervalos artificiales ni se usaron columnas resumidas con solo PC 1 inferior y un límite superior.
 
 El validador de percentiles valida ahora por separado 0-5, 6-11 y 12-17 meses; protege por checksum los bloques 0-5 y 6-11; exige coincidencia entre filas visibles y filas transcritas; exige auditoría visual completa; rechaza confianza baja; comprueba celdas dudosas; y valida páginas, percentiles, cobertura, huecos, solapamientos y extensión correcta de límites abiertos.
+
+## Ampliación de percentiles 18-23 meses (N-18 a N-22)
+
+Se normalizó exclusivamente el tramo de edad cronológica 18-23 meses del Battelle completo. La identificación no se hizo por secuencia: se recorrió el árbol `/Pages` real del PDF y se confirmaron visualmente los títulos y la edad impresa `18-23 MESES` en las páginas humanas 14 a 17. Las tablas utilizadas fueron N-18 en página 14, N-19 en página 15, N-20 en página 16, y N-21/N-22 compartiendo la página 17. Se corrigió el inventario para N-19, N-20 y N-21 porque las páginas previas correspondían a desplazamientos de una página frente a los títulos visibles reales.
+
+El extractor de auditoría quedó parametrizado por intervalo (`--rango 12-17` o `--rango 18-23`), conjunto de tablas esperadas, títulos visuales esperados y ruta de manifiesto de salida. Para 18-23 se generó `data/auditorias/percentiles_18_23_manifest.json`, independiente de los registros normalizados y sin `registros_json`. El manifiesto conserva el SHA-256 del PDF, orden real de página, objeto de página, XObject/imagen enlazado desde la página, dimensiones, SHA-256 del flujo de imagen, TIFF reproducible, títulos confirmados, escalas visibles y recuentos visuales independientes.
+
+Columnas normalizadas del tramo 18-23 meses:
+
+| Tabla | Página PDF | Escala | Filas visibles esperadas | Filas transcritas | Auditoría visual completa | Confianza |
+| --- | ---: | --- | ---: | ---: | --- | --- |
+| N-18 | 14 | Interacción con el adulto | 15 | 15 | true | alta |
+| N-18 | 14 | Expresión de sentimientos/afecto | 15 | 15 | true | alta |
+| N-18 | 14 | Autoconcepto | 17 | 17 | true | alta |
+| N-18 | 14 | Interacción con los compañeros | 13 | 13 | true | alta |
+| N-18 | 14 | Colaboración | 9 | 9 | true | alta |
+| N-18 | 14 | Personal/Social total | 31 | 31 | true | alta |
+| N-19 | 15 | Atención | 8 | 8 | true | alta |
+| N-19 | 15 | Comida | 8 | 8 | true | alta |
+| N-19 | 15 | Vestido | 13 | 13 | true | alta |
+| N-19 | 15 | Responsabilidad personal | 5 | 5 | true | alta |
+| N-19 | 15 | Adaptativa total | 15 | 15 | true | alta |
+| N-20 | 16 | Coordinación corporal | 12 | 12 | true | alta |
+| N-20 | 16 | Locomoción | 9 | 9 | true | alta |
+| N-20 | 16 | Motricidad fina | 8 | 8 | true | alta |
+| N-20 | 16 | Motricidad perceptiva | 7 | 7 | true | alta |
+| N-20 | 16 | Motora gruesa | 12 | 12 | true | alta |
+| N-20 | 16 | Motora fina | 12 | 12 | true | alta |
+| N-20 | 16 | Motora total | 18 | 18 | true | alta |
+| N-21 | 17 | Receptiva | 11 | 11 | true | alta |
+| N-21 | 17 | Expresiva | 13 | 13 | true | alta |
+| N-21 | 17 | Comunicación total | 15 | 15 | true | alta |
+| N-22 | 17 | Discriminación perceptiva | 7 | 7 | true | alta |
+| N-22 | 17 | Memoria | 4 | 4 | true | alta |
+| N-22 | 17 | Razonamiento y habilidades escolares | 5 | 5 | true | alta |
+| N-22 | 17 | Desarrollo conceptual | 7 | 7 | true | alta |
+| N-22 | 17 | Cognitiva total | 11 | 11 | true | alta |
+
+Se añadieron 300 registros PD-PC para 26 escalas. Los intervalos interiores se conservaron tal como aparecen impresos y solo los límites abiertos con `+` se extendieron al máximo teórico calculado desde los 341 ítems. No se interpolaron valores ni se completaron celdas por inferencia; ninguna tabla con dudas visuales quedó marcada como normalizada.
+
+El validador de percentiles ahora cubre 0-5, 6-11, 12-17 y 18-23 meses; mantiene checksums estables para 0-5, 6-11 y el bloque 12-17 ya fusionado; valida inventario contra PDF/manifiestos, orden real de páginas, relación página → recurso XObject → imagen, hashes SHA-256, ausencia de `registros_json`, recuentos visuales frente a registros JSON calculados, escalas esperadas, percentiles, duplicados, huecos, solapes, máximos teóricos y extensión correcta de límites abiertos. Resultado ejecutado: `OK: 1058 registros validados para N-3 a N-22 (0-5, 6-11, 12-17 y 18-23 meses).`
+
+No se modificó la interfaz: `index.html`, `styles.css` y `script.js` permanecieron sin cambios.
