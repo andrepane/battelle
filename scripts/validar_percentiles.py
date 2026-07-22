@@ -24,7 +24,7 @@ EXPECTED = {
         "N-14": {"pagina": 10, "escalas": ["Atención", "Comida", "Vestido", "Adaptativa total"]},
         "N-15": {"pagina": 11, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
         "N-16": {"pagina": 12, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
-        "N-17": {"pagina": 13, "escalas": ["Discriminación perceptiva", "Memoria", "Cognitiva total"]},
+        "N-17": {"pagina": 13, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
     },
 }
 
