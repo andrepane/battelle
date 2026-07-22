@@ -169,3 +169,18 @@ Se corrigió el extremo superior de los intervalos abiertos (`+`) en las escalas
 - Cognitiva total: 112, incluyendo todas las subáreas cognitivas del área aunque no aparezcan como columnas independientes en la tabla 0-5.
 
 No se modificaron intervalos interiores ni percentiles transcritos. El validador ahora calcula los máximos desde el inventario de ítems, distingue subáreas individuales, agregados motores y totales de área, y exige que todo intervalo terminado en `+` alcance su máximo teórico correspondiente.
+
+## Ampliación de percentiles 6-11 meses (N-8 a N-12)
+
+Se añadió el tramo de edad cronológica 6-11 meses a `data/percentiles_battelle.json` sin editar el bloque validado de 0-5 meses. Las tablas normalizadas son N-8 Personal/Social, N-9 Adaptativa, N-10 Motora, N-11 Comunicación y N-12 Cognitiva, con `edad_cronologica_min_meses: 6` y `edad_cronologica_max_meses: 11` en todos los registros.
+
+La lectura se hizo por tabla y no por reutilización de columnas del tramo anterior. En particular, N-10 incorpora la subárea Locomoción y los agregados motores completos; N-12 incorpora Razonamiento y habilidades escolares. Los límites abiertos `+` se extendieron hasta los máximos teóricos calculados desde `data/items_areas_subareas.json` para subáreas, totales y agregados motores.
+
+Celdas dudosas documentadas:
+
+- N-8: la extracción tokenizada comprime columnas con distinta altura; se transcribieron las secuencias visibles por escala.
+- N-9: Atención, Comida y total Adaptativa tienen alturas distintas y cierres inferiores diferentes.
+- N-10: Locomoción incluye una celda partida entre líneas y un percentil con coma OCR en el valor original.
+- N-12: aparece un token final `12-17` contaminante del tramo siguiente; no se normalizó como registro 6-11.
+
+El validador de percentiles ahora valida conjuntamente N-3 a N-7 para 0-5 meses y N-8 a N-12 para 6-11 meses. La validación se agrupa por tramo, tabla y escala para impedir que la cobertura de una edad tape huecos de otra, y comprueba columnas esperadas, cobertura completa, huecos, solapamientos, máximos teóricos, límites abiertos, percentiles, páginas del inventario y conservación del bloque 0-5.
