@@ -1,0 +1,21 @@
+{
+  "checksum_protegido_antes": "46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d",
+  "checksum_protegido_despues": "46fa96209bafccd9b1070da0b2617908f3e34bb0c317ebb3cc242badca45999d",
+  "esperadas": 52,
+  "faltantes": [
+    "N-4",
+    "N-9",
+    "N-10",
+    "N-12",
+    "N-17",
+    "N-19",
+    "N-22",
+    "N-32",
+    "N-42",
+    "N-47"
+  ],
+  "incidencias": 57,
+  "localizadas": 42,
+  "protegidos": 461,
+  "registros_pd": 4555
+}
