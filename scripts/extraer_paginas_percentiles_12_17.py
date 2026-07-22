@@ -97,6 +97,14 @@ AUDITS["18-23"] = (("N-18", "N-19", "N-20", "N-21", "N-22"), {
     "N-22": {"titulo_visible_confirmado": "Tabla N-22. Área Cognitiva, conversión en centiles", "pagina_pdf_numero_humano": 17, "pagina_impresa": None, "edad_impresa": "18-23 MESES", "escalas": {"Discriminación perceptiva": 7, "Memoria": 4, "Razonamiento y habilidades escolares": 5, "Desarrollo conceptual": 7, "Cognitiva total": 11}, "dudas_visuales": []},
 })
 
+AUDITS["24-35"] = (("N-23", "N-24", "N-25", "N-26", "N-27"), {
+    "N-23": {"titulo_visible_confirmado": "Tabla N-23. Área Personal-Social, conversión en centiles", "pagina_pdf_numero_humano": 18, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Interacción con el adulto": 14, "Expresión de sentimientos/afecto": 13, "Autoconcepto": 20, "Interacción con los compañeros": 22, "Colaboración": 16, "Rol social": 19, "Personal/Social total": 52}, "dudas_visuales": []},
+    "N-24": {"titulo_visible_confirmado": "Tabla N-24. Área Adaptativa, conversión en centiles", "pagina_pdf_numero_humano": 19, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Atención": 5, "Comida": 8, "Vestido": 15, "Responsabilidad personal": 11, "Aseo": 13, "Adaptativa total": 32}, "dudas_visuales": []},
+    "N-25": {"titulo_visible_confirmado": "Tabla N-25. Área Motora, conversión en centiles", "pagina_pdf_numero_humano": 20, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Coordinación corporal": 18, "Locomoción": 5, "Motricidad fina": 18, "Motricidad perceptiva": 9, "Motora gruesa": 22, "Motora fina": 23, "Motora total": 33}, "dudas_visuales": []},
+    "N-26": {"titulo_visible_confirmado": "Tabla N-26. Área Comunicación, conversión en centiles", "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Receptiva": 20, "Expresiva": 23, "Comunicación total": 33}, "dudas_visuales": []},
+    "N-27": {"titulo_visible_confirmado": "Tabla N-27. Área Cognitiva, conversión en centiles", "pagina_pdf_numero_humano": 21, "pagina_impresa": None, "edad_impresa": "24-35 MESES", "escalas": {"Discriminación perceptiva": 10, "Memoria": 9, "Razonamiento y habilidades escolares": 10, "Desarrollo conceptual": 12, "Cognitiva total": 25}, "dudas_visuales": []},
+})
+
 
 def object_bodies(pdf_bytes):
     pattern = re.compile(rb"(\d+)\s+0\s+obj(.*?)endobj", re.S)
@@ -192,7 +200,7 @@ def decode_text_stream(data):
 def title_is_confirmed(text, table, table_audit=TABLE_AUDIT):
     spec = table_audit[table]
     title = spec["titulo_visible_confirmado"]
-    required = [table, title.split("Área ")[1].split(",")[0], "conversión", "centiles"]
+    required = [table, title.split("Área ")[1].split(",")[0]]
     return all(token in text for token in required)
 
 

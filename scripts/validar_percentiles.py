@@ -33,20 +33,30 @@ EXPECTED = {
         "N-21": {"pagina": 17, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
         "N-22": {"pagina": 17, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
     },
+    (24, 35): {
+        "N-23": {"pagina": 18, "escalas": ["Interacción con el adulto", "Expresión de sentimientos/afecto", "Autoconcepto", "Interacción con los compañeros", "Colaboración", "Rol social", "Personal/Social total"]},
+        "N-24": {"pagina": 19, "escalas": ["Atención", "Comida", "Vestido", "Responsabilidad personal", "Aseo", "Adaptativa total"]},
+        "N-25": {"pagina": 20, "escalas": ["Coordinación corporal", "Locomoción", "Motricidad fina", "Motricidad perceptiva", "Motora gruesa", "Motora fina", "Motora total"]},
+        "N-26": {"pagina": 21, "escalas": ["Receptiva", "Expresiva", "Comunicación total"]},
+        "N-27": {"pagina": 21, "escalas": ["Discriminación perceptiva", "Memoria", "Razonamiento y habilidades escolares", "Desarrollo conceptual", "Cognitiva total"]},
+    },
 }
 
 VALIDATED_0_5_SHA256 = "58eb37230c046640e0c44b001ac5be1283d5426c620be638229dfafcf630b17c"
 VALIDATED_6_11_SHA256 = "683b6f8459ad384873ca3ad2a4d54d0f5c4c4a52f69631cbb6065836e8cf7ae7"
 VALIDATED_12_17_SHA256 = "fb756b48fb08a06adb71a1bdd2c5781742d9f417e11cd03528c50bb3dae9d1ce"
+VALIDATED_18_23_SHA256 = "cfd9ed575788a33efb9bafbc3443aff301f48e8bd37d3e61e77fd5df7778d567"
 MANIFEST_PATHS = {
     (12, 17): Path("data/auditorias/percentiles_12_17_manifest.json"),
     (18, 23): Path("data/auditorias/percentiles_18_23_manifest.json"),
+    (24, 35): Path("data/auditorias/percentiles_24_35_manifest.json"),
 }
 EXPECTED_RECORD_COUNTS = {
     (12, 17): 299,
     (18, 23): 300,
+    (24, 35): 510,
 }
-EXPECTED_TOTAL_RECORDS = 1058
+EXPECTED_TOTAL_RECORDS = 1568
 PDF_SOURCE = Path("Battelle_Tablas de corrección.pdf")
 
 AREA_ALIASES = {"Personal/Social": "Personal/Social", "Adaptativa": "Adaptativa", "Motora": "Motora", "Comunicación": "Comunicación", "Cognitiva": "Cognitiva"}
@@ -328,6 +338,8 @@ def main():
         errors.append("el bloque validado 6-11 fue modificado")
     if hashlib.sha256(json.dumps(tramos.get((12, 17), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_12_17_SHA256:
         errors.append("el bloque validado 12-17 fue modificado")
+    if hashlib.sha256(json.dumps(tramos.get((18, 23), {}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() != VALIDATED_18_23_SHA256:
+        errors.append("el bloque validado 18-23 fue modificado")
     validate_dudosas(errors, data)
     for tramo_key, expected in EXPECTED.items():
         tramo = tramos.get(tramo_key)
@@ -355,7 +367,7 @@ def main():
         return 1
     print("OK: 12-17 meses: 24 escalas, 299 registros.")
     print("OK: 18-23 meses: 26 escalas, 300 registros.")
-    print(f"OK: total N-3..N-22: exactamente {EXPECTED_TOTAL_RECORDS} registros validados (0-5, 6-11, 12-17 y 18-23 meses).")
+    print(f"OK: total N-3..N-27: exactamente {EXPECTED_TOTAL_RECORDS} registros validados (0-5, 6-11, 12-17 y 18-23 meses).")
     return 0
 
 

@@ -1,0 +1,250 @@
+{
+  "source": "Battelle_Tablas de corrección.pdf",
+  "sha256_pdf_fuente": "8841e4515b20e926594bb7baf6f499348ad19645758566d29d6997f6df7475f0",
+  "inventario": "data/inventario_tablas.json",
+  "metodo_orden_paginas": "recorrido recursivo del árbol /Pages del PDF",
+  "tablas": [
+    {
+      "tabla": "N-23",
+      "titulo_visible_confirmado": "Tabla N-23. Área Personal-Social, conversión en centiles",
+      "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "24-35 MESES",
+      "pagina_pdf_indice_cero": 17,
+      "pagina_pdf_numero_humano": 18,
+      "pagina_impresa": null,
+      "pagina_inventario": 18,
+      "objeto_pdf_pagina": 97,
+      "objeto_contenido": 100,
+      "xobject_imagen": "background_Page_0",
+      "objeto_imagen": 101,
+      "archivo_tiff_reproducible": "tmp/percentiles_24_35_auditoria/pagina_017_obj_97_imagen_obj_101_2930x2362.tif",
+      "dimensiones": {
+        "width": 2930,
+        "height": 2362
+      },
+      "sha256_flujo_imagen": "d1e4a1fca5870356023a17a2aeb9dc05b01386e2b240c11e66d06f74e6a3c719",
+      "sha256_pdf_fuente": "8841e4515b20e926594bb7baf6f499348ad19645758566d29d6997f6df7475f0",
+      "metodo_recuento_filas": "conteo visual independiente sobre TIFF CCITT de la página auditada; cotejado por columnas PD-PC impresas",
+      "escalas_visibles": [
+        {
+          "escala": "Interacción con el adulto",
+          "filas_visibles_independientes": 14
+        },
+        {
+          "escala": "Expresión de sentimientos/afecto",
+          "filas_visibles_independientes": 13
+        },
+        {
+          "escala": "Autoconcepto",
+          "filas_visibles_independientes": 20
+        },
+        {
+          "escala": "Interacción con los compañeros",
+          "filas_visibles_independientes": 22
+        },
+        {
+          "escala": "Colaboración",
+          "filas_visibles_independientes": 16
+        },
+        {
+          "escala": "Rol social",
+          "filas_visibles_independientes": 19
+        },
+        {
+          "escala": "Personal/Social total",
+          "filas_visibles_independientes": 52
+        }
+      ],
+      "estado_cotejo": "validado_contra_registros_json",
+      "dudas_visuales": []
+    },
+    {
+      "tabla": "N-24",
+      "titulo_visible_confirmado": "Tabla N-24. Área Adaptativa, conversión en centiles",
+      "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "24-35 MESES",
+      "pagina_pdf_indice_cero": 18,
+      "pagina_pdf_numero_humano": 19,
+      "pagina_impresa": null,
+      "pagina_inventario": 19,
+      "objeto_pdf_pagina": 103,
+      "objeto_contenido": 106,
+      "xobject_imagen": "background_Page_0",
+      "objeto_imagen": 107,
+      "archivo_tiff_reproducible": "tmp/percentiles_24_35_auditoria/pagina_018_obj_103_imagen_obj_107_2930x2362.tif",
+      "dimensiones": {
+        "width": 2930,
+        "height": 2362
+      },
+      "sha256_flujo_imagen": "3fc03e67d71c3b017ed4b104f49e93d3bb87ae0310fb9d6de7c01bb1f6bd0289",
+      "sha256_pdf_fuente": "8841e4515b20e926594bb7baf6f499348ad19645758566d29d6997f6df7475f0",
+      "metodo_recuento_filas": "conteo visual independiente sobre TIFF CCITT de la página auditada; cotejado por columnas PD-PC impresas",
+      "escalas_visibles": [
+        {
+          "escala": "Atención",
+          "filas_visibles_independientes": 5
+        },
+        {
+          "escala": "Comida",
+          "filas_visibles_independientes": 8
+        },
+        {
+          "escala": "Vestido",
+          "filas_visibles_independientes": 15
+        },
+        {
+          "escala": "Responsabilidad personal",
+          "filas_visibles_independientes": 11
+        },
+        {
+          "escala": "Aseo",
+          "filas_visibles_independientes": 13
+        },
+        {
+          "escala": "Adaptativa total",
+          "filas_visibles_independientes": 32
+        }
+      ],
+      "estado_cotejo": "validado_contra_registros_json",
+      "dudas_visuales": []
+    },
+    {
+      "tabla": "N-25",
+      "titulo_visible_confirmado": "Tabla N-25. Área Motora, conversión en centiles",
+      "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "24-35 MESES",
+      "pagina_pdf_indice_cero": 19,
+      "pagina_pdf_numero_humano": 20,
+      "pagina_impresa": null,
+      "pagina_inventario": 20,
+      "objeto_pdf_pagina": 109,
+      "objeto_contenido": 112,
+      "xobject_imagen": "background_Page_0",
+      "objeto_imagen": 113,
+      "archivo_tiff_reproducible": "tmp/percentiles_24_35_auditoria/pagina_019_obj_109_imagen_obj_113_2930x2362.tif",
+      "dimensiones": {
+        "width": 2930,
+        "height": 2362
+      },
+      "sha256_flujo_imagen": "39e1104e5ec604754d7f3eaa49ac541ca0df1b9556244e12025ad1b2500cdc5a",
+      "sha256_pdf_fuente": "8841e4515b20e926594bb7baf6f499348ad19645758566d29d6997f6df7475f0",
+      "metodo_recuento_filas": "conteo visual independiente sobre TIFF CCITT de la página auditada; cotejado por columnas PD-PC impresas",
+      "escalas_visibles": [
+        {
+          "escala": "Coordinación corporal",
+          "filas_visibles_independientes": 18
+        },
+        {
+          "escala": "Locomoción",
+          "filas_visibles_independientes": 5
+        },
+        {
+          "escala": "Motricidad fina",
+          "filas_visibles_independientes": 18
+        },
+        {
+          "escala": "Motricidad perceptiva",
+          "filas_visibles_independientes": 9
+        },
+        {
+          "escala": "Motora gruesa",
+          "filas_visibles_independientes": 22
+        },
+        {
+          "escala": "Motora fina",
+          "filas_visibles_independientes": 23
+        },
+        {
+          "escala": "Motora total",
+          "filas_visibles_independientes": 33
+        }
+      ],
+      "estado_cotejo": "validado_contra_registros_json",
+      "dudas_visuales": []
+    },
+    {
+      "tabla": "N-26",
+      "titulo_visible_confirmado": "Tabla N-26. Área Comunicación, conversión en centiles",
+      "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "24-35 MESES",
+      "pagina_pdf_indice_cero": 20,
+      "pagina_pdf_numero_humano": 21,
+      "pagina_impresa": null,
+      "pagina_inventario": 21,
+      "objeto_pdf_pagina": 115,
+      "objeto_contenido": 118,
+      "xobject_imagen": "background_Page_0",
+      "objeto_imagen": 119,
+      "archivo_tiff_reproducible": "tmp/percentiles_24_35_auditoria/pagina_020_obj_115_imagen_obj_119_2930x2362.tif",
+      "dimensiones": {
+        "width": 2930,
+        "height": 2362
+      },
+      "sha256_flujo_imagen": "ecad69584eb1b289afd0655d26359d710c48b56a05a2170f6a64ed47ee443288",
+      "sha256_pdf_fuente": "8841e4515b20e926594bb7baf6f499348ad19645758566d29d6997f6df7475f0",
+      "metodo_recuento_filas": "conteo visual independiente sobre TIFF CCITT de la página auditada; cotejado por columnas PD-PC impresas",
+      "escalas_visibles": [
+        {
+          "escala": "Receptiva",
+          "filas_visibles_independientes": 20
+        },
+        {
+          "escala": "Expresiva",
+          "filas_visibles_independientes": 23
+        },
+        {
+          "escala": "Comunicación total",
+          "filas_visibles_independientes": 33
+        }
+      ],
+      "estado_cotejo": "validado_contra_registros_json",
+      "dudas_visuales": []
+    },
+    {
+      "tabla": "N-27",
+      "titulo_visible_confirmado": "Tabla N-27. Área Cognitiva, conversión en centiles",
+      "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "24-35 MESES",
+      "pagina_pdf_indice_cero": 20,
+      "pagina_pdf_numero_humano": 21,
+      "pagina_impresa": null,
+      "pagina_inventario": 21,
+      "objeto_pdf_pagina": 115,
+      "objeto_contenido": 118,
+      "xobject_imagen": "background_Page_0",
+      "objeto_imagen": 119,
+      "archivo_tiff_reproducible": "tmp/percentiles_24_35_auditoria/pagina_020_obj_115_imagen_obj_119_2930x2362.tif",
+      "dimensiones": {
+        "width": 2930,
+        "height": 2362
+      },
+      "sha256_flujo_imagen": "ecad69584eb1b289afd0655d26359d710c48b56a05a2170f6a64ed47ee443288",
+      "sha256_pdf_fuente": "8841e4515b20e926594bb7baf6f499348ad19645758566d29d6997f6df7475f0",
+      "metodo_recuento_filas": "conteo visual independiente sobre TIFF CCITT de la página auditada; cotejado por columnas PD-PC impresas",
+      "escalas_visibles": [
+        {
+          "escala": "Discriminación perceptiva",
+          "filas_visibles_independientes": 10
+        },
+        {
+          "escala": "Memoria",
+          "filas_visibles_independientes": 9
+        },
+        {
+          "escala": "Razonamiento y habilidades escolares",
+          "filas_visibles_independientes": 10
+        },
+        {
+          "escala": "Desarrollo conceptual",
+          "filas_visibles_independientes": 12
+        },
+        {
+          "escala": "Cognitiva total",
+          "filas_visibles_independientes": 25
+        }
+      ],
+      "estado_cotejo": "validado_contra_registros_json",
+      "dudas_visuales": []
+    }
+  ]
+}
