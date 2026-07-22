@@ -155,3 +155,17 @@ Se añadió `data/percentiles_battelle.json` como archivo incremental para las c
 Los límites abiertos con `+` se extendieron exclusivamente hasta el máximo teórico calculado desde los ítems de la escala/subárea correspondiente. Se documentó como celda dudosa N-5 Control muscular `8-9`, porque la extracción/OCR conserva un apóstrofo junto al intervalo; se normalizó como intervalo cerrado 8-9 tras lectura visual.
 
 Se añadió `scripts/validar_percentiles.py`, que falla ante tablas o escalas ausentes, edades distintas de 0-5 meses, huecos/solapamientos en PD, percentiles inválidos, páginas no coincidentes con el inventario, columnas no separadas o filas residuales `valores: []`.
+
+### Corrección de límites abiertos agregados
+
+Se corrigió el extremo superior de los intervalos abiertos (`+`) en las escalas agregadas y totales para que llegue al máximo teórico completo de la escala, calculado desde `data/items_areas_subareas.json`, y no solo a la suma de columnas visibles en el tramo 0-5 meses:
+
+- Personal/Social total: 170.
+- Adaptativa total: 118.
+- Motora gruesa: 88 (Control muscular + Coordinación corporal + Locomoción).
+- Motora fina: 76 (Motricidad fina + Motricidad perceptiva).
+- Motora total: 164.
+- Comunicación total: 118.
+- Cognitiva total: 112, incluyendo todas las subáreas cognitivas del área aunque no aparezcan como columnas independientes en la tabla 0-5.
+
+No se modificaron intervalos interiores ni percentiles transcritos. El validador ahora calcula los máximos desde el inventario de ítems, distingue subáreas individuales, agregados motores y totales de área, y exige que todo intervalo terminado en `+` alcance su máximo teórico correspondiente.
