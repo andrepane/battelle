@@ -17,7 +17,7 @@
       "objeto_contenido": 76,
       "xobject_imagen": "background_Page_0",
       "objeto_imagen": 77,
-      "archivo_tiff_reproducible": "/tmp/percentiles_18_23_tiffs/pagina_013_obj_73_imagen_obj_77_2930x2362.tif",
+      "archivo_tiff_reproducible": "tmp/percentiles_18_23_auditoria/pagina_013_obj_73_imagen_obj_77_2930x2362.tif",
       "dimensiones": {
         "width": 2930,
         "height": 2362
@@ -51,7 +51,7 @@
           "filas_visibles_independientes": 31
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": []
     },
     {
@@ -67,7 +67,7 @@
       "objeto_contenido": 82,
       "xobject_imagen": "background_Page_0",
       "objeto_imagen": 83,
-      "archivo_tiff_reproducible": "/tmp/percentiles_18_23_tiffs/pagina_014_obj_79_imagen_obj_83_2930x2362.tif",
+      "archivo_tiff_reproducible": "tmp/percentiles_18_23_auditoria/pagina_014_obj_79_imagen_obj_83_2930x2362.tif",
       "dimensiones": {
         "width": 2930,
         "height": 2362
@@ -97,7 +97,7 @@
           "filas_visibles_independientes": 15
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": []
     },
     {
@@ -113,7 +113,7 @@
       "objeto_contenido": 88,
       "xobject_imagen": "background_Page_0",
       "objeto_imagen": 89,
-      "archivo_tiff_reproducible": "/tmp/percentiles_18_23_tiffs/pagina_015_obj_85_imagen_obj_89_2930x2362.tif",
+      "archivo_tiff_reproducible": "tmp/percentiles_18_23_auditoria/pagina_015_obj_85_imagen_obj_89_2930x2362.tif",
       "dimensiones": {
         "width": 2930,
         "height": 2362
@@ -151,7 +151,7 @@
           "filas_visibles_independientes": 18
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": []
     },
     {
@@ -167,7 +167,7 @@
       "objeto_contenido": 94,
       "xobject_imagen": "background_Page_0",
       "objeto_imagen": 95,
-      "archivo_tiff_reproducible": "/tmp/percentiles_18_23_tiffs/pagina_016_obj_91_imagen_obj_95_2930x2362.tif",
+      "archivo_tiff_reproducible": "tmp/percentiles_18_23_auditoria/pagina_016_obj_91_imagen_obj_95_2930x2362.tif",
       "dimensiones": {
         "width": 2930,
         "height": 2362
@@ -189,7 +189,7 @@
           "filas_visibles_independientes": 15
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": []
     },
     {
@@ -205,7 +205,7 @@
       "objeto_contenido": 94,
       "xobject_imagen": "background_Page_0",
       "objeto_imagen": 95,
-      "archivo_tiff_reproducible": "/tmp/percentiles_18_23_tiffs/pagina_016_obj_91_imagen_obj_95_2930x2362.tif",
+      "archivo_tiff_reproducible": "tmp/percentiles_18_23_auditoria/pagina_016_obj_91_imagen_obj_95_2930x2362.tif",
       "dimensiones": {
         "width": 2930,
         "height": 2362
@@ -235,7 +235,7 @@
           "filas_visibles_independientes": 11
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": []
     }
   ]

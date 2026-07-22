@@ -8,6 +8,7 @@
       "tabla": "N-13",
       "titulo_visible_confirmado": "Tabla N-13. Área Personal-Social, conversión en centiles",
       "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "12-17 MESES",
       "pagina_pdf_indice_cero": 9,
       "pagina_pdf_numero_humano": 10,
       "pagina_impresa": null,
@@ -46,13 +47,14 @@
           "filas_visibles_independientes": 26
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": []
     },
     {
       "tabla": "N-14",
       "titulo_visible_confirmado": "Tabla N-14. Área Adaptativa, conversión en centiles",
       "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "12-17 MESES",
       "pagina_pdf_indice_cero": 10,
       "pagina_pdf_numero_humano": 11,
       "pagina_impresa": null,
@@ -87,7 +89,7 @@
           "filas_visibles_independientes": 20
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": [
         {
           "escala": "Atención",
@@ -101,6 +103,7 @@
       "tabla": "N-15",
       "titulo_visible_confirmado": "Tabla N-15. Área Motora, conversión en centiles",
       "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "12-17 MESES",
       "pagina_pdf_indice_cero": 11,
       "pagina_pdf_numero_humano": 12,
       "pagina_impresa": null,
@@ -147,7 +150,7 @@
           "filas_visibles_independientes": 26
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": [
         {
           "escala": "Coordinación corporal",
@@ -161,6 +164,7 @@
       "tabla": "N-16",
       "titulo_visible_confirmado": "Tabla N-16. Área Comunicación, conversión en centiles",
       "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "12-17 MESES",
       "pagina_pdf_indice_cero": 12,
       "pagina_pdf_numero_humano": 13,
       "pagina_impresa": null,
@@ -191,13 +195,14 @@
           "filas_visibles_independientes": 17
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": []
     },
     {
       "tabla": "N-17",
       "titulo_visible_confirmado": "Tabla N-17. Área Cognitiva, conversión en centiles",
       "titulo_visible_estado": "confirmado_en_pagina_auditada",
+      "edad_impresa": "12-17 MESES",
       "pagina_pdf_indice_cero": 12,
       "pagina_pdf_numero_humano": 13,
       "pagina_impresa": null,
@@ -236,7 +241,7 @@
           "filas_visibles_independientes": 12
         }
       ],
-      "estado_cotejo": "pendiente_validador_registros_json",
+      "estado_cotejo": "validado_contra_registros_json",
       "dudas_visuales": [
         {
           "escala": "Memoria",

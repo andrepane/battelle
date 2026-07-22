@@ -42,6 +42,11 @@ MANIFEST_PATHS = {
     (12, 17): Path("data/auditorias/percentiles_12_17_manifest.json"),
     (18, 23): Path("data/auditorias/percentiles_18_23_manifest.json"),
 }
+EXPECTED_RECORD_COUNTS = {
+    (12, 17): 299,
+    (18, 23): 300,
+}
+EXPECTED_TOTAL_RECORDS = 1058
 PDF_SOURCE = Path("Battelle_Tablas de corrección.pdf")
 
 AREA_ALIASES = {"Personal/Social": "Personal/Social", "Adaptativa": "Adaptativa", "Motora": "Motora", "Comunicación": "Comunicación", "Cognitiva": "Cognitiva"}
@@ -162,6 +167,8 @@ def manifest_by_scale(errors, data, tramo_key):
                 errors.append(f"manifiesto sin {field} para {tab}")
         if entry.get("titulo_visible_estado") != "confirmado_en_pagina_auditada":
             errors.append(f"título visible no confirmado en manifiesto {tab}")
+        if entry.get("estado_cotejo") != "validado_contra_registros_json":
+            errors.append(f"estado_cotejo inválido en manifiesto {tab}: {entry.get('estado_cotejo')}")
         page_zero = entry.get("pagina_pdf_indice_cero")
         if not isinstance(page_zero, int) or page_zero < 0 or page_zero >= len(ordered_pages) or ordered_pages[page_zero] != entry.get("objeto_pdf_pagina"):
             errors.append(f"página no coincide con el orden real del árbol /Pages para {tab}")
@@ -202,8 +209,9 @@ def manifest_by_scale(errors, data, tramo_key):
     expected_scales = sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values())
     if total_scales != expected_scales:
         errors.append(f"el manifiesto debe cotejar {expected_scales} escalas; tiene {total_scales}")
-    if total_records != sum(record_counts.values()):
-        errors.append(f"el tramo {tramo_key[0]}-{tramo_key[1]} tiene recuento incoherente desde JSON; {total_records} != {sum(record_counts.values())}")
+    expected_records = EXPECTED_RECORD_COUNTS.get(tramo_key)
+    if expected_records is not None and total_records != expected_records:
+        errors.append(f"el manifiesto debe cotejar {expected_records} registros para {tramo_key[0]}-{tramo_key[1]}; tiene {total_records}")
     return manifest_tables, manifest_scales
 
 
@@ -327,8 +335,9 @@ def main():
             errors.append(f"falta tramo {tramo_key[0]}-{tramo_key[1]}")
             continue
         registros = tramo.get("registros", [])
-        if tramo_key == (12, 17) and len(registros) != 299:
-            errors.append(f"tramo 12-17 debe contener 299 registros; tiene {len(registros)}")
+        expected_count = EXPECTED_RECORD_COUNTS.get(tramo_key)
+        if expected_count is not None and len(registros) != expected_count:
+            errors.append(f"tramo {tramo_key[0]}-{tramo_key[1]} debe contener {expected_count} registros; tiene {len(registros)}")
         if any(r.get("valores") == [] for r in registros):
             errors.append(f"tramo {tramo_key[0]}-{tramo_key[1]} contiene filas con valores: []")
         manifest_tables, manifest_scales = ({}, {})
@@ -341,7 +350,12 @@ def main():
             print("ERROR:", e, file=sys.stderr)
         return 1
     total = sum(len(tramos[k].get("registros", [])) for k in EXPECTED)
-    print(f"OK: {total} registros validados para N-3 a N-22 (0-5, 6-11, 12-17 y 18-23 meses).")
+    if total != EXPECTED_TOTAL_RECORDS:
+        print(f"ERROR: total N-3..N-22 debe contener exactamente {EXPECTED_TOTAL_RECORDS} registros; tiene {total}", file=sys.stderr)
+        return 1
+    print("OK: 12-17 meses: 24 escalas, 299 registros.")
+    print("OK: 18-23 meses: 26 escalas, 300 registros.")
+    print(f"OK: total N-3..N-22: exactamente {EXPECTED_TOTAL_RECORDS} registros validados (0-5, 6-11, 12-17 y 18-23 meses).")
     return 0
 
 

@@ -246,7 +246,7 @@ def build_manifest(tiff_dir, targets=TARGETS, table_audit=TABLE_AUDIT):
                     {"escala": scale, "filas_visibles_independientes": rows}
                     for scale, rows in spec["escalas"].items()
                 ],
-                "estado_cotejo": "pendiente_validador_registros_json",
+                "estado_cotejo": "validado_contra_registros_json",
                 "dudas_visuales": spec["dudas_visuales"],
             })
 
