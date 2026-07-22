@@ -56,6 +56,11 @@ EXPECTED_RECORD_COUNTS = {
     (18, 23): 300,
     (24, 35): 510,
 }
+EXPECTED_SCALE_COUNTS = {
+    (12, 17): 24,
+    (18, 23): 26,
+    (24, 35): 28,
+}
 EXPECTED_TOTAL_RECORDS = 1568
 PDF_SOURCE = Path("Battelle_Tablas de corrección.pdf")
 
@@ -216,7 +221,10 @@ def manifest_by_scale(errors, data, tramo_key):
     for image_obj, pages in image_pages.items():
         if len(pages) > 1:
             errors.append(f"dos tablas de páginas distintas comparten imagen {image_obj}: páginas {sorted(pages)}")
-    expected_scales = sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values())
+    expected_scales = EXPECTED_SCALE_COUNTS.get(tramo_key, sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values()))
+    declared_scales = sum(len(v["escalas"]) for v in EXPECTED[tramo_key].values())
+    if declared_scales != expected_scales:
+        errors.append(f"la expectativa independiente de escalas para {tramo_key[0]}-{tramo_key[1]} es {expected_scales}; EXPECTED declara {declared_scales}")
     if total_scales != expected_scales:
         errors.append(f"el manifiesto debe cotejar {expected_scales} escalas; tiene {total_scales}")
     expected_records = EXPECTED_RECORD_COUNTS.get(tramo_key)
@@ -363,11 +371,12 @@ def main():
         return 1
     total = sum(len(tramos[k].get("registros", [])) for k in EXPECTED)
     if total != EXPECTED_TOTAL_RECORDS:
-        print(f"ERROR: total N-3..N-22 debe contener exactamente {EXPECTED_TOTAL_RECORDS} registros; tiene {total}", file=sys.stderr)
+        print(f"ERROR: total N-3..N-27 debe contener exactamente {EXPECTED_TOTAL_RECORDS} registros; tiene {total}", file=sys.stderr)
         return 1
     print("OK: 12-17 meses: 24 escalas, 299 registros.")
     print("OK: 18-23 meses: 26 escalas, 300 registros.")
-    print(f"OK: total N-3..N-27: exactamente {EXPECTED_TOTAL_RECORDS} registros validados (0-5, 6-11, 12-17 y 18-23 meses).")
+    print("OK: 24-35 meses: 28 escalas, 510 registros.")
+    print(f"OK: total N-3..N-27: exactamente {EXPECTED_TOTAL_RECORDS} registros validados (0-5, 6-11, 12-17, 18-23 y 24-35 meses).")
     return 0
 
 

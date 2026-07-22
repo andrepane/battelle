@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import struct
+import unicodedata
 import zlib
 from pathlib import Path
 
@@ -197,11 +198,64 @@ def decode_text_stream(data):
         return ""
 
 
+def normalize_for_title_compare(value):
+    normalized = unicodedata.normalize("NFKD", value.lower())
+    normalized = "".join(char for char in normalized if not unicodedata.combining(char))
+    normalized = normalized.replace("–", "-").replace("—", "-").replace("−", "-")
+    normalized = re.sub(r"[^a-z0-9-]+", " ", normalized)
+    return re.sub(r"\s+", " ", normalized).strip()
+
+
+def levenshtein_distance(left, right):
+    if left == right:
+        return 0
+    if len(left) < len(right):
+        left, right = right, left
+    previous = list(range(len(right) + 1))
+    for i, left_char in enumerate(left, 1):
+        current = [i]
+        for j, right_char in enumerate(right, 1):
+            current.append(min(previous[j] + 1, current[j - 1] + 1, previous[j - 1] + (left_char != right_char)))
+        previous = current
+    return previous[-1]
+
+
+def contains_required_word(normalized_text, required, max_distance=0):
+    words = normalized_text.split()
+    required = normalize_for_title_compare(required)
+    return any(word == required or (max_distance and levenshtein_distance(word, required) <= max_distance) for word in words)
+
+
+def printed_age_is_confirmed(normalized_text, edad_impresa):
+    normalized_age = normalize_for_title_compare(edad_impresa)
+    compact_age = normalized_age.replace("-", "")
+    age_interval = normalized_age.split()[0]
+    age_bounds = age_interval.split("-", 1)
+    has_age_interval = age_interval in normalized_text or compact_age.split()[0] in normalized_text
+    if not has_age_interval and len(age_bounds) == 2:
+        has_age_interval = all(contains_required_word(normalized_text, bound) for bound in age_bounds)
+    has_age_label = contains_required_word(normalized_text, "meses")
+    if has_age_interval and has_age_label:
+        return True
+    # Some pages have a malformed PDF text layer that omits the visible MESES label
+    # although the linked page image contains it. Keep the exact interval mandatory
+    # in the text comparison; the manifest preserves the documentary edad_impresa.
+    return has_age_interval
+
+
 def title_is_confirmed(text, table, table_audit=TABLE_AUDIT):
     spec = table_audit[table]
     title = spec["titulo_visible_confirmado"]
-    required = [table, title.split("Área ")[1].split(",")[0]]
-    return all(token in text for token in required)
+    normalized_text = normalize_for_title_compare(text)
+    area = title.split("Área ")[1].split(",")[0]
+    edad = spec.get("edad_impresa", "12-17 MESES")
+    return (
+        contains_required_word(normalized_text, table)
+        and contains_required_word(normalized_text, area)
+        and contains_required_word(normalized_text, "conversión", max_distance=1)
+        and contains_required_word(normalized_text, "centiles", max_distance=2)
+        and printed_age_is_confirmed(normalized_text, edad)
+    )
 
 
 def build_manifest(tiff_dir, targets=TARGETS, table_audit=TABLE_AUDIT):
