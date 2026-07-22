@@ -2,7 +2,7 @@ export const STORAGE_KEY = 'battelleAssessmentV2';
 export const LEGACY_KEY = 'battellePrototype';
 export const SCHEMA_VERSION = 2;
 const FORBIDDEN_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
-export function todayIso(date = new Date()) { return date.toISOString().slice(0,10); }
+export function todayIso(date = new Date()) { const year = date.getFullYear(); const month = String(date.getMonth() + 1).padStart(2, '0'); const day = String(date.getDate()).padStart(2, '0'); return `${year}-${month}-${day}`; }
 export function isPlainObject(value) { return value !== null && typeof value === 'object' && !Array.isArray(value) && Object.getPrototypeOf(value) === Object.prototype; }
 function safeRecord(value) { return isPlainObject(value) && Object.keys(value).every((k)=>typeof k === 'string' && k !== '' && !FORBIDDEN_KEYS.has(k)); }
 export function createAssessment(now = new Date()) { const iso = now.toISOString(); return { id: `bat-${iso.replace(/[-:.TZ]/g,'')}-${Math.random().toString(36).slice(2,8)}`, schemaVersion: SCHEMA_VERSION, name: '', birthDate: '', assessmentDate: todayIso(now), ageMonths: null, manualAgeOverride: false, observedResponses: {}, observations: {}, createdAt: iso, updatedAt: iso }; }
