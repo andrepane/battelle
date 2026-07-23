@@ -6,6 +6,7 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from battelle_excel.normalization import parse_pd
 from battelle_excel.model import maximos_teoricos
 from battelle_excel.xlsx_reader import read_workbook
+from battelle_excel.query import buscar_edad_equivalente
 
 class BaremosBattelleTest(unittest.TestCase):
  @classmethod
@@ -30,13 +31,18 @@ class BaremosBattelleTest(unittest.TestCase):
  def test_separacion_familias_y_conocidos(self):
   self.assertEqual(set(self.pc['tablas_incluidas']),{'N-1'}); self.assertEqual(set(self.total['tablas_incluidas']),{'N-2'})
   self.assertEqual(set(self.ed['tablas_incluidas']),{f'N-{i}' for i in range(56,66)})
+  self.assertEqual(len(self.ed['registros']),732)
+  self.assertEqual(len(self.ed.get('excepciones_dominio',[])),1)
+  self.assertTrue(all('escala_id' in r for r in self.pct['registros']))
   r50=next(r for r in self.pc['registros'] if r['pc']==50); self.assertEqual((r50['z'],r50['T'],r50['CI'],r50['ECN']),(0,50,100,50))
   for pd,mes in [(386,37),(421,41),(436,43),(464,47),(537,57),(562,60)]:
    r=next(r for r in self.ed['registros'] if r.get('tabla')=='N-65' and r.get('pd_min') is not None and r['pd_min']<=pd<=r['pd_max'])
    self.assertEqual(r['edad_equivalente_min_meses'],mes)
  def test_excepcion_n56_pd51(self):
-  self.assertTrue(any(r.get('estado')=='pd_no_alcanzable_confirmada' and r.get('pd')==51 for r in self.ed['registros']))
-  self.assertFalse(any(r.get('tabla')=='N-56' and r.get('escala')=='Personal-Social' and r.get('pd_min') is not None and r['pd_min']<=51<=r['pd_max'] for r in self.ed['registros']))
+  self.assertFalse(any(r.get('estado')=='pd_no_alcanzable_confirmada' and r.get('pd')==51 for r in self.ed['registros']))
+  self.assertEqual(self.ed['excepciones_dominio'][0]['pd'],51)
+  self.assertFalse(any(r.get('tabla')=='N-56' and r.get('escala_id')=='personal_social_total' and r.get('pd_min') is not None and r['pd_min']<=51<=r['pd_max'] for r in self.ed['registros']))
+  self.assertEqual(buscar_edad_equivalente(self.ed,'N-56','personal_social_total',51)['estado'],'pd_no_alcanzable')
  def test_determinismo_canonico(self):
   def canon(path):
    o=json.loads(path.read_text(encoding='utf-8')); o.pop('fecha_generacion',None); return json.dumps(o,sort_keys=True)

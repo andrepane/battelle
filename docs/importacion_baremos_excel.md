@@ -20,11 +20,11 @@ Esta fase genera fuentes normativas JSON leyendo exclusivamente los XLSX organiz
 - `data/baremos_metadata.json`
 - `data/baremos_incidencias.json`
 
-Cada registro normativo conserva procedencia con archivo relativo, SHA-256, hoja y fila. La fecha queda en metadatos y debe excluirse de comparaciones canónicas de determinismo.
+Cada registro normativo conserva procedencia con archivo relativo, SHA-256, hoja y fila. En percentiles, `escala_id` es la identidad canónica compatible con `data/modelo_escalas_battelle.json`, por lo que los cinco totales de área no dependen de la etiqueta visible común `Puntuación total`. La fecha queda en metadatos y debe excluirse de comparaciones canónicas de determinismo.
 
 ## Excepción N-56 / Personal-Social / PD 51
 
-La discontinuidad confirmada de la tabla N-56 se registra como un elemento auditable con estado `pd_no_alcanzable_confirmada`. No se modifica el Excel, no se amplían los intervalos vecinos (`48-50` y `52-53`) y no se inventa edad equivalente para PD 51.
+La discontinuidad confirmada de la tabla N-56 se registra fuera de las conversiones normativas, en el bloque `excepciones_dominio`, con estado `pd_no_alcanzable_confirmada`. No se modifica el Excel, no se amplían los intervalos vecinos (`48-50` y `52-53`) y no se inventa edad equivalente para PD 51. Una consulta futura puede distinguir esta situación como `pd_no_alcanzable` en vez de `baremo_no_encontrado`.
 
 ## Validación
 

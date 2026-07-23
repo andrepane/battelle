@@ -10,6 +10,7 @@
     {
       "centil": 97,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 2,
@@ -26,6 +27,7 @@
     {
       "centil": 94,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 3,
@@ -42,6 +44,7 @@
     {
       "centil": 91,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 4,
@@ -58,6 +61,7 @@
     {
       "centil": 89,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 5,
@@ -74,6 +78,7 @@
     {
       "centil": 80,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 6,
@@ -90,6 +95,7 @@
     {
       "centil": 77,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 7,
@@ -106,6 +112,7 @@
     {
       "centil": 74,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 8,
@@ -122,6 +129,7 @@
     {
       "centil": 71,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 9,
@@ -138,6 +146,7 @@
     {
       "centil": 66,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 10,
@@ -154,6 +163,7 @@
     {
       "centil": 63,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 11,
@@ -170,6 +180,7 @@
     {
       "centil": 57,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 12,
@@ -186,6 +197,7 @@
     {
       "centil": 54,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 13,
@@ -202,6 +214,7 @@
     {
       "centil": 51,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 14,
@@ -218,6 +231,7 @@
     {
       "centil": 49,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 15,
@@ -234,6 +248,7 @@
     {
       "centil": 46,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 16,
@@ -250,6 +265,7 @@
     {
       "centil": 43,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 17,
@@ -266,6 +282,7 @@
     {
       "centil": 40,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 18,
@@ -282,6 +299,7 @@
     {
       "centil": 37,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 19,
@@ -298,6 +316,7 @@
     {
       "centil": 34,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 20,
@@ -314,6 +333,7 @@
     {
       "centil": 31,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 21,
@@ -330,6 +350,7 @@
     {
       "centil": 26,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 22,
@@ -346,6 +367,7 @@
     {
       "centil": 23,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 23,
@@ -362,6 +384,7 @@
     {
       "centil": 20,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 24,
@@ -378,6 +401,7 @@
     {
       "centil": 14,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 25,
@@ -394,6 +418,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 26,
@@ -410,6 +435,7 @@
     {
       "centil": 6,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 27,
@@ -426,6 +452,7 @@
     {
       "centil": 3,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 28,
@@ -442,6 +469,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 29,
@@ -458,6 +486,7 @@
     {
       "centil": 97,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 30,
@@ -474,6 +503,7 @@
     {
       "centil": 93,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 31,
@@ -490,6 +520,7 @@
     {
       "centil": 90,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 32,
@@ -506,6 +537,7 @@
     {
       "centil": 87,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 33,
@@ -522,6 +554,7 @@
     {
       "centil": 83,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 34,
@@ -538,6 +571,7 @@
     {
       "centil": 80,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 35,
@@ -554,6 +588,7 @@
     {
       "centil": 77,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 36,
@@ -570,6 +605,7 @@
     {
       "centil": 73,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 37,
@@ -586,6 +622,7 @@
     {
       "centil": 70,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 38,
@@ -602,6 +639,7 @@
     {
       "centil": 67,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 39,
@@ -618,6 +656,7 @@
     {
       "centil": 57,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 40,
@@ -634,6 +673,7 @@
     {
       "centil": 50,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 41,
@@ -650,6 +690,7 @@
     {
       "centil": 43,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 42,
@@ -666,6 +707,7 @@
     {
       "centil": 37,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 43,
@@ -682,6 +724,7 @@
     {
       "centil": 30,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 44,
@@ -698,6 +741,7 @@
     {
       "centil": 27,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 45,
@@ -714,6 +758,7 @@
     {
       "centil": 23,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 46,
@@ -730,6 +775,7 @@
     {
       "centil": 20,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 47,
@@ -746,6 +792,7 @@
     {
       "centil": 17,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 48,
@@ -762,6 +809,7 @@
     {
       "centil": 10,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 49,
@@ -778,6 +826,7 @@
     {
       "centil": 7,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 50,
@@ -794,6 +843,7 @@
     {
       "centil": 3,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 51,
@@ -810,6 +860,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 52,
@@ -826,6 +877,7 @@
     {
       "centil": 97,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 53,
@@ -842,6 +894,7 @@
     {
       "centil": 94,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 54,
@@ -858,6 +911,7 @@
     {
       "centil": 91,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 55,
@@ -874,6 +928,7 @@
     {
       "centil": 88,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 56,
@@ -890,6 +945,7 @@
     {
       "centil": 85,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 57,
@@ -906,6 +962,7 @@
     {
       "centil": 82,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 58,
@@ -922,6 +979,7 @@
     {
       "centil": 79,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 59,
@@ -938,6 +996,7 @@
     {
       "centil": 76,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 60,
@@ -954,6 +1013,7 @@
     {
       "centil": 74,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 61,
@@ -970,6 +1030,7 @@
     {
       "centil": 71,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 62,
@@ -986,6 +1047,7 @@
     {
       "centil": 68,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 63,
@@ -1002,6 +1064,7 @@
     {
       "centil": 65,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 64,
@@ -1018,6 +1081,7 @@
     {
       "centil": 62,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 65,
@@ -1034,6 +1098,7 @@
     {
       "centil": 59,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 66,
@@ -1050,6 +1115,7 @@
     {
       "centil": 56,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 67,
@@ -1066,6 +1132,7 @@
     {
       "centil": 53,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 68,
@@ -1082,6 +1149,7 @@
     {
       "centil": 44,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 69,
@@ -1098,6 +1166,7 @@
     {
       "centil": 41,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 70,
@@ -1114,6 +1183,7 @@
     {
       "centil": 38,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 71,
@@ -1130,6 +1200,7 @@
     {
       "centil": 35,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 72,
@@ -1146,6 +1217,7 @@
     {
       "centil": 32,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 73,
@@ -1162,6 +1234,7 @@
     {
       "centil": 29,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 74,
@@ -1178,6 +1251,7 @@
     {
       "centil": 26,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 75,
@@ -1194,6 +1268,7 @@
     {
       "centil": 24,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 76,
@@ -1210,6 +1285,7 @@
     {
       "centil": 21,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 77,
@@ -1226,6 +1302,7 @@
     {
       "centil": 18,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 78,
@@ -1242,6 +1319,7 @@
     {
       "centil": 12,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 79,
@@ -1258,6 +1336,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 80,
@@ -1274,6 +1353,7 @@
     {
       "centil": 6,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 81,
@@ -1290,6 +1370,7 @@
     {
       "centil": 3,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 82,
@@ -1306,6 +1387,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 83,
@@ -1322,6 +1404,7 @@
     {
       "centil": 97,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 84,
@@ -1338,6 +1421,7 @@
     {
       "centil": 94,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 85,
@@ -1354,6 +1438,7 @@
     {
       "centil": 91,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 86,
@@ -1370,6 +1455,7 @@
     {
       "centil": 88,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 87,
@@ -1386,6 +1472,7 @@
     {
       "centil": 85,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 88,
@@ -1402,6 +1489,7 @@
     {
       "centil": 82,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 89,
@@ -1418,6 +1506,7 @@
     {
       "centil": 76,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 90,
@@ -1434,6 +1523,7 @@
     {
       "centil": 74,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 91,
@@ -1450,6 +1540,7 @@
     {
       "centil": 71,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 92,
@@ -1466,6 +1557,7 @@
     {
       "centil": 68,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 93,
@@ -1482,6 +1574,7 @@
     {
       "centil": 62,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 94,
@@ -1498,6 +1591,7 @@
     {
       "centil": 56,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 95,
@@ -1514,6 +1608,7 @@
     {
       "centil": 53,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 96,
@@ -1530,6 +1625,7 @@
     {
       "centil": 50,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 97,
@@ -1546,6 +1642,7 @@
     {
       "centil": 44,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 98,
@@ -1562,6 +1659,7 @@
     {
       "centil": 41,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 99,
@@ -1578,6 +1676,7 @@
     {
       "centil": 38,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 100,
@@ -1594,6 +1693,7 @@
     {
       "centil": 35,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 101,
@@ -1610,6 +1710,7 @@
     {
       "centil": 32,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 102,
@@ -1626,6 +1727,7 @@
     {
       "centil": 26,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 103,
@@ -1642,6 +1744,7 @@
     {
       "centil": 21,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 104,
@@ -1658,6 +1761,7 @@
     {
       "centil": 15,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 105,
@@ -1674,6 +1778,7 @@
     {
       "centil": 12,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 106,
@@ -1690,6 +1795,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 107,
@@ -1706,6 +1812,7 @@
     {
       "centil": 6,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 108,
@@ -1722,6 +1829,7 @@
     {
       "centil": 3,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 109,
@@ -1738,6 +1846,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 110,
@@ -1754,6 +1863,7 @@
     {
       "centil": 97,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 111,
@@ -1770,6 +1880,7 @@
     {
       "centil": 93,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 112,
@@ -1786,6 +1897,7 @@
     {
       "centil": 92,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 113,
@@ -1802,6 +1914,7 @@
     {
       "centil": 90,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 114,
@@ -1818,6 +1931,7 @@
     {
       "centil": 88,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 115,
@@ -1834,6 +1948,7 @@
     {
       "centil": 86,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 116,
@@ -1850,6 +1965,7 @@
     {
       "centil": 85,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 117,
@@ -1866,6 +1982,7 @@
     {
       "centil": 83,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 118,
@@ -1882,6 +1999,7 @@
     {
       "centil": 81,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 119,
@@ -1898,6 +2016,7 @@
     {
       "centil": 80,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 120,
@@ -1914,6 +2033,7 @@
     {
       "centil": 78,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 121,
@@ -1930,6 +2050,7 @@
     {
       "centil": 75,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 122,
@@ -1946,6 +2067,7 @@
     {
       "centil": 73,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 123,
@@ -1962,6 +2084,7 @@
     {
       "centil": 71,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 124,
@@ -1978,6 +2101,7 @@
     {
       "centil": 70,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 125,
@@ -1994,6 +2118,7 @@
     {
       "centil": 68,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 126,
@@ -2010,6 +2135,7 @@
     {
       "centil": 66,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 127,
@@ -2026,6 +2152,7 @@
     {
       "centil": 64,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 128,
@@ -2042,6 +2169,7 @@
     {
       "centil": 63,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 129,
@@ -2058,6 +2186,7 @@
     {
       "centil": 61,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 130,
@@ -2074,6 +2203,7 @@
     {
       "centil": 58,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 131,
@@ -2090,6 +2220,7 @@
     {
       "centil": 56,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 132,
@@ -2106,6 +2237,7 @@
     {
       "centil": 54,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 133,
@@ -2122,6 +2254,7 @@
     {
       "centil": 52,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 134,
@@ -2138,6 +2271,7 @@
     {
       "centil": 51,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 135,
@@ -2154,6 +2288,7 @@
     {
       "centil": 49,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 136,
@@ -2170,6 +2305,7 @@
     {
       "centil": 48,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 137,
@@ -2186,6 +2322,7 @@
     {
       "centil": 46,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 138,
@@ -2202,6 +2339,7 @@
     {
       "centil": 44,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 139,
@@ -2218,6 +2356,7 @@
     {
       "centil": 42,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 140,
@@ -2234,6 +2373,7 @@
     {
       "centil": 41,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 141,
@@ -2250,6 +2390,7 @@
     {
       "centil": 39,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 142,
@@ -2266,6 +2407,7 @@
     {
       "centil": 37,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 143,
@@ -2282,6 +2424,7 @@
     {
       "centil": 36,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 144,
@@ -2298,6 +2441,7 @@
     {
       "centil": 34,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 145,
@@ -2314,6 +2458,7 @@
     {
       "centil": 32,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 146,
@@ -2330,6 +2475,7 @@
     {
       "centil": 29,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 147,
@@ -2346,6 +2492,7 @@
     {
       "centil": 27,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 148,
@@ -2362,6 +2509,7 @@
     {
       "centil": 25,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 149,
@@ -2378,6 +2526,7 @@
     {
       "centil": 24,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 150,
@@ -2394,6 +2543,7 @@
     {
       "centil": 22,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 151,
@@ -2410,6 +2560,7 @@
     {
       "centil": 20,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 152,
@@ -2426,6 +2577,7 @@
     {
       "centil": 19,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 153,
@@ -2442,6 +2594,7 @@
     {
       "centil": 14,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 154,
@@ -2458,6 +2611,7 @@
     {
       "centil": 12,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 155,
@@ -2474,6 +2628,7 @@
     {
       "centil": 10,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 156,
@@ -2490,6 +2645,7 @@
     {
       "centil": 7,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 157,
@@ -2506,6 +2662,7 @@
     {
       "centil": 5,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 158,
@@ -2522,6 +2679,7 @@
     {
       "centil": 3,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 159,
@@ -2538,6 +2696,7 @@
     {
       "centil": 2,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 160,
@@ -2554,6 +2713,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 161,
@@ -2570,6 +2730,7 @@
     {
       "centil": 98,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 162,
@@ -2586,6 +2747,7 @@
     {
       "centil": 97,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 163,
@@ -2602,6 +2764,7 @@
     {
       "centil": 95,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 164,
@@ -2618,6 +2781,7 @@
     {
       "centil": 94,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 165,
@@ -2634,6 +2798,7 @@
     {
       "centil": 91,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 166,
@@ -2650,6 +2815,7 @@
     {
       "centil": 89,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 167,
@@ -2666,6 +2832,7 @@
     {
       "centil": 88,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 168,
@@ -2682,6 +2849,7 @@
     {
       "centil": 86,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 169,
@@ -2698,6 +2866,7 @@
     {
       "centil": 85,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 170,
@@ -2714,6 +2883,7 @@
     {
       "centil": 83,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 171,
@@ -2730,6 +2900,7 @@
     {
       "centil": 82,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 172,
@@ -2746,6 +2917,7 @@
     {
       "centil": 80,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 173,
@@ -2762,6 +2934,7 @@
     {
       "centil": 78,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 174,
@@ -2778,6 +2951,7 @@
     {
       "centil": 77,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 175,
@@ -2794,6 +2968,7 @@
     {
       "centil": 75,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 176,
@@ -2810,6 +2985,7 @@
     {
       "centil": 74,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 177,
@@ -2826,6 +3002,7 @@
     {
       "centil": 72,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 178,
@@ -2842,6 +3019,7 @@
     {
       "centil": 71,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 179,
@@ -2858,6 +3036,7 @@
     {
       "centil": 69,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 180,
@@ -2874,6 +3053,7 @@
     {
       "centil": 68,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 181,
@@ -2890,6 +3070,7 @@
     {
       "centil": 66,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 182,
@@ -2906,6 +3087,7 @@
     {
       "centil": 65,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 183,
@@ -2922,6 +3104,7 @@
     {
       "centil": 63,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 184,
@@ -2938,6 +3121,7 @@
     {
       "centil": 60,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 185,
@@ -2954,6 +3138,7 @@
     {
       "centil": 58,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 186,
@@ -2970,6 +3155,7 @@
     {
       "centil": 57,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 187,
@@ -2986,6 +3172,7 @@
     {
       "centil": 55,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 188,
@@ -3002,6 +3189,7 @@
     {
       "centil": 52,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 189,
@@ -3018,6 +3206,7 @@
     {
       "centil": 51,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 190,
@@ -3034,6 +3223,7 @@
     {
       "centil": 49,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 191,
@@ -3050,6 +3240,7 @@
     {
       "centil": 46,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 192,
@@ -3066,6 +3257,7 @@
     {
       "centil": 45,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 193,
@@ -3082,6 +3274,7 @@
     {
       "centil": 43,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 194,
@@ -3098,6 +3291,7 @@
     {
       "centil": 42,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 195,
@@ -3114,6 +3308,7 @@
     {
       "centil": 40,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 196,
@@ -3130,6 +3325,7 @@
     {
       "centil": 37,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 197,
@@ -3146,6 +3342,7 @@
     {
       "centil": 34,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 198,
@@ -3162,6 +3359,7 @@
     {
       "centil": 32,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 199,
@@ -3178,6 +3376,7 @@
     {
       "centil": 31,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 200,
@@ -3194,6 +3393,7 @@
     {
       "centil": 29,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 201,
@@ -3210,6 +3410,7 @@
     {
       "centil": 28,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 202,
@@ -3226,6 +3427,7 @@
     {
       "centil": 25,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 203,
@@ -3242,6 +3444,7 @@
     {
       "centil": 22,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 204,
@@ -3258,6 +3461,7 @@
     {
       "centil": 18,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 205,
@@ -3274,6 +3478,7 @@
     {
       "centil": 17,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 206,
@@ -3290,6 +3495,7 @@
     {
       "centil": 15,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 207,
@@ -3306,6 +3512,7 @@
     {
       "centil": 14,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 208,
@@ -3322,6 +3529,7 @@
     {
       "centil": 12,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 209,
@@ -3338,6 +3546,7 @@
     {
       "centil": 11,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 210,
@@ -3354,6 +3563,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 211,
@@ -3370,6 +3580,7 @@
     {
       "centil": 8,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 212,
@@ -3386,6 +3597,7 @@
     {
       "centil": 6,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 213,
@@ -3402,6 +3614,7 @@
     {
       "centil": 5,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 214,
@@ -3418,6 +3631,7 @@
     {
       "centil": 3,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 215,
@@ -3434,6 +3648,7 @@
     {
       "centil": 2,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 216,
@@ -3450,6 +3665,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 217,
@@ -3466,6 +3682,7 @@
     {
       "centil": 98,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 218,
@@ -3482,6 +3699,7 @@
     {
       "centil": 96,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 219,
@@ -3498,6 +3716,7 @@
     {
       "centil": 94,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 220,
@@ -3514,6 +3733,7 @@
     {
       "centil": 93,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 221,
@@ -3530,6 +3750,7 @@
     {
       "centil": 91,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 222,
@@ -3546,6 +3767,7 @@
     {
       "centil": 89,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 223,
@@ -3562,6 +3784,7 @@
     {
       "centil": 85,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 224,
@@ -3578,6 +3801,7 @@
     {
       "centil": 83,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 225,
@@ -3594,6 +3818,7 @@
     {
       "centil": 81,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 226,
@@ -3610,6 +3835,7 @@
     {
       "centil": 77,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 227,
@@ -3626,6 +3852,7 @@
     {
       "centil": 76,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 228,
@@ -3642,6 +3869,7 @@
     {
       "centil": 74,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 229,
@@ -3658,6 +3886,7 @@
     {
       "centil": 72,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 230,
@@ -3674,6 +3903,7 @@
     {
       "centil": 70,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 231,
@@ -3690,6 +3920,7 @@
     {
       "centil": 68,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 232,
@@ -3706,6 +3937,7 @@
     {
       "centil": 66,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 233,
@@ -3722,6 +3954,7 @@
     {
       "centil": 64,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 234,
@@ -3738,6 +3971,7 @@
     {
       "centil": 62,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 235,
@@ -3754,6 +3988,7 @@
     {
       "centil": 60,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 236,
@@ -3770,6 +4005,7 @@
     {
       "centil": 59,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 237,
@@ -3786,6 +4022,7 @@
     {
       "centil": 57,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 238,
@@ -3802,6 +4039,7 @@
     {
       "centil": 53,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 239,
@@ -3818,6 +4056,7 @@
     {
       "centil": 51,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 240,
@@ -3834,6 +4073,7 @@
     {
       "centil": 49,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 241,
@@ -3850,6 +4090,7 @@
     {
       "centil": 47,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 242,
@@ -3866,6 +4107,7 @@
     {
       "centil": 45,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 243,
@@ -3882,6 +4124,7 @@
     {
       "centil": 42,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 244,
@@ -3898,6 +4141,7 @@
     {
       "centil": 40,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 245,
@@ -3914,6 +4158,7 @@
     {
       "centil": 38,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 246,
@@ -3930,6 +4175,7 @@
     {
       "centil": 36,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 247,
@@ -3946,6 +4192,7 @@
     {
       "centil": 34,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 248,
@@ -3962,6 +4209,7 @@
     {
       "centil": 32,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 249,
@@ -3978,6 +4226,7 @@
     {
       "centil": 30,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 250,
@@ -3994,6 +4243,7 @@
     {
       "centil": 28,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 251,
@@ -4010,6 +4260,7 @@
     {
       "centil": 26,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 252,
@@ -4026,6 +4277,7 @@
     {
       "centil": 25,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 253,
@@ -4042,6 +4294,7 @@
     {
       "centil": 23,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 254,
@@ -4058,6 +4311,7 @@
     {
       "centil": 21,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 255,
@@ -4074,6 +4328,7 @@
     {
       "centil": 19,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 256,
@@ -4090,6 +4345,7 @@
     {
       "centil": 17,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 257,
@@ -4106,6 +4362,7 @@
     {
       "centil": 15,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 258,
@@ -4122,6 +4379,7 @@
     {
       "centil": 13,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 259,
@@ -4138,6 +4396,7 @@
     {
       "centil": 11,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 260,
@@ -4154,6 +4413,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 261,
@@ -4170,6 +4430,7 @@
     {
       "centil": 8,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 262,
@@ -4186,6 +4447,7 @@
     {
       "centil": 6,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 263,
@@ -4202,6 +4464,7 @@
     {
       "centil": 4,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 264,
@@ -4218,6 +4481,7 @@
     {
       "centil": 2,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 265,
@@ -4234,6 +4498,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 266,
@@ -4250,6 +4515,7 @@
     {
       "centil": 96,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 267,
@@ -4266,6 +4532,7 @@
     {
       "centil": 95,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 268,
@@ -4282,6 +4549,7 @@
     {
       "centil": 93,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 269,
@@ -4298,6 +4566,7 @@
     {
       "centil": 89,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 270,
@@ -4314,6 +4583,7 @@
     {
       "centil": 88,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 271,
@@ -4330,6 +4600,7 @@
     {
       "centil": 86,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 272,
@@ -4346,6 +4617,7 @@
     {
       "centil": 84,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 273,
@@ -4362,6 +4634,7 @@
     {
       "centil": 82,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 274,
@@ -4378,6 +4651,7 @@
     {
       "centil": 80,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 275,
@@ -4394,6 +4668,7 @@
     {
       "centil": 77,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 276,
@@ -4410,6 +4685,7 @@
     {
       "centil": 75,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 277,
@@ -4426,6 +4702,7 @@
     {
       "centil": 73,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 278,
@@ -4442,6 +4719,7 @@
     {
       "centil": 70,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 279,
@@ -4458,6 +4736,7 @@
     {
       "centil": 68,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 280,
@@ -4474,6 +4753,7 @@
     {
       "centil": 66,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 281,
@@ -4490,6 +4770,7 @@
     {
       "centil": 63,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 282,
@@ -4506,6 +4787,7 @@
     {
       "centil": 59,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 283,
@@ -4522,6 +4804,7 @@
     {
       "centil": 57,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 284,
@@ -4538,6 +4821,7 @@
     {
       "centil": 55,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 285,
@@ -4554,6 +4838,7 @@
     {
       "centil": 52,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 286,
@@ -4570,6 +4855,7 @@
     {
       "centil": 50,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 287,
@@ -4586,6 +4872,7 @@
     {
       "centil": 48,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 288,
@@ -4602,6 +4889,7 @@
     {
       "centil": 46,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 289,
@@ -4618,6 +4906,7 @@
     {
       "centil": 43,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 290,
@@ -4634,6 +4923,7 @@
     {
       "centil": 38,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 291,
@@ -4650,6 +4940,7 @@
     {
       "centil": 36,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 292,
@@ -4666,6 +4957,7 @@
     {
       "centil": 34,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 293,
@@ -4682,6 +4974,7 @@
     {
       "centil": 32,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 294,
@@ -4698,6 +4991,7 @@
     {
       "centil": 30,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 295,
@@ -4714,6 +5008,7 @@
     {
       "centil": 29,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 296,
@@ -4730,6 +5025,7 @@
     {
       "centil": 27,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 297,
@@ -4746,6 +5042,7 @@
     {
       "centil": 21,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 298,
@@ -4762,6 +5059,7 @@
     {
       "centil": 20,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 299,
@@ -4778,6 +5076,7 @@
     {
       "centil": 18,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 300,
@@ -4794,6 +5093,7 @@
     {
       "centil": 16,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 301,
@@ -4810,6 +5110,7 @@
     {
       "centil": 14,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 302,
@@ -4826,6 +5127,7 @@
     {
       "centil": 13,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 303,
@@ -4842,6 +5144,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 304,
@@ -4858,6 +5161,7 @@
     {
       "centil": 7,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 305,
@@ -4874,6 +5178,7 @@
     {
       "centil": 5,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 306,
@@ -4890,6 +5195,7 @@
     {
       "centil": 4,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 307,
@@ -4906,6 +5212,7 @@
     {
       "centil": 2,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 308,
@@ -4922,6 +5229,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 309,
@@ -4938,6 +5246,7 @@
     {
       "centil": 98,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 310,
@@ -4954,6 +5263,7 @@
     {
       "centil": 93,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 311,
@@ -4970,6 +5280,7 @@
     {
       "centil": 91,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 312,
@@ -4986,6 +5297,7 @@
     {
       "centil": 89,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 313,
@@ -5002,6 +5314,7 @@
     {
       "centil": 87,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 314,
@@ -5018,6 +5331,7 @@
     {
       "centil": 84,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 315,
@@ -5034,6 +5348,7 @@
     {
       "centil": 82,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 316,
@@ -5050,6 +5365,7 @@
     {
       "centil": 80,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 317,
@@ -5066,6 +5382,7 @@
     {
       "centil": 78,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 318,
@@ -5082,6 +5399,7 @@
     {
       "centil": 73,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 319,
@@ -5098,6 +5416,7 @@
     {
       "centil": 64,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 320,
@@ -5114,6 +5433,7 @@
     {
       "centil": 62,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 321,
@@ -5130,6 +5450,7 @@
     {
       "centil": 60,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 322,
@@ -5146,6 +5467,7 @@
     {
       "centil": 58,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 323,
@@ -5162,6 +5484,7 @@
     {
       "centil": 53,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 324,
@@ -5178,6 +5501,7 @@
     {
       "centil": 49,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 325,
@@ -5194,6 +5518,7 @@
     {
       "centil": 47,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 326,
@@ -5210,6 +5535,7 @@
     {
       "centil": 44,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 327,
@@ -5226,6 +5552,7 @@
     {
       "centil": 42,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 328,
@@ -5242,6 +5569,7 @@
     {
       "centil": 38,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 329,
@@ -5258,6 +5586,7 @@
     {
       "centil": 36,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 330,
@@ -5274,6 +5603,7 @@
     {
       "centil": 31,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 331,
@@ -5290,6 +5620,7 @@
     {
       "centil": 27,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 332,
@@ -5306,6 +5637,7 @@
     {
       "centil": 24,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 333,
@@ -5322,6 +5654,7 @@
     {
       "centil": 22,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 334,
@@ -5338,6 +5671,7 @@
     {
       "centil": 18,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 335,
@@ -5354,6 +5688,7 @@
     {
       "centil": 16,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 336,
@@ -5370,6 +5705,7 @@
     {
       "centil": 13,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 337,
@@ -5386,6 +5722,7 @@
     {
       "centil": 11,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 338,
@@ -5402,6 +5739,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 339,
@@ -5418,6 +5756,7 @@
     {
       "centil": 7,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 340,
@@ -5434,6 +5773,7 @@
     {
       "centil": 4,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 341,
@@ -5450,6 +5790,7 @@
     {
       "centil": 2,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 342,
@@ -5466,6 +5807,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 343,
@@ -5482,6 +5824,7 @@
     {
       "centil": 94,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 344,
@@ -5498,6 +5841,7 @@
     {
       "centil": 91,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 345,
@@ -5514,6 +5858,7 @@
     {
       "centil": 89,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 346,
@@ -5530,6 +5875,7 @@
     {
       "centil": 83,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 347,
@@ -5546,6 +5892,7 @@
     {
       "centil": 77,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 348,
@@ -5562,6 +5909,7 @@
     {
       "centil": 69,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 349,
@@ -5578,6 +5926,7 @@
     {
       "centil": 63,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 350,
@@ -5594,6 +5943,7 @@
     {
       "centil": 57,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 351,
@@ -5610,6 +5960,7 @@
     {
       "centil": 54,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 352,
@@ -5626,6 +5977,7 @@
     {
       "centil": 49,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 353,
@@ -5642,6 +5994,7 @@
     {
       "centil": 40,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 354,
@@ -5658,6 +6011,7 @@
     {
       "centil": 34,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 355,
@@ -5674,6 +6028,7 @@
     {
       "centil": 23,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 356,
@@ -5690,6 +6045,7 @@
     {
       "centil": 20,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 357,
@@ -5706,6 +6062,7 @@
     {
       "centil": 17,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 358,
@@ -5722,6 +6079,7 @@
     {
       "centil": 14,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 359,
@@ -5738,6 +6096,7 @@
     {
       "centil": 11,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 360,
@@ -5754,6 +6113,7 @@
     {
       "centil": 9,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 361,
@@ -5770,6 +6130,7 @@
     {
       "centil": 6,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 362,
@@ -5786,6 +6147,7 @@
     {
       "centil": 3,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 363,
@@ -5802,6 +6164,7 @@
     {
       "centil": 1,
       "escala": "Battelle total",
+      "escala_id": "battelle_total",
       "fuente": {
         "archivo": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
         "fila": 364,
