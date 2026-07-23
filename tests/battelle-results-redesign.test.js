@@ -23,7 +23,7 @@ test('mapeos de edad equivalente N-56…N-65 se resuelven con escala_id canónic
   for(const [tabla,scaleId] of expectedMappings){
     const rec=data.equivalentAges.registros.find(r=>r.tabla===tabla);
     assert.ok(rec, `${tabla} tiene registros`);
-    assert.equal(String(rec.escala_id).replace(/^_+/,''), scaleId);
+    assert.equal(rec.escala_id, scaleId);
     const got=lookupEquivalentAge({scaleId,directScore:rec.pd_min,normativeData:data});
     assert.equal(got.ok,true, `${tabla} ${scaleId}`);
     assert.equal(got.table,tabla);
@@ -32,7 +32,7 @@ test('mapeos de edad equivalente N-56…N-65 se resuelven con escala_id canónic
 });
 
 test('N-59 devuelve edad equivalente para motora_fina cuando la PD coincide',()=>{
-  const rec=data.equivalentAges.registros.find(r=>r.tabla==='N-59' && String(r.escala_id).replace(/^_+/,'')==='motora_fina');
+  const rec=data.equivalentAges.registros.find(r=>r.tabla==='N-59' && r.escala_id==='motora_fina');
   assert.ok(rec);
   const got=lookupEquivalentAge({scaleId:'motora_fina',directScore:rec.pd_min,normativeData:data});
   assert.equal(got.ok,true);
@@ -47,8 +47,14 @@ test('presentación de resultados elimina textos técnicos y mantiene estructura
   assert.match(script,/Editar puntuaciones/);
   assert.match(script,/Descargar PDF/);
   assert.match(script,/Información técnica y procedencia normativa/);
+  assert.match(script,/Puntuación típica z derivada del centil total mediante la tabla N-1\./);
+  assert.match(script,/Puntuación T derivada del centil total mediante la tabla N-1\./);
+  assert.match(script,/Puntuación CI derivada del centil total mediante la tabla N-1\. No equivale por sí sola a una evaluación del funcionamiento intelectual\./);
+  assert.match(script,/Equivalente de la Curva Normal derivado del centil total mediante la tabla N-1\./);
+  assert.doesNotMatch(script,/Edad cronológica normativa/);
   assert.match(script,/Los resultados deben interpretarse conjuntamente/);
   assert.match(script,/Personal\/Social.*Adaptativa.*Motora.*Comunicación.*Cognitiva/s);
+  assert.match(script,/pdLabel\(s\)/);
   assert.doesNotMatch(script,/Resultados corregidos/);
   assert.doesNotMatch(script,/Estado: válido|Estado: undefined|Reglas disponibles en el cuaderno/);
   assert.doesNotMatch(script,/Síntesis descriptiva automática|meses por debajo|El percentil de/);

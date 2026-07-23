@@ -3028,7 +3028,7 @@
       "edad_equivalente_texto": "0",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 2,
@@ -3047,7 +3047,7 @@
       "edad_equivalente_texto": "1",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 3,
@@ -3066,7 +3066,7 @@
       "edad_equivalente_texto": "2",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 4,
@@ -3085,7 +3085,7 @@
       "edad_equivalente_texto": "3",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 5,
@@ -3104,7 +3104,7 @@
       "edad_equivalente_texto": "4",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 6,
@@ -3123,7 +3123,7 @@
       "edad_equivalente_texto": "5",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 7,
@@ -3142,7 +3142,7 @@
       "edad_equivalente_texto": "6",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 8,
@@ -3161,7 +3161,7 @@
       "edad_equivalente_texto": "7",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 9,
@@ -3180,7 +3180,7 @@
       "edad_equivalente_texto": "8",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 10,
@@ -3199,7 +3199,7 @@
       "edad_equivalente_texto": "9",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 11,
@@ -3218,7 +3218,7 @@
       "edad_equivalente_texto": "10",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 12,
@@ -3237,7 +3237,7 @@
       "edad_equivalente_texto": "11",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 13,
@@ -3256,7 +3256,7 @@
       "edad_equivalente_texto": "12",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 14,
@@ -3275,7 +3275,7 @@
       "edad_equivalente_texto": "13",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 15,
@@ -3294,7 +3294,7 @@
       "edad_equivalente_texto": "14",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 16,
@@ -3313,7 +3313,7 @@
       "edad_equivalente_texto": "15",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 17,
@@ -3332,7 +3332,7 @@
       "edad_equivalente_texto": "16",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 18,
@@ -3351,7 +3351,7 @@
       "edad_equivalente_texto": "17",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 19,
@@ -3370,7 +3370,7 @@
       "edad_equivalente_texto": "18",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 20,
@@ -3389,7 +3389,7 @@
       "edad_equivalente_texto": "19",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 21,
@@ -3408,7 +3408,7 @@
       "edad_equivalente_texto": "20",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 22,
@@ -3427,7 +3427,7 @@
       "edad_equivalente_texto": "21",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 23,
@@ -3446,7 +3446,7 @@
       "edad_equivalente_texto": "22",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 24,
@@ -3465,7 +3465,7 @@
       "edad_equivalente_texto": "23",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 25,
@@ -3484,7 +3484,7 @@
       "edad_equivalente_texto": "24",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 26,
@@ -3503,7 +3503,7 @@
       "edad_equivalente_texto": "25",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 27,
@@ -3522,7 +3522,7 @@
       "edad_equivalente_texto": "26",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 28,
@@ -3541,7 +3541,7 @@
       "edad_equivalente_texto": "27",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 29,
@@ -3560,7 +3560,7 @@
       "edad_equivalente_texto": "28",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 30,
@@ -3579,7 +3579,7 @@
       "edad_equivalente_texto": "29",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 31,
@@ -3598,7 +3598,7 @@
       "edad_equivalente_texto": "30",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 32,
@@ -3617,7 +3617,7 @@
       "edad_equivalente_texto": "31-34",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 33,
@@ -3636,7 +3636,7 @@
       "edad_equivalente_texto": "35-38",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 34,
@@ -3655,7 +3655,7 @@
       "edad_equivalente_texto": "39-42",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 35,
@@ -3674,7 +3674,7 @@
       "edad_equivalente_texto": "43",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 36,
@@ -3693,7 +3693,7 @@
       "edad_equivalente_texto": "44",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 37,
@@ -3712,7 +3712,7 @@
       "edad_equivalente_texto": "45",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 38,
@@ -3731,7 +3731,7 @@
       "edad_equivalente_texto": "46",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 39,
@@ -3750,7 +3750,7 @@
       "edad_equivalente_texto": "47",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 40,
@@ -3769,7 +3769,7 @@
       "edad_equivalente_texto": "48",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 41,
@@ -3788,7 +3788,7 @@
       "edad_equivalente_texto": "49",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 42,
@@ -3807,7 +3807,7 @@
       "edad_equivalente_texto": "50",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 43,
@@ -3826,7 +3826,7 @@
       "edad_equivalente_texto": "51",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 44,
@@ -3845,7 +3845,7 @@
       "edad_equivalente_texto": "52",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 45,
@@ -3864,7 +3864,7 @@
       "edad_equivalente_texto": "53",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 46,
@@ -3883,7 +3883,7 @@
       "edad_equivalente_texto": "54",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 47,
@@ -3902,7 +3902,7 @@
       "edad_equivalente_texto": "55-56",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 48,
@@ -3921,7 +3921,7 @@
       "edad_equivalente_texto": "57-58",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 49,
@@ -3940,7 +3940,7 @@
       "edad_equivalente_texto": "59-60",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 50,
@@ -3959,7 +3959,7 @@
       "edad_equivalente_texto": "61-62",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 51,
@@ -3978,7 +3978,7 @@
       "edad_equivalente_texto": "63-64",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 52,
@@ -3997,7 +3997,7 @@
       "edad_equivalente_texto": "65",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 53,
@@ -4016,7 +4016,7 @@
       "edad_equivalente_texto": "66",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 54,
@@ -4035,7 +4035,7 @@
       "edad_equivalente_texto": "67-69",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 55,
@@ -4054,7 +4054,7 @@
       "edad_equivalente_texto": "70-71",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 56,
@@ -4073,7 +4073,7 @@
       "edad_equivalente_texto": "72-73",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 57,
@@ -4092,7 +4092,7 @@
       "edad_equivalente_texto": "74-75",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 58,
@@ -4111,7 +4111,7 @@
       "edad_equivalente_texto": "76-77",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 59,
@@ -4130,7 +4130,7 @@
       "edad_equivalente_texto": "78-83",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 60,
@@ -4149,7 +4149,7 @@
       "edad_equivalente_texto": "84-89",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 61,
@@ -4168,7 +4168,7 @@
       "edad_equivalente_texto": "90-95",
       "edad_limite_superior_abierto": false,
       "escala": "Motora gruesa",
-      "escala_id": "_motora_gruesa",
+      "escala_id": "motora_gruesa",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 62,
@@ -4187,7 +4187,7 @@
       "edad_equivalente_texto": "0",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 2,
@@ -4206,7 +4206,7 @@
       "edad_equivalente_texto": "1",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 3,
@@ -4225,7 +4225,7 @@
       "edad_equivalente_texto": "2",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 4,
@@ -4244,7 +4244,7 @@
       "edad_equivalente_texto": "3",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 5,
@@ -4263,7 +4263,7 @@
       "edad_equivalente_texto": "4",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 6,
@@ -4282,7 +4282,7 @@
       "edad_equivalente_texto": "5",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 7,
@@ -4301,7 +4301,7 @@
       "edad_equivalente_texto": "6",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 8,
@@ -4320,7 +4320,7 @@
       "edad_equivalente_texto": "7",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 9,
@@ -4339,7 +4339,7 @@
       "edad_equivalente_texto": "8",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 10,
@@ -4358,7 +4358,7 @@
       "edad_equivalente_texto": "9",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 11,
@@ -4377,7 +4377,7 @@
       "edad_equivalente_texto": "10",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 12,
@@ -4396,7 +4396,7 @@
       "edad_equivalente_texto": "11",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 13,
@@ -4415,7 +4415,7 @@
       "edad_equivalente_texto": "12",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 14,
@@ -4434,7 +4434,7 @@
       "edad_equivalente_texto": "13",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 15,
@@ -4453,7 +4453,7 @@
       "edad_equivalente_texto": "14",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 16,
@@ -4472,7 +4472,7 @@
       "edad_equivalente_texto": "15-16",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 17,
@@ -4491,7 +4491,7 @@
       "edad_equivalente_texto": "17-18",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 18,
@@ -4510,7 +4510,7 @@
       "edad_equivalente_texto": "19-20",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 19,
@@ -4529,7 +4529,7 @@
       "edad_equivalente_texto": "21",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 20,
@@ -4548,7 +4548,7 @@
       "edad_equivalente_texto": "22",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 21,
@@ -4567,7 +4567,7 @@
       "edad_equivalente_texto": "23",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 22,
@@ -4586,7 +4586,7 @@
       "edad_equivalente_texto": "24",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 23,
@@ -4605,7 +4605,7 @@
       "edad_equivalente_texto": "25",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 24,
@@ -4624,7 +4624,7 @@
       "edad_equivalente_texto": "26",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 25,
@@ -4643,7 +4643,7 @@
       "edad_equivalente_texto": "27",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 26,
@@ -4662,7 +4662,7 @@
       "edad_equivalente_texto": "28",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 27,
@@ -4681,7 +4681,7 @@
       "edad_equivalente_texto": "29",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 28,
@@ -4700,7 +4700,7 @@
       "edad_equivalente_texto": "30",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 29,
@@ -4719,7 +4719,7 @@
       "edad_equivalente_texto": "31",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 30,
@@ -4738,7 +4738,7 @@
       "edad_equivalente_texto": "32",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 31,
@@ -4757,7 +4757,7 @@
       "edad_equivalente_texto": "33",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 32,
@@ -4776,7 +4776,7 @@
       "edad_equivalente_texto": "34",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 33,
@@ -4795,7 +4795,7 @@
       "edad_equivalente_texto": "35",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 34,
@@ -4814,7 +4814,7 @@
       "edad_equivalente_texto": "36",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 35,
@@ -4833,7 +4833,7 @@
       "edad_equivalente_texto": "37",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 36,
@@ -4852,7 +4852,7 @@
       "edad_equivalente_texto": "38",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 37,
@@ -4871,7 +4871,7 @@
       "edad_equivalente_texto": "39",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 38,
@@ -4890,7 +4890,7 @@
       "edad_equivalente_texto": "40",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 39,
@@ -4909,7 +4909,7 @@
       "edad_equivalente_texto": "41",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 40,
@@ -4928,7 +4928,7 @@
       "edad_equivalente_texto": "42",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 41,
@@ -4947,7 +4947,7 @@
       "edad_equivalente_texto": "43",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 42,
@@ -4966,7 +4966,7 @@
       "edad_equivalente_texto": "44",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 43,
@@ -4985,7 +4985,7 @@
       "edad_equivalente_texto": "45",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 44,
@@ -5004,7 +5004,7 @@
       "edad_equivalente_texto": "46",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 45,
@@ -5023,7 +5023,7 @@
       "edad_equivalente_texto": "47",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 46,
@@ -5042,7 +5042,7 @@
       "edad_equivalente_texto": "48",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 47,
@@ -5061,7 +5061,7 @@
       "edad_equivalente_texto": "49",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 48,
@@ -5080,7 +5080,7 @@
       "edad_equivalente_texto": "50",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 49,
@@ -5099,7 +5099,7 @@
       "edad_equivalente_texto": "51",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 50,
@@ -5118,7 +5118,7 @@
       "edad_equivalente_texto": "52",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 51,
@@ -5137,7 +5137,7 @@
       "edad_equivalente_texto": "53",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 52,
@@ -5156,7 +5156,7 @@
       "edad_equivalente_texto": "54",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 53,
@@ -5175,7 +5175,7 @@
       "edad_equivalente_texto": "55-56",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 54,
@@ -5194,7 +5194,7 @@
       "edad_equivalente_texto": "57-58",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 55,
@@ -5213,7 +5213,7 @@
       "edad_equivalente_texto": "59",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 56,
@@ -5232,7 +5232,7 @@
       "edad_equivalente_texto": "60",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 57,
@@ -5251,7 +5251,7 @@
       "edad_equivalente_texto": "61",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 58,
@@ -5270,7 +5270,7 @@
       "edad_equivalente_texto": "62",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 59,
@@ -5289,7 +5289,7 @@
       "edad_equivalente_texto": "63",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 60,
@@ -5308,7 +5308,7 @@
       "edad_equivalente_texto": "64",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 61,
@@ -5327,7 +5327,7 @@
       "edad_equivalente_texto": "65",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 62,
@@ -5346,7 +5346,7 @@
       "edad_equivalente_texto": "66-67",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 63,
@@ -5365,7 +5365,7 @@
       "edad_equivalente_texto": "68-69",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 64,
@@ -5384,7 +5384,7 @@
       "edad_equivalente_texto": "70-71",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 65,
@@ -5403,7 +5403,7 @@
       "edad_equivalente_texto": "72-73",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 66,
@@ -5422,7 +5422,7 @@
       "edad_equivalente_texto": "74-75",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 67,
@@ -5441,7 +5441,7 @@
       "edad_equivalente_texto": "76-77",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 68,
@@ -5460,7 +5460,7 @@
       "edad_equivalente_texto": "78-89",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 69,
@@ -5479,7 +5479,7 @@
       "edad_equivalente_texto": "90-95",
       "edad_limite_superior_abierto": false,
       "escala": "Motora fina",
-      "escala_id": "_motora_fina",
+      "escala_id": "motora_fina",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
         "fila": 70,
@@ -7018,7 +7018,7 @@
       "edad_equivalente_texto": "0",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 2,
@@ -7037,7 +7037,7 @@
       "edad_equivalente_texto": "1",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 3,
@@ -7056,7 +7056,7 @@
       "edad_equivalente_texto": "2",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 4,
@@ -7075,7 +7075,7 @@
       "edad_equivalente_texto": "3",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 5,
@@ -7094,7 +7094,7 @@
       "edad_equivalente_texto": "4-5",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 6,
@@ -7113,7 +7113,7 @@
       "edad_equivalente_texto": "6",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 7,
@@ -7132,7 +7132,7 @@
       "edad_equivalente_texto": "7",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 8,
@@ -7151,7 +7151,7 @@
       "edad_equivalente_texto": "8",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 9,
@@ -7170,7 +7170,7 @@
       "edad_equivalente_texto": "9-11",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 10,
@@ -7189,7 +7189,7 @@
       "edad_equivalente_texto": "12-14",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 11,
@@ -7208,7 +7208,7 @@
       "edad_equivalente_texto": "15-16",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 12,
@@ -7227,7 +7227,7 @@
       "edad_equivalente_texto": "17-18",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 13,
@@ -7246,7 +7246,7 @@
       "edad_equivalente_texto": "19-20",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 14,
@@ -7265,7 +7265,7 @@
       "edad_equivalente_texto": "21-22",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 15,
@@ -7284,7 +7284,7 @@
       "edad_equivalente_texto": "23-24",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 16,
@@ -7303,7 +7303,7 @@
       "edad_equivalente_texto": "25-26",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 17,
@@ -7322,7 +7322,7 @@
       "edad_equivalente_texto": "27",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 18,
@@ -7341,7 +7341,7 @@
       "edad_equivalente_texto": "28",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 19,
@@ -7360,7 +7360,7 @@
       "edad_equivalente_texto": "29",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 20,
@@ -7379,7 +7379,7 @@
       "edad_equivalente_texto": "30-31",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 21,
@@ -7398,7 +7398,7 @@
       "edad_equivalente_texto": "32-33",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 22,
@@ -7417,7 +7417,7 @@
       "edad_equivalente_texto": "34-35",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 23,
@@ -7436,7 +7436,7 @@
       "edad_equivalente_texto": "36",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 24,
@@ -7455,7 +7455,7 @@
       "edad_equivalente_texto": "37",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 25,
@@ -7474,7 +7474,7 @@
       "edad_equivalente_texto": "38",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 26,
@@ -7493,7 +7493,7 @@
       "edad_equivalente_texto": "39",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 27,
@@ -7512,7 +7512,7 @@
       "edad_equivalente_texto": "40",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 28,
@@ -7531,7 +7531,7 @@
       "edad_equivalente_texto": "41",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 29,
@@ -7550,7 +7550,7 @@
       "edad_equivalente_texto": "42-43",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 30,
@@ -7569,7 +7569,7 @@
       "edad_equivalente_texto": "44-45",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 31,
@@ -7588,7 +7588,7 @@
       "edad_equivalente_texto": "46",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 32,
@@ -7607,7 +7607,7 @@
       "edad_equivalente_texto": "47",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 33,
@@ -7626,7 +7626,7 @@
       "edad_equivalente_texto": "48",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 34,
@@ -7645,7 +7645,7 @@
       "edad_equivalente_texto": "49",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 35,
@@ -7664,7 +7664,7 @@
       "edad_equivalente_texto": "50",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 36,
@@ -7683,7 +7683,7 @@
       "edad_equivalente_texto": "51",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 37,
@@ -7702,7 +7702,7 @@
       "edad_equivalente_texto": "52",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 38,
@@ -7721,7 +7721,7 @@
       "edad_equivalente_texto": "53",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 39,
@@ -7740,7 +7740,7 @@
       "edad_equivalente_texto": "54",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 40,
@@ -7759,7 +7759,7 @@
       "edad_equivalente_texto": "55-56",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 41,
@@ -7778,7 +7778,7 @@
       "edad_equivalente_texto": "57-58",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 42,
@@ -7797,7 +7797,7 @@
       "edad_equivalente_texto": "59-60",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 43,
@@ -7816,7 +7816,7 @@
       "edad_equivalente_texto": "61-62",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 44,
@@ -7835,7 +7835,7 @@
       "edad_equivalente_texto": "63-64",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 45,
@@ -7854,7 +7854,7 @@
       "edad_equivalente_texto": "65-66",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 46,
@@ -7873,7 +7873,7 @@
       "edad_equivalente_texto": "67-68",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 47,
@@ -7892,7 +7892,7 @@
       "edad_equivalente_texto": "69-70",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 48,
@@ -7911,7 +7911,7 @@
       "edad_equivalente_texto": "71-72",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 49,
@@ -7930,7 +7930,7 @@
       "edad_equivalente_texto": "73-74",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 50,
@@ -7949,7 +7949,7 @@
       "edad_equivalente_texto": "75-77",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 51,
@@ -7968,7 +7968,7 @@
       "edad_equivalente_texto": "78-83",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 52,
@@ -7987,7 +7987,7 @@
       "edad_equivalente_texto": "84-90",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 53,
@@ -8006,7 +8006,7 @@
       "edad_equivalente_texto": "91-95",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación receptiva",
-      "escala_id": "_comunicacion_receptiva",
+      "escala_id": "comunicacion_receptiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
         "fila": 54,
@@ -8025,7 +8025,7 @@
       "edad_equivalente_texto": "0",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 2,
@@ -8044,7 +8044,7 @@
       "edad_equivalente_texto": "1",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 3,
@@ -8063,7 +8063,7 @@
       "edad_equivalente_texto": "2",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 4,
@@ -8082,7 +8082,7 @@
       "edad_equivalente_texto": "3",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 5,
@@ -8101,7 +8101,7 @@
       "edad_equivalente_texto": "4-5",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 6,
@@ -8120,7 +8120,7 @@
       "edad_equivalente_texto": "6",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 7,
@@ -8139,7 +8139,7 @@
       "edad_equivalente_texto": "7",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 8,
@@ -8158,7 +8158,7 @@
       "edad_equivalente_texto": "8",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 9,
@@ -8177,7 +8177,7 @@
       "edad_equivalente_texto": "9",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 10,
@@ -8196,7 +8196,7 @@
       "edad_equivalente_texto": "10",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 11,
@@ -8215,7 +8215,7 @@
       "edad_equivalente_texto": "11",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 12,
@@ -8234,7 +8234,7 @@
       "edad_equivalente_texto": "12",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 13,
@@ -8253,7 +8253,7 @@
       "edad_equivalente_texto": "13",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 14,
@@ -8272,7 +8272,7 @@
       "edad_equivalente_texto": "14",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 15,
@@ -8291,7 +8291,7 @@
       "edad_equivalente_texto": "15",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 16,
@@ -8310,7 +8310,7 @@
       "edad_equivalente_texto": "16-17",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 17,
@@ -8329,7 +8329,7 @@
       "edad_equivalente_texto": "18-19",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 18,
@@ -8348,7 +8348,7 @@
       "edad_equivalente_texto": "20-21",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 19,
@@ -8367,7 +8367,7 @@
       "edad_equivalente_texto": "22",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 20,
@@ -8386,7 +8386,7 @@
       "edad_equivalente_texto": "23",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 21,
@@ -8405,7 +8405,7 @@
       "edad_equivalente_texto": "24",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 22,
@@ -8424,7 +8424,7 @@
       "edad_equivalente_texto": "25",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 23,
@@ -8443,7 +8443,7 @@
       "edad_equivalente_texto": "26",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 24,
@@ -8462,7 +8462,7 @@
       "edad_equivalente_texto": "27",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 25,
@@ -8481,7 +8481,7 @@
       "edad_equivalente_texto": "28",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 26,
@@ -8500,7 +8500,7 @@
       "edad_equivalente_texto": "29",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 27,
@@ -8519,7 +8519,7 @@
       "edad_equivalente_texto": "30",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 28,
@@ -8538,7 +8538,7 @@
       "edad_equivalente_texto": "31-32",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 29,
@@ -8557,7 +8557,7 @@
       "edad_equivalente_texto": "33-34",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 30,
@@ -8576,7 +8576,7 @@
       "edad_equivalente_texto": "35-36",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 31,
@@ -8595,7 +8595,7 @@
       "edad_equivalente_texto": "37-38",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 32,
@@ -8614,7 +8614,7 @@
       "edad_equivalente_texto": "39",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 33,
@@ -8633,7 +8633,7 @@
       "edad_equivalente_texto": "40",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 34,
@@ -8652,7 +8652,7 @@
       "edad_equivalente_texto": "41",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 35,
@@ -8671,7 +8671,7 @@
       "edad_equivalente_texto": "42",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 36,
@@ -8690,7 +8690,7 @@
       "edad_equivalente_texto": "43",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 37,
@@ -8709,7 +8709,7 @@
       "edad_equivalente_texto": "44",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 38,
@@ -8728,7 +8728,7 @@
       "edad_equivalente_texto": "45",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 39,
@@ -8747,7 +8747,7 @@
       "edad_equivalente_texto": "46",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 40,
@@ -8766,7 +8766,7 @@
       "edad_equivalente_texto": "47",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 41,
@@ -8785,7 +8785,7 @@
       "edad_equivalente_texto": "48",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 42,
@@ -8804,7 +8804,7 @@
       "edad_equivalente_texto": "49",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 43,
@@ -8823,7 +8823,7 @@
       "edad_equivalente_texto": "50",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 44,
@@ -8842,7 +8842,7 @@
       "edad_equivalente_texto": "51",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 45,
@@ -8861,7 +8861,7 @@
       "edad_equivalente_texto": "52",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 46,
@@ -8880,7 +8880,7 @@
       "edad_equivalente_texto": "53",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 47,
@@ -8899,7 +8899,7 @@
       "edad_equivalente_texto": "54",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 48,
@@ -8918,7 +8918,7 @@
       "edad_equivalente_texto": "55-56",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 49,
@@ -8937,7 +8937,7 @@
       "edad_equivalente_texto": "57-58",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 50,
@@ -8956,7 +8956,7 @@
       "edad_equivalente_texto": "59-60",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 51,
@@ -8975,7 +8975,7 @@
       "edad_equivalente_texto": "61",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 52,
@@ -8994,7 +8994,7 @@
       "edad_equivalente_texto": "62",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 53,
@@ -9013,7 +9013,7 @@
       "edad_equivalente_texto": "63",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 54,
@@ -9032,7 +9032,7 @@
       "edad_equivalente_texto": "64",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 55,
@@ -9051,7 +9051,7 @@
       "edad_equivalente_texto": "65",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 56,
@@ -9070,7 +9070,7 @@
       "edad_equivalente_texto": "66",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 57,
@@ -9089,7 +9089,7 @@
       "edad_equivalente_texto": "67-70",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 58,
@@ -9108,7 +9108,7 @@
       "edad_equivalente_texto": "71-74",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 59,
@@ -9127,7 +9127,7 @@
       "edad_equivalente_texto": "75-78",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 60,
@@ -9146,7 +9146,7 @@
       "edad_equivalente_texto": "79-84",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 61,
@@ -9165,7 +9165,7 @@
       "edad_equivalente_texto": "85-89",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 62,
@@ -9184,7 +9184,7 @@
       "edad_equivalente_texto": "90-95",
       "edad_limite_superior_abierto": false,
       "escala": "Comunicación expresiva",
-      "escala_id": "_comunicacion_expresiva",
+      "escala_id": "comunicacion_expresiva",
       "fuente": {
         "archivo": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
         "fila": 63,
