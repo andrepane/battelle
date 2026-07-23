@@ -23,7 +23,7 @@ def main():
  for r in pct['registros']:
   sid=r.get('escala_id')
   if not sid: errs.append(f'falta escala_id {r.get("tabla")} fila {r.get("fuente",{}).get("fila")}')
-  elif sid not in ids: errs.append(f'escala_id no reconocida {sid}')
+  elif str(sid).startswith('_') or sid not in ids: errs.append(f'escala_id no reconocida {sid}')
   if sid=='battelle_total' or r['escala']=='Battelle total': errs.append('Battelle total aparece en percentiles')
   if r['escala']=='Puntuación total': totals[r['tabla']].add(sid)
   k=(r['tabla'],r['tramo_cronologico'],sid,r['pd_min'],r['pd_max'])
@@ -40,7 +40,17 @@ def main():
  if {r.get('escala_id') for r in total['registros']}!={'battelle_total'}: errs.append('N-2 no es exclusivamente Battelle total')
  if set(ed['tablas_incluidas'])!=set(f'N-{i}' for i in range(56,66)): errs.append('Edades equivalentes no contienen N-56..N-65')
  if len(ed['registros'])!=732: errs.append(f'edades equivalentes debe tener 732 registros normativos, tiene {len(ed["registros"])}')
+ expected_ed={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_fina','N-60':'motora_total','N-61':'comunicacion_receptiva','N-62':'comunicacion_expresiva','N-63':'comunicacion_total','N-64':'cognitiva_total','N-65':'battelle_total'}
+ for r in ed['registros']:
+  sid=r.get('escala_id')
+  if not sid or str(sid).startswith('_') or sid not in ids: errs.append(f'escala_id de edad equivalente no reconocida {sid}')
+ for tabla,sid in expected_ed.items():
+  encontrados={r.get('escala_id') for r in ed['registros'] if r.get('tabla')==tabla}
+  if encontrados!={sid}: errs.append(f'{tabla} debe mapear literalmente a {sid}, encontrado {encontrados}')
  exc=ed.get('excepciones_dominio',[])
+ for e in exc:
+  sid=e.get('escala_id')
+  if not sid or str(sid).startswith('_') or sid not in ids: errs.append(f'escala_id de excepción no reconocida {sid}')
  if len(exc)!=1 or exc[0].get('tabla')!='N-56' or exc[0].get('escala_id')!='personal_social_total' or exc[0].get('pd')!=51 or exc[0].get('estado')!='pd_no_alcanzable_confirmada': errs.append('Excepción de dominio N-56 PD 51 inválida')
  if any(r.get('tabla')=='N-56' and r.get('escala_id')=='personal_social_total' and r.get('pd_min') is not None and r['pd_min']<=51<=r.get('pd_max',-1) for r in ed['registros']): errs.append('Existe conversión inventada para N-56 PD 51')
  for pd,mes in [(386,37),(421,41),(436,43),(464,47),(537,57),(562,60)]:

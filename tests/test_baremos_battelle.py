@@ -34,6 +34,10 @@ class BaremosBattelleTest(unittest.TestCase):
   self.assertEqual(len(self.ed['registros']),732)
   self.assertEqual(len(self.ed.get('excepciones_dominio',[])),1)
   self.assertTrue(all('escala_id' in r for r in self.pct['registros']))
+  expected={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_fina','N-60':'motora_total','N-61':'comunicacion_receptiva','N-62':'comunicacion_expresiva','N-63':'comunicacion_total','N-64':'cognitiva_total','N-65':'battelle_total'}
+  for tabla, escala_id in expected.items():
+   self.assertEqual({r['escala_id'] for r in self.ed['registros'] if r['tabla']==tabla},{escala_id})
+  self.assertFalse(any(r['escala_id'].startswith('_') for r in self.ed['registros']))
   r50=next(r for r in self.pc['registros'] if r['pc']==50); self.assertEqual((r50['z'],r50['T'],r50['CI'],r50['ECN']),(0,50,100,50))
   for pd,mes in [(386,37),(421,41),(436,43),(464,47),(537,57),(562,60)]:
    r=next(r for r in self.ed['registros'] if r.get('tabla')=='N-65' and r.get('pd_min') is not None and r['pd_min']<=pd<=r['pd_max'])

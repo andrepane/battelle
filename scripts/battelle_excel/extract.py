@@ -21,11 +21,18 @@ SPECIAL_SCALE_IDS={
  ('Comunicación','Receptiva'):'comunicacion_receptiva',
  ('Comunicación','Expresiva'):'comunicacion_expresiva',
 }
+SPECIAL_EQUIVALENT_SCALE_IDS={
+ 'Motora gruesa':'motora_gruesa',
+ 'Motora fina':'motora_fina',
+ 'Comunicación receptiva':'comunicacion_receptiva',
+ 'Comunicación expresiva':'comunicacion_expresiva',
+}
 def escala_id(area, escala):
  if escala=='Puntuación total': return AREA_TOTAL_IDS.get(area)
  if not area and escala in AREA_TOTAL_IDS: return AREA_TOTAL_IDS[escala]
  if not area and escala=='Battelle total': return 'battelle_total'
  if (area,escala) in SPECIAL_SCALE_IDS: return SPECIAL_SCALE_IDS[(area,escala)]
+ if not area and escala in SPECIAL_EQUIVALENT_SCALE_IDS: return SPECIAL_EQUIVALENT_SCALE_IDS[escala]
  from .normalization import slug
  return f"{slug(area)}_{slug(escala)}"
 
