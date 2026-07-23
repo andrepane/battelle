@@ -1,0 +1,17 @@
+{
+  "archivos_generados": [
+    "data/percentiles_battelle.json",
+    "data/conversion_total_battelle.json",
+    "data/conversion_pc_general.json",
+    "data/edades_equivalentes.json"
+  ],
+  "estado": "generado_para_validacion",
+  "fecha_generacion": "2026-07-23",
+  "resumen": {
+    "conversion_pc_general": 99,
+    "conversion_total": 363,
+    "edades_equivalentes": 732,
+    "percentiles": 3551
+  },
+  "version_esquema": "1.0.0"
+}
