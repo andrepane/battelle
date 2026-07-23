@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null && request.auth.token.firebase.sign_in_provider != 'anonymous'; }
+    function authDoc() { return get(/databases/$(database)/documents/authorizedUsers/$(request.auth.uid)); }
+    function authorizedNeurointegra() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/authorizedUsers/$(request.auth.uid))
+        && authDoc().data.active == true
+        && authDoc().data.organizationId == 'neurointegra';
+    }
+    match /authorizedUsers/{uid} {
+      allow get: if signedIn() && uid == request.auth.uid;
+      allow list, create, update, delete: if false;
+    }
+    match /organizations/neurointegra/assessments/{assessmentId} {
+      allow read, create, update, delete: if authorizedNeurointegra()
+        && request.auth.uid != null;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}
