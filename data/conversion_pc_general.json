@@ -1,0 +1,1401 @@
+{
+  "fecha_generacion": "2026-07-23",
+  "fuentes": [
+    {
+      "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+      "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+    }
+  ],
+  "registros": [
+    {
+      "CI": 135.0,
+      "ECN": 99.0,
+      "T": 73.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 2,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 99,
+      "tabla": "N-1",
+      "z": 2.33
+    },
+    {
+      "CI": 131.0,
+      "ECN": 93.0,
+      "T": 71.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 3,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 98,
+      "tabla": "N-1",
+      "z": 2.05
+    },
+    {
+      "CI": 128.0,
+      "ECN": 90.0,
+      "T": 69.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 4,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 97,
+      "tabla": "N-1",
+      "z": 1.88
+    },
+    {
+      "CI": 126.0,
+      "ECN": 87.0,
+      "T": 68.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 5,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 96,
+      "tabla": "N-1",
+      "z": 1.75
+    },
+    {
+      "CI": 125.0,
+      "ECN": 85.0,
+      "T": 66.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 6,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 95,
+      "tabla": "N-1",
+      "z": 1.64
+    },
+    {
+      "CI": 123.0,
+      "ECN": 83.0,
+      "T": 66.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 7,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 94,
+      "tabla": "N-1",
+      "z": 1.56
+    },
+    {
+      "CI": 122.0,
+      "ECN": 81.0,
+      "T": 65.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 8,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 93,
+      "tabla": "N-1",
+      "z": 1.48
+    },
+    {
+      "CI": 121.0,
+      "ECN": 79.0,
+      "T": 64.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 9,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 92,
+      "tabla": "N-1",
+      "z": 1.4
+    },
+    {
+      "CI": 120.0,
+      "ECN": 78.0,
+      "T": 63.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 10,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 91,
+      "tabla": "N-1",
+      "z": 1.34
+    },
+    {
+      "CI": 119.0,
+      "ECN": 77.0,
+      "T": 63.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 11,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 90,
+      "tabla": "N-1",
+      "z": 1.28
+    },
+    {
+      "CI": 118.0,
+      "ECN": 76.0,
+      "T": 62.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 12,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 89,
+      "tabla": "N-1",
+      "z": 1.23
+    },
+    {
+      "CI": 118.0,
+      "ECN": 75.0,
+      "T": 62.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 13,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 88,
+      "tabla": "N-1",
+      "z": 1.18
+    },
+    {
+      "CI": 117.0,
+      "ECN": 74.0,
+      "T": 61.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 14,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 87,
+      "tabla": "N-1",
+      "z": 1.13
+    },
+    {
+      "CI": 116.0,
+      "ECN": 73.0,
+      "T": 61.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 15,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 86,
+      "tabla": "N-1",
+      "z": 1.08
+    },
+    {
+      "CI": 116.0,
+      "ECN": 72.0,
+      "T": 60.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 16,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 85,
+      "tabla": "N-1",
+      "z": 1.04
+    },
+    {
+      "CI": 115.0,
+      "ECN": 71.0,
+      "T": 60.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 17,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 84,
+      "tabla": "N-1",
+      "z": 1.0
+    },
+    {
+      "CI": 114.0,
+      "ECN": 70.0,
+      "T": 60.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 18,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 83,
+      "tabla": "N-1",
+      "z": 0.95
+    },
+    {
+      "CI": 114.0,
+      "ECN": 69.0,
+      "T": 59.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 19,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 82,
+      "tabla": "N-1",
+      "z": 0.92
+    },
+    {
+      "CI": 113.0,
+      "ECN": 69.0,
+      "T": 59.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 20,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 81,
+      "tabla": "N-1",
+      "z": 0.88
+    },
+    {
+      "CI": 113.0,
+      "ECN": 68.0,
+      "T": 58.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 21,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 80,
+      "tabla": "N-1",
+      "z": 0.84
+    },
+    {
+      "CI": 112.0,
+      "ECN": 67.0,
+      "T": 58.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 22,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 79,
+      "tabla": "N-1",
+      "z": 0.81
+    },
+    {
+      "CI": 112.0,
+      "ECN": 66.0,
+      "T": 58.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 23,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 78,
+      "tabla": "N-1",
+      "z": 0.77
+    },
+    {
+      "CI": 111.0,
+      "ECN": 66.0,
+      "T": 57.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 24,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 77,
+      "tabla": "N-1",
+      "z": 0.74
+    },
+    {
+      "CI": 111.0,
+      "ECN": 65.0,
+      "T": 57.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 25,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 76,
+      "tabla": "N-1",
+      "z": 0.71
+    },
+    {
+      "CI": 110.0,
+      "ECN": 64.0,
+      "T": 57.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 26,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 75,
+      "tabla": "N-1",
+      "z": 0.68
+    },
+    {
+      "CI": 110.0,
+      "ECN": 63.0,
+      "T": 56.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 27,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 74,
+      "tabla": "N-1",
+      "z": 0.64
+    },
+    {
+      "CI": 109.0,
+      "ECN": 63.0,
+      "T": 56.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 28,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 73,
+      "tabla": "N-1",
+      "z": 0.61
+    },
+    {
+      "CI": 109.0,
+      "ECN": 62.0,
+      "T": 56.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 29,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 72,
+      "tabla": "N-1",
+      "z": 0.58
+    },
+    {
+      "CI": 108.0,
+      "ECN": 62.0,
+      "T": 56.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 30,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 71,
+      "tabla": "N-1",
+      "z": 0.55
+    },
+    {
+      "CI": 108.0,
+      "ECN": 61.0,
+      "T": 55.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 31,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 70,
+      "tabla": "N-1",
+      "z": 0.52
+    },
+    {
+      "CI": 108.0,
+      "ECN": 61.0,
+      "T": 55.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 32,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 69,
+      "tabla": "N-1",
+      "z": 0.5
+    },
+    {
+      "CI": 107.0,
+      "ECN": 60.0,
+      "T": 55.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 33,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 68,
+      "tabla": "N-1",
+      "z": 0.47
+    },
+    {
+      "CI": 107.0,
+      "ECN": 59.0,
+      "T": 54.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 34,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 67,
+      "tabla": "N-1",
+      "z": 0.44
+    },
+    {
+      "CI": 106.0,
+      "ECN": 59.0,
+      "T": 54.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 35,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 66,
+      "tabla": "N-1",
+      "z": 0.41
+    },
+    {
+      "CI": 106.0,
+      "ECN": 58.0,
+      "T": 54.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 36,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 65,
+      "tabla": "N-1",
+      "z": 0.39
+    },
+    {
+      "CI": 105.0,
+      "ECN": 58.0,
+      "T": 54.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 37,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 64,
+      "tabla": "N-1",
+      "z": 0.36
+    },
+    {
+      "CI": 105.0,
+      "ECN": 57.0,
+      "T": 53.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 38,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 63,
+      "tabla": "N-1",
+      "z": 0.33
+    },
+    {
+      "CI": 105.0,
+      "ECN": 57.0,
+      "T": 53.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 39,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 62,
+      "tabla": "N-1",
+      "z": 0.31
+    },
+    {
+      "CI": 104.0,
+      "ECN": 56.0,
+      "T": 53.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 40,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 61,
+      "tabla": "N-1",
+      "z": 0.28
+    },
+    {
+      "CI": 104.0,
+      "ECN": 55.0,
+      "T": 53.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 41,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 60,
+      "tabla": "N-1",
+      "z": 0.25
+    },
+    {
+      "CI": 103.0,
+      "ECN": 55.0,
+      "T": 52.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 42,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 59,
+      "tabla": "N-1",
+      "z": 0.23
+    },
+    {
+      "CI": 103.0,
+      "ECN": 54.0,
+      "T": 52.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 43,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 58,
+      "tabla": "N-1",
+      "z": 0.2
+    },
+    {
+      "CI": 103.0,
+      "ECN": 54.0,
+      "T": 52.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 44,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 57,
+      "tabla": "N-1",
+      "z": 0.18
+    },
+    {
+      "CI": 102.0,
+      "ECN": 53.0,
+      "T": 52.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 45,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 56,
+      "tabla": "N-1",
+      "z": 0.15
+    },
+    {
+      "CI": 102.0,
+      "ECN": 53.0,
+      "T": 51.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 46,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 55,
+      "tabla": "N-1",
+      "z": 0.13
+    },
+    {
+      "CI": 102.0,
+      "ECN": 52.0,
+      "T": 51.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 47,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 54,
+      "tabla": "N-1",
+      "z": 0.1
+    },
+    {
+      "CI": 101.0,
+      "ECN": 52.0,
+      "T": 51.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 48,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 53,
+      "tabla": "N-1",
+      "z": 0.08
+    },
+    {
+      "CI": 101.0,
+      "ECN": 51.0,
+      "T": 50.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 49,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 52,
+      "tabla": "N-1",
+      "z": 0.05
+    },
+    {
+      "CI": 100.0,
+      "ECN": 50.0,
+      "T": 50.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 50,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 51,
+      "tabla": "N-1",
+      "z": 0.02
+    },
+    {
+      "CI": 100.0,
+      "ECN": 50.0,
+      "T": 50.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 51,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 50,
+      "tabla": "N-1",
+      "z": 0.0
+    },
+    {
+      "CI": 100.0,
+      "ECN": 50.0,
+      "T": 50.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 52,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 49,
+      "tabla": "N-1",
+      "z": -0.02
+    },
+    {
+      "CI": 99.0,
+      "ECN": 49.0,
+      "T": 50.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 53,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 48,
+      "tabla": "N-1",
+      "z": -0.05
+    },
+    {
+      "CI": 99.0,
+      "ECN": 48.0,
+      "T": 49.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 54,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 47,
+      "tabla": "N-1",
+      "z": -0.08
+    },
+    {
+      "CI": 98.0,
+      "ECN": 48.0,
+      "T": 49.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 55,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 46,
+      "tabla": "N-1",
+      "z": -0.1
+    },
+    {
+      "CI": 98.0,
+      "ECN": 47.0,
+      "T": 49.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 56,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 45,
+      "tabla": "N-1",
+      "z": -0.13
+    },
+    {
+      "CI": 98.0,
+      "ECN": 47.0,
+      "T": 48.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 57,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 44,
+      "tabla": "N-1",
+      "z": -0.15
+    },
+    {
+      "CI": 97.0,
+      "ECN": 46.0,
+      "T": 48.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 58,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 43,
+      "tabla": "N-1",
+      "z": -0.18
+    },
+    {
+      "CI": 97.0,
+      "ECN": 46.0,
+      "T": 48.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 59,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 42,
+      "tabla": "N-1",
+      "z": -0.2
+    },
+    {
+      "CI": 97.0,
+      "ECN": 45.0,
+      "T": 48.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 60,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 41,
+      "tabla": "N-1",
+      "z": -0.23
+    },
+    {
+      "CI": 96.0,
+      "ECN": 45.0,
+      "T": 47.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 61,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 40,
+      "tabla": "N-1",
+      "z": -0.25
+    },
+    {
+      "CI": 96.0,
+      "ECN": 44.0,
+      "T": 47.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 62,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 39,
+      "tabla": "N-1",
+      "z": -0.28
+    },
+    {
+      "CI": 95.0,
+      "ECN": 43.0,
+      "T": 47.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 63,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 38,
+      "tabla": "N-1",
+      "z": -0.31
+    },
+    {
+      "CI": 95.0,
+      "ECN": 43.0,
+      "T": 47.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 64,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 37,
+      "tabla": "N-1",
+      "z": -0.33
+    },
+    {
+      "CI": 95.0,
+      "ECN": 42.0,
+      "T": 46.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 65,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 36,
+      "tabla": "N-1",
+      "z": -0.36
+    },
+    {
+      "CI": 94.0,
+      "ECN": 42.0,
+      "T": 46.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 66,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 35,
+      "tabla": "N-1",
+      "z": -0.39
+    },
+    {
+      "CI": 94.0,
+      "ECN": 41.0,
+      "T": 46.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 67,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 34,
+      "tabla": "N-1",
+      "z": -0.41
+    },
+    {
+      "CI": 93.0,
+      "ECN": 41.0,
+      "T": 46.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 68,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 33,
+      "tabla": "N-1",
+      "z": -0.44
+    },
+    {
+      "CI": 93.0,
+      "ECN": 40.0,
+      "T": 45.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 69,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 32,
+      "tabla": "N-1",
+      "z": -0.47
+    },
+    {
+      "CI": 92.0,
+      "ECN": 39.0,
+      "T": 45.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 70,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 31,
+      "tabla": "N-1",
+      "z": -0.5
+    },
+    {
+      "CI": 92.0,
+      "ECN": 39.0,
+      "T": 45.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 71,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 30,
+      "tabla": "N-1",
+      "z": -0.52
+    },
+    {
+      "CI": 92.0,
+      "ECN": 38.0,
+      "T": 44.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 72,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 29,
+      "tabla": "N-1",
+      "z": -0.55
+    },
+    {
+      "CI": 91.0,
+      "ECN": 38.0,
+      "T": 44.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 73,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 28,
+      "tabla": "N-1",
+      "z": -0.58
+    },
+    {
+      "CI": 91.0,
+      "ECN": 37.0,
+      "T": 44.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 74,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 27,
+      "tabla": "N-1",
+      "z": -0.61
+    },
+    {
+      "CI": 90.0,
+      "ECN": 37.0,
+      "T": 44.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 75,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 26,
+      "tabla": "N-1",
+      "z": -0.64
+    },
+    {
+      "CI": 90.0,
+      "ECN": 36.0,
+      "T": 43.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 76,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 25,
+      "tabla": "N-1",
+      "z": -0.68
+    },
+    {
+      "CI": 89.0,
+      "ECN": 35.0,
+      "T": 43.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 77,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 24,
+      "tabla": "N-1",
+      "z": -0.71
+    },
+    {
+      "CI": 89.0,
+      "ECN": 34.0,
+      "T": 43.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 78,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 23,
+      "tabla": "N-1",
+      "z": -0.74
+    },
+    {
+      "CI": 88.0,
+      "ECN": 34.0,
+      "T": 42.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 79,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 22,
+      "tabla": "N-1",
+      "z": -0.77
+    },
+    {
+      "CI": 88.0,
+      "ECN": 33.0,
+      "T": 42.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 80,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 21,
+      "tabla": "N-1",
+      "z": -0.81
+    },
+    {
+      "CI": 87.0,
+      "ECN": 32.0,
+      "T": 42.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 81,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 20,
+      "tabla": "N-1",
+      "z": -0.84
+    },
+    {
+      "CI": 87.0,
+      "ECN": 31.0,
+      "T": 41.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 82,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 19,
+      "tabla": "N-1",
+      "z": -0.88
+    },
+    {
+      "CI": 86.0,
+      "ECN": 31.0,
+      "T": 41.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 83,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 18,
+      "tabla": "N-1",
+      "z": -0.92
+    },
+    {
+      "CI": 86.0,
+      "ECN": 30.0,
+      "T": 40.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 84,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 17,
+      "tabla": "N-1",
+      "z": -0.95
+    },
+    {
+      "CI": 85.0,
+      "ECN": 29.0,
+      "T": 40.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 85,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 16,
+      "tabla": "N-1",
+      "z": -1.0
+    },
+    {
+      "CI": 84.0,
+      "ECN": 28.0,
+      "T": 40.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 86,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 15,
+      "tabla": "N-1",
+      "z": -1.04
+    },
+    {
+      "CI": 84.0,
+      "ECN": 27.0,
+      "T": 39.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 87,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 14,
+      "tabla": "N-1",
+      "z": -1.08
+    },
+    {
+      "CI": 83.0,
+      "ECN": 26.0,
+      "T": 39.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 88,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 13,
+      "tabla": "N-1",
+      "z": -1.13
+    },
+    {
+      "CI": 82.0,
+      "ECN": 25.0,
+      "T": 38.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 89,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 12,
+      "tabla": "N-1",
+      "z": -1.18
+    },
+    {
+      "CI": 82.0,
+      "ECN": 24.0,
+      "T": 38.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 90,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 11,
+      "tabla": "N-1",
+      "z": -1.23
+    },
+    {
+      "CI": 81.0,
+      "ECN": 23.0,
+      "T": 37.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 91,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 10,
+      "tabla": "N-1",
+      "z": -1.28
+    },
+    {
+      "CI": 80.0,
+      "ECN": 22.0,
+      "T": 37.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 92,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 9,
+      "tabla": "N-1",
+      "z": -1.34
+    },
+    {
+      "CI": 79.0,
+      "ECN": 21.0,
+      "T": 36.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 93,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 8,
+      "tabla": "N-1",
+      "z": -1.4
+    },
+    {
+      "CI": 78.0,
+      "ECN": 19.0,
+      "T": 35.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 94,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 7,
+      "tabla": "N-1",
+      "z": -1.48
+    },
+    {
+      "CI": 77.0,
+      "ECN": 17.0,
+      "T": 34.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 95,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 6,
+      "tabla": "N-1",
+      "z": -1.56
+    },
+    {
+      "CI": 75.0,
+      "ECN": 15.0,
+      "T": 34.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 96,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 5,
+      "tabla": "N-1",
+      "z": -1.64
+    },
+    {
+      "CI": 74.0,
+      "ECN": 13.0,
+      "T": 32.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 97,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 4,
+      "tabla": "N-1",
+      "z": -1.75
+    },
+    {
+      "CI": 72.0,
+      "ECN": 10.0,
+      "T": 31.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 98,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 3,
+      "tabla": "N-1",
+      "z": -1.88
+    },
+    {
+      "CI": 69.0,
+      "ECN": 7.0,
+      "T": 29.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 99,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 2,
+      "tabla": "N-1",
+      "z": -2.05
+    },
+    {
+      "CI": 65.0,
+      "ECN": 1.0,
+      "T": 27.0,
+      "fuente": {
+        "archivo": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+        "fila": 100,
+        "hoja": "N-1",
+        "sha256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617"
+      },
+      "pc": 1,
+      "tabla": "N-1",
+      "z": -2.33
+    }
+  ],
+  "tablas_incluidas": [
+    "N-1"
+  ],
+  "version_esquema": "1.0.0"
+}
