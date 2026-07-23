@@ -1,0 +1,2320 @@
+[
+  {
+    "nombre_original": "Battelle_N1_baremos.xlsx",
+    "nombre_final": "N-1_conversion_PC_z_T_CI_ECN.xlsx",
+    "SHA-256": "f3a9df60c8f880159ed04cd0df0e546a2e6f0ad8b981b7c9725878a5d3ef4617",
+    "tabla": "N-1",
+    "categoria": "conversion_PC_z_T_CI_ECN",
+    "destino": "fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-1",
+        "encabezados": [
+          "99",
+          "2.33",
+          "73",
+          "135",
+          "99"
+        ],
+        "registros": 98
+      }
+    ],
+    "registros": 98,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-44_edades_equivalentes.xlsx",
+    "nombre_final": "N-56_Edad_equivalente_Personal-Social.xlsx",
+    "SHA-256": "c0cb78869908353b94e3b082b143052598b8f3b8120f154d8956b23c5b0191b7",
+    "tabla": "N-56",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-56_Edad_equivalente_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-56",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 74
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 6
+      }
+    ],
+    "registros": 80,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-45_edades_equivalentes.xlsx",
+    "nombre_final": "N-57_Edad_equivalente_Adaptativa.xlsx",
+    "SHA-256": "60f6ca3c743dd0efa92f3af7c2cf4b5ecd6ce530927a0653b1ed47935e82d1ff",
+    "tabla": "N-57",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-57_Edad_equivalente_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-57",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 82
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 6
+      }
+    ],
+    "registros": 88,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-46_edades_equivalentes.xlsx",
+    "nombre_final": "N-58_Edad_equivalente_Motora-gruesa.xlsx",
+    "SHA-256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0",
+    "tabla": "N-58",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-58",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 61
+      },
+      {
+        "nombre": "N-59",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 69
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 10
+      }
+    ],
+    "registros": 140,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-47_edades_equivalentes.xlsx",
+    "nombre_final": "N-59_Edad_equivalente_Motora.xlsx",
+    "SHA-256": "260f710ff9421689f211d538626c2eee2bebc3373940cbeb1ed10540452d1533",
+    "tabla": "N-59",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-59_Edad_equivalente_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-60",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 80
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 6
+      }
+    ],
+    "registros": 86,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-48_edades_equivalentes.xlsx",
+    "nombre_final": "N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
+    "SHA-256": "57b1da83d2b83f0f31627d56e4571f647b951064b025f740750778322ef9eb81",
+    "tabla": "N-60",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-61",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 53
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 6
+      }
+    ],
+    "registros": 59,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-49_edades_equivalentes.xlsx",
+    "nombre_final": "N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
+    "SHA-256": "77b74c20a2d6260f3673a30c202825d7c3d99988d99ffa8f1da5ed30b323a7a2",
+    "tabla": "N-61",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-62",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 62
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 6
+      }
+    ],
+    "registros": 68,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-50_edades_equivalentes.xlsx",
+    "nombre_final": "N-62_Edad_equivalente_Comunicacion.xlsx",
+    "SHA-256": "a5a79ce3d76f006b5fc05280b6864b1dd93263f9dac0aad7c534bb4b3d9630e1",
+    "tabla": "N-62",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-62_Edad_equivalente_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-63",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 81
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 6
+      }
+    ],
+    "registros": 87,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-51_edades_equivalentes.xlsx",
+    "nombre_final": "N-63_Edad_equivalente_Cognitiva.xlsx",
+    "SHA-256": "b05afecf88b18363ceed3fb9bb0c32ca39b6b51fe39141e3170461b501de209f",
+    "tabla": "N-63",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-63_Edad_equivalente_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-64",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 79
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 6
+      }
+    ],
+    "registros": 85,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-52_edades_equivalentes_total.xlsx",
+    "nombre_final": "N-65_Battelle_total_edad_equivalente.xlsx",
+    "SHA-256": "1a37c18a2a8e5155df257216a4025153caec6edd2c59f71cd01fd48af818d1b8",
+    "tabla": "N-65",
+    "categoria": "edad_equivalente_total",
+    "destino": "fuentes/conversiones_generales/N-65_Battelle_total_edad_equivalente.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-65",
+        "encabezados": [
+          "tabla",
+          "ambito",
+          "pd_total_original",
+          "pd_total_min",
+          "pd_total_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 91
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 8
+      }
+    ],
+    "registros": 99,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado; N-65 ubicado solo en conversiones_generales",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-10_Area_Motora.xlsx",
+    "nombre_final": "N-10_Area_Motora.xlsx",
+    "SHA-256": "5919929d8f506718d279d9593a7efdbcaa2d35d0d494e7e2f041aedaac08c41b",
+    "tabla": "N-10",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/06-11/N-10_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 98
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 105,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-11_Area_Comunicacion.xlsx",
+    "nombre_final": "N-11_Area_Comunicacion.xlsx",
+    "SHA-256": "43f378498cb6cf66879ee5fccc059e776948e2b01bd6a2424e2d0b9e763b6eec",
+    "tabla": "N-11",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/06-11/N-11_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 36
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 43,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-12_Area_Cognitiva.xlsx",
+    "nombre_final": "N-12_Area_Cognitiva.xlsx",
+    "SHA-256": "5912a12c36020e71c8167616f3a7012b5642b62ec411e2fd0ead39664221d9a4",
+    "tabla": "N-12",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/06-11/N-12_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 24
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 31,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-13_Area_Personal-Social.xlsx",
+    "nombre_final": "N-13_Area_Personal-Social.xlsx",
+    "SHA-256": "e2c1e0d7a5bdc24daffd9031b4a3e95552e25cff412ffbd5aa7031e44d90ff99",
+    "tabla": "N-13",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/12-17/N-13_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 82
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 89,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-14_Area_Adaptativa.xlsx",
+    "nombre_final": "N-14_Area_Adaptativa.xlsx",
+    "SHA-256": "7bff4b576b8602d31088eb390b01474985ae03266c1e6678aea89abf9d26a3fd",
+    "tabla": "N-14",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/12-17/N-14_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 47
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 54,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-15_Area_Motora.xlsx",
+    "nombre_final": "N-15_Area_Motora.xlsx",
+    "SHA-256": "6969802670ae9877b5c99d628224eab08fd7511bcd1285c009c6df0091dcf2ce",
+    "tabla": "N-15",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/12-17/N-15_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 97
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 104,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-16_Area_Comunicacion.xlsx",
+    "nombre_final": "N-16_Area_Comunicacion.xlsx",
+    "SHA-256": "bbcc736dff994b621943e08a3d6733e0cb03663ac1b5980f1802d4c442f58b88",
+    "tabla": "N-16",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/12-17/N-16_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 39
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 46,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-17_Area_Cognitiva.xlsx",
+    "nombre_final": "N-17_Area_Cognitiva.xlsx",
+    "SHA-256": "d439b9323429bb07267ddd4678a64506fc8ee0c1070f2fb2e16522b1d74ab4f3",
+    "tabla": "N-17",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/12-17/N-17_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 34
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 41,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-18_Area_Personal-Social.xlsx",
+    "nombre_final": "N-18_Area_Personal-Social.xlsx",
+    "SHA-256": "eb3766ce55794fa7451212f21e46e9ca649ba84b42aa9945746faafd7f59913a",
+    "tabla": "N-18",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/18-23/N-18_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 100
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 107,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-19_Area_Adaptativa.xlsx",
+    "nombre_final": "N-19_Area_Adaptativa.xlsx",
+    "SHA-256": "0153afd265958450fb926610815635d28d6474471d0b86bf9089fc76dca82923",
+    "tabla": "N-19",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/18-23/N-19_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 49
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 56,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-20_Area_Motora.xlsx",
+    "nombre_final": "N-20_Area_Motora.xlsx",
+    "SHA-256": "f2965ac1d4c70b420c95b3c96f368f9435817d91efc6e0cd368c39fba1e6f960",
+    "tabla": "N-20",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/18-23/N-20_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 78
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 85,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-21_Area_Comunicacion.xlsx",
+    "nombre_final": "N-21_Area_Comunicacion.xlsx",
+    "SHA-256": "ebf628dbcd91b698bfd507005f12782eab722ef467428025d7d534b880ad53c6",
+    "tabla": "N-21",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/18-23/N-21_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 39
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 46,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-22_Area_Cognitiva.xlsx",
+    "nombre_final": "N-22_Area_Cognitiva.xlsx",
+    "SHA-256": "ac9654bf7ca086d716a474e96811ce96426f01d38938778c7d401d8c814733e6",
+    "tabla": "N-22",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/18-23/N-22_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 34
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 41,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-23_Area_Personal-Social.xlsx",
+    "nombre_final": "N-23_Area_Personal-Social.xlsx",
+    "SHA-256": "6445b5e6786225a48fc3d2780287ed5f650fbf19647a52a07c2d68424009ef4e",
+    "tabla": "N-23",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/24-35/N-23_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 156
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 163,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-24_Area_Adaptativa.xlsx",
+    "nombre_final": "N-24_Area_Adaptativa.xlsx",
+    "SHA-256": "3c7aa27167406c83100ee14d59a39b6e0cbc5ebb224a882c48905230e1b887a0",
+    "tabla": "N-24",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/24-35/N-24_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 84
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 91,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-25_Area_Motora.xlsx",
+    "nombre_final": "N-25_Area_Motora.xlsx",
+    "SHA-256": "ce44df54176c7cf881a1dd116795ecd506213fd04e32764cf6513432ece2b14e",
+    "tabla": "N-25",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/24-35/N-25_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 128
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 135,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-26_Area_Comunicacion.xlsx",
+    "nombre_final": "N-26_Area_Comunicacion.xlsx",
+    "SHA-256": "dd20b9b01dc0d5ac8f3709046e96411b13abe902265ce50b01253be5c6b2485a",
+    "tabla": "N-26",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/24-35/N-26_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 76
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 83,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-27_Area_Cognitiva.xlsx",
+    "nombre_final": "N-27_Area_Cognitiva.xlsx",
+    "SHA-256": "3e640c7abd4dbb3afb8b15190e84ec2cf9d4b6cbb652f550163aad0c3b47550e",
+    "tabla": "N-27",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/24-35/N-27_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 66
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 73,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-28_Area_Personal-Social.xlsx",
+    "nombre_final": "N-28_Area_Personal-Social.xlsx",
+    "SHA-256": "909a62855b0096f18fe2ae683941fd6926611f6c60f0a874796d9173f6a86f52",
+    "tabla": "N-28",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/36-47/N-28_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 145
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 152,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-29_Area_Adaptativa.xlsx",
+    "nombre_final": "N-29_Area_Adaptativa.xlsx",
+    "SHA-256": "ad289c3464bae08bc7c248adb196301772f94ad6ac7f44177246aa8d4a7f122a",
+    "tabla": "N-29",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/36-47/N-29_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 81
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 88,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-2_Battelle_total_centiles_todas_edades.xlsx",
+    "nombre_final": "N-2_Battelle_total_centiles_todas_edades.xlsx",
+    "SHA-256": "af87fca6fb0a8dcaaff6c73a6b36d469257bcbf08633443a6b6b51f19a25ba2a",
+    "tabla": "N-2",
+    "categoria": "battelle_total_centil_por_edad",
+    "destino": "fuentes/conversiones_generales/N-2_Battelle_total_centiles_todas_edades.xlsx",
+    "hojas": [
+      {
+        "nombre": "N-2_0-11",
+        "encabezados": [
+          "rango_edad",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "centil"
+        ],
+        "registros": 363
+      }
+    ],
+    "registros": 363,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-30_Area_Motora.xlsx",
+    "nombre_final": "N-30_Area_Motora.xlsx",
+    "SHA-256": "6df6a133dc4470a7701c819391a6074501803606d619a653f1bdea3863408a56",
+    "tabla": "N-30",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/36-47/N-30_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 158
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 165,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-31_Area_Comunicacion.xlsx",
+    "nombre_final": "N-31_Area_Comunicacion.xlsx",
+    "SHA-256": "9af58f736ec1e4dea2187a2b0a116bff8d005f4c77c6a940a319ce6835f1a120",
+    "tabla": "N-31",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/36-47/N-31_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 97
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 104,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-32_Area_Cognitiva.xlsx",
+    "nombre_final": "N-32_Area_Cognitiva.xlsx",
+    "SHA-256": "a57cd38ddeb62aa72f77fd901eb66962e7552493201a9693df48ee9d6284922f",
+    "tabla": "N-32",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/36-47/N-32_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 103
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 110,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-33_Area_Personal-Social.xlsx",
+    "nombre_final": "N-33_Area_Personal-Social.xlsx",
+    "SHA-256": "956fb0521713273a3cf701a11406d5cfe3c6b0e098b1654a5b42103fdc06963a",
+    "tabla": "N-33",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/48-59/N-33_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 111
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 118,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-34_Area_Adaptativa.xlsx",
+    "nombre_final": "N-34_Area_Adaptativa.xlsx",
+    "SHA-256": "70319e2e89c3cd49c1729c498a20f02f852afd43c9b6ae63bc003b3b20dde874",
+    "tabla": "N-34",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/48-59/N-34_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 69
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 76,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-35_Area_Motora.xlsx",
+    "nombre_final": "N-35_Area_Motora.xlsx",
+    "SHA-256": "61067a88e5ed94de5ff66e9d87a54866bd7ddcf1e656c6b634ee15f357f21df0",
+    "tabla": "N-35",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/48-59/N-35_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 154
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 161,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-36_Area_Comunicacion.xlsx",
+    "nombre_final": "N-36_Area_Comunicacion.xlsx",
+    "SHA-256": "62855190d8e1ad966f6d3eede9648f7fbef962466ae3e128255ebdaa659b70e7",
+    "tabla": "N-36",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/48-59/N-36_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 97
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 104,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-37_Area_Cognitiva.xlsx",
+    "nombre_final": "N-37_Area_Cognitiva.xlsx",
+    "SHA-256": "293ca22ae9bd2fbd9c28aebe29e2c2a2a65095c45b7ab8e236da9340e7c6a8a4",
+    "tabla": "N-37",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/48-59/N-37_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 110
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 117,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-38_Area_Personal-Social.xlsx",
+    "nombre_final": "N-38_Area_Personal-Social.xlsx",
+    "SHA-256": "803c173ecf68cd888cbc48c1010e24d51f81e645c6dfc1762c770d3f60dc544d",
+    "tabla": "N-38",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/60-71/N-38_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 82
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 89,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-39_Area_Adaptativa.xlsx",
+    "nombre_final": "N-39_Area_Adaptativa.xlsx",
+    "SHA-256": "487522c8f2b97615dd143cf623c8da299d89077a7d09c33344aa2b7f4cc81a74",
+    "tabla": "N-39",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/60-71/N-39_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 70
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 77,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-3_Area_Personal-Social.xlsx",
+    "nombre_final": "N-3_Area_Personal-Social.xlsx",
+    "SHA-256": "90fb7b3bcf65f2ba65afdc18cf4dbcf4011486157da092140d703b5afcfe6bd0",
+    "tabla": "N-3",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/00-05/N-3_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 57
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 64,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-40_Area_Motora.xlsx",
+    "nombre_final": "N-40_Area_Motora.xlsx",
+    "SHA-256": "62ac26da8f678b87bff2df6d63415c5d5c04b9616a6208c60aff9aa7d26cca86",
+    "tabla": "N-40",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/60-71/N-40_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 109
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 116,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-41_Area_Comunicacion.xlsx",
+    "nombre_final": "N-41_Area_Comunicacion.xlsx",
+    "SHA-256": "d4f24daefa1488e2b4e2b69793a034de39d776925b8fc0afd00d05ad1fd68286",
+    "tabla": "N-41",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/60-71/N-41_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 70
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 77,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-42_Area_Cognitiva.xlsx",
+    "nombre_final": "N-42_Area_Cognitiva.xlsx",
+    "SHA-256": "24e1ce4290698cd402f772c5ece11d0841b8d1a9e8845c642b7b70283179ae59",
+    "tabla": "N-42",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/60-71/N-42_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 78
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 85,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-43_Area_Personal-Social.xlsx",
+    "nombre_final": "N-43_Area_Personal-Social.xlsx",
+    "SHA-256": "2a46a80f8010511f1a883846e72a8be2c6091a875cf0f01ac1f0568520d6727f",
+    "tabla": "N-43",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/72-83/N-43_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 56
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 63,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-44_Area_Adaptativa.xlsx",
+    "nombre_final": "N-44_Area_Adaptativa.xlsx",
+    "SHA-256": "ea56c3e03fdcc72a93c78f3cc713aa56aa341d7e0209104a51afe8c66c5a344b",
+    "tabla": "N-44",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/72-83/N-44_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 49
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 56,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-45_Area_Motora.xlsx",
+    "nombre_final": "N-45_Area_Motora.xlsx",
+    "SHA-256": "6d1fccb69391d2f47683d7d833ef7e98987585254300919db6a003f40617dfab",
+    "tabla": "N-45",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/72-83/N-45_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 77
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 84,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-46_Area_Comunicacion.xlsx",
+    "nombre_final": "N-46_Area_Comunicacion.xlsx",
+    "SHA-256": "51f910b7d811abc9e8339441fa1bf8f16383696bc92070949310e39b5ff7a072",
+    "tabla": "N-46",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/72-83/N-46_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 43
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 50,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-47_Area_Cognitiva.xlsx",
+    "nombre_final": "N-47_Area_Cognitiva.xlsx",
+    "SHA-256": "c9d62d14e3ed4d80703e132a562d7030773adf545dcc6f3e0615e266fea4b530",
+    "tabla": "N-47",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/72-83/N-47_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 51
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 58,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-48_Area_Personal-Social.xlsx",
+    "nombre_final": "N-48_Area_Personal-Social.xlsx",
+    "SHA-256": "89b6736f374c2823cdfd2d19179185398c8411456ba4812a776689297819b03e",
+    "tabla": "N-48",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/84-95/N-48_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 29
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 36,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-49_Area_Adaptativa.xlsx",
+    "nombre_final": "N-49_Area_Adaptativa.xlsx",
+    "SHA-256": "bf3905c0d1046c6a8dc4c9be64b8adb91418f469b8f2335b71159af255ae6998",
+    "tabla": "N-49",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/84-95/N-49_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 31
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 38,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-4_Area_Adaptativa.xlsx",
+    "nombre_final": "N-4_Area_Adaptativa.xlsx",
+    "SHA-256": "92958e6c842b8c5fdda13c890aebeaf7e7ae468a32b4997bdd1dfc6ee535babd",
+    "tabla": "N-4",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/00-05/N-4_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 49
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 56,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-50_Area_Motora.xlsx",
+    "nombre_final": "N-50_Area_Motora.xlsx",
+    "SHA-256": "4fda31c18c408ce1ade104f6b679fcebfd10b6dbceff738c7085918e26ad312b",
+    "tabla": "N-50",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/84-95/N-50_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 50
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 57,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-51_Area_Comunicacion.xlsx",
+    "nombre_final": "N-51_Area_Comunicacion.xlsx",
+    "SHA-256": "189f3773b5b15d6c0eeb4879d4213dfa644fdd395b89b0a013ea2464dd1d36f5",
+    "tabla": "N-51",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/84-95/N-51_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 26
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 33,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-52_Area_Cognitiva.xlsx",
+    "nombre_final": "N-52_Area_Cognitiva.xlsx",
+    "SHA-256": "6844a99a36b8e78e03e7450aa83279efe24a336d3a4336ebe0b375c917c80366",
+    "tabla": "N-52",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/84-95/N-52_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 35
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 42,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-5_Area_Motora.xlsx",
+    "nombre_final": "N-5_Area_Motora.xlsx",
+    "SHA-256": "2fb6ecec3a6ca1b282144416a8a4d6bea95f0d52b74b3e2fff744aa5ba6735bd",
+    "tabla": "N-5",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/00-05/N-5_Area_Motora.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 59
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 66,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-6_Area_Comunicacion.xlsx",
+    "nombre_final": "N-6_Area_Comunicacion.xlsx",
+    "SHA-256": "5e222ed9d453f51b9e8af2cc41e129b885742b97d710c99c966e946021c70b65",
+    "tabla": "N-6",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/00-05/N-6_Area_Comunicacion.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 36
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 43,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-7_Area_Cognitiva.xlsx",
+    "nombre_final": "N-7_Area_Cognitiva.xlsx",
+    "SHA-256": "5918da20fcdc839d3f38f88a4359c96cfd33eb9430515fce4ab3d62ddb80667f",
+    "tabla": "N-7",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/00-05/N-7_Area_Cognitiva.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 29
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 36,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-8_Area_Personal-Social.xlsx",
+    "nombre_final": "N-8_Area_Personal-Social.xlsx",
+    "SHA-256": "4e374c04f1fcbf0ea2480d5cbd38271623384927aff7c3136222ddaacd4cea08",
+    "tabla": "N-8",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/06-11/N-8_Area_Personal-Social.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 42
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 49,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "N-9_Area_Adaptativa.xlsx",
+    "nombre_final": "N-9_Area_Adaptativa.xlsx",
+    "SHA-256": "3ac92df4b7deeefff16a1630f95ee13f3f02863aa066b1919eea1a89ce07af04",
+    "tabla": "N-9",
+    "categoria": "percentiles_por_area_y_tramo",
+    "destino": "fuentes/percentiles/06-11/N-9_Area_Adaptativa.xlsx",
+    "hojas": [
+      {
+        "nombre": "datos",
+        "encabezados": [
+          "edad_min_meses",
+          "edad_max_meses",
+          "tabla",
+          "area",
+          "escala",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "limite_superior_abierto",
+          "percentil",
+          "fuente"
+        ],
+        "registros": 31
+      },
+      {
+        "nombre": "metadatos",
+        "encabezados": [
+          "campo",
+          "valor"
+        ],
+        "registros": 7
+      }
+    ],
+    "registros": 38,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  }
+]
