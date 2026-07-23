@@ -41,7 +41,7 @@ test('modelo Firestore sanea documentos y ruta compartida',()=>{
 
 test('repositorio Firestore incrementa revision, detecta conflicto y elimina con revision', async()=>{
   const rec=createAssessmentRecord({id:'bat-f1'}); const services=makeServices(); const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'}, servicesPromise:services});
-  const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1); assert.equal(saved.createdBy,'uid1'); assert.equal(saved.updatedBy,'uid1');
+  const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1); assert.equal(saved.createdBy,'uid1'); assert.equal(saved.updatedBy,'uid1'); assert.equal(services.store.get('bat-f1').id,'bat-f1'); assert.equal(typeof services.store.get('bat-f1').createdAt.toDate,'function'); assert.equal(typeof services.store.get('bat-f1').updatedAt.toDate,'function');
   await assert.rejects(repo.saveAssessment({...saved,name:'stale'},0),e=>e.code==='assessment_conflict');
   await repo.deleteAssessment('bat-f1',1); assert.equal(await repo.getAssessment('bat-f1'),null);
 });
