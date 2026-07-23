@@ -1,4 +1,12 @@
 {
   "type": "module",
-  "scripts": { "test": "node --test" }
+  "scripts": {
+    "test": "node --test",
+    "test:firestore-rules": "FIRESTORE_RULES_REQUIRED=1 firebase emulators:exec --only firestore \"node --test tests/firestore-rules.test.js\""
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.1",
+    "firebase": "^12.16.0",
+    "firebase-tools": "^15.23.0"
+  }
 }

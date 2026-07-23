@@ -27,27 +27,27 @@ test('bloqueo sin autenticación, rechazo anónimo/no autorizado y usuario autor
   const html=readFileSync(new URL('../index.html', import.meta.url),'utf8');
   assert.match(html,/id="loginView"/); assert.match(html,/Iniciar sesión/); assert.doesNotMatch(html,/Registr/);
   const rules=readFileSync(new URL('../firestore.rules', import.meta.url),'utf8');
-  assert.match(rules,/sign_in_provider != 'anonymous'/); assert.match(rules,/authorizedUsers/); assert.match(rules,/allow list, create, update, delete: if false/);
+  assert.match(rules,/sign_in_provider != 'anonymous'/); assert.match(rules,/authorizedUsers/); assert.match(rules,/allow list, create, update, delete: if false/); assert.match(rules,/validAssessmentCreate/); assert.match(rules,/validAssessmentUpdate/);
 });
 
 test('modelo Firestore sanea documentos y ruta compartida',()=>{
   const rec=createAssessmentRecord({id:'bat-f1',name:'Neuro'});
   const payload=toFirestorePayload(rec,'uid1');
   assert.equal(ASSESSMENTS_PATH,'organizations/neurointegra/assessments');
-  assert.equal(payload.organizationId,'neurointegra'); assert.equal(payload.updatedBy,'uid1');
+  assert.equal(payload.organizationId,'neurointegra'); assert.equal(payload.updatedBy,undefined);
   assert.equal(toFirestorePayload({...rec, observedResponses:{constructor:1}},'uid1'),null);
   assert.equal(fromFirestoreDocument('bat-f1',{...payload, organizationId:'otro'}),null);
 });
 
 test('repositorio Firestore incrementa revision, detecta conflicto y elimina con revision', async()=>{
   const rec=createAssessmentRecord({id:'bat-f1'}); const services=makeServices(); const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'}, servicesPromise:services});
-  const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1);
+  const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1); assert.equal(saved.createdBy,'uid1'); assert.equal(saved.updatedBy,'uid1'); assert.equal(services.store.get('bat-f1').id,'bat-f1'); assert.equal(typeof services.store.get('bat-f1').createdAt.toDate,'function'); assert.equal(typeof services.store.get('bat-f1').updatedAt.toDate,'function');
   await assert.rejects(repo.saveAssessment({...saved,name:'stale'},0),e=>e.code==='assessment_conflict');
   await repo.deleteAssessment('bat-f1',1); assert.equal(await repo.getAssessment('bat-f1'),null);
 });
 
 test('tiempo real notifica cambios remotos sin IndexedDB persistente', async()=>{
-  const rec=createAssessmentRecord({id:'bat-f1'}); const services=makeServices({'bat-f1':{...rec,organizationId:'neurointegra',createdBy:'u',updatedBy:'u'}}); const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'}, servicesPromise:services});
+  const rec=createAssessmentRecord({id:'bat-f1'}); const services=makeServices({'bat-f1':{...rec,revision:1,organizationId:'neurointegra',createdBy:'u',updatedBy:'u'}}); const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'}, servicesPromise:services});
   let seen=[]; await repo.subscribeAssessments(rows=>{seen=rows}); assert.equal(seen[0].id,'bat-f1');
   assert.doesNotMatch(readFileSync(new URL('../src/firebase-app.js', import.meta.url),'utf8'),/enableIndexedDbPersistence|persistentLocalCache/);
 });
@@ -69,6 +69,26 @@ test('importación local idempotente, conflicto de ID, corrupta y no borra datos
   const retry=await importLocalAssessments({repository:repo,storage:s}); assert.equal(retry.skipped,1);
   const conflictRepo=fakeRepository({'bat-i1':{...rec,name:'otro'}}); const conflict=await importLocalAssessments({repository:conflictRepo,storage:s}); assert.equal(conflict.conflicts,1);
   const bad=new Mem; bad.setItem(ASSESSMENTS_KEY,'{bad'); const corrupt=await importLocalAssessments({repository:repo,storage:bad}); assert.equal(corrupt.invalid,1);
+});
+
+
+test('autenticación centralizada evita doble inicialización y sesiones parciales',()=>{
+  const script=readFileSync(new URL('../script.js', import.meta.url),'utf8');
+  const submit = script.match(/document\.addEventListener\('submit',[\s\S]*?window\.addEventListener/)?.[0] || '';
+  assert.match(script,/initializingUid/);
+  assert.match(script,/authorizationPromise/);
+  assert.doesNotMatch(submit,/handleAuthorizedUser/);
+  assert.match(script,/observeAuthState\(async\(user\)=>/);
+  assert.match(script,/await signOutNeurointegra\(\); showLogin\(\);/);
+});
+
+test('suscripciones se deduplican y se limpian al cambiar o cerrar sesión',()=>{
+  const script=readFileSync(new URL('../script.js', import.meta.url),'utf8');
+  assert.match(script,/if\(state\.unsubscribeAssessments\) state\.unsubscribeAssessments\(\)/);
+  assert.match(script,/state\.unsubscribeAssessments=await state\.repository\.subscribeAssessments/);
+  assert.match(script,/if\(state\.unsubscribeAssessments\)\{ state\.unsubscribeAssessments\(\); state\.unsubscribeAssessments=null; \}/);
+  assert.match(script,/if\(state\.unsubscribeAssessment\)\{ state\.unsubscribeAssessment\(\); state\.unsubscribeAssessment=null; \}/);
+  assert.match(script,/assessments:\[\].*storageError:null/);
 });
 
 test('cierre de sesión intenta guardar antes de salir',()=>{

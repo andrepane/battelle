@@ -9,13 +9,54 @@ service cloud.firestore {
         && authDoc().data.active == true
         && authDoc().data.organizationId == 'neurointegra';
     }
+    function assessmentFields() {
+      return ['id','schemaVersion','name','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy'];
+    }
+    function validWorkflowStatus() {
+      return request.resource.data.workflowStatus in ['borrador','pendiente_completar','correccion_bloqueada','corregida','resultado_desactualizado'];
+    }
+    function validAssessmentShape(assessmentId) {
+      return request.resource.data.keys().hasOnly(assessmentFields())
+        && request.resource.data.id == assessmentId
+        && request.resource.data.organizationId == 'neurointegra'
+        && request.resource.data.schemaVersion == 3
+        && request.resource.data.revision is int
+        && request.resource.data.revision > 0
+        && request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.updatedBy == request.auth.uid
+        && request.resource.data.name is string
+        && request.resource.data.birthDate is string
+        && request.resource.data.assessmentDate is string
+        && request.resource.data.manualAgeOverride is bool
+        && (request.resource.data.ageMonths == null || request.resource.data.ageMonths is int)
+        && request.resource.data.observedResponses is map
+        && request.resource.data.observations is map
+        && request.resource.data.correctionMetadata is map
+        && request.resource.data.progress is map
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.updatedAt == request.time
+        && validWorkflowStatus();
+    }
+    function validAssessmentCreate(assessmentId) {
+      return validAssessmentShape(assessmentId)
+        && request.resource.data.revision == 1
+        && request.resource.data.createdAt == request.time;
+    }
+    function validAssessmentUpdate(assessmentId) {
+      return validAssessmentShape(assessmentId)
+        && request.resource.data.revision == resource.data.revision + 1
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.createdBy == resource.data.createdBy;
+    }
     match /authorizedUsers/{uid} {
       allow get: if signedIn() && uid == request.auth.uid;
       allow list, create, update, delete: if false;
     }
     match /organizations/neurointegra/assessments/{assessmentId} {
-      allow read, create, update, delete: if authorizedNeurointegra()
-        && request.auth.uid != null;
+      allow read: if authorizedNeurointegra();
+      allow create: if authorizedNeurointegra() && validAssessmentCreate(assessmentId);
+      allow update: if authorizedNeurointegra() && validAssessmentUpdate(assessmentId);
+      allow delete: if authorizedNeurointegra();
     }
     match /{document=**} { allow read, write: if false; }
   }
