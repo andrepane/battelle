@@ -1,29 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { lookupPercentile, percentileForScale, lookupEquivalentAge, validatePercentileMappings, NORMATIVE_PENDING_MESSAGE } from '../src/battelle-conversions.js';
+import { ageBandForMonths, canonicalNormativeId, lookupPercentile, lookupEquivalentAge, lookupTotalCentile, lookupGeneralConversion, validateNormativeData } from '../src/battelle-conversions.js';
+const j=async f=>JSON.parse(await readFile(f,'utf8'));
+const data=await (async()=>({percentiles:await j('data/percentiles_battelle.json'),total:await j('data/conversion_total_battelle.json'),pcGeneral:await j('data/conversion_pc_general.json'),equivalentAges:await j('data/edades_equivalentes.json'),metadata:await j('data/baremos_metadata.json'),incidences:await j('data/baremos_incidencias.json')}))();
+const model=await j('data/modelo_escalas_battelle.json');
 
-test('conversiones normativas quedan pendientes sin inventar valores',()=>{
-  const pct=lookupPercentile({ageMonths:12,scaleName:'Interacción con el adulto',directScore:10});
-  assert.equal(pct.ok,false); assert.equal(pct.error.code,'baremos_pendientes'); assert.equal(pct.error.message,NORMATIVE_PENDING_MESSAGE); assert.equal(pct.percentile,undefined);
-  const scale=percentileForScale({ageMonths:12,scaleId:'personal_social_total',directScore:20});
-  assert.equal(scale.error.code,'baremos_pendientes');
-  const age=lookupEquivalentAge({scaleId:'battelle_total',directScore:300});
-  assert.equal(age.error.code,'baremos_pendientes'); assert.equal(age.minMonths,undefined); assert.equal(age.maxMonths,undefined);
-});
+test('validación normativa de arranque con JSON reales',()=>{ const v=validateNormativeData(data,model); assert.equal(v.ok,true); });
+test('selección de diez tramos y límites',()=>{ const cases=[[0,'00-05'],[5,'00-05'],[6,'06-11'],[11,'06-11'],[12,'12-17'],[17,'12-17'],[18,'18-23'],[23,'18-23'],[24,'24-35'],[35,'24-35'],[36,'36-47'],[47,'36-47'],[48,'48-59'],[59,'48-59'],[60,'60-71'],[71,'60-71'],[72,'72-83'],[83,'72-83'],[84,'84-95'],[95,'84-95']]; for(const [m,l] of cases) assert.equal(ageBandForMonths(m).label,l); assert.equal(ageBandForMonths(-1),null); assert.equal(ageBandForMonths(96),null); });
+test('percentiles por escala_id, intervalo, abierto y sin battelle_total',()=>{ const r=lookupPercentile({ageMonths:0,scaleId:'personal_social_interaccion_con_el_adulto',directScore:18,normativeData:data}); assert.equal(r.ok,true); assert.equal(r.percentile,98); const open=lookupPercentile({ageMonths:0,scaleId:'personal_social_interaccion_con_el_adulto',directScore:36,normativeData:data}); assert.equal(open.ok,true); assert.equal(lookupPercentile({ageMonths:0,scaleId:'battelle_total',directScore:50,normativeData:data}).error.code,'escala_no_incluida'); });
+test('N-2 depende de edad y N-2 encadena a N-1 con PC 50',()=>{ const pc50=lookupGeneralConversion({pc:50,normativeData:data}); assert.deepEqual({z:pc50.z,T:pc50.T,CI:pc50.CI,ECN:pc50.ECN},{z:0,T:50,CI:100,ECN:50}); const a=lookupTotalCentile({ageMonths:0,directScore:98,normativeData:data}); const b=lookupTotalCentile({ageMonths:95,directScore:98,normativeData:data}); assert.equal(a.ok,true); assert.equal(b.ok,true); assert.equal(lookupTotalCentile({ageMonths:-1,directScore:98,normativeData:data}).error.code,'edad_fuera_de_baremos'); });
+test('N-65 casos conocidos e intervalos de edad equivalente',()=>{ for(const [pd,months] of [[386,37],[421,41],[436,43],[464,47],[537,57],[562,60]]){ const r=lookupEquivalentAge({scaleId:'battelle_total',directScore:pd,normativeData:data}); assert.equal(r.ok,true); assert.equal(r.minMonths,months); assert.equal(r.maxMonths,months); } const interval=data.equivalentAges.registros.find(r=>r.edad_equivalente_min_meses!==r.edad_equivalente_max_meses); const got=lookupEquivalentAge({scaleId:interval.escala_id,directScore:interval.pd_min,normativeData:data}); assert.equal(got.ok,true); assert.notEqual(got.minMonths,got.maxMonths); });
+test('excepción N-56 PD 51 y PD inválidas',()=>{ assert.equal(lookupEquivalentAge({scaleId:'personal_social_total',directScore:51,normativeData:data}).error.code,'pd_no_alcanzable'); for(const value of ['18',18.5,Number.NaN,Infinity,-1]) assert.equal(lookupEquivalentAge({scaleId:'battelle_total',directScore:value,normativeData:data}).error.code,'pd_invalida'); assert.equal(lookupEquivalentAge({scaleId:'battelle_total',directScore:9999,normativeData:data,maxScore:682}).error.code,'pd_invalida'); });
+test('regresión estática sin textos temporales ni baremos incrustados', async()=>{ for (const file of ['script.js','src/battelle-correction.js','src/battelle-conversions.js']) { const s=await readFile(file,'utf8'); assert.equal(s.includes('baremos_pendientes'),false); assert.equal(/percentil\s*:\s*\d{2}/.test(s),false); } });
 
-test('PD inválida se rechaza antes del estado pendiente',()=>{
-  for(const value of ['18',18.5,Number.NaN,Infinity,-1]){
-    assert.equal(lookupPercentile({ageMonths:0,scaleName:'x',directScore:value}).error.code,'pd_invalida');
-    assert.equal(lookupEquivalentAge({scaleId:'battelle_total',directScore:value}).error.code,'pd_invalida');
-  }
-});
-
-test('no quedan cargas de JSON eliminados ni baremos incrustados', async()=>{
-  for (const file of ['script.js','src/battelle-correction.js','src/battelle-conversions.js']) {
-    const s=await readFile(file,'utf8');
-    assert.equal(s.includes('data/' + 'percentiles_battelle.json'),false);
-    assert.equal(s.includes('data/' + 'edades_equivalentes.json'),false);
-  }
-  assert.deepEqual(validatePercentileMappings().status,'baremos_pendientes');
-});
+test('identificador normativo cambia al modificar contenido relevante',()=>{ const copy=structuredClone(data); const id1=canonicalNormativeId(copy); copy.pcGeneral.registros.find(r=>r.pc===50).CI=101; assert.notEqual(canonicalNormativeId(copy), id1); });

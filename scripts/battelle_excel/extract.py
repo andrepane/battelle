@@ -36,7 +36,20 @@ def val(r,h,name):
  for c,n in h.items():
   if n==name: return r['values'].get(c,'')
  return ''
-def source(path, sheet, row): return {'archivo':str(Path(path).relative_to(ROOT)),'sha256':sha256_file(path),'hoja':sheet,'fila':row}
+def val_col(h,*names):
+ for c,n in h.items():
+  if n in names: return c
+ return None
+def col_name(c):
+ s=''
+ while c:
+  c,rem=divmod(c-1,26); s=chr(65+rem)+s
+ return s
+def source(path, sheet, row, columna=None, celda=None):
+ data={'archivo':str(Path(path).relative_to(ROOT)),'sha256':sha256_file(path),'hoja':sheet,'fila':row}
+ if columna is not None: data['columna']=columna
+ if celda is not None: data['celda']=celda
+ return data
 def with_meta(regs, fuentes, tablas): return {'version_esquema':VERSION,'fecha_generacion':datetime.date.today().isoformat(),'fuentes':fuentes,'tablas_incluidas':tablas,'registros':regs}
 
 def percentiles():
@@ -62,7 +75,12 @@ def conversiones():
  for sh in read_workbook(p):
   if sh['name']=='metadatos': continue
   h,rs=rowmap(sh['rows'])
-  for r in rs: regs.append({'tabla':'N-2','escala_id':'battelle_total','escala':'Battelle total','tramo_cronologico':val(r,h,'tramo_edad'),'pd_texto_original':val(r,h,'pd_original') or val(r,h,'pd_total_original'),'pd_min':as_int(val(r,h,'pd_min') or val(r,h,'pd_total_min')),'pd_max':as_int(val(r,h,'pd_max') or val(r,h,'pd_total_max')),'limite_superior_abierto':str(val(r,h,'pd_limite_superior_abierto'))=='1','centil':as_int(val(r,h,'centil')),'fuente':source(p,sh['name'],r['row'])})
+  for r in rs:
+   tramo=val(r,h,'tramo_edad') or val(r,h,'rango_edad')
+   m=re.match(r'^(\d+)\s*-\s*(\d+)$', str(tramo))
+   if not m: raise ValueError(f'N-2 sin tramo cronológico explícito en fila {r["row"]}: {tramo!r}')
+   c=val_col(h,'tramo_edad','rango_edad')
+   regs.append({'tabla':'N-2','escala_id':'battelle_total','escala':'Battelle total','tramo_cronologico':f'{int(m.group(1)):02d}-{int(m.group(2)):02d}','edad_min_meses':int(m.group(1)),'edad_max_meses':int(m.group(2)),'pd_texto_original':val(r,h,'pd_original') or val(r,h,'pd_total_original'),'pd_min':as_int(val(r,h,'pd_min') or val(r,h,'pd_total_min')),'pd_max':as_int(val(r,h,'pd_max') or val(r,h,'pd_total_max')),'limite_superior_abierto':str(val(r,h,'pd_limite_superior_abierto') or val(r,h,'limite_superior_abierto'))=='1','centil':as_int(val(r,h,'centil')),'fuente':source(p,sh['name'],r['row'],col_name(c),f'{col_name(c)}{r["row"]}')})
  out['total']=with_meta(regs,fuentes,['N-2'])
  return out
 

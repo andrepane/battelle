@@ -108,6 +108,17 @@ def validate_n2(p,sheet,sname,errors):
             prev=mx if mx is not None else mn
         if opens!=1: err(errors,p,sname,0,f'{tramo}: debe tener un límite superior abierto, tiene {opens}')
 
+def allowed_n56_pd51_gap(n, vals, prev, mn):
+    if n!=56 or prev!=50 or mn!=52: return False
+    left=[v for v in vals if v[0]==48 and v[1]==50]
+    right=[v for v in vals if v[0]==52 and v[1]==53]
+    try:
+        inc=json.loads((ROOT/'data/edades_equivalentes.json').read_text(encoding='utf-8')).get('excepciones_dominio',[])
+    except Exception:
+        inc=[]
+    declared=any(e.get('tabla')=='N-56' and e.get('escala_id')=='personal_social_total' and e.get('pd')==51 and e.get('estado')=='pd_no_alcanzable_confirmada' for e in inc)
+    return bool(left and right and declared)
+
 def validate_eq(p,sheet,sname,errors):
     h,rs=records(sheet); m=re.match(r'N-(\d+)$',sname); n=int(m.group(1)) if m else nnum(p)
     maxcol='puntuacion_maxima'
@@ -119,7 +130,7 @@ def validate_eq(p,sheet,sname,errors):
         if n==65 and len(r)>10 and toint(r[10])!=682: err(errors,p,sname,i,'N-65 máximo distinto de 682')
     vals=sorted(vals,key=lambda x:x[0]); prev=-1; lastage=-1
     for mn,mx,op,age,i in vals:
-        if mn!=prev+1: err(errors,p,sname,i,f'hueco/solapamiento tras {prev}, empieza {mn}')
+        if mn!=prev+1 and not allowed_n56_pd51_gap(n, vals, prev, mn): err(errors,p,sname,i,f'hueco/solapamiento tras {prev}, empieza {mn}')
         if age<lastage: err(errors,p,sname,i,'edad equivalente decreciente')
         lastage=age; prev=mx if mx is not None else mn
     if vals and vals[0][0]!=0: err(errors,p,sname,0,'PD no empieza en cero')
