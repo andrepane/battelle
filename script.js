@@ -37,11 +37,28 @@ async function subscribeRemoteList(){
   state.unsubscribeAssessments=await state.repository.subscribeAssessments((records,meta={})=>{ if(records){ state.assessments=records; if(state.view==='home') renderHome(records); if(meta.hasPendingWrites) $('saveStatus').textContent='Guardando…'; } else { state.storageError=meta.error; updateConnectionStatus(); } });
 }
 async function subscribeOpenAssessment(id){
-  if(state.unsubscribeAssessment) state.unsubscribeAssessment();
-  state.unsubscribeAssessment=await state.repository.subscribeAssessment(id,(remote)=>{
-    if(!state.assessment || state.assessment.id!==id || !remote) return;
-    if(remote.revision!==state.openedRevision && remote.updatedAt!==state.lastSavedAt){ state.remoteConflict=remote; $('conflictNotice').classList.remove('hidden'); }
-  });
+  if(state.unsubscribeAssessment){
+    state.unsubscribeAssessment();
+  }
+
+  state.unsubscribeAssessment = await state.repository.subscribeAssessment(
+    id,
+    (remote, meta = {}) => {
+      if(!state.assessment) return;
+      if(state.assessment.id !== id) return;
+      if(!remote) return;
+
+      // No considerar como externos los cambios que este dispositivo
+      // todavía está enviando a Firebase.
+      if(meta.hasPendingWrites) return;
+
+      // Una revisión igual o anterior ya es conocida por este dispositivo.
+      if(remote.revision <= state.openedRevision) return;
+
+      state.remoteConflict = remote;
+      $('conflictNotice').classList.remove('hidden');
+    }
+  );
 }
 function showLogin(){ $('loginView').classList.remove('hidden'); $('appShell').classList.add('hidden'); updateConnectionStatus(); }
 function showApp(){ $('loginView').classList.add('hidden'); $('appShell').classList.remove('hidden'); updateConnectionStatus(); }
@@ -87,7 +104,45 @@ function hasBlockingScoreError(){ return (state.correction?.errors ?? []).length
 function conversionsAllowed(){ return state.evaluationStatus==='corregida' && !hasBlockingScoreError() && updateAge(); }
 function resetCorrection(next='administrando', {clearMetadata=false}={}){ state.score=null; state.correction=null; state.evaluationStatus=next; state.viewMode=VIEW_MODE.ADMINISTRATION; if(clearMetadata) state.assessment.correctionMetadata={}; updateResults(); updateVisibleItemsEffective(); scheduleSave(); }
 function maybeInvalidateCorrection(changedScoringData=true){ if(!changedScoringData){ scheduleSave(300); updateResults(); return; } if(state.assessment?.workflowStatus===WORKFLOW_STATUS.CORRECTED || state.assessment?.correctionMetadata?.fingerprint){ state.score=null; state.correction=null; state.evaluationStatus='resultado_desactualizado'; state.assessment.workflowStatus=WORKFLOW_STATUS.STALE; state.viewMode=VIEW_MODE.ADMINISTRATION; } else if(state.evaluationStatus!=='correccion_bloqueada') state.evaluationStatus='administrando'; updateResults(); updateVisibleItemsEffective(); scheduleSave(); }
-async function startNew(force=false){ if(!state.ready) return; if(state.assessment){ const ok=await guardBeforeLeaving({save:flushSave}); if(!ok) return; } const empty=state.assessments.find(a=>!hasAssessmentChanges(a)); state.saveCoordinator=null; state.assessment= empty&&!force ? await state.repository.getAssessment(empty.id) : createAssessmentRecord(createAssessment()); state.openedRevision=state.assessment?.revision??0; state.score=null; state.correction=null; state.evaluationStatus='administrando'; state.viewMode=VIEW_MODE.ADMINISTRATION; await save(); showAssessment(); bindAssessment(); renderAreas(); renderItems(); updateResults(); $('patientName').focus(); }
+async function startNew(force=false){
+  if(!state.ready) return;
+
+  if(state.assessment){
+    const ok = await guardBeforeLeaving({save:flushSave});
+    if(!ok) return;
+  }
+
+  const empty = state.assessments.find(
+    assessment => !hasAssessmentChanges(assessment)
+  );
+
+  state.saveCoordinator = null;
+
+  state.assessment = empty && !force
+    ? await state.repository.getAssessment(empty.id)
+    : createAssessmentRecord(createAssessment());
+
+  state.openedRevision = state.assessment?.revision ?? 0;
+  state.score = null;
+  state.correction = null;
+  state.evaluationStatus = 'administrando';
+  state.viewMode = VIEW_MODE.ADMINISTRATION;
+
+  const result = await save();
+
+  if(result?.ok === false){
+    return;
+  }
+
+  await subscribeOpenAssessment(state.assessment.id);
+
+  showAssessment();
+  bindAssessment();
+  renderAreas();
+  renderItems();
+  updateResults();
+  $('patientName').focus();
+}
 function showHome(){ state.view='home'; $('homeView').classList.remove('hidden'); $('assessmentView').classList.add('hidden'); renderHome(); }
 function showAssessment(){ state.view='assessment'; $('homeView').classList.add('hidden'); $('assessmentView').classList.remove('hidden'); }
 async function openAssessment(id){ const rec=await state.repository.getAssessment(id); if(!rec) return; state.assessment=rec; state.openedRevision=rec.revision; state.evaluationStatus=fromRecordStatus(rec.workflowStatus); state.viewMode=rec.workflowStatus===WORKFLOW_STATUS.CORRECTED?VIEW_MODE.RESULTS:VIEW_MODE.ADMINISTRATION; state.score=null; state.correction=null; showAssessment(); bindAssessment(); renderAreas(); renderItems(); await subscribeOpenAssessment(id); if(rec.workflowStatus===WORKFLOW_STATUS.CORRECTED) reconstructCorrectedOnce(); else if(rec.workflowStatus===WORKFLOW_STATUS.BLOCKED) reconstructBlockedOnce(); else updateResults(); }
