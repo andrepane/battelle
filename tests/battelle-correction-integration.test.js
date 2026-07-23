@@ -26,7 +26,7 @@ test('integración real: corrección completa determinista con todos los ítems 
   for (const scale of Object.values(result.results.scales)) {
     assert.notEqual(scale.percentile?.status, 'valido');
     assert.equal(scale.equivalentAge?.ok, false);
-    assert.equal(scale.equivalentAge?.error?.code, 'baremos_pendientes');
+    assert.equal(scale.equivalentAge?.error?.code, 'escala_no_incluida');
   }
   const subCounts=Object.values(result.results.subareas).map(s=>s.counts);
   assert(subCounts.every(c=>Number.isInteger(c.observed) && Number.isInteger(c.derivedByBasal) && Number.isInteger(c.derivedByCeiling) && c.directScore !== undefined));

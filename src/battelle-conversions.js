@@ -1,32 +1,41 @@
-export const NORMATIVE_PENDING_MESSAGE = 'Baremos pendientes de incorporar desde las nuevas fuentes estructuradas.';
+export const NORMATIVE_VERSION = 'baremos-json-v1';
+export const NORMATIVE_ERROR_MESSAGE = 'Los baremos Battelle no son válidos. La administración puede continuar, pero la corrección queda bloqueada.';
+export const NORMATIVE_STATUS = Object.freeze({
+  PD_NO_ALCANZABLE:'pd_no_alcanzable', BAREMO_NO_ENCONTRADO:'baremo_no_encontrado', PD_FUERA_DE_RANGO:'pd_fuera_de_rango', ESCALA_NO_INCLUIDA:'escala_no_incluida', EDAD_FUERA_DE_BAREMOS:'edad_fuera_de_baremos', PD_INVALIDA:'pd_invalida', CORRECCION_INCOMPLETA:'correccion_incompleta', RESULTADO_DESACTUALIZADO:'resultado_desactualizado', BAREMOS_INVALIDOS:'baremos_invalidos'
+});
 export const AGE_BANDS = Object.freeze([
-  { min: 0, max: 5, label: '0-5' }, { min: 6, max: 11, label: '6-11' },
+  { min: 0, max: 5, label: '00-05' }, { min: 6, max: 11, label: '06-11' },
   { min: 12, max: 17, label: '12-17' }, { min: 18, max: 23, label: '18-23' },
   { min: 24, max: 35, label: '24-35' }, { min: 36, max: 47, label: '36-47' },
   { min: 48, max: 59, label: '48-59' }, { min: 60, max: 71, label: '60-71' },
   { min: 72, max: 83, label: '72-83' }, { min: 84, max: 95, label: '84-95' },
 ]);
+const AREA_TOTALS = new Set(['personal_social_total','adaptativa_total','motora_total','comunicacion_total','cognitiva_total']);
 function error(code, message, extra = {}) { return { ok: false, error: { code, message, ...extra } }; }
 export function ageBandForMonths(ageMonths) { return AGE_BANDS.find((b)=>Number.isInteger(ageMonths) && ageMonths >= b.min && ageMonths <= b.max) ?? null; }
 export function validateDirectScore(directScore, max = null) {
-  if (typeof directScore !== 'number' || !Number.isFinite(directScore) || !Number.isInteger(directScore) || directScore < 0) return error('pd_invalida', 'La PD debe ser un número entero finito mayor o igual que cero.', { directScore });
-  if (Number.isInteger(max) && directScore > max) return error('pd_invalida', 'La PD supera el máximo aplicable.', { directScore, max });
+  if (typeof directScore !== 'number' || !Number.isFinite(directScore) || !Number.isInteger(directScore) || directScore < 0) return error(NORMATIVE_STATUS.PD_INVALIDA, 'La PD debe ser un número entero finito mayor o igual que cero.', { directScore });
+  if (Number.isInteger(max) && directScore > max) return error(NORMATIVE_STATUS.PD_INVALIDA, 'La PD supera el máximo aplicable.', { directScore, max });
   return { ok: true };
 }
-export function pendingNormativeResult(kind, extra = {}) { return error('baremos_pendientes', NORMATIVE_PENDING_MESSAGE, { kind, ...extra }); }
-export function validatePercentileMappings() { return { ok: true, status: 'baremos_pendientes', message: NORMATIVE_PENDING_MESSAGE }; }
-export function percentileScaleNameFor(scaleId) { return scaleId; }
-export function lookupPercentile({ ageMonths, scaleName, directScore, maxScore = null }) {
-  const valid = validateDirectScore(directScore, maxScore); if (!valid.ok) return valid;
-  return pendingNormativeResult('percentil', { band: ageBandForMonths(ageMonths)?.label ?? null, scaleName });
+function containsPd(r,pd){ const max=r.limite_superior_abierto || String(r.pd_texto_original||'').includes('+') ? Infinity : (r.pd_max ?? r.pd_min); return pd>=r.pd_min && pd<=max; }
+function lookupInterval(records, pd, base){ const hits=records.filter(r=>containsPd(r,pd)); if(hits.length===0){ const min=Math.min(...records.map(r=>r.pd_min)); const max=Math.max(...records.map(r=>r.pd_max ?? r.pd_min)); return error(pd<min||pd>max?NORMATIVE_STATUS.PD_FUERA_DE_RANGO:NORMATIVE_STATUS.BAREMO_NO_ENCONTRADO,'No hay un intervalo normativo único para la PD.',{...base,directScore:pd}); } if(hits.length>1) return error('coincidencias_multiples','Más de un intervalo normativo contiene la PD.',{...base,directScore:pd,coincidencias:hits.length}); return hits[0]; }
+export function lookupPercentile({ ageMonths, scaleId, directScore, normativeData, maxScore = null }){
+  const valid=validateDirectScore(directScore,maxScore); if(!valid.ok) return valid; const band=ageBandForMonths(ageMonths); if(!band) return error(NORMATIVE_STATUS.EDAD_FUERA_DE_BAREMOS,'Edad fuera de los tramos percentilares.',{ageMonths});
+  if(scaleId==='battelle_total') return error(NORMATIVE_STATUS.ESCALA_NO_INCLUIDA,'Battelle total no se obtiene en N-3…N-52.',{scaleId});
+  const records=(normativeData?.percentiles?.registros??[]).filter(r=>r.escala_id===scaleId && r.tramo_cronologico===band.label); if(!records.length) return error(NORMATIVE_STATUS.ESCALA_NO_INCLUIDA,'La escala no está incluida en el tramo percentilar.',{scaleId,band:band.label});
+  const hit=lookupInterval(records,directScore,{scaleId,band:band.label}); if(!hit.ok && hit.error) return hit; return {ok:true,percentile:hit.percentil,scaleId,band:band.label,table:hit.tabla,source:hit.fuente,provenance:hit.fuente,directScore};
 }
-export function percentileForScale({ ageMonths, scaleId, directScore, requiresReview = false, maxScore = null }) {
-  const valid = validateDirectScore(directScore, maxScore); if (!valid.ok) return valid;
-  if (requiresReview) return error('requiere_revision', 'La escala requiere revisión.');
-  return pendingNormativeResult('percentil', { band: ageBandForMonths(ageMonths)?.label ?? null, scaleId });
+export function percentileForScale(args){ if(args.requiresReview) return error('requiere_revision','La escala requiere revisión.'); return lookupPercentile(args); }
+export function lookupTotalCentile({ageMonths,directScore,normativeData,maxScore=null}){ const valid=validateDirectScore(directScore,maxScore); if(!valid.ok) return valid; const band=ageBandForMonths(ageMonths); if(!band) return error(NORMATIVE_STATUS.EDAD_FUERA_DE_BAREMOS,'Edad fuera de N-2.',{ageMonths}); let records=(normativeData?.total?.registros??[]).filter(r=>r.escala_id==='battelle_total' && (r.edad_min_meses==null || (ageMonths>=r.edad_min_meses && ageMonths<=r.edad_max_meses)));
+  if(records.length && records.every(r=>r.edad_min_meses==null)){ const groups=[]; let g=[]; let prev=null; for(const r of records){ if(prev!==null && r.pd_min>prev){ groups.push(g); g=[]; } g.push(r); prev=r.pd_min; } if(g.length) groups.push(g); records=groups[AGE_BANDS.indexOf(band)]??[]; }
+  const hit=lookupInterval(records,directScore,{scaleId:'battelle_total',band:band.label}); if(!hit.ok && hit.error) return hit; return {ok:true,centile:hit.centil,pc:hit.centil,table:hit.tabla,source:hit.fuente,provenance:hit.fuente,directScore}; }
+export function lookupGeneralConversion({pc,normativeData}){ if(!Number.isInteger(pc)||pc<1||pc>99) return error('pc_invalido','El PC debe ser entero 1–99.',{pc}); const hits=(normativeData?.pcGeneral?.registros??[]).filter(r=>r.pc===pc); if(hits.length!==1) return error(hits.length?'coincidencias_multiples':NORMATIVE_STATUS.BAREMO_NO_ENCONTRADO,'No hay conversión N-1 única.',{pc,coincidencias:hits.length}); const r=hits[0]; return {ok:true,pc,z:r.z,T:r.T,CI:r.CI,ECN:r.ECN,table:r.tabla,source:r.fuente,provenance:r.fuente}; }
+export function lookupEquivalentAge({ scaleId, directScore, normativeData, maxScore = null }){
+  const valid=validateDirectScore(directScore,maxScore); if(!valid.ok) return valid; const ex=(normativeData?.equivalentAges?.excepciones_dominio??[]).find(e=>e.escala_id===scaleId && e.pd===directScore); if(ex) return error(NORMATIVE_STATUS.PD_NO_ALCANZABLE,'PD no alcanzable confirmada por incidencia de dominio.',{scaleId,directScore,table:ex.tabla,exception:ex});
+  const records=(normativeData?.equivalentAges?.registros??[]).filter(r=>r.escala_id===scaleId); if(!records.length) return error(NORMATIVE_STATUS.ESCALA_NO_INCLUIDA,'La escala no tiene edad equivalente.',{scaleId}); const hit=lookupInterval(records,directScore,{scaleId}); if(!hit.ok && hit.error) return hit; return {ok:true,scaleId,directScore,text:hit.edad_equivalente_texto,minMonths:hit.edad_equivalente_min_meses,maxMonths:hit.edad_equivalente_max_meses,table:hit.tabla,source:hit.fuente,provenance:hit.fuente,confidence:hit.confianza??hit.estado??'normativo'};
 }
-export function lookupEquivalentAge({ scaleId, directScore, maxScore = null }) {
-  const valid = validateDirectScore(directScore, maxScore); if (!valid.ok) return valid;
-  return pendingNormativeResult('edad_equivalente', { scaleId });
-}
-export function equivalentAgeForScale(args) { return args.requiresReview ? error('requiere_revision','La escala requiere revisión.') : lookupEquivalentAge(args); }
+export function equivalentAgeForScale(args){ if(args.requiresReview) return error('requiere_revision','La escala requiere revisión.'); return lookupEquivalentAge(args); }
+export function validateNormativeData(data, model){ const errors=[]; const count=(k,n)=>{ if((data?.[k]?.registros??[]).length!==n) errors.push(`${k}: recuento inesperado`); }; count('percentiles',3551); count('total',363); count('pcGeneral',99); count('equivalentAges',732); if((data?.equivalentAges?.excepciones_dominio??[]).length!==1) errors.push('excepción de dominio inesperada'); if((data?.incidences?.incidencias??[]).some(i=>i.bloqueante||i.severidad==='bloqueante')) errors.push('incidencia bloqueante'); if((data?.percentiles?.registros??[]).some(r=>r.escala_id==='battelle_total')) errors.push('battelle_total aparece en percentiles N-3…N-52'); if((data?.total?.registros??[]).some(r=>r.escala_id!=='battelle_total')) errors.push('N-2 no exclusivo de battelle_total'); if((data?.equivalentAges?.registros??[]).filter(r=>r.tabla==='N-65').some(r=>r.escala_id!=='battelle_total')) errors.push('N-65 no exclusivo de battelle_total'); const known=new Set([...Object.keys(model?.escalas??{}),...Object.keys(model?.subareas??{})]); for(const r of [...(data?.percentiles?.registros??[]),...(data?.equivalentAges?.registros??[])]) if(!known.has(r.escala_id) && !known.has(String(r.escala_id).replace(/^_+/,''))) errors.push(`escala_id no reconocido: ${r.escala_id}`); const pc50=lookupGeneralConversion({pc:50,normativeData:data}); if(!pc50.ok||pc50.z!==0||pc50.T!==50||pc50.CI!==100||pc50.ECN!==50) errors.push('N-1 PC 50 inválido'); return {ok:errors.length===0,errors,version:data?.metadata?.version_esquema??NORMATIVE_VERSION,id:canonicalNormativeId(data)}; }
+export function canonicalNormativeId(data){ return [data?.percentiles?.fecha_generacion,data?.total?.fecha_generacion,data?.pcGeneral?.fecha_generacion,data?.equivalentAges?.fecha_generacion,data?.metadata?.version_esquema].join('|'); }
+export async function loadNormativeData(loadJson){ const [percentiles,total,pcGeneral,equivalentAges,metadata,incidences]=await Promise.all(['data/percentiles_battelle.json','data/conversion_total_battelle.json','data/conversion_pc_general.json','data/edades_equivalentes.json','data/baremos_metadata.json','data/baremos_incidencias.json'].map(loadJson)); return {percentiles,total,pcGeneral,equivalentAges,metadata,incidences}; }
