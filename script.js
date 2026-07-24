@@ -112,16 +112,12 @@ async function startNew(force=false){
     if(!ok) return;
   }
 
-  const empty = state.assessments.find(
-    assessment => !hasAssessmentChanges(assessment)
-  );
-
   state.saveCoordinator = null;
+state.remoteConflict = null;
+state.storageError = null;
+$('conflictNotice').classList.add('hidden');
 
-  state.assessment = empty && !force
-    ? await state.repository.getAssessment(empty.id)
-    : createAssessmentRecord(createAssessment());
-
+state.assessment = createAssessmentRecord(createAssessment());
   state.openedRevision = state.assessment?.revision ?? 0;
   state.score = null;
   state.correction = null;
