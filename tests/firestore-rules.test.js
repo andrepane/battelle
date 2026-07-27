@@ -132,3 +132,10 @@ test('firestore.rules contiene validaciones cerradas exigidas', ()=>{
   assert.match(rules,/request\.resource\.data\.createdAt == resource\.data\.createdAt/);
   assert.match(rules,/request\.resource\.data\.updatedAt == request\.time/);
 });
+
+test('reglas exigen papelera antes de borrado físico y campos de servidor',()=>{
+  assert.match(rules,/resource\.data\.deletedAt != null/);
+  assert.match(rules,/request\.resource\.data\.deletedAt == request\.time/);
+  assert.match(rules,/request\.resource\.data\.deletedBy == request\.auth\.uid/);
+  assert.match(rules,/deletionRevision == request\.resource\.data\.revision/);
+});

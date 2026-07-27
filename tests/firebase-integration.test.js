@@ -43,8 +43,10 @@ test('repositorio Firestore incrementa revision, detecta conflicto y elimina con
   const rec=createAssessmentRecord({id:'bat-f1'}); const services=makeServices(); const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'}, servicesPromise:services});
   const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1); assert.equal(saved.createdBy,'uid1'); assert.equal(saved.updatedBy,'uid1'); assert.equal(services.store.get('bat-f1').id,'bat-f1'); assert.equal(typeof services.store.get('bat-f1').createdAt.toDate,'function'); assert.equal(typeof services.store.get('bat-f1').updatedAt.toDate,'function');
   await assert.rejects(repo.saveAssessment({...saved,name:'stale'},0),e=>e.code==='assessment_conflict');
-  await repo.deleteAssessment('bat-f1',1); assert.equal(await repo.getAssessment('bat-f1'),null);
-  await assert.rejects(repo.saveAssessment({...saved,name:'no reaparece'},1),e=>e.code===FIRESTORE_ERROR.DELETED);
+  const trashed=await repo.deleteAssessment('bat-f1',1); assert.equal(trashed.deletedBy,'uid1'); assert.ok((await repo.getAssessment('bat-f1')).deletedAt);
+  await assert.rejects(repo.saveAssessment({...saved,name:'no reaparece'},trashed.revision),e=>e.code===FIRESTORE_ERROR.DELETED);
+  const restored=await repo.restoreAssessment('bat-f1',trashed.revision); assert.equal(restored.deletedAt,null);
+  const trashedAgain=await repo.deleteAssessment('bat-f1',restored.revision); await repo.permanentlyDeleteAssessment('bat-f1',trashedAgain.revision); assert.equal(await repo.getAssessment('bat-f1'),null);
 });
 
 test('tiempo real notifica cambios remotos sin IndexedDB persistente', async()=>{

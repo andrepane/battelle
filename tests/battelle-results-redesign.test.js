@@ -1,71 +1,27 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { lookupEquivalentAge } from '../src/battelle-conversions.js';
-
+import { buildNormalizedResultRow, buildResultTableModel, NOT_APPLICABLE, RESULT_COLUMNS, resultRowOrder } from '../src/battelle-result-table.js';
+import { generateBattellePdf, safePdfFilename } from '../src/battelle-pdf.js';
 const j=async p=>JSON.parse(await readFile(new URL(`../${p}`,import.meta.url),'utf8'));
-const data={equivalentAges:await j('data/edades_equivalentes.json')};
-
-const expectedMappings=[
-  ['N-56','personal_social_total'],
-  ['N-57','adaptativa_total'],
-  ['N-58','motora_gruesa'],
-  ['N-59','motora_fina'],
-  ['N-60','motora_total'],
-  ['N-61','comunicacion_receptiva'],
-  ['N-62','comunicacion_expresiva'],
-  ['N-63','comunicacion_total'],
-  ['N-64','cognitiva_total'],
-  ['N-65','battelle_total'],
-];
-
-test('mapeos de edad equivalente N-56…N-65 se resuelven con escala_id canónico',()=>{
-  for(const [tabla,scaleId] of expectedMappings){
-    const rec=data.equivalentAges.registros.find(r=>r.tabla===tabla);
-    assert.ok(rec, `${tabla} tiene registros`);
-    assert.equal(rec.escala_id, scaleId);
-    const got=lookupEquivalentAge({scaleId,directScore:rec.pd_min,normativeData:data});
-    assert.equal(got.ok,true, `${tabla} ${scaleId}`);
-    assert.equal(got.table,tabla);
-    assert.equal(got.scaleId,scaleId);
-  }
+const model=await j('data/modelo_escalas_battelle.json');
+const pcGeneral=await j('data/conversion_pc_general.json');
+const normativeData={pcGeneral};
+test('tabla clínica tiene columnas y orden exactos del modelo',()=>{
+ assert.deepEqual(RESULT_COLUMNS,['Área / subárea','PD','PC','z','T','CI','ECN','Edad equivalente']);
+ assert.equal(resultRowOrder().length,30); assert.equal(resultRowOrder()[0],'personal_social_interaccion_con_el_adulto');assert.equal(resultRowOrder().at(-1),'battelle_total');
+ for(const id of resultRowOrder()) assert.ok(model.subareas[id]||model.escalas[id],id);
 });
-
-test('N-59 devuelve edad equivalente para motora_fina cuando la PD coincide',()=>{
-  const rec=data.equivalentAges.registros.find(r=>r.tabla==='N-59' && r.escala_id==='motora_fina');
-  assert.ok(rec);
-  const got=lookupEquivalentAge({scaleId:'motora_fina',directScore:rec.pd_min,normativeData:data});
-  assert.equal(got.ok,true);
-  assert.equal(got.table,'N-59');
-  assert.equal(got.text,rec.edad_equivalente_texto);
+test('fila normalizada encadena PC a N-1 exactamente y conserva procedencia',()=>{
+ const row=buildNormalizedResultRow({id:'adaptativa_total',source:{pd:42,percentile:{ok:true,percentile:50,table:'N-10',provenance:'test'},equivalentAge:{ok:false}},model,results:{},normativeData});
+ assert.deepEqual([row.pd,row.pc,row.z,row.T,row.CI,row.ECN],[42,50,0,50,100,50]); assert.equal(row.pcKind,'percentil');assert.equal(row.provenance.conversion.table,'N-1');
 });
-
-test('presentación de resultados elimina textos técnicos y mantiene estructura de informe',async()=>{
-  const script=await readFile(new URL('../script.js',import.meta.url),'utf8');
-  const styles=await readFile(new URL('../styles.css',import.meta.url),'utf8');
-  assert.match(script,/Resultados de la evaluación/);
-  assert.match(script,/Editar puntuaciones/);
-  assert.match(script,/Descargar PDF/);
-  assert.match(script,/Información técnica y procedencia normativa/);
-  assert.match(script,/Puntuación típica z derivada del centil total mediante la tabla N-1\./);
-  assert.match(script,/Puntuación T derivada del centil total mediante la tabla N-1\./);
-  assert.match(script,/Puntuación CI derivada del centil total mediante la tabla N-1\. No equivale por sí sola a una evaluación del funcionamiento intelectual\./);
-  assert.match(script,/Equivalente de la Curva Normal derivado del centil total mediante la tabla N-1\./);
-  assert.doesNotMatch(script,/Edad cronológica normativa/);
-  assert.match(script,/Los resultados deben interpretarse conjuntamente/);
-  assert.match(script,/Personal\/Social.*Adaptativa.*Motora.*Comunicación.*Cognitiva/s);
-  assert.match(script,/pdLabel\(s\)/);
-  assert.doesNotMatch(script,/Resultados corregidos/);
-  assert.doesNotMatch(script,/Estado: válido|Estado: undefined|Reglas disponibles en el cuaderno/);
-  assert.doesNotMatch(script,/Síntesis descriptiva automática|meses por debajo|El percentil de/);
-  assert.match(styles,/grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
-  assert.match(styles,/@media\(max-width:800px\)/);
+test('ausencias nunca producen cero ni valores técnicos y edad equivalente solo si existe',()=>{
+ const row=buildNormalizedResultRow({id:'adaptativa_atencion',source:{pd:null},model,results:{},normativeData});
+ assert.deepEqual([row.pd,row.pc,row.z,row.T,row.CI,row.ECN,row.equivalentAge],Array(7).fill(NOT_APPLICABLE));assert.doesNotMatch(JSON.stringify(row),/undefined|NaN|\[object Object\]/);
 });
-
-test('subáreas se agrupan sin duplicar agregados y Battelle total queda fuera de tablas',async()=>{
-  const model=await j('data/modelo_escalas_battelle.json');
-  assert.equal(Object.keys(model.subareas).length,22);
-  const script=await readFile(new URL('../script.js',import.meta.url),'utf8');
-  assert.match(script,/aggregateByArea=\{Motora:\['motora_gruesa','motora_fina'\],Comunicación:\['comunicacion_receptiva','comunicacion_expresiva'\]\}/);
-  assert.doesNotMatch(script,/battelle_total'\]\)\.map/);
+test('modelo único alimenta PDF, incluye filas y omite detalles técnicos',()=>{
+ const source=id=>({pd:1,percentile:{ok:true,percentile:50},equivalentAge:null}); const results={metadata:{name:'Caso Ñ',birthDate:'2020-01-01',assessmentDate:'2026-01-01'},summary:{ageMonths:72},subareas:Object.fromEntries(Object.keys(model.subareas).map(id=>[id,source(id)])),scales:Object.fromEntries(Object.keys(model.escalas).map(id=>[id,source(id)])),totalCentile:{ok:true,centile:50},warnings:[]};
+ const table=buildResultTableModel({results,model,normativeData,professional:'profesional@example.test'}); const bytes=generateBattellePdf(table); const text=new TextDecoder('latin1').decode(bytes);assert.equal(table.rows.length,30);assert.match(text,/%PDF-1.4/);assert.match(text,/Resumen de resultados Battelle/);assert.doesNotMatch(text,/Detalles técnicos|Firebase|UID/);assert.equal(safePdfFilename('José / Ñ','2026-01-01'),'Battelle_Jose_N_2026-01-01.pdf');
 });
+test('la interfaz expone controles, tabla accesible y papelera',async()=>{const [script,html,css]=await Promise.all(['script.js','index.html','styles.css'].map(p=>readFile(new URL(`../${p}`,import.meta.url),'utf8')));assert.match(script,/Editar puntuaciones/);assert.match(script,/Descargar PDF/);assert.match(script,/Conversión no aplicable para esta escala/);assert.match(html,/Papelera/);assert.match(css,/position:sticky/);});

@@ -49,3 +49,14 @@ firebase deploy --only firestore:rules,firestore:indexes
 ```
 
 El índice incluido ordena evaluaciones por `updatedAt` descendente.
+
+## Papelera de evaluaciones
+
+Las evaluaciones utilizan borrado lógico compatible con documentos anteriores: la ausencia de
+`deletedAt` se interpreta como evaluación activa. Al mover a la papelera se escriben, en una
+transacción, `deletedAt` con `serverTimestamp()`, `deletedBy` con el UID autenticado y
+`deletionRevision` con la nueva revisión. Restaurar vuelve los tres campos a `null` e incrementa
+`revision`, `updatedAt` y `updatedBy`, sin modificar respuestas, observaciones, creador ni metadatos
+de corrección. La eliminación física exige que el documento ya esté en la papelera y comprueba su
+revisión remota. Las reglas mantienen la autorización por organización; un rol exclusivo de
+administrador sigue pendiente hasta que exista un modelo real de roles.
