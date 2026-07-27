@@ -40,6 +40,11 @@ class BaremosBattelleTest(unittest.TestCase):
   for tabla, escala_id in expected.items():
    self.assertEqual({r['escala_id'] for r in self.ed['registros'] if r['tabla']==tabla},{escala_id})
   self.assertFalse(any(r['escala_id'].startswith('_') for r in self.ed['registros']))
+  expected_files={tabla:f'fuentes/edades_equivalentes/{tabla}_' for tabla in expected if tabla!='N-65'}
+  expected_files['N-65']='fuentes/conversiones_generales/N-65_'
+  for tabla,prefix in expected_files.items():
+   self.assertTrue(all(r['fuente']['archivo'].startswith(prefix) for r in self.ed['registros'] if r['tabla']==tabla),tabla)
+  self.assertFalse(any('Motora-fina' in r['fuente']['archivo'] or r['escala_id']=='motora_fina' for r in self.ed['registros']))
   r50=next(r for r in self.pc['registros'] if r['pc']==50); self.assertEqual((r50['z'],r50['T'],r50['CI'],r50['ECN']),(0,50,100,50))
   for pd,mes in [(386,37),(421,41),(436,43),(464,47),(537,57),(562,60)]:
    r=next(r for r in self.ed['registros'] if r.get('tabla')=='N-65' and r.get('pd_min') is not None and r['pd_min']<=pd<=r['pd_max'])
