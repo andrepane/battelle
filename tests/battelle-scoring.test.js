@@ -28,7 +28,8 @@ test('basal exige todos los ítems del nivel, admite nivel unitario y deriva sol
   assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.basal.sustentan,['PS13']);
   r=scoreAssessment(items, model, {PS1:1,PS14:2,PS15:2});
   assert.equal(r.respuestas_efectivas.PS1.puntuacion, 1); assert.equal(r.respuestas_efectivas.PS1.origen,'observado');
-  assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_basal'), true);
+  assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_basal'), false);
+  assert.equal(r.advertencias.some(w=>w.tipo==='discrepancia_basal'), true);
 });
 
 test('ejemplo clínico: cuatro ítems 36–47 requieren cuatro doses y se retrocede al nivel aprobado',()=>{
@@ -111,12 +112,20 @@ test('normalizeItemCode se usa para todas las entradas aceptadas', () => {
   assert.equal(Object.hasOwn(r.respuestas_observadas, 'PS 1'), false);
 });
 
-test('una contradicción anterior al basal marca requiere_revision', () => {
-  const r = scoreAssessment(items, model, { 'PS 1': 1, PS6:2, PS7:2, PS8:2 });
-  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.requiere_revision, true);
+test('un 0 o 1 observado inferior al basal prevalece, advierte y permite calcular la PD', () => {
+  for(const score of [0,1]){
+    const r=scoreAssessment(items,model,{PS1:score,PS14:2,PS15:2,PS16:0,PS17:0});
+    const s=r.subareas.personal_social_interaccion_con_el_adulto;
+    assert.equal(r.respuestas_efectivas.PS1.puntuacion,score);
+    assert.equal(r.respuestas_efectivas.PS1.origen,'observado');
+    assert.equal(s.requiere_revision,false);
+    assert.equal(s.completa,true);
+    assert.equal(s.pd,28+score);
+    assert.equal(s.advertencias.some((w)=>w.tipo==='discrepancia_basal'&&w.codigo==='PS1'),true);
+  }
 });
 
-test('una contradicción anterior al basal deja pd null aunque no haya pendientes', () => {
+test('una observación inferior al basal no bloquea aunque no haya pendientes', () => {
   const adulto = sub('Personal/Social', 'Interacción con el adulto');
   const responses = Object.fromEntries(adulto.map((i)=>[i.codigo_canonico, 2]));
   responses.PS1 = 1;
@@ -125,8 +134,9 @@ test('una contradicción anterior al basal deja pd null aunque no haya pendiente
   const r = scoreAssessment(items, model, responses);
   const s = r.subareas.personal_social_interaccion_con_el_adulto;
   assert.equal(s.pendientes.length, 0);
-  assert.equal(s.pd, null);
-  assert.equal(s.requiere_revision, true);
+  assert.equal(s.pd, adulto.length*2-1);
+  assert.equal(s.requiere_revision, false);
+  assert.equal(s.advertencias.length,1);
 });
 
 test('una contradicción posterior al techo deja pd null aunque no haya pendientes', () => {
@@ -149,20 +159,20 @@ test('un techo provisional sin basal deja pd null', () => {
   assert.equal(s.pd, null);
 });
 
-test('un agregado queda inválido si una subárea dependiente requiere revisión', () => {
+test('un agregado permanece válido ante una advertencia basal no bloqueante', () => {
   const responses = Object.fromEntries(items.map((i)=>[i.codigo_canonico, 2]));
   responses.PS1 = 1; responses.PS6 = 2; responses.PS7 = 2;
   const r = scoreAssessment(items, model, responses);
-  assert.equal(r.escalas.personal_social_total.requiere_revision, true);
-  assert.equal(r.escalas.personal_social_total.pd, null);
+  assert.equal(r.escalas.personal_social_total.requiere_revision, false);
+  assert.equal(r.escalas.personal_social_total.pd, 169);
 });
 
-test('Battelle total queda inválido si cualquier subárea requiere revisión', () => {
+test('Battelle total permanece válido ante una advertencia basal no bloqueante', () => {
   const responses = Object.fromEntries(items.map((i)=>[i.codigo_canonico, 2]));
   responses.PS1 = 1; responses.PS6 = 2; responses.PS7 = 2;
   const r = scoreAssessment(items, model, responses);
-  assert.equal(r.escalas.battelle_total.requiere_revision, true);
-  assert.equal(r.escalas.battelle_total.pd, null);
+  assert.equal(r.escalas.battelle_total.requiere_revision, false);
+  assert.equal(r.escalas.battelle_total.pd, 681);
 });
 
 test('un caso completo sin contradicciones sigue produciendo Battelle total 682', () => {

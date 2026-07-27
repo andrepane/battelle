@@ -55,14 +55,14 @@ export function deriveScores(items, responses = {}) {
   const observed = normalizeObservedResponses(responses, validCodes);
   const effective = blank(items);
   for (const [code, response] of Object.entries(observed)) if (validCodes.has(code)) effective[code] = response;
-  const inconsistencias=[]; const bySub = groupBy(items, (i)=>`${i.area}|${i.subarea}`); const limites={};
+  const inconsistencias=[]; const advertencias=[]; const bySub = groupBy(items, (i)=>`${i.area}|${i.subarea}`); const limites={};
   for (const [key, subItems] of bySub) {
     const basal = detectBasal(subItems, observed); const techo = detectCeiling(subItems, observed, basal); limites[key]={basal, techo};
-    if (basal.confirmado) for (let i=0;i<basal.indice_inicio;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:2,origen:'basal',observacion:''}; else if (observed[code].puntuacion<2) inconsistencias.push({tipo:'inconsistencia_basal', codigo:code, subarea:key, mensaje:'Respuesta observada anterior contradice el basal.'}); }
+    if (basal.confirmado) for (let i=0;i<basal.indice_inicio;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:2,origen:'basal',observacion:''}; else if (observed[code].puntuacion<2) advertencias.push({tipo:'discrepancia_basal', codigo:code, subarea:key, mensaje:'Respuesta observada inferior al basal conservada para revisión clínica.'}); }
     if (techo.confirmado && !techo.provisional) for (let i=techo.indice_fin+1;i<subItems.length;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:0,origen:'techo',observacion:''}; else if (observed[code].puntuacion>0) inconsistencias.push({tipo:'inconsistencia_techo', codigo:code, subarea:key, mensaje:'Respuesta observada posterior contradice el techo.'}); }
     inconsistencias.push(...(techo.inconsistencias??[]).map((w)=>({...w, subarea:key})));
   }
-  return { respuestas_observadas: observed, respuestas_efectivas: effective, limites, inconsistencias, advertencias: [] };
+  return { respuestas_observadas: observed, respuestas_efectivas: effective, limites, inconsistencias, advertencias };
 }
 
 export function administrationSummary(items, scoring) {
@@ -71,6 +71,7 @@ export function administrationSummary(items, scoring) {
   const counts={observed:0,derivedByBasal:0,derivedByCeiling:0,pending:0};
   for (const item of items) { const r=effective[item.codigo_canonico]; if(r?.origen==='observado') counts.observed++; else if(r?.origen==='basal') counts.derivedByBasal++; else if(r?.origen==='techo') counts.derivedByCeiling++; else counts.pending++; }
   const inconsistencies=scoring.inconsistencias??[];
+  const warnings=scoring.advertencias??[];
   let status='sin iniciar'; let instruction='Comienza en el nivel de edad inicial recomendado.';
   if(counts.observed) { status=basal.confirmado?'buscando techo':'buscando basal';
     if(!basal.confirmado && basal.pendientes?.length) instruction=`Basal no confirmado. Completa los ítems ${basal.pendientes.join(' y ')} del nivel ${basal.rango_edad} meses.`;
@@ -78,7 +79,7 @@ export function administrationSummary(items, scoring) {
     else { const lastObserved=[...items].reverse().find((i)=>observed[i.codigo_canonico]); instruction=lastObserved && observed[lastObserved.codigo_canonico].puntuacion===0 ? 'Primer cero registrado. Administra el siguiente ítem para comprobar el techo.' : 'Continúa administrando en orden hasta obtener dos ceros consecutivos.'; }
   }
   if(techo.confirmado && !techo.provisional) { status='completa'; instruction='Techo confirmado.'; }
-  if(inconsistencies.length) status='requiere revisión';
+  if(inconsistencies.length || warnings.length) status='requiere revisión';
   return {status,instruction,counts,basal,techo};
 }
 
@@ -110,7 +111,8 @@ export function scoreAssessment(items, model, responses = {}) {
       const codes = itemCodesForSubarea(definition, items);
       const inconsistencias = deriv.inconsistencias.filter((w)=>w.subarea===definition.clave);
       const basal=deriv.limites[definition.clave]?.basal ?? {confirmado:false}; const techo=deriv.limites[definition.clave]?.techo ?? {confirmado:false};
-      const base={...calculateScaleScore(codes, deriv.respuestas_efectivas, inconsistencias), codigos: codes, area: definition.area, subarea: definition.subarea, basal, techo, advertencias: []};
+      const advertencias=deriv.advertencias.filter((w)=>w.subarea===definition.clave);
+      const base={...calculateScaleScore(codes, deriv.respuestas_efectivas, inconsistencias), codigos: codes, area: definition.area, subarea: definition.subarea, basal, techo, advertencias};
       subareas[id]={...base, administracion:administrationSummary(codes.map((code)=>items.find((item)=>item.codigo_canonico===code)), {...base,respuestas_observadas:deriv.respuestas_observadas,respuestas_efectivas:deriv.respuestas_efectivas})};
     }
     const escalas=calculateAllScores(items, model, deriv.respuestas_efectivas, subareas);
