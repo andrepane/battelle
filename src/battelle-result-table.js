@@ -26,7 +26,21 @@ export function buildNormalizedResultRow({id,source,model,results,normativeData}
 export function buildResultTableModel({results,model,normativeData,professional=''}){
   if(!results||!model) throw new TypeError('Resultados y modelo son obligatorios.');
   const rows=ORDER.map(id=>buildNormalizedResultRow({id,source:results.subareas?.[id]??results.scales?.[id],model,results,normativeData}));
-  return Object.freeze({columns:RESULT_COLUMNS,rows,metadata:{...results.metadata,ageMonths:results.summary.ageMonths,correctedAt:results.summary.correctedAt??results.correctedAt,professional:professional||'Usuario autenticado'},warnings:(results.warnings??[]).map(w=>({item:w.codigo??w.code??w.subarea??'Evaluación',message:w.mensaje??w.message??String(w)}))});
+  const metadata={...results.metadata,ageMonths:results.summary.ageMonths,correctedAt:results.summary.correctedAt??results.correctedAt,professional:professional||'Usuario autenticado'};
+  metadata.display=Object.freeze({birthDate:formatSpanishDate(metadata.birthDate),assessmentDate:formatSpanishDate(metadata.assessmentDate),correctedAt:formatSpanishDateTime(metadata.correctedAt),age:formatClinicalAge(metadata.ageMonths),professional:safePresentationText(metadata.professional)});
+  return Object.freeze({columns:RESULT_COLUMNS,rows,metadata,warnings:(results.warnings??[]).map(w=>({item:safePresentationText(w.codigo??w.code??w.subarea??'Evaluación'),message:safePresentationText(w.mensaje??w.message??String(w))}))});
 }
 export function resultRowOrder(){ return [...ORDER]; }
 export function displayValue(value){ return value===NOT_APPLICABLE?NOT_APPLICABLE:String(value); }
+export function safePresentationText(value,fallback=NOT_APPLICABLE){
+  if(value===undefined||value===null||typeof value==='object') return fallback;
+  const text=String(value).trim(); return !text||/^(?:undefined|null|NaN|\[object Object\])$/i.test(text)?fallback:text;
+}
+export function formatSpanishDate(value){
+  const match=String(value??'').match(/^(\d{4})-(\d{2})-(\d{2})/); return match?`${match[3]}/${match[2]}/${match[1]}`:NOT_APPLICABLE;
+}
+export function formatSpanishDateTime(value){
+  if(!value) return NOT_APPLICABLE; const date=new Date(value); if(Number.isNaN(date.valueOf())) return NOT_APPLICABLE;
+  return new Intl.DateTimeFormat('es-ES',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'UTC'}).format(date).replace(',', '');
+}
+export function formatClinicalAge(months){ return Number.isInteger(months)&&months>=0?`${Math.floor(months/12)} años, ${months%12} meses (${months} meses)`:NOT_APPLICABLE; }
