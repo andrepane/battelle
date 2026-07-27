@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { createAssessmentRecord, ASSESSMENTS_KEY } from '../src/battelle-assessment-repository.js';
-import { fromFirestoreDocument, toFirestorePayload, createFirestoreAssessmentRepository, ASSESSMENTS_PATH } from '../src/battelle-firestore-repository.js';
+import { fromFirestoreDocument, toFirestorePayload, createFirestoreAssessmentRepository, ASSESSMENTS_PATH, FIRESTORE_ERROR } from '../src/battelle-firestore-repository.js';
 import { detectLocalAssessments, importLocalAssessments } from '../src/battelle-local-import.js';
 import { AUTH_ERROR, friendlyAuthError } from '../src/battelle-auth.js';
 
@@ -44,6 +44,7 @@ test('repositorio Firestore incrementa revision, detecta conflicto y elimina con
   const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1); assert.equal(saved.createdBy,'uid1'); assert.equal(saved.updatedBy,'uid1'); assert.equal(services.store.get('bat-f1').id,'bat-f1'); assert.equal(typeof services.store.get('bat-f1').createdAt.toDate,'function'); assert.equal(typeof services.store.get('bat-f1').updatedAt.toDate,'function');
   await assert.rejects(repo.saveAssessment({...saved,name:'stale'},0),e=>e.code==='assessment_conflict');
   await repo.deleteAssessment('bat-f1',1); assert.equal(await repo.getAssessment('bat-f1'),null);
+  await assert.rejects(repo.saveAssessment({...saved,name:'no reaparece'},1),e=>e.code===FIRESTORE_ERROR.DELETED);
 });
 
 test('tiempo real notifica cambios remotos sin IndexedDB persistente', async()=>{

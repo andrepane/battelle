@@ -6,6 +6,7 @@ const rules = readFileSync(new URL('../firestore.rules', import.meta.url), 'utf8
 const projectId = `battelle-rules-${Date.now()}`;
 const AUTHORIZED = 'authorized-user';
 const OTHER = 'other-user';
+const DENIED = 'denied-user';
 const REQUIRED = process.env.FIRESTORE_RULES_REQUIRED === '1';
 
 function isEmulatorUnavailable(error){
@@ -67,7 +68,7 @@ test('reglas Firestore reales con Emulator', async (t)=>{
     return;
   }
   const { initializeTestEnvironment, assertFails, assertSucceeds } = testing;
-  const { doc, getDoc, setDoc, serverTimestamp, Timestamp } = firestore;
+  const { doc, getDoc, setDoc, deleteDoc, serverTimestamp, Timestamp } = firestore;
   let env;
   try {
     env = await initializeTestEnvironment({ projectId, firestore: { rules } });
@@ -83,10 +84,12 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   await env.withSecurityRulesDisabled(async(ctx)=>{
     const adminDb = ctx.firestore();
     await setDoc(doc(adminDb, `authorizedUsers/${AUTHORIZED}`), {active:true, organizationId:'neurointegra'});
-    await setDoc(doc(adminDb, `authorizedUsers/${OTHER}`), {active:false, organizationId:'neurointegra'});
+    await setDoc(doc(adminDb, `authorizedUsers/${OTHER}`), {active:true, organizationId:'neurointegra'});
+    await setDoc(doc(adminDb, `authorizedUsers/${DENIED}`), {active:false, organizationId:'neurointegra'});
   });
   const authedDb = env.authenticatedContext(AUTHORIZED, { firebase: { sign_in_provider: 'password' } }).firestore();
   const otherDb = env.authenticatedContext(OTHER, { firebase: { sign_in_provider: 'password' } }).firestore();
+  const deniedDb = env.authenticatedContext(DENIED, { firebase: { sign_in_provider: 'password' } }).firestore();
   const unauthDb = env.unauthenticatedContext().firestore();
   const anonDb = env.authenticatedContext('anon', { firebase: { sign_in_provider: 'anonymous' } }).firestore();
   const assessmentRef = doc(authedDb, 'organizations/neurointegra/assessments/bat-rules-1');
@@ -95,7 +98,7 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   await assertFails(getDoc(doc(anonDb, 'organizations/neurointegra/assessments/bat-rules-1')));
   await assertSucceeds(getDoc(doc(authedDb, `authorizedUsers/${AUTHORIZED}`)));
   await assertFails(setDoc(doc(authedDb, `authorizedUsers/${AUTHORIZED}`), {active:false, organizationId:'neurointegra'}));
-  await assertFails(setDoc(doc(otherDb, 'organizations/neurointegra/assessments/bat-rules-1'), createAssessment({serverTimestamp})));
+  await assertFails(setDoc(doc(deniedDb, 'organizations/neurointegra/assessments/bat-rules-1'), createAssessment({serverTimestamp})));
   await assertFails(setDoc(assessmentRef, createAssessment({serverTimestamp, overrides:{extra:true}})));
   await assertFails(setDoc(assessmentRef, createAssessment({serverTimestamp, overrides:{organizationId:'otra'}})));
   await assertFails(setDoc(assessmentRef, createAssessment({serverTimestamp, overrides:{createdBy:OTHER}})));
@@ -111,7 +114,14 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   await assertFails(setDoc(assessmentRef, updateAssessment({serverTimestamp, createdAt: Timestamp.fromDate(new Date('2026-02-01T00:00:00.000Z'))})));
   await assertFails(setDoc(assessmentRef, updateAssessment({serverTimestamp, createdAt: storedCreatedAt, revision: 3})));
   await assertFails(setDoc(assessmentRef, updateAssessment({serverTimestamp, createdAt: storedCreatedAt, overrides:{updatedAt: Timestamp.fromDate(new Date('2026-03-01T00:00:00.000Z'))}})));
-  await assertSucceeds(setDoc(assessmentRef, updateAssessment({serverTimestamp, createdAt: storedCreatedAt, revision: 2})));
+  const otherAssessmentRef = doc(otherDb, 'organizations/neurointegra/assessments/bat-rules-1');
+  await assertFails(setDoc(otherAssessmentRef, updateAssessment({serverTimestamp, createdAt: storedCreatedAt, revision:2, overrides:{createdBy:OTHER,updatedBy:OTHER}})));
+  await assertSucceeds(setDoc(otherAssessmentRef, updateAssessment({serverTimestamp, createdAt: storedCreatedAt, revision:2, overrides:{createdBy:AUTHORIZED,updatedBy:OTHER}})));
+  const updatedByOther=await getDoc(otherAssessmentRef);
+  assert.equal(updatedByOther.data().createdBy,AUTHORIZED);
+  assert.equal(updatedByOther.data().updatedBy,OTHER);
+  await assertFails(deleteDoc(doc(deniedDb, 'organizations/neurointegra/assessments/bat-rules-1')));
+  await assertSucceeds(deleteDoc(otherAssessmentRef));
 });
 
 test('firestore.rules contiene validaciones cerradas exigidas', ()=>{

@@ -23,8 +23,8 @@ export function createSaveCoordinator({assessmentId, initialRevision=0, saveSnap
     onStatus('Guardando…');
     inFlight++;
     const run=tail.catch(()=>{}).then(async()=>{
-      if(cancelled || operationGeneration!==generation) return {ok:false,cancelled:true};
       try{
+        if(cancelled || operationGeneration!==generation) return {ok:false,cancelled:true};
         const saved=await saveSnapshot(copy,revision);
         if(cancelled || operationGeneration!==generation) return {ok:false,cancelled:true,saved};
         revision=saved.revision;

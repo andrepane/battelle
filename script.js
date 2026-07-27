@@ -38,7 +38,9 @@ async function subscribeRemoteList(){
 }
 async function subscribeOpenAssessment(id){
   if(state.unsubscribeAssessment){ state.unsubscribeAssessment(); state.unsubscribeAssessment=null; }
-  let documentWasSeen=false;
+  // La evaluación ya fue obtenida (o creada y confirmada) antes de suscribirse.
+  // Así, un primer snapshot inexistente también se reconoce como eliminación.
+  let documentWasSeen=true;
   const repository=state.repository;
   state.unsubscribeAssessment=await repository.subscribeAssessment(id,(remote,meta={})=>{
     if(state.repository!==repository || state.assessment?.id!==id) return;
@@ -47,6 +49,11 @@ async function subscribeOpenAssessment(id){
     if(remote){
       documentWasSeen=true;
       if(remote.revision>(state.openedRevision ?? 0)){
+        if(!state.saveCoordinator?.hasPending()){
+          state.saveCoordinator?.cancel(); state.saveCoordinator=null;
+          hydrateAssessment(remote);
+          return;
+        }
         state.remoteConflict=remote;
         $('conflictNotice').querySelector('p').textContent='Esta evaluación fue modificada en otro dispositivo. No se sobrescribirán cambios locales pendientes.';
         $('reloadRemoteBtn').classList.remove('hidden');
