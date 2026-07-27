@@ -18,7 +18,7 @@
       "tabla": "N-56"
     }
   ],
-  "fecha_generacion": "2026-07-23",
+  "fecha_generacion": "2026-07-27",
   "fuentes": [
     {
       "archivo": "fuentes/edades_equivalentes/N-56_Edad_equivalente_Personal-Social.xlsx",
@@ -4186,1317 +4186,6 @@
       "edad_equivalente_min_meses": 0,
       "edad_equivalente_texto": "0",
       "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 2,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 1,
-      "pd_min": 0,
-      "pd_texto_original": "0-1",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 1,
-      "edad_equivalente_min_meses": 1,
-      "edad_equivalente_texto": "1",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 3,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 3,
-      "pd_min": 2,
-      "pd_texto_original": "2-3",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 2,
-      "edad_equivalente_min_meses": 2,
-      "edad_equivalente_texto": "2",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 4,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 5,
-      "pd_min": 4,
-      "pd_texto_original": "4-5",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 3,
-      "edad_equivalente_min_meses": 3,
-      "edad_equivalente_texto": "3",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 5,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 7,
-      "pd_min": 6,
-      "pd_texto_original": "6-7",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 4,
-      "edad_equivalente_min_meses": 4,
-      "edad_equivalente_texto": "4",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 6,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 9,
-      "pd_min": 8,
-      "pd_texto_original": "8-9",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 5,
-      "edad_equivalente_min_meses": 5,
-      "edad_equivalente_texto": "5",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 7,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 11,
-      "pd_min": 10,
-      "pd_texto_original": "10-11",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 6,
-      "edad_equivalente_min_meses": 6,
-      "edad_equivalente_texto": "6",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 8,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 13,
-      "pd_min": 12,
-      "pd_texto_original": "12-13",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 7,
-      "edad_equivalente_min_meses": 7,
-      "edad_equivalente_texto": "7",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 9,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 14,
-      "pd_min": 14,
-      "pd_texto_original": "14",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 8,
-      "edad_equivalente_min_meses": 8,
-      "edad_equivalente_texto": "8",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 10,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 15,
-      "pd_min": 15,
-      "pd_texto_original": "15",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 9,
-      "edad_equivalente_min_meses": 9,
-      "edad_equivalente_texto": "9",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 11,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 16,
-      "pd_min": 16,
-      "pd_texto_original": "16",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 10,
-      "edad_equivalente_min_meses": 10,
-      "edad_equivalente_texto": "10",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 12,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 17,
-      "pd_min": 17,
-      "pd_texto_original": "17",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 11,
-      "edad_equivalente_min_meses": 11,
-      "edad_equivalente_texto": "11",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 13,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 18,
-      "pd_min": 18,
-      "pd_texto_original": "18",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 12,
-      "edad_equivalente_min_meses": 12,
-      "edad_equivalente_texto": "12",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 14,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 19,
-      "pd_min": 19,
-      "pd_texto_original": "19",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 13,
-      "edad_equivalente_min_meses": 13,
-      "edad_equivalente_texto": "13",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 15,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 20,
-      "pd_min": 20,
-      "pd_texto_original": "20",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 14,
-      "edad_equivalente_min_meses": 14,
-      "edad_equivalente_texto": "14",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 16,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 21,
-      "pd_min": 21,
-      "pd_texto_original": "21",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 16,
-      "edad_equivalente_min_meses": 15,
-      "edad_equivalente_texto": "15-16",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 17,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 22,
-      "pd_min": 22,
-      "pd_texto_original": "22",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 18,
-      "edad_equivalente_min_meses": 17,
-      "edad_equivalente_texto": "17-18",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 18,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 23,
-      "pd_min": 23,
-      "pd_texto_original": "23",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 20,
-      "edad_equivalente_min_meses": 19,
-      "edad_equivalente_texto": "19-20",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 19,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 24,
-      "pd_min": 24,
-      "pd_texto_original": "24",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 21,
-      "edad_equivalente_min_meses": 21,
-      "edad_equivalente_texto": "21",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 20,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 25,
-      "pd_min": 25,
-      "pd_texto_original": "25",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 22,
-      "edad_equivalente_min_meses": 22,
-      "edad_equivalente_texto": "22",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 21,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 26,
-      "pd_min": 26,
-      "pd_texto_original": "26",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 23,
-      "edad_equivalente_min_meses": 23,
-      "edad_equivalente_texto": "23",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 22,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 27,
-      "pd_min": 27,
-      "pd_texto_original": "27",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 24,
-      "edad_equivalente_min_meses": 24,
-      "edad_equivalente_texto": "24",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 23,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 28,
-      "pd_min": 28,
-      "pd_texto_original": "28",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 25,
-      "edad_equivalente_min_meses": 25,
-      "edad_equivalente_texto": "25",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 24,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 29,
-      "pd_min": 29,
-      "pd_texto_original": "29",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 26,
-      "edad_equivalente_min_meses": 26,
-      "edad_equivalente_texto": "26",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 25,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 30,
-      "pd_min": 30,
-      "pd_texto_original": "30",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 27,
-      "edad_equivalente_min_meses": 27,
-      "edad_equivalente_texto": "27",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 26,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 31,
-      "pd_min": 31,
-      "pd_texto_original": "31",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 28,
-      "edad_equivalente_min_meses": 28,
-      "edad_equivalente_texto": "28",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 27,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 32,
-      "pd_min": 32,
-      "pd_texto_original": "32",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 29,
-      "edad_equivalente_min_meses": 29,
-      "edad_equivalente_texto": "29",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 28,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 33,
-      "pd_min": 33,
-      "pd_texto_original": "33",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 30,
-      "edad_equivalente_min_meses": 30,
-      "edad_equivalente_texto": "30",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 29,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 34,
-      "pd_min": 34,
-      "pd_texto_original": "34",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 31,
-      "edad_equivalente_min_meses": 31,
-      "edad_equivalente_texto": "31",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 30,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 35,
-      "pd_min": 35,
-      "pd_texto_original": "35",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 32,
-      "edad_equivalente_min_meses": 32,
-      "edad_equivalente_texto": "32",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 31,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 36,
-      "pd_min": 36,
-      "pd_texto_original": "36",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 33,
-      "edad_equivalente_min_meses": 33,
-      "edad_equivalente_texto": "33",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 32,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 37,
-      "pd_min": 37,
-      "pd_texto_original": "37",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 34,
-      "edad_equivalente_min_meses": 34,
-      "edad_equivalente_texto": "34",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 33,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 38,
-      "pd_min": 38,
-      "pd_texto_original": "38",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 35,
-      "edad_equivalente_min_meses": 35,
-      "edad_equivalente_texto": "35",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 34,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 39,
-      "pd_min": 39,
-      "pd_texto_original": "39",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 36,
-      "edad_equivalente_min_meses": 36,
-      "edad_equivalente_texto": "36",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 35,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 40,
-      "pd_min": 40,
-      "pd_texto_original": "40",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 37,
-      "edad_equivalente_min_meses": 37,
-      "edad_equivalente_texto": "37",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 36,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 41,
-      "pd_min": 41,
-      "pd_texto_original": "41",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 38,
-      "edad_equivalente_min_meses": 38,
-      "edad_equivalente_texto": "38",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 37,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 42,
-      "pd_min": 42,
-      "pd_texto_original": "42",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 39,
-      "edad_equivalente_min_meses": 39,
-      "edad_equivalente_texto": "39",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 38,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 43,
-      "pd_min": 43,
-      "pd_texto_original": "43",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 40,
-      "edad_equivalente_min_meses": 40,
-      "edad_equivalente_texto": "40",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 39,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 44,
-      "pd_min": 44,
-      "pd_texto_original": "44",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 41,
-      "edad_equivalente_min_meses": 41,
-      "edad_equivalente_texto": "41",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 40,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 45,
-      "pd_min": 45,
-      "pd_texto_original": "45",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 42,
-      "edad_equivalente_min_meses": 42,
-      "edad_equivalente_texto": "42",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 41,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 46,
-      "pd_min": 46,
-      "pd_texto_original": "46",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 43,
-      "edad_equivalente_min_meses": 43,
-      "edad_equivalente_texto": "43",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 42,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 47,
-      "pd_min": 47,
-      "pd_texto_original": "47",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 44,
-      "edad_equivalente_min_meses": 44,
-      "edad_equivalente_texto": "44",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 43,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 48,
-      "pd_min": 48,
-      "pd_texto_original": "48",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 45,
-      "edad_equivalente_min_meses": 45,
-      "edad_equivalente_texto": "45",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 44,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 49,
-      "pd_min": 49,
-      "pd_texto_original": "49",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 46,
-      "edad_equivalente_min_meses": 46,
-      "edad_equivalente_texto": "46",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 45,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 50,
-      "pd_min": 50,
-      "pd_texto_original": "50",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 47,
-      "edad_equivalente_min_meses": 47,
-      "edad_equivalente_texto": "47",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 46,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 51,
-      "pd_min": 51,
-      "pd_texto_original": "51",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 48,
-      "edad_equivalente_min_meses": 48,
-      "edad_equivalente_texto": "48",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 47,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 52,
-      "pd_min": 52,
-      "pd_texto_original": "52",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 49,
-      "edad_equivalente_min_meses": 49,
-      "edad_equivalente_texto": "49",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 48,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 53,
-      "pd_min": 53,
-      "pd_texto_original": "53",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 50,
-      "edad_equivalente_min_meses": 50,
-      "edad_equivalente_texto": "50",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 49,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 54,
-      "pd_min": 54,
-      "pd_texto_original": "54",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 51,
-      "edad_equivalente_min_meses": 51,
-      "edad_equivalente_texto": "51",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 50,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 55,
-      "pd_min": 55,
-      "pd_texto_original": "55",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 52,
-      "edad_equivalente_min_meses": 52,
-      "edad_equivalente_texto": "52",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 51,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 56,
-      "pd_min": 56,
-      "pd_texto_original": "56",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 53,
-      "edad_equivalente_min_meses": 53,
-      "edad_equivalente_texto": "53",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 52,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 57,
-      "pd_min": 57,
-      "pd_texto_original": "57",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 54,
-      "edad_equivalente_min_meses": 54,
-      "edad_equivalente_texto": "54",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 53,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 58,
-      "pd_min": 58,
-      "pd_texto_original": "58",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 56,
-      "edad_equivalente_min_meses": 55,
-      "edad_equivalente_texto": "55-56",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 54,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 59,
-      "pd_min": 59,
-      "pd_texto_original": "59",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 58,
-      "edad_equivalente_min_meses": 57,
-      "edad_equivalente_texto": "57-58",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 55,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 60,
-      "pd_min": 60,
-      "pd_texto_original": "60",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 59,
-      "edad_equivalente_min_meses": 59,
-      "edad_equivalente_texto": "59",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 56,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 61,
-      "pd_min": 61,
-      "pd_texto_original": "61",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 60,
-      "edad_equivalente_min_meses": 60,
-      "edad_equivalente_texto": "60",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 57,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 62,
-      "pd_min": 62,
-      "pd_texto_original": "62",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 61,
-      "edad_equivalente_min_meses": 61,
-      "edad_equivalente_texto": "61",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 58,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 63,
-      "pd_min": 63,
-      "pd_texto_original": "63",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 62,
-      "edad_equivalente_min_meses": 62,
-      "edad_equivalente_texto": "62",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 59,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 64,
-      "pd_min": 64,
-      "pd_texto_original": "64",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 63,
-      "edad_equivalente_min_meses": 63,
-      "edad_equivalente_texto": "63",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 60,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 65,
-      "pd_min": 65,
-      "pd_texto_original": "65",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 64,
-      "edad_equivalente_min_meses": 64,
-      "edad_equivalente_texto": "64",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 61,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 66,
-      "pd_min": 66,
-      "pd_texto_original": "66",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 65,
-      "edad_equivalente_min_meses": 65,
-      "edad_equivalente_texto": "65",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 62,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 67,
-      "pd_min": 67,
-      "pd_texto_original": "67",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 67,
-      "edad_equivalente_min_meses": 66,
-      "edad_equivalente_texto": "66-67",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 63,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 68,
-      "pd_min": 68,
-      "pd_texto_original": "68",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 69,
-      "edad_equivalente_min_meses": 68,
-      "edad_equivalente_texto": "68-69",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 64,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 69,
-      "pd_min": 69,
-      "pd_texto_original": "69",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 71,
-      "edad_equivalente_min_meses": 70,
-      "edad_equivalente_texto": "70-71",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 65,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 70,
-      "pd_min": 70,
-      "pd_texto_original": "70",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 73,
-      "edad_equivalente_min_meses": 72,
-      "edad_equivalente_texto": "72-73",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 66,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 71,
-      "pd_min": 71,
-      "pd_texto_original": "71",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 75,
-      "edad_equivalente_min_meses": 74,
-      "edad_equivalente_texto": "74-75",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 67,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 72,
-      "pd_min": 72,
-      "pd_texto_original": "72",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 77,
-      "edad_equivalente_min_meses": 76,
-      "edad_equivalente_texto": "76-77",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 68,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 73,
-      "pd_min": 73,
-      "pd_texto_original": "73",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 89,
-      "edad_equivalente_min_meses": 78,
-      "edad_equivalente_texto": "78-89",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 69,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": false,
-      "pd_max": 74,
-      "pd_min": 74,
-      "pd_texto_original": "74",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 95,
-      "edad_equivalente_min_meses": 90,
-      "edad_equivalente_texto": "90-95",
-      "edad_limite_superior_abierto": false,
-      "escala": "Motora fina",
-      "escala_id": "motora_fina",
-      "fuente": {
-        "archivo": "fuentes/edades_equivalentes/N-58_Edad_equivalente_Motora-gruesa.xlsx",
-        "fila": 70,
-        "hoja": "N-59",
-        "sha256": "92d98792e5166d195adfce0466a300c210a10c0028badd985ed2f7ebe37cb4f0"
-      },
-      "limite_superior_abierto": true,
-      "pd_max": null,
-      "pd_min": 75,
-      "pd_texto_original": "75+",
-      "tabla": "N-59"
-    },
-    {
-      "edad_equivalente_max_meses": 0,
-      "edad_equivalente_min_meses": 0,
-      "edad_equivalente_texto": "0",
-      "edad_limite_superior_abierto": false,
       "escala": "Motora",
       "escala_id": "motora_total",
       "fuente": {
@@ -5509,7 +4198,7 @@
       "pd_max": 4,
       "pd_min": 0,
       "pd_texto_original": "0-4",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 1,
@@ -5528,7 +4217,7 @@
       "pd_max": 8,
       "pd_min": 5,
       "pd_texto_original": "5-8",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 2,
@@ -5547,7 +4236,7 @@
       "pd_max": 12,
       "pd_min": 9,
       "pd_texto_original": "9-12",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 3,
@@ -5566,7 +4255,7 @@
       "pd_max": 16,
       "pd_min": 13,
       "pd_texto_original": "13-16",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 4,
@@ -5585,7 +4274,7 @@
       "pd_max": 20,
       "pd_min": 17,
       "pd_texto_original": "17-20",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 5,
@@ -5604,7 +4293,7 @@
       "pd_max": 24,
       "pd_min": 21,
       "pd_texto_original": "21-24",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 6,
@@ -5623,7 +4312,7 @@
       "pd_max": 28,
       "pd_min": 25,
       "pd_texto_original": "25-28",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 7,
@@ -5642,7 +4331,7 @@
       "pd_max": 31,
       "pd_min": 29,
       "pd_texto_original": "29-31",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 8,
@@ -5661,7 +4350,7 @@
       "pd_max": 34,
       "pd_min": 32,
       "pd_texto_original": "32-34",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 9,
@@ -5680,7 +4369,7 @@
       "pd_max": 37,
       "pd_min": 35,
       "pd_texto_original": "35-37",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 10,
@@ -5699,7 +4388,7 @@
       "pd_max": 42,
       "pd_min": 38,
       "pd_texto_original": "38-42",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 11,
@@ -5718,7 +4407,7 @@
       "pd_max": 47,
       "pd_min": 43,
       "pd_texto_original": "43-47",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 12,
@@ -5737,7 +4426,7 @@
       "pd_max": 52,
       "pd_min": 48,
       "pd_texto_original": "48-52",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 13,
@@ -5756,7 +4445,7 @@
       "pd_max": 57,
       "pd_min": 53,
       "pd_texto_original": "53-57",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 14,
@@ -5775,7 +4464,7 @@
       "pd_max": 62,
       "pd_min": 58,
       "pd_texto_original": "58-62",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 15,
@@ -5794,7 +4483,7 @@
       "pd_max": 64,
       "pd_min": 63,
       "pd_texto_original": "63-64",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 16,
@@ -5813,7 +4502,7 @@
       "pd_max": 66,
       "pd_min": 65,
       "pd_texto_original": "65-66",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 17,
@@ -5832,7 +4521,7 @@
       "pd_max": 68,
       "pd_min": 67,
       "pd_texto_original": "67-68",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 18,
@@ -5851,7 +4540,7 @@
       "pd_max": 69,
       "pd_min": 69,
       "pd_texto_original": "69",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 19,
@@ -5870,7 +4559,7 @@
       "pd_max": 70,
       "pd_min": 70,
       "pd_texto_original": "70",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 20,
@@ -5889,7 +4578,7 @@
       "pd_max": 71,
       "pd_min": 71,
       "pd_texto_original": "71",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 21,
@@ -5908,7 +4597,7 @@
       "pd_max": 72,
       "pd_min": 72,
       "pd_texto_original": "72",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 22,
@@ -5927,7 +4616,7 @@
       "pd_max": 75,
       "pd_min": 73,
       "pd_texto_original": "73-75",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 23,
@@ -5946,7 +4635,7 @@
       "pd_max": 77,
       "pd_min": 76,
       "pd_texto_original": "76-77",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 24,
@@ -5965,7 +4654,7 @@
       "pd_max": 79,
       "pd_min": 78,
       "pd_texto_original": "78-79",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 25,
@@ -5984,7 +4673,7 @@
       "pd_max": 81,
       "pd_min": 80,
       "pd_texto_original": "80-81",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 26,
@@ -6003,7 +4692,7 @@
       "pd_max": 83,
       "pd_min": 82,
       "pd_texto_original": "82-83",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 27,
@@ -6022,7 +4711,7 @@
       "pd_max": 85,
       "pd_min": 84,
       "pd_texto_original": "84-85",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 28,
@@ -6041,7 +4730,7 @@
       "pd_max": 87,
       "pd_min": 86,
       "pd_texto_original": "86-87",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 29,
@@ -6060,7 +4749,7 @@
       "pd_max": 89,
       "pd_min": 88,
       "pd_texto_original": "88-89",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 30,
@@ -6079,7 +4768,7 @@
       "pd_max": 91,
       "pd_min": 90,
       "pd_texto_original": "90-91",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 31,
@@ -6098,7 +4787,7 @@
       "pd_max": 93,
       "pd_min": 92,
       "pd_texto_original": "92-93",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 32,
@@ -6117,7 +4806,7 @@
       "pd_max": 95,
       "pd_min": 94,
       "pd_texto_original": "94-95",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 33,
@@ -6136,7 +4825,7 @@
       "pd_max": 97,
       "pd_min": 96,
       "pd_texto_original": "96-97",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 34,
@@ -6155,7 +4844,7 @@
       "pd_max": 99,
       "pd_min": 98,
       "pd_texto_original": "98-99",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 35,
@@ -6174,7 +4863,7 @@
       "pd_max": 100,
       "pd_min": 100,
       "pd_texto_original": "100",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 36,
@@ -6193,7 +4882,7 @@
       "pd_max": 101,
       "pd_min": 101,
       "pd_texto_original": "101",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 37,
@@ -6212,7 +4901,7 @@
       "pd_max": 102,
       "pd_min": 102,
       "pd_texto_original": "102",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 38,
@@ -6231,7 +4920,7 @@
       "pd_max": 103,
       "pd_min": 103,
       "pd_texto_original": "103",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 39,
@@ -6250,7 +4939,7 @@
       "pd_max": 104,
       "pd_min": 104,
       "pd_texto_original": "104",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 40,
@@ -6269,7 +4958,7 @@
       "pd_max": 105,
       "pd_min": 105,
       "pd_texto_original": "105",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 41,
@@ -6288,7 +4977,7 @@
       "pd_max": 106,
       "pd_min": 106,
       "pd_texto_original": "106",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 42,
@@ -6307,7 +4996,7 @@
       "pd_max": 107,
       "pd_min": 107,
       "pd_texto_original": "107",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 43,
@@ -6326,7 +5015,7 @@
       "pd_max": 109,
       "pd_min": 108,
       "pd_texto_original": "108-109",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 44,
@@ -6345,7 +5034,7 @@
       "pd_max": 111,
       "pd_min": 110,
       "pd_texto_original": "110-111",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 45,
@@ -6364,7 +5053,7 @@
       "pd_max": 113,
       "pd_min": 112,
       "pd_texto_original": "112-113",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 46,
@@ -6383,7 +5072,7 @@
       "pd_max": 115,
       "pd_min": 114,
       "pd_texto_original": "114-115",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 47,
@@ -6402,7 +5091,7 @@
       "pd_max": 117,
       "pd_min": 116,
       "pd_texto_original": "116-117",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 48,
@@ -6421,7 +5110,7 @@
       "pd_max": 119,
       "pd_min": 118,
       "pd_texto_original": "118-119",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 49,
@@ -6440,7 +5129,7 @@
       "pd_max": 121,
       "pd_min": 120,
       "pd_texto_original": "120-121",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 50,
@@ -6459,7 +5148,7 @@
       "pd_max": 123,
       "pd_min": 122,
       "pd_texto_original": "122-123",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 51,
@@ -6478,7 +5167,7 @@
       "pd_max": 125,
       "pd_min": 124,
       "pd_texto_original": "124-125",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 52,
@@ -6497,7 +5186,7 @@
       "pd_max": 127,
       "pd_min": 126,
       "pd_texto_original": "126-127",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 53,
@@ -6516,7 +5205,7 @@
       "pd_max": 128,
       "pd_min": 128,
       "pd_texto_original": "128",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 54,
@@ -6535,7 +5224,7 @@
       "pd_max": 129,
       "pd_min": 129,
       "pd_texto_original": "129",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 55,
@@ -6554,7 +5243,7 @@
       "pd_max": 131,
       "pd_min": 130,
       "pd_texto_original": "130-131",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 56,
@@ -6573,7 +5262,7 @@
       "pd_max": 133,
       "pd_min": 132,
       "pd_texto_original": "132-133",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 57,
@@ -6592,7 +5281,7 @@
       "pd_max": 135,
       "pd_min": 134,
       "pd_texto_original": "134-135",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 58,
@@ -6611,7 +5300,7 @@
       "pd_max": 137,
       "pd_min": 136,
       "pd_texto_original": "136-137",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 59,
@@ -6630,7 +5319,7 @@
       "pd_max": 139,
       "pd_min": 138,
       "pd_texto_original": "138-139",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 60,
@@ -6649,7 +5338,7 @@
       "pd_max": 141,
       "pd_min": 140,
       "pd_texto_original": "140-141",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 61,
@@ -6668,7 +5357,7 @@
       "pd_max": 143,
       "pd_min": 142,
       "pd_texto_original": "142-143",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 62,
@@ -6687,7 +5376,7 @@
       "pd_max": 145,
       "pd_min": 144,
       "pd_texto_original": "144-145",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 63,
@@ -6706,7 +5395,7 @@
       "pd_max": 146,
       "pd_min": 146,
       "pd_texto_original": "146",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 64,
@@ -6725,7 +5414,7 @@
       "pd_max": 147,
       "pd_min": 147,
       "pd_texto_original": "147",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 65,
@@ -6744,7 +5433,7 @@
       "pd_max": 148,
       "pd_min": 148,
       "pd_texto_original": "148",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 66,
@@ -6763,7 +5452,7 @@
       "pd_max": 149,
       "pd_min": 149,
       "pd_texto_original": "149",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 68,
@@ -6782,7 +5471,7 @@
       "pd_max": 150,
       "pd_min": 150,
       "pd_texto_original": "150",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 70,
@@ -6801,7 +5490,7 @@
       "pd_max": 151,
       "pd_min": 151,
       "pd_texto_original": "151",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 71,
@@ -6820,7 +5509,7 @@
       "pd_max": 152,
       "pd_min": 152,
       "pd_texto_original": "152",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 72,
@@ -6839,7 +5528,7 @@
       "pd_max": 153,
       "pd_min": 153,
       "pd_texto_original": "153",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 73,
@@ -6858,7 +5547,7 @@
       "pd_max": 154,
       "pd_min": 154,
       "pd_texto_original": "154",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 74,
@@ -6877,7 +5566,7 @@
       "pd_max": 155,
       "pd_min": 155,
       "pd_texto_original": "155",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 75,
@@ -6896,7 +5585,7 @@
       "pd_max": 156,
       "pd_min": 156,
       "pd_texto_original": "156",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 76,
@@ -6915,7 +5604,7 @@
       "pd_max": 157,
       "pd_min": 157,
       "pd_texto_original": "157",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 77,
@@ -6934,7 +5623,7 @@
       "pd_max": 158,
       "pd_min": 158,
       "pd_texto_original": "158",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 81,
@@ -6953,7 +5642,7 @@
       "pd_max": 159,
       "pd_min": 159,
       "pd_texto_original": "159",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 85,
@@ -6972,7 +5661,7 @@
       "pd_max": 160,
       "pd_min": 160,
       "pd_texto_original": "160",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 89,
@@ -6991,7 +5680,7 @@
       "pd_max": 161,
       "pd_min": 161,
       "pd_texto_original": "161",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 95,
@@ -7010,7 +5699,7 @@
       "pd_max": null,
       "pd_min": 162,
       "pd_texto_original": "162+",
-      "tabla": "N-60"
+      "tabla": "N-59"
     },
     {
       "edad_equivalente_max_meses": 0,
@@ -7029,7 +5718,7 @@
       "pd_max": 1,
       "pd_min": 0,
       "pd_texto_original": "0-1",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 1,
@@ -7048,7 +5737,7 @@
       "pd_max": 3,
       "pd_min": 2,
       "pd_texto_original": "2-3",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 2,
@@ -7067,7 +5756,7 @@
       "pd_max": 4,
       "pd_min": 4,
       "pd_texto_original": "4",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 3,
@@ -7086,7 +5775,7 @@
       "pd_max": 5,
       "pd_min": 5,
       "pd_texto_original": "5",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 5,
@@ -7105,7 +5794,7 @@
       "pd_max": 6,
       "pd_min": 6,
       "pd_texto_original": "6",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 6,
@@ -7124,7 +5813,7 @@
       "pd_max": 7,
       "pd_min": 7,
       "pd_texto_original": "7",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 7,
@@ -7143,7 +5832,7 @@
       "pd_max": 8,
       "pd_min": 8,
       "pd_texto_original": "8",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 8,
@@ -7162,7 +5851,7 @@
       "pd_max": 9,
       "pd_min": 9,
       "pd_texto_original": "9",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 11,
@@ -7181,7 +5870,7 @@
       "pd_max": 10,
       "pd_min": 10,
       "pd_texto_original": "10",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 14,
@@ -7200,7 +5889,7 @@
       "pd_max": 11,
       "pd_min": 11,
       "pd_texto_original": "11",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 16,
@@ -7219,7 +5908,7 @@
       "pd_max": 12,
       "pd_min": 12,
       "pd_texto_original": "12",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 18,
@@ -7238,7 +5927,7 @@
       "pd_max": 13,
       "pd_min": 13,
       "pd_texto_original": "13",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 20,
@@ -7257,7 +5946,7 @@
       "pd_max": 14,
       "pd_min": 14,
       "pd_texto_original": "14",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 22,
@@ -7276,7 +5965,7 @@
       "pd_max": 15,
       "pd_min": 15,
       "pd_texto_original": "15",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 24,
@@ -7295,7 +5984,7 @@
       "pd_max": 16,
       "pd_min": 16,
       "pd_texto_original": "16",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 26,
@@ -7314,7 +6003,7 @@
       "pd_max": 17,
       "pd_min": 17,
       "pd_texto_original": "17",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 27,
@@ -7333,7 +6022,7 @@
       "pd_max": 18,
       "pd_min": 18,
       "pd_texto_original": "18",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 28,
@@ -7352,7 +6041,7 @@
       "pd_max": 19,
       "pd_min": 19,
       "pd_texto_original": "19",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 29,
@@ -7371,7 +6060,7 @@
       "pd_max": 20,
       "pd_min": 20,
       "pd_texto_original": "20",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 31,
@@ -7390,7 +6079,7 @@
       "pd_max": 21,
       "pd_min": 21,
       "pd_texto_original": "21",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 33,
@@ -7409,7 +6098,7 @@
       "pd_max": 22,
       "pd_min": 22,
       "pd_texto_original": "22",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 35,
@@ -7428,7 +6117,7 @@
       "pd_max": 23,
       "pd_min": 23,
       "pd_texto_original": "23",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 36,
@@ -7447,7 +6136,7 @@
       "pd_max": 24,
       "pd_min": 24,
       "pd_texto_original": "24",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 37,
@@ -7466,7 +6155,7 @@
       "pd_max": 25,
       "pd_min": 25,
       "pd_texto_original": "25",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 38,
@@ -7485,7 +6174,7 @@
       "pd_max": 26,
       "pd_min": 26,
       "pd_texto_original": "26",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 39,
@@ -7504,7 +6193,7 @@
       "pd_max": 27,
       "pd_min": 27,
       "pd_texto_original": "27",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 40,
@@ -7523,7 +6212,7 @@
       "pd_max": 28,
       "pd_min": 28,
       "pd_texto_original": "28",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 41,
@@ -7542,7 +6231,7 @@
       "pd_max": 29,
       "pd_min": 29,
       "pd_texto_original": "29",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 43,
@@ -7561,7 +6250,7 @@
       "pd_max": 30,
       "pd_min": 30,
       "pd_texto_original": "30",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 45,
@@ -7580,7 +6269,7 @@
       "pd_max": 31,
       "pd_min": 31,
       "pd_texto_original": "31",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 46,
@@ -7599,7 +6288,7 @@
       "pd_max": 32,
       "pd_min": 32,
       "pd_texto_original": "32",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 47,
@@ -7618,7 +6307,7 @@
       "pd_max": 33,
       "pd_min": 33,
       "pd_texto_original": "33",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 48,
@@ -7637,7 +6326,7 @@
       "pd_max": 34,
       "pd_min": 34,
       "pd_texto_original": "34",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 49,
@@ -7656,7 +6345,7 @@
       "pd_max": 35,
       "pd_min": 35,
       "pd_texto_original": "35",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 50,
@@ -7675,7 +6364,7 @@
       "pd_max": 36,
       "pd_min": 36,
       "pd_texto_original": "36",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 51,
@@ -7694,7 +6383,7 @@
       "pd_max": 37,
       "pd_min": 37,
       "pd_texto_original": "37",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 52,
@@ -7713,7 +6402,7 @@
       "pd_max": 38,
       "pd_min": 38,
       "pd_texto_original": "38",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 53,
@@ -7732,7 +6421,7 @@
       "pd_max": 39,
       "pd_min": 39,
       "pd_texto_original": "39",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 54,
@@ -7751,7 +6440,7 @@
       "pd_max": 40,
       "pd_min": 40,
       "pd_texto_original": "40",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 56,
@@ -7770,7 +6459,7 @@
       "pd_max": 41,
       "pd_min": 41,
       "pd_texto_original": "41",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 58,
@@ -7789,7 +6478,7 @@
       "pd_max": 42,
       "pd_min": 42,
       "pd_texto_original": "42",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 60,
@@ -7808,7 +6497,7 @@
       "pd_max": 43,
       "pd_min": 43,
       "pd_texto_original": "43",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 62,
@@ -7827,7 +6516,7 @@
       "pd_max": 44,
       "pd_min": 44,
       "pd_texto_original": "44",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 64,
@@ -7846,7 +6535,7 @@
       "pd_max": 45,
       "pd_min": 45,
       "pd_texto_original": "45",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 66,
@@ -7865,7 +6554,7 @@
       "pd_max": 46,
       "pd_min": 46,
       "pd_texto_original": "46",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 68,
@@ -7884,7 +6573,7 @@
       "pd_max": 47,
       "pd_min": 47,
       "pd_texto_original": "47",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 70,
@@ -7903,7 +6592,7 @@
       "pd_max": 48,
       "pd_min": 48,
       "pd_texto_original": "48",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 72,
@@ -7922,7 +6611,7 @@
       "pd_max": 49,
       "pd_min": 49,
       "pd_texto_original": "49",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 74,
@@ -7941,7 +6630,7 @@
       "pd_max": 50,
       "pd_min": 50,
       "pd_texto_original": "50",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 77,
@@ -7960,7 +6649,7 @@
       "pd_max": 51,
       "pd_min": 51,
       "pd_texto_original": "51",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 83,
@@ -7979,7 +6668,7 @@
       "pd_max": 52,
       "pd_min": 52,
       "pd_texto_original": "52",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 90,
@@ -7998,7 +6687,7 @@
       "pd_max": 53,
       "pd_min": 53,
       "pd_texto_original": "53",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 95,
@@ -8017,7 +6706,7 @@
       "pd_max": 54,
       "pd_min": 54,
       "pd_texto_original": "54",
-      "tabla": "N-61"
+      "tabla": "N-60"
     },
     {
       "edad_equivalente_max_meses": 0,
@@ -8036,7 +6725,7 @@
       "pd_max": 1,
       "pd_min": 0,
       "pd_texto_original": "0-1",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 1,
@@ -8055,7 +6744,7 @@
       "pd_max": 2,
       "pd_min": 2,
       "pd_texto_original": "2",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 2,
@@ -8074,7 +6763,7 @@
       "pd_max": 3,
       "pd_min": 3,
       "pd_texto_original": "3",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 3,
@@ -8093,7 +6782,7 @@
       "pd_max": 4,
       "pd_min": 4,
       "pd_texto_original": "4",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 5,
@@ -8112,7 +6801,7 @@
       "pd_max": 5,
       "pd_min": 5,
       "pd_texto_original": "5",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 6,
@@ -8131,7 +6820,7 @@
       "pd_max": 6,
       "pd_min": 6,
       "pd_texto_original": "6",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 7,
@@ -8150,7 +6839,7 @@
       "pd_max": 7,
       "pd_min": 7,
       "pd_texto_original": "7",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 8,
@@ -8169,7 +6858,7 @@
       "pd_max": 8,
       "pd_min": 8,
       "pd_texto_original": "8",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 9,
@@ -8188,7 +6877,7 @@
       "pd_max": 10,
       "pd_min": 9,
       "pd_texto_original": "9-10",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 10,
@@ -8207,7 +6896,7 @@
       "pd_max": 11,
       "pd_min": 11,
       "pd_texto_original": "11",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 11,
@@ -8226,7 +6915,7 @@
       "pd_max": 12,
       "pd_min": 12,
       "pd_texto_original": "12",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 12,
@@ -8245,7 +6934,7 @@
       "pd_max": 13,
       "pd_min": 13,
       "pd_texto_original": "13",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 13,
@@ -8264,7 +6953,7 @@
       "pd_max": 14,
       "pd_min": 14,
       "pd_texto_original": "14",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 14,
@@ -8283,7 +6972,7 @@
       "pd_max": 15,
       "pd_min": 15,
       "pd_texto_original": "15",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 15,
@@ -8302,7 +6991,7 @@
       "pd_max": 16,
       "pd_min": 16,
       "pd_texto_original": "16",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 17,
@@ -8321,7 +7010,7 @@
       "pd_max": 17,
       "pd_min": 17,
       "pd_texto_original": "17",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 19,
@@ -8340,7 +7029,7 @@
       "pd_max": 18,
       "pd_min": 18,
       "pd_texto_original": "18",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 21,
@@ -8359,7 +7048,7 @@
       "pd_max": 19,
       "pd_min": 19,
       "pd_texto_original": "19",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 22,
@@ -8378,7 +7067,7 @@
       "pd_max": 20,
       "pd_min": 20,
       "pd_texto_original": "20",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 23,
@@ -8397,7 +7086,7 @@
       "pd_max": 21,
       "pd_min": 21,
       "pd_texto_original": "21",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 24,
@@ -8416,7 +7105,7 @@
       "pd_max": 22,
       "pd_min": 22,
       "pd_texto_original": "22",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 25,
@@ -8435,7 +7124,7 @@
       "pd_max": 23,
       "pd_min": 23,
       "pd_texto_original": "23",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 26,
@@ -8454,7 +7143,7 @@
       "pd_max": 24,
       "pd_min": 24,
       "pd_texto_original": "24",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 27,
@@ -8473,7 +7162,7 @@
       "pd_max": 25,
       "pd_min": 25,
       "pd_texto_original": "25",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 28,
@@ -8492,7 +7181,7 @@
       "pd_max": 26,
       "pd_min": 26,
       "pd_texto_original": "26",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 29,
@@ -8511,7 +7200,7 @@
       "pd_max": 27,
       "pd_min": 27,
       "pd_texto_original": "27",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 30,
@@ -8530,7 +7219,7 @@
       "pd_max": 29,
       "pd_min": 28,
       "pd_texto_original": "28-29",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 32,
@@ -8549,7 +7238,7 @@
       "pd_max": 30,
       "pd_min": 30,
       "pd_texto_original": "30",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 34,
@@ -8568,7 +7257,7 @@
       "pd_max": 31,
       "pd_min": 31,
       "pd_texto_original": "31",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 36,
@@ -8587,7 +7276,7 @@
       "pd_max": 32,
       "pd_min": 32,
       "pd_texto_original": "32",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 38,
@@ -8606,7 +7295,7 @@
       "pd_max": 33,
       "pd_min": 33,
       "pd_texto_original": "33",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 39,
@@ -8625,7 +7314,7 @@
       "pd_max": 34,
       "pd_min": 34,
       "pd_texto_original": "34",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 40,
@@ -8644,7 +7333,7 @@
       "pd_max": 35,
       "pd_min": 35,
       "pd_texto_original": "35",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 41,
@@ -8663,7 +7352,7 @@
       "pd_max": 36,
       "pd_min": 36,
       "pd_texto_original": "36",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 42,
@@ -8682,7 +7371,7 @@
       "pd_max": 37,
       "pd_min": 37,
       "pd_texto_original": "37",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 43,
@@ -8701,7 +7390,7 @@
       "pd_max": 38,
       "pd_min": 38,
       "pd_texto_original": "38",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 44,
@@ -8720,7 +7409,7 @@
       "pd_max": 39,
       "pd_min": 39,
       "pd_texto_original": "39",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 45,
@@ -8739,7 +7428,7 @@
       "pd_max": 40,
       "pd_min": 40,
       "pd_texto_original": "40",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 46,
@@ -8758,7 +7447,7 @@
       "pd_max": 41,
       "pd_min": 41,
       "pd_texto_original": "41",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 47,
@@ -8777,7 +7466,7 @@
       "pd_max": 42,
       "pd_min": 42,
       "pd_texto_original": "42",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 48,
@@ -8796,7 +7485,7 @@
       "pd_max": 43,
       "pd_min": 43,
       "pd_texto_original": "43",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 49,
@@ -8815,7 +7504,7 @@
       "pd_max": 44,
       "pd_min": 44,
       "pd_texto_original": "44",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 50,
@@ -8834,7 +7523,7 @@
       "pd_max": 45,
       "pd_min": 45,
       "pd_texto_original": "45",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 51,
@@ -8853,7 +7542,7 @@
       "pd_max": 46,
       "pd_min": 46,
       "pd_texto_original": "46",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 52,
@@ -8872,7 +7561,7 @@
       "pd_max": 47,
       "pd_min": 47,
       "pd_texto_original": "47",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 53,
@@ -8891,7 +7580,7 @@
       "pd_max": 48,
       "pd_min": 48,
       "pd_texto_original": "48",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 54,
@@ -8910,7 +7599,7 @@
       "pd_max": 49,
       "pd_min": 49,
       "pd_texto_original": "49",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 56,
@@ -8929,7 +7618,7 @@
       "pd_max": 50,
       "pd_min": 50,
       "pd_texto_original": "50",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 58,
@@ -8948,7 +7637,7 @@
       "pd_max": 51,
       "pd_min": 51,
       "pd_texto_original": "51",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 60,
@@ -8967,7 +7656,7 @@
       "pd_max": 52,
       "pd_min": 52,
       "pd_texto_original": "52",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 61,
@@ -8986,7 +7675,7 @@
       "pd_max": 53,
       "pd_min": 53,
       "pd_texto_original": "53",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 62,
@@ -9005,7 +7694,7 @@
       "pd_max": 54,
       "pd_min": 54,
       "pd_texto_original": "54",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 63,
@@ -9024,7 +7713,7 @@
       "pd_max": 55,
       "pd_min": 55,
       "pd_texto_original": "55",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 64,
@@ -9043,7 +7732,7 @@
       "pd_max": 56,
       "pd_min": 56,
       "pd_texto_original": "56",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 65,
@@ -9062,7 +7751,7 @@
       "pd_max": 57,
       "pd_min": 57,
       "pd_texto_original": "57",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 66,
@@ -9081,7 +7770,7 @@
       "pd_max": 58,
       "pd_min": 58,
       "pd_texto_original": "58",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 70,
@@ -9100,7 +7789,7 @@
       "pd_max": 59,
       "pd_min": 59,
       "pd_texto_original": "59",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 74,
@@ -9119,7 +7808,7 @@
       "pd_max": 60,
       "pd_min": 60,
       "pd_texto_original": "60",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 78,
@@ -9138,7 +7827,7 @@
       "pd_max": 61,
       "pd_min": 61,
       "pd_texto_original": "61",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 84,
@@ -9157,7 +7846,7 @@
       "pd_max": 62,
       "pd_min": 62,
       "pd_texto_original": "62",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 89,
@@ -9176,7 +7865,7 @@
       "pd_max": 63,
       "pd_min": 63,
       "pd_texto_original": "63",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 95,
@@ -9195,7 +7884,7 @@
       "pd_max": 64,
       "pd_min": 64,
       "pd_texto_original": "64",
-      "tabla": "N-62"
+      "tabla": "N-61"
     },
     {
       "edad_equivalente_max_meses": 0,
@@ -9214,7 +7903,7 @@
       "pd_max": 2,
       "pd_min": 0,
       "pd_texto_original": "0-2",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 1,
@@ -9233,7 +7922,7 @@
       "pd_max": 5,
       "pd_min": 3,
       "pd_texto_original": "3-5",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 2,
@@ -9252,7 +7941,7 @@
       "pd_max": 7,
       "pd_min": 6,
       "pd_texto_original": "6-7",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 3,
@@ -9271,7 +7960,7 @@
       "pd_max": 9,
       "pd_min": 8,
       "pd_texto_original": "8-9",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 4,
@@ -9290,7 +7979,7 @@
       "pd_max": 11,
       "pd_min": 10,
       "pd_texto_original": "10-11",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 5,
@@ -9309,7 +7998,7 @@
       "pd_max": 13,
       "pd_min": 12,
       "pd_texto_original": "12-13",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 6,
@@ -9328,7 +8017,7 @@
       "pd_max": 15,
       "pd_min": 14,
       "pd_texto_original": "14-15",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 7,
@@ -9347,7 +8036,7 @@
       "pd_max": 16,
       "pd_min": 16,
       "pd_texto_original": "16",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 8,
@@ -9366,7 +8055,7 @@
       "pd_max": 17,
       "pd_min": 17,
       "pd_texto_original": "17",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 9,
@@ -9385,7 +8074,7 @@
       "pd_max": 18,
       "pd_min": 18,
       "pd_texto_original": "18",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 10,
@@ -9404,7 +8093,7 @@
       "pd_max": 20,
       "pd_min": 19,
       "pd_texto_original": "19-20",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 11,
@@ -9423,7 +8112,7 @@
       "pd_max": 22,
       "pd_min": 21,
       "pd_texto_original": "21-22",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 12,
@@ -9442,7 +8131,7 @@
       "pd_max": 24,
       "pd_min": 23,
       "pd_texto_original": "23-24",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 13,
@@ -9461,7 +8150,7 @@
       "pd_max": 26,
       "pd_min": 25,
       "pd_texto_original": "25-26",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 14,
@@ -9480,7 +8169,7 @@
       "pd_max": 28,
       "pd_min": 27,
       "pd_texto_original": "27-28",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 15,
@@ -9499,7 +8188,7 @@
       "pd_max": 29,
       "pd_min": 29,
       "pd_texto_original": "29",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 16,
@@ -9518,7 +8207,7 @@
       "pd_max": 30,
       "pd_min": 30,
       "pd_texto_original": "30",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 17,
@@ -9537,7 +8226,7 @@
       "pd_max": 31,
       "pd_min": 31,
       "pd_texto_original": "31",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 18,
@@ -9556,7 +8245,7 @@
       "pd_max": 32,
       "pd_min": 32,
       "pd_texto_original": "32",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 19,
@@ -9575,7 +8264,7 @@
       "pd_max": 33,
       "pd_min": 33,
       "pd_texto_original": "33",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 20,
@@ -9594,7 +8283,7 @@
       "pd_max": 34,
       "pd_min": 34,
       "pd_texto_original": "34",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 21,
@@ -9613,7 +8302,7 @@
       "pd_max": 36,
       "pd_min": 35,
       "pd_texto_original": "35-36",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 22,
@@ -9632,7 +8321,7 @@
       "pd_max": 38,
       "pd_min": 37,
       "pd_texto_original": "37-38",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 23,
@@ -9651,7 +8340,7 @@
       "pd_max": 40,
       "pd_min": 39,
       "pd_texto_original": "39-40",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 24,
@@ -9670,7 +8359,7 @@
       "pd_max": 42,
       "pd_min": 41,
       "pd_texto_original": "41-42",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 25,
@@ -9689,7 +8378,7 @@
       "pd_max": 43,
       "pd_min": 43,
       "pd_texto_original": "43",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 26,
@@ -9708,7 +8397,7 @@
       "pd_max": 44,
       "pd_min": 44,
       "pd_texto_original": "44",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 27,
@@ -9727,7 +8416,7 @@
       "pd_max": 45,
       "pd_min": 45,
       "pd_texto_original": "45",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 28,
@@ -9746,7 +8435,7 @@
       "pd_max": 46,
       "pd_min": 46,
       "pd_texto_original": "46",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 29,
@@ -9765,7 +8454,7 @@
       "pd_max": 47,
       "pd_min": 47,
       "pd_texto_original": "47",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 30,
@@ -9784,7 +8473,7 @@
       "pd_max": 48,
       "pd_min": 48,
       "pd_texto_original": "48",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 31,
@@ -9803,7 +8492,7 @@
       "pd_max": 50,
       "pd_min": 49,
       "pd_texto_original": "49-50",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 32,
@@ -9822,7 +8511,7 @@
       "pd_max": 52,
       "pd_min": 51,
       "pd_texto_original": "51-52",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 33,
@@ -9841,7 +8530,7 @@
       "pd_max": 54,
       "pd_min": 53,
       "pd_texto_original": "53-54",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 34,
@@ -9860,7 +8549,7 @@
       "pd_max": 56,
       "pd_min": 55,
       "pd_texto_original": "55-56",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 35,
@@ -9879,7 +8568,7 @@
       "pd_max": 58,
       "pd_min": 57,
       "pd_texto_original": "57-58",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 36,
@@ -9898,7 +8587,7 @@
       "pd_max": 60,
       "pd_min": 59,
       "pd_texto_original": "59-60",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 37,
@@ -9917,7 +8606,7 @@
       "pd_max": 61,
       "pd_min": 61,
       "pd_texto_original": "61",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 38,
@@ -9936,7 +8625,7 @@
       "pd_max": 62,
       "pd_min": 62,
       "pd_texto_original": "62",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 39,
@@ -9955,7 +8644,7 @@
       "pd_max": 63,
       "pd_min": 63,
       "pd_texto_original": "63",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 40,
@@ -9974,7 +8663,7 @@
       "pd_max": 64,
       "pd_min": 64,
       "pd_texto_original": "64",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 41,
@@ -9993,7 +8682,7 @@
       "pd_max": 65,
       "pd_min": 65,
       "pd_texto_original": "65",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 42,
@@ -10012,7 +8701,7 @@
       "pd_max": 66,
       "pd_min": 66,
       "pd_texto_original": "66",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 43,
@@ -10031,7 +8720,7 @@
       "pd_max": 69,
       "pd_min": 67,
       "pd_texto_original": "67-69",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 44,
@@ -10050,7 +8739,7 @@
       "pd_max": 71,
       "pd_min": 70,
       "pd_texto_original": "70-71",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 45,
@@ -10069,7 +8758,7 @@
       "pd_max": 73,
       "pd_min": 72,
       "pd_texto_original": "72-73",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 46,
@@ -10088,7 +8777,7 @@
       "pd_max": 75,
       "pd_min": 74,
       "pd_texto_original": "74-75",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 47,
@@ -10107,7 +8796,7 @@
       "pd_max": 77,
       "pd_min": 76,
       "pd_texto_original": "76-77",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 48,
@@ -10126,7 +8815,7 @@
       "pd_max": 79,
       "pd_min": 78,
       "pd_texto_original": "78-79",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 49,
@@ -10145,7 +8834,7 @@
       "pd_max": 81,
       "pd_min": 80,
       "pd_texto_original": "80-81",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 50,
@@ -10164,7 +8853,7 @@
       "pd_max": 83,
       "pd_min": 82,
       "pd_texto_original": "82-83",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 51,
@@ -10183,7 +8872,7 @@
       "pd_max": 85,
       "pd_min": 84,
       "pd_texto_original": "84-85",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 52,
@@ -10202,7 +8891,7 @@
       "pd_max": 87,
       "pd_min": 86,
       "pd_texto_original": "86-87",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 53,
@@ -10221,7 +8910,7 @@
       "pd_max": 89,
       "pd_min": 88,
       "pd_texto_original": "88-89",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 54,
@@ -10240,7 +8929,7 @@
       "pd_max": 91,
       "pd_min": 90,
       "pd_texto_original": "90-91",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 55,
@@ -10259,7 +8948,7 @@
       "pd_max": 92,
       "pd_min": 92,
       "pd_texto_original": "92",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 56,
@@ -10278,7 +8967,7 @@
       "pd_max": 93,
       "pd_min": 93,
       "pd_texto_original": "93",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 57,
@@ -10297,7 +8986,7 @@
       "pd_max": 94,
       "pd_min": 94,
       "pd_texto_original": "94",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 58,
@@ -10316,7 +9005,7 @@
       "pd_max": 95,
       "pd_min": 95,
       "pd_texto_original": "95",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 59,
@@ -10335,7 +9024,7 @@
       "pd_max": 96,
       "pd_min": 96,
       "pd_texto_original": "96",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 60,
@@ -10354,7 +9043,7 @@
       "pd_max": 97,
       "pd_min": 97,
       "pd_texto_original": "97",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 61,
@@ -10373,7 +9062,7 @@
       "pd_max": 98,
       "pd_min": 98,
       "pd_texto_original": "98",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 62,
@@ -10392,7 +9081,7 @@
       "pd_max": 99,
       "pd_min": 99,
       "pd_texto_original": "99",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 63,
@@ -10411,7 +9100,7 @@
       "pd_max": 100,
       "pd_min": 100,
       "pd_texto_original": "100",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 64,
@@ -10430,7 +9119,7 @@
       "pd_max": 101,
       "pd_min": 101,
       "pd_texto_original": "101",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 65,
@@ -10449,7 +9138,7 @@
       "pd_max": 102,
       "pd_min": 102,
       "pd_texto_original": "102",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 66,
@@ -10468,7 +9157,7 @@
       "pd_max": 103,
       "pd_min": 103,
       "pd_texto_original": "103",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 68,
@@ -10487,7 +9176,7 @@
       "pd_max": 104,
       "pd_min": 104,
       "pd_texto_original": "104",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 69,
@@ -10506,7 +9195,7 @@
       "pd_max": 105,
       "pd_min": 105,
       "pd_texto_original": "105",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 70,
@@ -10525,7 +9214,7 @@
       "pd_max": 106,
       "pd_min": 106,
       "pd_texto_original": "106",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 71,
@@ -10544,7 +9233,7 @@
       "pd_max": 107,
       "pd_min": 107,
       "pd_texto_original": "107",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 72,
@@ -10563,7 +9252,7 @@
       "pd_max": 108,
       "pd_min": 108,
       "pd_texto_original": "108",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 73,
@@ -10582,7 +9271,7 @@
       "pd_max": 109,
       "pd_min": 109,
       "pd_texto_original": "109",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 74,
@@ -10601,7 +9290,7 @@
       "pd_max": 110,
       "pd_min": 110,
       "pd_texto_original": "110",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 75,
@@ -10620,7 +9309,7 @@
       "pd_max": 111,
       "pd_min": 111,
       "pd_texto_original": "111",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 76,
@@ -10639,7 +9328,7 @@
       "pd_max": 112,
       "pd_min": 112,
       "pd_texto_original": "112",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 77,
@@ -10658,7 +9347,7 @@
       "pd_max": 113,
       "pd_min": 113,
       "pd_texto_original": "113",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 81,
@@ -10677,7 +9366,7 @@
       "pd_max": 114,
       "pd_min": 114,
       "pd_texto_original": "114",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 85,
@@ -10696,7 +9385,7 @@
       "pd_max": 115,
       "pd_min": 115,
       "pd_texto_original": "115",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 89,
@@ -10715,7 +9404,7 @@
       "pd_max": 116,
       "pd_min": 116,
       "pd_texto_original": "116",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 95,
@@ -10734,7 +9423,7 @@
       "pd_max": null,
       "pd_min": 117,
       "pd_texto_original": "117+",
-      "tabla": "N-63"
+      "tabla": "N-62"
     },
     {
       "edad_equivalente_max_meses": 0,
@@ -10753,7 +9442,7 @@
       "pd_max": 1,
       "pd_min": 0,
       "pd_texto_original": "0-1",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 1,
@@ -10772,7 +9461,7 @@
       "pd_max": 3,
       "pd_min": 2,
       "pd_texto_original": "2-3",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 2,
@@ -10791,7 +9480,7 @@
       "pd_max": 5,
       "pd_min": 4,
       "pd_texto_original": "4-5",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 3,
@@ -10810,7 +9499,7 @@
       "pd_max": 6,
       "pd_min": 6,
       "pd_texto_original": "6",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 4,
@@ -10829,7 +9518,7 @@
       "pd_max": 8,
       "pd_min": 7,
       "pd_texto_original": "7-8",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 5,
@@ -10848,7 +9537,7 @@
       "pd_max": 10,
       "pd_min": 9,
       "pd_texto_original": "9-10",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 6,
@@ -10867,7 +9556,7 @@
       "pd_max": 12,
       "pd_min": 11,
       "pd_texto_original": "11-12",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 7,
@@ -10886,7 +9575,7 @@
       "pd_max": 14,
       "pd_min": 13,
       "pd_texto_original": "13-14",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 8,
@@ -10905,7 +9594,7 @@
       "pd_max": 16,
       "pd_min": 15,
       "pd_texto_original": "15-16",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 9,
@@ -10924,7 +9613,7 @@
       "pd_max": 17,
       "pd_min": 17,
       "pd_texto_original": "17",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 10,
@@ -10943,7 +9632,7 @@
       "pd_max": 18,
       "pd_min": 18,
       "pd_texto_original": "18",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 11,
@@ -10962,7 +9651,7 @@
       "pd_max": 19,
       "pd_min": 19,
       "pd_texto_original": "19",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 12,
@@ -10981,7 +9670,7 @@
       "pd_max": 20,
       "pd_min": 20,
       "pd_texto_original": "20",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 13,
@@ -11000,7 +9689,7 @@
       "pd_max": 21,
       "pd_min": 21,
       "pd_texto_original": "21",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 14,
@@ -11019,7 +9708,7 @@
       "pd_max": 22,
       "pd_min": 22,
       "pd_texto_original": "22",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 15,
@@ -11038,7 +9727,7 @@
       "pd_max": 23,
       "pd_min": 23,
       "pd_texto_original": "23",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 18,
@@ -11057,7 +9746,7 @@
       "pd_max": 24,
       "pd_min": 24,
       "pd_texto_original": "24",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 21,
@@ -11076,7 +9765,7 @@
       "pd_max": 25,
       "pd_min": 25,
       "pd_texto_original": "25",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 22,
@@ -11095,7 +9784,7 @@
       "pd_max": 27,
       "pd_min": 26,
       "pd_texto_original": "26-27",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 23,
@@ -11114,7 +9803,7 @@
       "pd_max": 29,
       "pd_min": 28,
       "pd_texto_original": "28-29",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 24,
@@ -11133,7 +9822,7 @@
       "pd_max": 30,
       "pd_min": 30,
       "pd_texto_original": "30",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 25,
@@ -11152,7 +9841,7 @@
       "pd_max": 31,
       "pd_min": 31,
       "pd_texto_original": "31",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 26,
@@ -11171,7 +9860,7 @@
       "pd_max": 32,
       "pd_min": 32,
       "pd_texto_original": "32",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 27,
@@ -11190,7 +9879,7 @@
       "pd_max": 33,
       "pd_min": 33,
       "pd_texto_original": "33",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 28,
@@ -11209,7 +9898,7 @@
       "pd_max": 34,
       "pd_min": 34,
       "pd_texto_original": "34",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 29,
@@ -11228,7 +9917,7 @@
       "pd_max": 35,
       "pd_min": 35,
       "pd_texto_original": "35",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 30,
@@ -11247,7 +9936,7 @@
       "pd_max": 36,
       "pd_min": 36,
       "pd_texto_original": "36",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 31,
@@ -11266,7 +9955,7 @@
       "pd_max": 37,
       "pd_min": 37,
       "pd_texto_original": "37",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 32,
@@ -11285,7 +9974,7 @@
       "pd_max": 38,
       "pd_min": 38,
       "pd_texto_original": "38",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 33,
@@ -11304,7 +9993,7 @@
       "pd_max": 39,
       "pd_min": 39,
       "pd_texto_original": "39",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 34,
@@ -11323,7 +10012,7 @@
       "pd_max": 40,
       "pd_min": 40,
       "pd_texto_original": "40",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 35,
@@ -11342,7 +10031,7 @@
       "pd_max": 41,
       "pd_min": 41,
       "pd_texto_original": "41",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 36,
@@ -11361,7 +10050,7 @@
       "pd_max": 42,
       "pd_min": 42,
       "pd_texto_original": "42",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 37,
@@ -11380,7 +10069,7 @@
       "pd_max": 43,
       "pd_min": 43,
       "pd_texto_original": "43",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 38,
@@ -11399,7 +10088,7 @@
       "pd_max": 44,
       "pd_min": 44,
       "pd_texto_original": "44",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 39,
@@ -11418,7 +10107,7 @@
       "pd_max": 45,
       "pd_min": 45,
       "pd_texto_original": "45",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 40,
@@ -11437,7 +10126,7 @@
       "pd_max": 46,
       "pd_min": 46,
       "pd_texto_original": "46",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 41,
@@ -11456,7 +10145,7 @@
       "pd_max": 47,
       "pd_min": 47,
       "pd_texto_original": "47",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 42,
@@ -11475,7 +10164,7 @@
       "pd_max": 49,
       "pd_min": 48,
       "pd_texto_original": "48-49",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 43,
@@ -11494,7 +10183,7 @@
       "pd_max": 52,
       "pd_min": 50,
       "pd_texto_original": "50-52",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 44,
@@ -11513,7 +10202,7 @@
       "pd_max": 55,
       "pd_min": 53,
       "pd_texto_original": "53-55",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 45,
@@ -11532,7 +10221,7 @@
       "pd_max": 58,
       "pd_min": 56,
       "pd_texto_original": "56-58",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 46,
@@ -11551,7 +10240,7 @@
       "pd_max": 61,
       "pd_min": 59,
       "pd_texto_original": "59-61",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 47,
@@ -11570,7 +10259,7 @@
       "pd_max": 63,
       "pd_min": 62,
       "pd_texto_original": "62-63",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 48,
@@ -11589,7 +10278,7 @@
       "pd_max": 65,
       "pd_min": 64,
       "pd_texto_original": "64-65",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 49,
@@ -11608,7 +10297,7 @@
       "pd_max": 67,
       "pd_min": 66,
       "pd_texto_original": "66-67",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 50,
@@ -11627,7 +10316,7 @@
       "pd_max": 69,
       "pd_min": 68,
       "pd_texto_original": "68-69",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 51,
@@ -11646,7 +10335,7 @@
       "pd_max": 71,
       "pd_min": 70,
       "pd_texto_original": "70-71",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 52,
@@ -11665,7 +10354,7 @@
       "pd_max": 73,
       "pd_min": 72,
       "pd_texto_original": "72-73",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 53,
@@ -11684,7 +10373,7 @@
       "pd_max": 75,
       "pd_min": 74,
       "pd_texto_original": "74-75",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 54,
@@ -11703,7 +10392,7 @@
       "pd_max": 78,
       "pd_min": 76,
       "pd_texto_original": "76-78",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 55,
@@ -11722,7 +10411,7 @@
       "pd_max": 80,
       "pd_min": 79,
       "pd_texto_original": "79-80",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 56,
@@ -11741,7 +10430,7 @@
       "pd_max": 82,
       "pd_min": 81,
       "pd_texto_original": "81-82",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 57,
@@ -11760,7 +10449,7 @@
       "pd_max": 84,
       "pd_min": 83,
       "pd_texto_original": "83-84",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 58,
@@ -11779,7 +10468,7 @@
       "pd_max": 85,
       "pd_min": 85,
       "pd_texto_original": "85",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 59,
@@ -11798,7 +10487,7 @@
       "pd_max": 86,
       "pd_min": 86,
       "pd_texto_original": "86",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 60,
@@ -11817,7 +10506,7 @@
       "pd_max": 87,
       "pd_min": 87,
       "pd_texto_original": "87",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 61,
@@ -11836,7 +10525,7 @@
       "pd_max": 88,
       "pd_min": 88,
       "pd_texto_original": "88",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 62,
@@ -11855,7 +10544,7 @@
       "pd_max": 89,
       "pd_min": 89,
       "pd_texto_original": "89",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 63,
@@ -11874,7 +10563,7 @@
       "pd_max": 90,
       "pd_min": 90,
       "pd_texto_original": "90",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 64,
@@ -11893,7 +10582,7 @@
       "pd_max": 91,
       "pd_min": 91,
       "pd_texto_original": "91",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 65,
@@ -11912,7 +10601,7 @@
       "pd_max": 92,
       "pd_min": 92,
       "pd_texto_original": "92",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 66,
@@ -11931,7 +10620,7 @@
       "pd_max": 93,
       "pd_min": 93,
       "pd_texto_original": "93",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 67,
@@ -11950,7 +10639,7 @@
       "pd_max": 94,
       "pd_min": 94,
       "pd_texto_original": "94",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 68,
@@ -11969,7 +10658,7 @@
       "pd_max": 95,
       "pd_min": 95,
       "pd_texto_original": "95",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 69,
@@ -11988,7 +10677,7 @@
       "pd_max": 96,
       "pd_min": 96,
       "pd_texto_original": "96",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 70,
@@ -12007,7 +10696,7 @@
       "pd_max": 97,
       "pd_min": 97,
       "pd_texto_original": "97",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 71,
@@ -12026,7 +10715,7 @@
       "pd_max": 98,
       "pd_min": 98,
       "pd_texto_original": "98",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 72,
@@ -12045,7 +10734,7 @@
       "pd_max": 99,
       "pd_min": 99,
       "pd_texto_original": "99",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 73,
@@ -12064,7 +10753,7 @@
       "pd_max": 100,
       "pd_min": 100,
       "pd_texto_original": "100",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 74,
@@ -12083,7 +10772,7 @@
       "pd_max": 101,
       "pd_min": 101,
       "pd_texto_original": "101",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 75,
@@ -12102,7 +10791,7 @@
       "pd_max": 102,
       "pd_min": 102,
       "pd_texto_original": "102",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 76,
@@ -12121,7 +10810,7 @@
       "pd_max": 103,
       "pd_min": 103,
       "pd_texto_original": "103",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 77,
@@ -12140,7 +10829,7 @@
       "pd_max": 104,
       "pd_min": 104,
       "pd_texto_original": "104",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 78,
@@ -12159,7 +10848,7 @@
       "pd_max": 105,
       "pd_min": 105,
       "pd_texto_original": "105",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 82,
@@ -12178,7 +10867,7 @@
       "pd_max": 106,
       "pd_min": 106,
       "pd_texto_original": "106",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 86,
@@ -12197,7 +10886,7 @@
       "pd_max": 107,
       "pd_min": 107,
       "pd_texto_original": "107",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 89,
@@ -12216,7 +10905,7 @@
       "pd_max": 108,
       "pd_min": 108,
       "pd_texto_original": "108",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 95,
@@ -12235,7 +10924,7 @@
       "pd_max": null,
       "pd_min": 109,
       "pd_texto_original": "109+",
-      "tabla": "N-64"
+      "tabla": "N-63"
     },
     {
       "edad_equivalente_max_meses": 0,
@@ -13976,7 +12665,6 @@
     "N-61",
     "N-62",
     "N-63",
-    "N-64",
     "N-65"
   ],
   "version_esquema": "1.0.0"

@@ -100,7 +100,13 @@ def edades():
    h,rs=rowmap(sh['rows'])
    for r in rs:
     escala_nombre=val(r,h,'area') or val(r,h,'ambito') or 'Battelle total'
-    regs.append({'tabla':val(r,h,'tabla') or sh['name'],'escala_id':escala_id('', escala_nombre) if escala_nombre!='Battelle total' else 'battelle_total','escala':escala_nombre,'pd_texto_original':val(r,h,'pd_original') or val(r,h,'pd_total_original'),'pd_min':as_int(val(r,h,'pd_min') or val(r,h,'pd_total_min')),'pd_max':as_int(val(r,h,'pd_max') or val(r,h,'pd_total_max')),'limite_superior_abierto':str(val(r,h,'pd_limite_superior_abierto'))=='1','edad_equivalente_texto':val(r,h,'edad_equivalente_original'),'edad_equivalente_min_meses':as_int(val(r,h,'edad_equivalente_min_meses')),'edad_equivalente_max_meses':as_int(val(r,h,'edad_equivalente_max_meses')),'edad_limite_superior_abierto':str(val(r,h,'edad_limite_superior_abierto'))=='1','fuente':source(p,sh['name'],r['row'])})
+    sid=escala_id('', escala_nombre) if escala_nombre!='Battelle total' else 'battelle_total'
+    # Los nombres de archivo inventariados son la autoridad para N-59..N-63: las
+    # hojas internas llegaron desplazadas una posición. Motora fina no dispone
+    # de una fuente independiente validada y por tanto se excluye.
+    canonical_tables={'personal_social_total':'N-56','adaptativa_total':'N-57','motora_gruesa':'N-58','motora_total':'N-59','comunicacion_receptiva':'N-60','comunicacion_expresiva':'N-61','comunicacion_total':'N-62','cognitiva_total':'N-63','battelle_total':'N-65'}
+    if sid not in canonical_tables: continue
+    regs.append({'tabla':canonical_tables[sid],'escala_id':sid,'escala':escala_nombre,'pd_texto_original':val(r,h,'pd_original') or val(r,h,'pd_total_original'),'pd_min':as_int(val(r,h,'pd_min') or val(r,h,'pd_total_min')),'pd_max':as_int(val(r,h,'pd_max') or val(r,h,'pd_total_max')),'limite_superior_abierto':str(val(r,h,'pd_limite_superior_abierto'))=='1','edad_equivalente_texto':val(r,h,'edad_equivalente_original'),'edad_equivalente_min_meses':as_int(val(r,h,'edad_equivalente_min_meses')),'edad_equivalente_max_meses':as_int(val(r,h,'edad_equivalente_max_meses')),'edad_limite_superior_abierto':str(val(r,h,'edad_limite_superior_abierto'))=='1','fuente':source(p,sh['name'],r['row'])})
  excepciones=[{'tabla':'N-56','escala_id':'personal_social_total','escala':'Personal-Social','pd':51,'estado':'pd_no_alcanzable_confirmada','motivo':'La fuente oficial pasa de PD 48-50 a PD 52-53; PD 51 no es alcanzable según la composición real de la escala.','fuente':{'archivo':'fuentes/edades_equivalentes/N-56_Edad_equivalente_Personal-Social.xlsx','sha256':sha256_file(FUENTES/'edades_equivalentes/N-56_Edad_equivalente_Personal-Social.xlsx'),'hoja':'N-56','filas_vecinas':[21,22]}}]
  obj=with_meta(regs,fuentes,sorted(set(r['tabla'] for r in regs)))
  obj['excepciones_dominio']=excepciones

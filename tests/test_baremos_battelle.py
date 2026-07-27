@@ -32,11 +32,11 @@ class BaremosBattelleTest(unittest.TestCase):
   m=maximos_teoricos(); self.assertEqual(m['Battelle total'],682); self.assertEqual(m['Personal/Social'],170)
  def test_separacion_familias_y_conocidos(self):
   self.assertEqual(set(self.pc['tablas_incluidas']),{'N-1'}); self.assertEqual(set(self.total['tablas_incluidas']),{'N-2'})
-  self.assertEqual(set(self.ed['tablas_incluidas']),{f'N-{i}' for i in range(56,66)})
-  self.assertEqual(len(self.ed['registros']),732)
+  self.assertEqual(set(self.ed['tablas_incluidas']),{'N-56','N-57','N-58','N-59','N-60','N-61','N-62','N-63','N-65'})
+  self.assertEqual(len(self.ed['registros']),663)
   self.assertEqual(len(self.ed.get('excepciones_dominio',[])),1)
   self.assertTrue(all('escala_id' in r for r in self.pct['registros']))
-  expected={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_fina','N-60':'motora_total','N-61':'comunicacion_receptiva','N-62':'comunicacion_expresiva','N-63':'comunicacion_total','N-64':'cognitiva_total','N-65':'battelle_total'}
+  expected={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_total','N-60':'comunicacion_receptiva','N-61':'comunicacion_expresiva','N-62':'comunicacion_total','N-63':'cognitiva_total','N-65':'battelle_total'}
   for tabla, escala_id in expected.items():
    self.assertEqual({r['escala_id'] for r in self.ed['registros'] if r['tabla']==tabla},{escala_id})
   self.assertFalse(any(r['escala_id'].startswith('_') for r in self.ed['registros']))
