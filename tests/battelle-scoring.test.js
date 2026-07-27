@@ -150,10 +150,33 @@ test('una contradicción posterior al techo deja pd null aunque no haya pendient
   assert.equal(s.requiere_revision, true);
 });
 
-test('un techo provisional sin basal deja pd null', () => {
+test('la administración desde el primer ítem permite corregir una subárea sin basal', () => {
   const responses = { PS1: 1, PS2: 1, PS3: 1, PS4: 1, PS5: 1, PS6: 0, PS7: 0 };
   const r = scoreAssessment(items, model, responses);
   const s = r.subareas.personal_social_interaccion_con_el_adulto;
+  assert.equal(s.basal.confirmado, false);
+  assert.equal(s.basal.agotado, true);
+  assert.equal(s.techo.provisional, false);
+  assert.equal(s.requiere_revision, false);
+  assert.equal(s.pd, 5);
+  assert.equal(s.administracion.status, 'completa');
+  assert.match(s.administracion.instruction, /no se estableció basal/);
+});
+
+test('dos ceros iniciales representan puntuación cero sin basal y derivan el resto por techo', () => {
+  const r = scoreAssessment(items, model, { PS1: 0, PS2: 0 });
+  const s = r.subareas.personal_social_interaccion_con_el_adulto;
+  assert.equal(s.basal.agotado, true);
+  assert.equal(s.techo.provisional, false);
+  assert.equal(s.pd, 0);
+  assert.equal(s.completa, true);
+  assert.equal(r.respuestas_efectivas.PS3.origen, 'techo');
+});
+
+test('un techo sin basal continúa provisional si quedan huecos hasta el primer ítem', () => {
+  const r = scoreAssessment(items, model, { PS2: 0, PS3: 0 });
+  const s = r.subareas.personal_social_interaccion_con_el_adulto;
+  assert.equal(s.basal.agotado, undefined);
   assert.equal(s.techo.provisional, true);
   assert.equal(s.requiere_revision, true);
   assert.equal(s.pd, null);

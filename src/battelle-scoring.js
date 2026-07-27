@@ -43,7 +43,11 @@ export function detectCeiling(items, observed, basal=null) {
   for (let i=0;i<items.length-1;i++) {
     if (basal?.confirmado && i <= basal.indice_fin) continue;
     if (observed[items[i].codigo_canonico]?.puntuacion===0 && observed[items[i+1].codigo_canonico]?.puntuacion===0) {
-      provisional=!basal?.confirmado; if (provisional) inconsistencias.push({tipo:'techo_provisional', mensaje:'Techo detectado sin basal confirmado.'});
+      // Reaching the first item and scoring every item up to the ceiling is a
+      // valid floor administration: some children never establish a basal.
+      // Only keep the ceiling provisional when there are unobserved items below it.
+      const sueloComprobado=!basal?.confirmado && items.slice(0,i+2).every((item)=>observed[item.codigo_canonico]);
+      provisional=!basal?.confirmado && !sueloComprobado; if (provisional) inconsistencias.push({tipo:'techo_provisional', mensaje:'Techo detectado sin basal confirmado ni suelo comprobado.'});
       return {confirmado:true, inicio:items[i].codigo_canonico, fin:items[i+1].codigo_canonico, indice_inicio:i, indice_fin:i+1, rango_edad:items[i].rango_edad, provisional, inconsistencias, sustentan:[items[i].codigo_canonico,items[i+1].codigo_canonico]};
     }
   }
@@ -57,7 +61,9 @@ export function deriveScores(items, responses = {}) {
   for (const [code, response] of Object.entries(observed)) if (validCodes.has(code)) effective[code] = response;
   const inconsistencias=[]; const advertencias=[]; const bySub = groupBy(items, (i)=>`${i.area}|${i.subarea}`); const limites={};
   for (const [key, subItems] of bySub) {
-    const basal = detectBasal(subItems, observed); const techo = detectCeiling(subItems, observed, basal); limites[key]={basal, techo};
+    let basal = detectBasal(subItems, observed); const techo = detectCeiling(subItems, observed, basal);
+    if(!basal.confirmado && techo.confirmado && !techo.provisional) basal={...basal, agotado:true};
+    limites[key]={basal, techo};
     if (basal.confirmado) for (let i=0;i<basal.indice_inicio;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:2,origen:'basal',observacion:''}; else if (observed[code].puntuacion<2) advertencias.push({tipo:'discrepancia_basal', codigo:code, subarea:key, mensaje:'Respuesta observada inferior al basal conservada para revisión clínica.'}); }
     if (techo.confirmado && !techo.provisional) for (let i=techo.indice_fin+1;i<subItems.length;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:0,origen:'techo',observacion:''}; else if (observed[code].puntuacion>0) inconsistencias.push({tipo:'inconsistencia_techo', codigo:code, subarea:key, mensaje:'Respuesta observada posterior contradice el techo.'}); }
     inconsistencias.push(...(techo.inconsistencias??[]).map((w)=>({...w, subarea:key})));
@@ -78,7 +84,7 @@ export function administrationSummary(items, scoring) {
     else if(!basal.confirmado) instruction='Basal no establecido. Retrocede al nivel de edad anterior.';
     else { const lastObserved=[...items].reverse().find((i)=>observed[i.codigo_canonico]); instruction=lastObserved && observed[lastObserved.codigo_canonico].puntuacion===0 ? 'Primer cero registrado. Administra el siguiente ítem para comprobar el techo.' : 'Continúa administrando en orden hasta obtener dos ceros consecutivos.'; }
   }
-  if(techo.confirmado && !techo.provisional) { status='completa'; instruction='Techo confirmado.'; }
+  if(techo.confirmado && !techo.provisional) { status='completa'; instruction=basal.agotado?'Techo confirmado tras administrar desde el primer ítem; no se estableció basal.':'Techo confirmado.'; }
   if(inconsistencies.length || warnings.length) status='requiere revisión';
   return {status,instruction,counts,basal,techo};
 }
