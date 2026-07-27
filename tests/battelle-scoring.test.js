@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadAndNormalizeItems } from '../src/battelle-data.js';
 import { loadScaleModel } from '../src/battelle-scales.js';
-import { validateResponse, scoreAssessment } from '../src/battelle-scoring.js';
+import { validateResponse, scoreAssessment, detectBasal } from '../src/battelle-scoring.js';
 const items = await loadAndNormalizeItems(); const model = await loadScaleModel();
 const sub = (area, subarea)=>items.filter(i=>i.area===area&&i.subarea===subarea);
 
@@ -13,21 +13,56 @@ test('respuestas: null no suma, acepta 0/1/2, rechaza otros y no muta', () => {
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.pd, null); assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.pd_parcial, 1);
 });
 
-test('basal: dos 2 consecutivos mismo nivel derivan anteriores; separados/niveles/subáreas no', () => {
-  let r=scoreAssessment(items, model, {'PS 6':2,'PS 7':2});
-  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, true); assert.equal(r.respuestas_efectivas.PS1.origen, 'basal'); assert.equal(r.respuestas_efectivas.PS1.puntuacion, 2);
-  r=scoreAssessment(items, model, {'PS 6':2,'PS 8':2}); assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, false);
-  r=scoreAssessment(items, model, {'PS 8':2,'PS 9':2}); assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, false);
-  r=scoreAssessment(items, model, {'PS 18':2,'PS 19':2}); assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, false);
-  r=scoreAssessment(items, model, {'PS 1':1,'PS 6':2,'PS 7':2}); assert.equal(r.respuestas_efectivas.PS1.puntuacion, 1); assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_basal'), true);
+test('basal exige todos los ítems del nivel, admite nivel unitario y deriva solo niveles inferiores', () => {
+  let r=scoreAssessment(items, model, {PS14:2,PS15:2});
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, true);
+  assert.equal(r.respuestas_efectivas.PS13.origen, 'basal');
+  assert.equal(r.respuestas_efectivas.PS16.origen, null);
+  r=scoreAssessment(items, model, {PS6:2,PS7:2});
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, false);
+  assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.basal.pendientes,['PS8']);
+  r=scoreAssessment(items, model, {PS6:2,PS7:2,PS8:2});
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, true);
+  r=scoreAssessment(items, model, {PS13:2});
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, true);
+  assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.basal.sustentan,['PS13']);
+  r=scoreAssessment(items, model, {PS1:1,PS14:2,PS15:2});
+  assert.equal(r.respuestas_efectivas.PS1.puntuacion, 1); assert.equal(r.respuestas_efectivas.PS1.origen,'observado');
+  assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_basal'), true);
 });
 
-test('techo: dos 0 consecutivos mismo nivel derivan posteriores; separados/niveles no', () => {
-  let r=scoreAssessment(items, model, {'PS 1':2,'PS 2':2,'PS 6':0,'PS 7':0});
-  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado, true); assert.equal(r.respuestas_efectivas.PS8.origen, 'techo'); assert.equal(r.respuestas_efectivas.PS8.puntuacion, 0);
-  r=scoreAssessment(items, model, {'PS 1':2,'PS 2':2,'PS 6':0,'PS 8':0}); assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado, false);
-  r=scoreAssessment(items, model, {'PS 1':2,'PS 2':2,'PS 8':0,'PS 9':0}); assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado, false);
-  r=scoreAssessment(items, model, {'PS 1':2,'PS 2':2,'PS 6':0,'PS 7':0,'PS 9':1}); assert.equal(r.respuestas_efectivas.PS9.puntuacion, 1); assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_techo'), true);
+test('ejemplo clínico: cuatro ítems 36–47 requieren cuatro doses y se retrocede al nivel aprobado',()=>{
+  const level=(code,min,max)=>({codigo_canonico:code,rango_edad:`${min}-${max}`,rango_edad_min_meses:min,rango_edad_max_meses:max});
+  const sample=[level('CR10',24,35),level('CR11',36,47),level('CR12',36,47),level('CR13',36,47),level('CR14',36,47)];
+  let observed={CR11:{puntuacion:2},CR12:{puntuacion:2}};
+  assert.equal(detectBasal(sample,observed).confirmado,false);
+  observed={CR11:{puntuacion:2},CR12:{puntuacion:2},CR13:{puntuacion:2},CR14:{puntuacion:2}};
+  assert.equal(detectBasal(sample,observed).confirmado,true);
+  observed={CR10:{puntuacion:2},CR11:{puntuacion:1},CR12:{puntuacion:2},CR13:{puntuacion:2},CR14:{puntuacion:2}};
+  const backedUp=detectBasal(sample,observed); assert.equal(backedUp.confirmado,true); assert.equal(backedUp.rango_edad,'24-35');
+});
+
+test('techo usa ceros observados consecutivos incluso entre niveles y rechaza 0,1,0', () => {
+  const basal={PS1:2,PS2:2,PS3:2,PS4:2,PS5:2};
+  let r=scoreAssessment(items, model, {...basal,PS8:0,PS9:0});
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado, true);
+  assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.techo.sustentan,['PS8','PS9']);
+  assert.equal(r.respuestas_efectivas.PS10.origen, 'techo');
+  r=scoreAssessment(items, model, {...basal,PS8:0,PS9:1,PS10:0});
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado, false);
+  r=scoreAssessment(items, model, {...basal,PS8:0,PS9:0,PS10:1});
+  assert.equal(r.respuestas_efectivas.PS10.puntuacion, 1); assert.equal(r.respuestas_efectivas.PS10.origen,'observado');
+  assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_techo'), true);
+});
+
+test('cambiar sustentos invalida basal o techo y elimina derivaciones sin tocar observaciones',()=>{
+  let responses={PS6:2,PS7:2,PS8:2}; let r=scoreAssessment(items,model,responses);
+  assert.equal(r.respuestas_efectivas.PS1.origen,'basal'); responses={...responses,PS8:1}; r=scoreAssessment(items,model,responses);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado,false); assert.equal(r.respuestas_efectivas.PS1.origen,null);
+  responses={PS1:2,PS2:2,PS3:2,PS4:2,PS5:2,PS8:0,PS9:0}; r=scoreAssessment(items,model,responses);
+  assert.equal(r.respuestas_efectivas.PS10.origen,'techo'); responses={...responses,PS9:1}; r=scoreAssessment(items,model,responses);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado,false); assert.equal(r.respuestas_efectivas.PS10.origen,null);
+  assert.deepEqual(Object.fromEntries(Object.entries(r.respuestas_observadas).map(([k,v])=>[k,v.puntuacion])),responses);
 });
 
 test('completitud: huecos internos invalidan PD y evaluación; cobertura completa valida', () => {
@@ -77,7 +112,7 @@ test('normalizeItemCode se usa para todas las entradas aceptadas', () => {
 });
 
 test('una contradicción anterior al basal marca requiere_revision', () => {
-  const r = scoreAssessment(items, model, { 'PS 1': 1, 'PS 6': 2, 'PS 7': 2 });
+  const r = scoreAssessment(items, model, { 'PS 1': 1, PS6:2, PS7:2, PS8:2 });
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.requiere_revision, true);
 });
 

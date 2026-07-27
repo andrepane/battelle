@@ -18,21 +18,33 @@ export function normalizeObservedResponses(responses = {}, validCodes = null) {
 }
 
 function blank(items){ return Object.fromEntries(items.map((i)=>[i.codigo_canonico,{estado:'no_administrado',puntuacion:null,origen:null,observacion:''}])); }
-const sameRange=(a,b)=>a.rango_edad_min_meses===b.rango_edad_min_meses&&a.rango_edad_max_meses===b.rango_edad_max_meses;
 function groupBy(items, fn){ const m=new Map(); for (const item of items){ const k=fn(item); if(!m.has(k)) m.set(k,[]); m.get(k).push(item);} return m; }
+const ageKey=(item)=>`${item.rango_edad_min_meses}|${item.rango_edad_max_meses}`;
+function ageLevels(items){ return [...groupBy(items, ageKey).values()]; }
 
 export function detectBasal(items, observed) {
-  for (let i=0;i<items.length-1;i++) if (observed[items[i].codigo_canonico]?.puntuacion===2 && observed[items[i+1].codigo_canonico]?.puntuacion===2 && sameRange(items[i],items[i+1])) return {confirmado:true, inicio:items[i].codigo_canonico, fin:items[i+1].codigo_canonico, indice_fin:i+1, rango_edad:items[i].rango_edad};
-  return {confirmado:false};
+  const levels=ageLevels(items);
+  // The highest fully passed administered level is the useful basal: all lower,
+  // unadministered levels can then be derived without changing observations.
+  for (let levelIndex=levels.length-1;levelIndex>=0;levelIndex--) {
+    const level=levels[levelIndex];
+    if (level.every((item)=>observed[item.codigo_canonico]?.puntuacion===2)) {
+      const start=items.indexOf(level[0]); const end=items.indexOf(level.at(-1));
+      return {confirmado:true, inicio:level[0].codigo_canonico, fin:level.at(-1).codigo_canonico, indice_inicio:start, indice_fin:end, nivel_indice:levelIndex, rango_edad:level[0].rango_edad, sustentan:level.map((i)=>i.codigo_canonico)};
+    }
+  }
+  const attempted=[...levels].reverse().find((level)=>level.some((item)=>observed[item.codigo_canonico]));
+  const pendientes=attempted?.filter((item)=>!observed[item.codigo_canonico]).map((item)=>item.codigo_canonico) ?? [];
+  return {confirmado:false, rango_edad:attempted?.[0]?.rango_edad, pendientes};
 }
 
 export function detectCeiling(items, observed, basal=null) {
   const inconsistencias=[]; let provisional=false;
   for (let i=0;i<items.length-1;i++) {
     if (basal?.confirmado && i <= basal.indice_fin) continue;
-    if (observed[items[i].codigo_canonico]?.puntuacion===0 && observed[items[i+1].codigo_canonico]?.puntuacion===0 && sameRange(items[i],items[i+1])) {
+    if (observed[items[i].codigo_canonico]?.puntuacion===0 && observed[items[i+1].codigo_canonico]?.puntuacion===0) {
       provisional=!basal?.confirmado; if (provisional) inconsistencias.push({tipo:'techo_provisional', mensaje:'Techo detectado sin basal confirmado.'});
-      return {confirmado:true, inicio:items[i].codigo_canonico, fin:items[i+1].codigo_canonico, indice_inicio:i, rango_edad:items[i].rango_edad, provisional, inconsistencias};
+      return {confirmado:true, inicio:items[i].codigo_canonico, fin:items[i+1].codigo_canonico, indice_inicio:i, indice_fin:i+1, rango_edad:items[i].rango_edad, provisional, inconsistencias, sustentan:[items[i].codigo_canonico,items[i+1].codigo_canonico]};
     }
   }
   return {confirmado:false, inconsistencias};
@@ -46,11 +58,28 @@ export function deriveScores(items, responses = {}) {
   const inconsistencias=[]; const bySub = groupBy(items, (i)=>`${i.area}|${i.subarea}`); const limites={};
   for (const [key, subItems] of bySub) {
     const basal = detectBasal(subItems, observed); const techo = detectCeiling(subItems, observed, basal); limites[key]={basal, techo};
-    if (basal.confirmado) for (let i=0;i<basal.indice_fin-1;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:2,origen:'basal',observacion:''}; else if (observed[code].puntuacion<2) inconsistencias.push({tipo:'inconsistencia_basal', codigo:code, subarea:key, mensaje:'Respuesta observada anterior contradice el basal.'}); }
-    if (techo.confirmado) for (let i=techo.indice_inicio+2;i<subItems.length;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:0,origen:'techo',observacion:''}; else if (observed[code].puntuacion>0) inconsistencias.push({tipo:'inconsistencia_techo', codigo:code, subarea:key, mensaje:'Respuesta observada posterior contradice el techo.'}); }
+    if (basal.confirmado) for (let i=0;i<basal.indice_inicio;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:2,origen:'basal',observacion:''}; else if (observed[code].puntuacion<2) inconsistencias.push({tipo:'inconsistencia_basal', codigo:code, subarea:key, mensaje:'Respuesta observada anterior contradice el basal.'}); }
+    if (techo.confirmado && !techo.provisional) for (let i=techo.indice_fin+1;i<subItems.length;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:0,origen:'techo',observacion:''}; else if (observed[code].puntuacion>0) inconsistencias.push({tipo:'inconsistencia_techo', codigo:code, subarea:key, mensaje:'Respuesta observada posterior contradice el techo.'}); }
     inconsistencias.push(...(techo.inconsistencias??[]).map((w)=>({...w, subarea:key})));
   }
   return { respuestas_observadas: observed, respuestas_efectivas: effective, limites, inconsistencias, advertencias: [] };
+}
+
+export function administrationSummary(items, scoring) {
+  const observed=scoring.respuestas_observadas; const effective=scoring.respuestas_efectivas;
+  const basal=scoring.basal; const techo=scoring.techo;
+  const counts={observed:0,derivedByBasal:0,derivedByCeiling:0,pending:0};
+  for (const item of items) { const r=effective[item.codigo_canonico]; if(r?.origen==='observado') counts.observed++; else if(r?.origen==='basal') counts.derivedByBasal++; else if(r?.origen==='techo') counts.derivedByCeiling++; else counts.pending++; }
+  const inconsistencies=scoring.inconsistencias??[];
+  let status='sin iniciar'; let instruction='Comienza en el nivel de edad inicial recomendado.';
+  if(counts.observed) { status=basal.confirmado?'buscando techo':'buscando basal';
+    if(!basal.confirmado && basal.pendientes?.length) instruction=`Basal no confirmado. Completa los ítems ${basal.pendientes.join(' y ')} del nivel ${basal.rango_edad} meses.`;
+    else if(!basal.confirmado) instruction='Basal no establecido. Retrocede al nivel de edad anterior.';
+    else { const lastObserved=[...items].reverse().find((i)=>observed[i.codigo_canonico]); instruction=lastObserved && observed[lastObserved.codigo_canonico].puntuacion===0 ? 'Primer cero registrado. Administra el siguiente ítem para comprobar el techo.' : 'Continúa administrando en orden hasta obtener dos ceros consecutivos.'; }
+  }
+  if(techo.confirmado && !techo.provisional) { status='completa'; instruction='Techo confirmado.'; }
+  if(inconsistencies.length) status='requiere revisión';
+  return {status,instruction,counts,basal,techo};
 }
 
 export function calculateScaleScore(codes, effective, inconsistencias = []) {
@@ -80,7 +109,9 @@ export function scoreAssessment(items, model, responses = {}) {
     for (const [id, definition] of declaredSubareaEntries(model)) {
       const codes = itemCodesForSubarea(definition, items);
       const inconsistencias = deriv.inconsistencias.filter((w)=>w.subarea===definition.clave);
-      subareas[id]={...calculateScaleScore(codes, deriv.respuestas_efectivas, inconsistencias), codigos: codes, area: definition.area, subarea: definition.subarea, basal: deriv.limites[definition.clave]?.basal ?? {confirmado:false}, techo: deriv.limites[definition.clave]?.techo ?? {confirmado:false}, advertencias: []};
+      const basal=deriv.limites[definition.clave]?.basal ?? {confirmado:false}; const techo=deriv.limites[definition.clave]?.techo ?? {confirmado:false};
+      const base={...calculateScaleScore(codes, deriv.respuestas_efectivas, inconsistencias), codigos: codes, area: definition.area, subarea: definition.subarea, basal, techo, advertencias: []};
+      subareas[id]={...base, administracion:administrationSummary(codes.map((code)=>items.find((item)=>item.codigo_canonico===code)), {...base,respuestas_observadas:deriv.respuestas_observadas,respuestas_efectivas:deriv.respuestas_efectivas})};
     }
     const escalas=calculateAllScores(items, model, deriv.respuestas_efectivas, subareas);
     return {...deriv, subareas, escalas, evaluacion_completa:Object.values(escalas).every((s)=>s.completa), errores:[]};
