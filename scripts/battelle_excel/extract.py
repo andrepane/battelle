@@ -27,6 +27,19 @@ SPECIAL_EQUIVALENT_SCALE_IDS={
  'Comunicación receptiva':'comunicacion_receptiva',
  'Comunicación expresiva':'comunicacion_expresiva',
 }
+# La identidad normativa procede del archivo inventariado, no del nombre de la
+# hoja interna (varias hojas del original están desplazadas una posición).
+EQUIVALENT_AGE_SOURCES={
+ 'N-56_Edad_equivalente_Personal-Social.xlsx':('N-56','personal_social_total'),
+ 'N-57_Edad_equivalente_Adaptativa.xlsx':('N-57','adaptativa_total'),
+ 'N-58_Edad_equivalente_Motora-gruesa.xlsx':('N-58','motora_gruesa'),
+ 'N-59_Edad_equivalente_Motora.xlsx':('N-59','motora_total'),
+ 'N-60_Edad_equivalente_Comunicacion-receptiva.xlsx':('N-60','comunicacion_receptiva'),
+ 'N-61_Edad_equivalente_Comunicacion-expresiva.xlsx':('N-61','comunicacion_expresiva'),
+ 'N-62_Edad_equivalente_Comunicacion.xlsx':('N-62','comunicacion_total'),
+ 'N-63_Edad_equivalente_Cognitiva.xlsx':('N-63','cognitiva_total'),
+ 'N-65_Battelle_total_edad_equivalente.xlsx':('N-65','battelle_total'),
+}
 def escala_id(area, escala):
  if escala=='Puntuación total': return AREA_TOTAL_IDS.get(area)
  if not area and escala in AREA_TOTAL_IDS: return AREA_TOTAL_IDS[escala]
@@ -94,13 +107,19 @@ def conversiones():
 def edades():
  regs=[]; fuentes=[]
  for p in sorted((FUENTES/'edades_equivalentes').glob('*.xlsx'))+ [FUENTES/'conversiones_generales/N-65_Battelle_total_edad_equivalente.xlsx']:
+  if p.name not in EQUIVALENT_AGE_SOURCES: raise ValueError(f'Fuente de edad equivalente no inventariada: {p.name}')
+  canonical_table,canonical_scale=EQUIVALENT_AGE_SOURCES[p.name]
   fuentes.append({'archivo':str(p.relative_to(ROOT)),'sha256':sha256_file(p)})
   for sh in read_workbook(p):
    if sh['name']=='metadatos': continue
    h,rs=rowmap(sh['rows'])
    for r in rs:
     escala_nombre=val(r,h,'area') or val(r,h,'ambito') or 'Battelle total'
-    regs.append({'tabla':val(r,h,'tabla') or sh['name'],'escala_id':escala_id('', escala_nombre) if escala_nombre!='Battelle total' else 'battelle_total','escala':escala_nombre,'pd_texto_original':val(r,h,'pd_original') or val(r,h,'pd_total_original'),'pd_min':as_int(val(r,h,'pd_min') or val(r,h,'pd_total_min')),'pd_max':as_int(val(r,h,'pd_max') or val(r,h,'pd_total_max')),'limite_superior_abierto':str(val(r,h,'pd_limite_superior_abierto'))=='1','edad_equivalente_texto':val(r,h,'edad_equivalente_original'),'edad_equivalente_min_meses':as_int(val(r,h,'edad_equivalente_min_meses')),'edad_equivalente_max_meses':as_int(val(r,h,'edad_equivalente_max_meses')),'edad_limite_superior_abierto':str(val(r,h,'edad_limite_superior_abierto'))=='1','fuente':source(p,sh['name'],r['row'])})
+    sid=escala_id('', escala_nombre) if escala_nombre!='Battelle total' else 'battelle_total'
+    # N-58 contiene además una hoja rotulada Motora fina, pero no existe un
+    # archivo normativo independiente que la valide: nunca se publica.
+    if sid!=canonical_scale: continue
+    regs.append({'tabla':canonical_table,'escala_id':canonical_scale,'escala':escala_nombre,'pd_texto_original':val(r,h,'pd_original') or val(r,h,'pd_total_original'),'pd_min':as_int(val(r,h,'pd_min') or val(r,h,'pd_total_min')),'pd_max':as_int(val(r,h,'pd_max') or val(r,h,'pd_total_max')),'limite_superior_abierto':str(val(r,h,'pd_limite_superior_abierto'))=='1','edad_equivalente_texto':val(r,h,'edad_equivalente_original'),'edad_equivalente_min_meses':as_int(val(r,h,'edad_equivalente_min_meses')),'edad_equivalente_max_meses':as_int(val(r,h,'edad_equivalente_max_meses')),'edad_limite_superior_abierto':str(val(r,h,'edad_limite_superior_abierto'))=='1','fuente':source(p,sh['name'],r['row'])})
  excepciones=[{'tabla':'N-56','escala_id':'personal_social_total','escala':'Personal-Social','pd':51,'estado':'pd_no_alcanzable_confirmada','motivo':'La fuente oficial pasa de PD 48-50 a PD 52-53; PD 51 no es alcanzable según la composición real de la escala.','fuente':{'archivo':'fuentes/edades_equivalentes/N-56_Edad_equivalente_Personal-Social.xlsx','sha256':sha256_file(FUENTES/'edades_equivalentes/N-56_Edad_equivalente_Personal-Social.xlsx'),'hoja':'N-56','filas_vecinas':[21,22]}}]
  obj=with_meta(regs,fuentes,sorted(set(r['tabla'] for r in regs)))
  obj['excepciones_dominio']=excepciones

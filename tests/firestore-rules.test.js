@@ -32,6 +32,9 @@ function baseAssessment(overrides = {}){
     updatedBy: AUTHORIZED,
     revision: 1,
     workflowStatus: 'borrador',
+    deletedAt: null,
+    deletedBy: null,
+    deletionRevision: null,
     ...overrides
   };
 }
@@ -121,7 +124,21 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   assert.equal(updatedByOther.data().createdBy,AUTHORIZED);
   assert.equal(updatedByOther.data().updatedBy,OTHER);
   await assertFails(deleteDoc(doc(deniedDb, 'organizations/neurointegra/assessments/bat-rules-1')));
+  await assertFails(deleteDoc(otherAssessmentRef)); // activo: borrado físico prohibido
+  const active=updatedByOther.data();
+  await assertFails(setDoc(otherAssessmentRef,{...active,revision:3,updatedAt:serverTimestamp(),updatedBy:OTHER,deletedAt:Timestamp.fromDate(new Date('2026-01-01')),deletedBy:OTHER,deletionRevision:3}));
+  await assertFails(setDoc(doc(deniedDb,'organizations/neurointegra/assessments/bat-rules-1'),{...active,revision:3,updatedAt:serverTimestamp(),updatedBy:DENIED,deletedAt:serverTimestamp(),deletedBy:DENIED,deletionRevision:3}));
+  await assertSucceeds(setDoc(otherAssessmentRef,{...active,revision:3,updatedAt:serverTimestamp(),updatedBy:OTHER,deletedAt:serverTimestamp(),deletedBy:OTHER,deletionRevision:3}));
+  const trashed=(await getDoc(otherAssessmentRef)).data(); assert.equal(trashed.revision,3);assert.equal(trashed.deletedBy,OTHER);assert.ok(trashed.deletedAt instanceof Timestamp);
+  await assertFails(setDoc(otherAssessmentRef,{...trashed,revision:5,updatedAt:serverTimestamp(),updatedBy:OTHER,deletedAt:null,deletedBy:null,deletionRevision:null}));
+  await assertSucceeds(setDoc(otherAssessmentRef,{...trashed,revision:4,updatedAt:serverTimestamp(),updatedBy:OTHER,deletedAt:null,deletedBy:null,deletionRevision:null}));
+  const restored=(await getDoc(otherAssessmentRef)).data();assert.equal(restored.revision,4);assert.equal(restored.deletedAt,null);
+  await assertSucceeds(setDoc(otherAssessmentRef,{...restored,revision:5,updatedAt:serverTimestamp(),updatedBy:OTHER,deletedAt:serverTimestamp(),deletedBy:OTHER,deletionRevision:5}));
   await assertSucceeds(deleteDoc(otherAssessmentRef));
+
+  // Documento heredado sin campos de papelera: sigue siendo legible y se puede actualizar.
+  await env.withSecurityRulesDisabled(async ctx=>{const legacy=baseAssessment({id:'legacy-1'});delete legacy.deletedAt;delete legacy.deletedBy;delete legacy.deletionRevision;await setDoc(doc(ctx.firestore(),'organizations/neurointegra/assessments/legacy-1'),{...legacy,createdAt:Timestamp.now(),updatedAt:Timestamp.now()});});
+  const legacyRef=doc(authedDb,'organizations/neurointegra/assessments/legacy-1');assert.equal((await getDoc(legacyRef)).exists(),true);
 });
 
 test('firestore.rules contiene validaciones cerradas exigidas', ()=>{
@@ -131,4 +148,11 @@ test('firestore.rules contiene validaciones cerradas exigidas', ()=>{
   assert.match(rules,/request\.resource\.data\.revision == resource\.data\.revision \+ 1/);
   assert.match(rules,/request\.resource\.data\.createdAt == resource\.data\.createdAt/);
   assert.match(rules,/request\.resource\.data\.updatedAt == request\.time/);
+});
+
+test('reglas exigen papelera antes de borrado físico y campos de servidor',()=>{
+  assert.match(rules,/resource\.data\.deletedAt != null/);
+  assert.match(rules,/request\.resource\.data\.deletedAt == request\.time/);
+  assert.match(rules,/request\.resource\.data\.deletedBy == request\.auth\.uid/);
+  assert.match(rules,/deletionRevision == request\.resource\.data\.revision/);
 });

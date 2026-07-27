@@ -10,7 +10,7 @@ service cloud.firestore {
         && authDoc().data.organizationId == 'neurointegra';
     }
     function assessmentFields() {
-      return ['id','schemaVersion','name','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy'];
+      return ['id','schemaVersion','name','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy','deletedAt','deletedBy','deletionRevision'];
     }
     function validWorkflowStatus() {
       return request.resource.data.workflowStatus in ['borrador','pendiente_completar','correccion_bloqueada','corregida','resultado_desactualizado'];
@@ -34,6 +34,7 @@ service cloud.firestore {
         && request.resource.data.progress is map
         && request.resource.data.createdAt is timestamp
         && request.resource.data.updatedAt == request.time
+        && ((request.resource.data.deletedAt == null && request.resource.data.deletedBy == null && request.resource.data.deletionRevision == null) || (request.resource.data.deletedAt == request.time && request.resource.data.deletedBy == request.auth.uid && request.resource.data.deletionRevision == request.resource.data.revision))
         && validWorkflowStatus();
     }
     function validAssessmentCreate(assessmentId) {
@@ -56,7 +57,7 @@ service cloud.firestore {
       allow read: if authorizedNeurointegra();
       allow create: if authorizedNeurointegra() && validAssessmentCreate(assessmentId);
       allow update: if authorizedNeurointegra() && validAssessmentUpdate(assessmentId);
-      allow delete: if authorizedNeurointegra();
+      allow delete: if authorizedNeurointegra() && resource.data.deletedAt != null;
     }
     match /{document=**} { allow read, write: if false; }
   }
