@@ -22,6 +22,22 @@ test('integración real: corrección completa con los 341 ítems y baremos reale
   assert(result.results.totalCentile.source?.archivo); assert(result.results.generalConversion.source?.archivo); assert(result.results.normative.id.startsWith('norm-'));
 });
 
+test('integración real: una subárea con puntuación cero y sin basal no bloquea la corrección', async()=>{
+  const [items, model] = await Promise.all([loadAndNormalizeItems(), loadScaleModel()]);
+  const assessment=makeAssessment(items,1,37);
+  for(const item of items.filter((item)=>item.area==='Personal/Social'&&item.subarea==='Interacción con el adulto')) delete assessment.observedResponses[item.codigo_canonico];
+  assessment.observedResponses.PS1=0;
+  assessment.observedResponses.PS2=0;
+  const result=runCorrection({assessment,items,model,normativeData,scoreAssessment});
+  const subarea=result.results?.subareas.personal_social_interaccion_con_el_adulto;
+  assert.equal(result.ok,true);
+  assert.equal(result.status,'corregida');
+  assert.equal(subarea.basal.confirmado,false);
+  assert.equal(subarea.basal.agotado,true);
+  assert.equal(subarea.pd,0);
+  assert.equal(subarea.counts.derivedByCeiling,subarea.codigos.length-2);
+});
+
 test('end-to-end esperado desde filas reales independientes del algoritmo', async()=>{
   const [items, model] = await Promise.all([loadAndNormalizeItems(), loadScaleModel()]);
   const scoring=scoreAssessment(items, model, makeAssessment(items,1,37).observedResponses);
