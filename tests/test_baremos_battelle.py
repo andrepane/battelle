@@ -1,4 +1,4 @@
-import json, unittest, subprocess, hashlib
+import json, unittest, subprocess, hashlib, tempfile, os
 from pathlib import Path
 import sys
 ROOT=Path(__file__).resolve().parents[1]
@@ -11,11 +11,13 @@ from battelle_excel.query import buscar_edad_equivalente
 class BaremosBattelleTest(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
-  subprocess.run([sys.executable,'scripts/generar_baremos_battelle.py'],cwd=ROOT,check=True)
-  cls.pct=json.loads((ROOT/'data/percentiles_battelle.json').read_text(encoding='utf-8'))
-  cls.pc=json.loads((ROOT/'data/conversion_pc_general.json').read_text(encoding='utf-8'))
-  cls.total=json.loads((ROOT/'data/conversion_total_battelle.json').read_text(encoding='utf-8'))
-  cls.ed=json.loads((ROOT/'data/edades_equivalentes.json').read_text(encoding='utf-8'))
+  cls.tmp=tempfile.TemporaryDirectory(); cls.addClassCleanup(cls.tmp.cleanup)
+  cls.generated=Path(cls.tmp.name); env={**os.environ,'BATTELLE_OUTPUT_DIR':str(cls.generated),'BATTELLE_GENERATION_DATE':'2000-01-01'}
+  subprocess.run([sys.executable,'scripts/generar_baremos_battelle.py'],cwd=ROOT,check=True,env=env)
+  cls.pct=json.loads((cls.generated/'percentiles_battelle.json').read_text(encoding='utf-8'))
+  cls.pc=json.loads((cls.generated/'conversion_pc_general.json').read_text(encoding='utf-8'))
+  cls.total=json.loads((cls.generated/'conversion_total_battelle.json').read_text(encoding='utf-8'))
+  cls.ed=json.loads((cls.generated/'edades_equivalentes.json').read_text(encoding='utf-8'))
  def test_lectura_real_xlsx(self):
   sheets=read_workbook(ROOT/'fuentes/conversiones_generales/N-1_conversion_PC_z_T_CI_ECN.xlsx')
   self.assertEqual(sheets[0]['name'],'N-1'); self.assertGreater(len(sheets[0]['rows']),90)
@@ -50,9 +52,10 @@ class BaremosBattelleTest(unittest.TestCase):
  def test_determinismo_canonico(self):
   def canon(path):
    o=json.loads(path.read_text(encoding='utf-8')); o.pop('fecha_generacion',None); return json.dumps(o,sort_keys=True)
-  before={p.name:canon(p) for p in (ROOT/'data').glob('*battelle*.json')}
-  subprocess.run([sys.executable,'scripts/generar_baremos_battelle.py'],cwd=ROOT,check=True)
-  after={p.name:canon(p) for p in (ROOT/'data').glob('*battelle*.json')}
+  before={p.name:canon(p) for p in self.generated.glob('*.json')}
+  env={**os.environ,'BATTELLE_OUTPUT_DIR':str(self.generated),'BATTELLE_GENERATION_DATE':'2000-01-01'}
+  subprocess.run([sys.executable,'scripts/generar_baremos_battelle.py'],cwd=ROOT,check=True,env=env)
+  after={p.name:canon(p) for p in self.generated.glob('*.json')}
   self.assertEqual(before,after)
 
 if __name__=='__main__': unittest.main()
