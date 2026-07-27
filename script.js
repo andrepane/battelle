@@ -265,7 +265,34 @@ async function renderHome(preloaded=null){
   $('assessmentCount').textContent=`${filtered.length} de ${records.length} ${state.trashMode?'eliminadas':'evaluaciones'}`; $('createFirstBtn').classList.toggle('hidden',state.trashMode||active.length!==0);
   const host=$('assessmentsList'); if(!filtered.length){host.replaceChildren(el('p',{class:'empty-state'},state.trashMode?'La papelera está vacía.':'No hay evaluaciones guardadas todavía.'));return;}
   const labels={borrador:'Borrador',pendiente_completar:'Pendiente de completar',correccion_bloqueada:'Corrección bloqueada',corregida:'Corregida',resultado_desactualizado:'Resultado desactualizado'};
-  const rows=filtered.map(r=>state.trashMode?el('tr',{},td(patientLabel(r.name)),td(displayDate(r.assessmentDate)),td(labels[r.workflowStatus]||r.workflowStatus),td(new Date(r.deletedAt).toLocaleString('es-ES')),td(r.deletedBy||'Usuario autenticado'),el('td',{class:'actions'},el('button',{class:'secondary-button restore-assessment',dataset:{id:r.id}},'Restaurar'),el('button',{class:'danger-button purge-assessment',dataset:{id:r.id}},'Eliminar definitivamente'))):el('tr',{},td(patientLabel(r.name)),td(displayDate(r.birthDate)),td(displayDate(r.assessmentDate)),td(formatAge(r.ageMonths)),el('td',{},el('span',{class:'status-pill'},labels[r.workflowStatus]||r.workflowStatus)),td(r.progress?.label||''),td(new Date(r.updatedAt).toLocaleString('es-ES')),el('td',{class:'actions'},el('button',{class:'secondary-button open-assessment',dataset:{id:r.id}},'Abrir'),el('button',{class:'danger-button delete-assessment',dataset:{id:r.id}},'Eliminar')));
+  let rows;
+  if(state.trashMode){
+    rows=filtered.map(r=>el('tr',{},
+      td(patientLabel(r.name)),
+      td(displayDate(r.assessmentDate)),
+      td(labels[r.workflowStatus]||r.workflowStatus),
+      td(new Date(r.deletedAt).toLocaleString('es-ES')),
+      td(r.deletedBy||'Usuario autenticado'),
+      el('td',{class:'actions'},
+        el('button',{class:'secondary-button restore-assessment',dataset:{id:r.id}},'Restaurar'),
+        el('button',{class:'danger-button purge-assessment',dataset:{id:r.id}},'Eliminar definitivamente')
+      )
+    ));
+  }else{
+    rows=filtered.map(r=>el('tr',{},
+      td(patientLabel(r.name)),
+      td(displayDate(r.birthDate)),
+      td(displayDate(r.assessmentDate)),
+      td(formatAge(r.ageMonths)),
+      el('td',{},el('span',{class:'status-pill'},labels[r.workflowStatus]||r.workflowStatus)),
+      td(r.progress?.label||''),
+      td(new Date(r.updatedAt).toLocaleString('es-ES')),
+      el('td',{class:'actions'},
+        el('button',{class:'secondary-button open-assessment',dataset:{id:r.id}},'Abrir'),
+        el('button',{class:'danger-button delete-assessment',dataset:{id:r.id}},'Eliminar')
+      )
+    ));
+  }
   host.replaceChildren(renderTable(state.trashMode?['Paciente','Evaluación','Estado anterior','Eliminada','Usuario','Acciones']:['Paciente','Nacimiento','Evaluación','Edad cronológica','Estado','Progreso','Última modificación','Acciones'],rows,'assessments-table'));
 }
 async function removeAssessment(id){ const rec=await state.repository.getAssessment(id); if(!rec) return; const ok=confirm(`Eliminar ${patientLabel(rec.name)} · evaluación ${displayDate(rec.assessmentDate)}. La evaluación se moverá a la papelera y podrá restaurarse.`); if(!ok) return; try{ await state.repository.deleteAssessment(id, rec.revision); $('saveStatus').textContent='Evaluación eliminada.'; }catch(err){ $('saveStatus').textContent=err.code===COLLECTION_ERROR.CONFLICT?'Conflicto: la evaluación cambió antes de eliminar.':'Error al eliminar.'; } await renderHome(); }

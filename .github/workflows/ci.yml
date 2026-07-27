@@ -25,6 +25,8 @@ jobs:
           java-version: '21'
       - name: Install exact npm dependencies
         run: npm ci
+      - name: Check JavaScript syntax
+        run: npm run check:syntax
       - name: JavaScript tests
         run: npm test
       - name: Python tests
