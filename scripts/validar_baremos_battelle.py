@@ -38,9 +38,9 @@ def main():
  r50=next((r for r in pc['registros'] if r['pc']==50),{})
  if not (r50.get('z')==0 and r50.get('T')==50 and r50.get('CI')==100 and r50.get('ECN')==50): errs.append('N-1 PC 50 incorrecto')
  if {r.get('escala_id') for r in total['registros']}!={'battelle_total'}: errs.append('N-2 no es exclusivamente Battelle total')
- if set(ed['tablas_incluidas'])!={'N-56','N-57','N-58','N-59','N-60','N-61','N-62','N-63','N-65'}: errs.append('Edades equivalentes no contienen exactamente N-56..N-63 y N-65')
- if len(ed['registros'])!=663: errs.append(f'edades equivalentes debe tener 663 registros normativos, tiene {len(ed["registros"])}')
- expected_ed={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_total','N-60':'comunicacion_receptiva','N-61':'comunicacion_expresiva','N-62':'comunicacion_total','N-63':'cognitiva_total','N-65':'battelle_total'}
+ if set(ed['tablas_incluidas'])!={'N-56','N-57','N-58','N-59','N-60','N-61','N-62','N-63','N-64','N-65'}: errs.append('Edades equivalentes no contienen exactamente N-56..N-65')
+ if len(ed['registros'])!=732: errs.append(f'edades equivalentes debe tener 732 registros normativos, tiene {len(ed["registros"])}')
+ expected_ed={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_fina','N-60':'motora_total','N-61':'comunicacion_receptiva','N-62':'comunicacion_expresiva','N-63':'comunicacion_total','N-64':'cognitiva_total','N-65':'battelle_total'}
  for r in ed['registros']:
   sid=r.get('escala_id')
   if not sid or str(sid).startswith('_') or sid not in ids: errs.append(f'escala_id de edad equivalente no reconocida {sid}')
