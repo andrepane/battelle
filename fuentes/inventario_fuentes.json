@@ -159,12 +159,43 @@
     "duplicado_exactos": []
   },
   {
-    "nombre_original": "Battelle_Tablas_de_correccion-47_edades_equivalentes.xlsx",
-    "nombre_final": "N-59_Edad_equivalente_Motora.xlsx",
-    "SHA-256": "260f710ff9421689f211d538626c2eee2bebc3373940cbeb1ed10540452d1533",
+    "nombre_original": "Tabla_edades_equivalente_motorafina.xlsx",
+    "nombre_final": "N-59_Edad_equivalente_Motora-fina.xlsx",
+    "SHA-256": "690df99a516ce19b774cd972e046fc6cae363cea25e77ada5d50f9638aacc0ae",
     "tabla": "N-59",
     "categoria": "edades_equivalentes_por_escala",
-    "destino": "fuentes/edades_equivalentes/N-59_Edad_equivalente_Motora.xlsx",
+    "destino": "fuentes/edades_equivalentes/N-59_Edad_equivalente_Motora-fina.xlsx",
+    "hojas": [
+      {
+        "nombre": "Hoja1",
+        "encabezados": [
+          "tabla",
+          "area",
+          "pd_original",
+          "pd_min",
+          "pd_max",
+          "pd_limite_superior_abierto",
+          "edad_equivalente_original",
+          "edad_equivalente_min_meses",
+          "edad_equivalente_max_meses",
+          "edad_limite_superior_abierto",
+          "puntuacion_maxima",
+          "fuente"
+        ],
+        "registros": 69
+      }
+    ],
+    "registros": 69,
+    "estado": "inventariado_sin_modificar; sha_verificado; nombre_normalizado",
+    "duplicado_exactos": []
+  },
+  {
+    "nombre_original": "Battelle_Tablas_de_correccion-47_edades_equivalentes.xlsx",
+    "nombre_final": "N-60_Edad_equivalente_Motora.xlsx",
+    "SHA-256": "260f710ff9421689f211d538626c2eee2bebc3373940cbeb1ed10540452d1533",
+    "tabla": "N-60",
+    "categoria": "edades_equivalentes_por_escala",
+    "destino": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Motora.xlsx",
     "hojas": [
       {
         "nombre": "N-60",
@@ -199,11 +230,11 @@
   },
   {
     "nombre_original": "Battelle_Tablas_de_correccion-48_edades_equivalentes.xlsx",
-    "nombre_final": "N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
+    "nombre_final": "N-61_Edad_equivalente_Comunicacion-receptiva.xlsx",
     "SHA-256": "57b1da83d2b83f0f31627d56e4571f647b951064b025f740750778322ef9eb81",
-    "tabla": "N-60",
+    "tabla": "N-61",
     "categoria": "edades_equivalentes_por_escala",
-    "destino": "fuentes/edades_equivalentes/N-60_Edad_equivalente_Comunicacion-receptiva.xlsx",
+    "destino": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-receptiva.xlsx",
     "hojas": [
       {
         "nombre": "N-61",
@@ -238,11 +269,11 @@
   },
   {
     "nombre_original": "Battelle_Tablas_de_correccion-49_edades_equivalentes.xlsx",
-    "nombre_final": "N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
+    "nombre_final": "N-62_Edad_equivalente_Comunicacion-expresiva.xlsx",
     "SHA-256": "77b74c20a2d6260f3673a30c202825d7c3d99988d99ffa8f1da5ed30b323a7a2",
-    "tabla": "N-61",
+    "tabla": "N-62",
     "categoria": "edades_equivalentes_por_escala",
-    "destino": "fuentes/edades_equivalentes/N-61_Edad_equivalente_Comunicacion-expresiva.xlsx",
+    "destino": "fuentes/edades_equivalentes/N-62_Edad_equivalente_Comunicacion-expresiva.xlsx",
     "hojas": [
       {
         "nombre": "N-62",
@@ -277,11 +308,11 @@
   },
   {
     "nombre_original": "Battelle_Tablas_de_correccion-50_edades_equivalentes.xlsx",
-    "nombre_final": "N-62_Edad_equivalente_Comunicacion.xlsx",
+    "nombre_final": "N-63_Edad_equivalente_Comunicacion.xlsx",
     "SHA-256": "a5a79ce3d76f006b5fc05280b6864b1dd93263f9dac0aad7c534bb4b3d9630e1",
-    "tabla": "N-62",
+    "tabla": "N-63",
     "categoria": "edades_equivalentes_por_escala",
-    "destino": "fuentes/edades_equivalentes/N-62_Edad_equivalente_Comunicacion.xlsx",
+    "destino": "fuentes/edades_equivalentes/N-63_Edad_equivalente_Comunicacion.xlsx",
     "hojas": [
       {
         "nombre": "N-63",
@@ -316,11 +347,11 @@
   },
   {
     "nombre_original": "Battelle_Tablas_de_correccion-51_edades_equivalentes.xlsx",
-    "nombre_final": "N-63_Edad_equivalente_Cognitiva.xlsx",
+    "nombre_final": "N-64_Edad_equivalente_Cognitiva.xlsx",
     "SHA-256": "b05afecf88b18363ceed3fb9bb0c32ca39b6b51fe39141e3170461b501de209f",
-    "tabla": "N-63",
+    "tabla": "N-64",
     "categoria": "edades_equivalentes_por_escala",
-    "destino": "fuentes/edades_equivalentes/N-63_Edad_equivalente_Cognitiva.xlsx",
+    "destino": "fuentes/edades_equivalentes/N-64_Edad_equivalente_Cognitiva.xlsx",
     "hojas": [
       {
         "nombre": "N-64",

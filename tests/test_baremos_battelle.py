@@ -32,11 +32,11 @@ class BaremosBattelleTest(unittest.TestCase):
   m=maximos_teoricos(); self.assertEqual(m['Battelle total'],682); self.assertEqual(m['Personal/Social'],170)
  def test_separacion_familias_y_conocidos(self):
   self.assertEqual(set(self.pc['tablas_incluidas']),{'N-1'}); self.assertEqual(set(self.total['tablas_incluidas']),{'N-2'})
-  self.assertEqual(set(self.ed['tablas_incluidas']),{'N-56','N-57','N-58','N-59','N-60','N-61','N-62','N-63','N-65'})
-  self.assertEqual(len(self.ed['registros']),663)
+  self.assertEqual(set(self.ed['tablas_incluidas']),{'N-56','N-57','N-58','N-59','N-60','N-61','N-62','N-63','N-64','N-65'})
+  self.assertEqual(len(self.ed['registros']),732)
   self.assertEqual(len(self.ed.get('excepciones_dominio',[])),1)
   self.assertTrue(all('escala_id' in r for r in self.pct['registros']))
-  expected={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_total','N-60':'comunicacion_receptiva','N-61':'comunicacion_expresiva','N-62':'comunicacion_total','N-63':'cognitiva_total','N-65':'battelle_total'}
+  expected={'N-56':'personal_social_total','N-57':'adaptativa_total','N-58':'motora_gruesa','N-59':'motora_fina','N-60':'motora_total','N-61':'comunicacion_receptiva','N-62':'comunicacion_expresiva','N-63':'comunicacion_total','N-64':'cognitiva_total','N-65':'battelle_total'}
   for tabla, escala_id in expected.items():
    self.assertEqual({r['escala_id'] for r in self.ed['registros'] if r['tabla']==tabla},{escala_id})
   self.assertFalse(any(r['escala_id'].startswith('_') for r in self.ed['registros']))
@@ -44,7 +44,18 @@ class BaremosBattelleTest(unittest.TestCase):
   expected_files['N-65']='fuentes/conversiones_generales/N-65_'
   for tabla,prefix in expected_files.items():
    self.assertTrue(all(r['fuente']['archivo'].startswith(prefix) for r in self.ed['registros'] if r['tabla']==tabla),tabla)
-  self.assertFalse(any('Motora-fina' in r['fuente']['archivo'] or r['escala_id']=='motora_fina' for r in self.ed['registros']))
+  fine=[r for r in self.ed['registros'] if r['escala_id']=='motora_fina']
+  self.assertEqual(len(fine),69)
+  self.assertTrue(all(r['tabla']=='N-59' and r['fuente']['archivo']=='fuentes/edades_equivalentes/N-59_Edad_equivalente_Motora-fina.xlsx' for r in fine))
+  for pd,text,months in [(0,'0',0),(41,'37',37),(75,'90-95',90)]:
+   hit=buscar_edad_equivalente(self.ed,'N-59','motora_fina',pd)
+   self.assertEqual(hit['estado'],'ok'); self.assertEqual(hit['registro']['edad_equivalente_texto'],text); self.assertEqual(hit['registro']['edad_equivalente_min_meses'],months)
+  inventory=json.loads((ROOT/'fuentes/inventario_fuentes.json').read_text(encoding='utf-8'))
+  item=next(e for e in inventory if e['tabla']=='N-59' and e['categoria']=='edades_equivalentes_por_escala')
+  self.assertEqual(item['nombre_final'],'N-59_Edad_equivalente_Motora-fina.xlsx'); self.assertEqual(item['destino'],'fuentes/edades_equivalentes/N-59_Edad_equivalente_Motora-fina.xlsx')
+  from battelle_excel.extract import EQUIVALENT_AGE_SOURCES
+  self.assertEqual(EQUIVALENT_AGE_SOURCES[item['nombre_final']],('N-59','motora_fina'))
+  self.assertNotEqual(EQUIVALENT_AGE_SOURCES[item['nombre_final']][1],'motora_gruesa')
   r50=next(r for r in self.pc['registros'] if r['pc']==50); self.assertEqual((r50['z'],r50['T'],r50['CI'],r50['ECN']),(0,50,100,50))
   for pd,mes in [(386,37),(421,41),(436,43),(464,47),(537,57),(562,60)]:
    r=next(r for r in self.ed['registros'] if r.get('tabla')=='N-65' and r.get('pd_min') is not None and r['pd_min']<=pd<=r['pd_max'])
