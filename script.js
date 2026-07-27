@@ -13,7 +13,7 @@ import { VIEW_MODE, applyCorrectionResult, workflowFromEvaluationStatus, workflo
 import { createSaveCoordinator, guardBeforeLeaving } from './src/battelle-save-coordinator.js';
 
 const $ = (id) => document.getElementById(id);
-const state = { ready:false, items:[], model:null, normativeData:null, normativeValidation:null, assessment:null, score:null, correction:null, evaluationStatus:'administrando', activeArea:'Personal/Social', assessments:[], view:'home', viewMode:VIEW_MODE.ADMINISTRATION, saveTimer:null, saveCoordinator:null, lastSavedAt:null, openedRevision:null, storageError:null, user:null, initializingUid:null, authorizationPromise:null, repository:null, unsubscribeAssessments:null, unsubscribeAssessment:null, remoteConflict:null };
+const state = { ready:false, items:[], model:null, normativeData:null, normativeValidation:null, assessment:null, score:null, correction:null, evaluationStatus:'administrando', activeArea:'Personal/Social', assessments:[], view:'home', viewMode:VIEW_MODE.ADMINISTRATION, saveTimer:null, saveCoordinator:null, lastSavedAt:null, openedRevision:null, storageError:null, user:null, initializingUid:null, authorizationPromise:null, repository:null, unsubscribeAssessments:null, unsubscribeAssessment:null, remoteConflict:null, remoteDeleted:false };
 const scaleOrder = ['personal_social_total','adaptativa_total','motora_gruesa','motora_fina','motora_total','comunicacion_receptiva','comunicacion_expresiva','comunicacion_total','cognitiva_total','battelle_total'];
 const areas = ['Personal/Social','Adaptativa','Motora','Comunicación','Cognitiva'];
 function el(tag, attrs={}, ...children){ const n=document.createElement(tag); for(const [k,v] of Object.entries(attrs)){ if(k==='class') n.className=v; else if(k.startsWith('aria')) n.setAttribute(k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()), v); else if(k==='dataset') Object.assign(n.dataset,v); else if(k==='for') n.htmlFor=v; else n[k]=v; } for(const c of children) n.append(c?.nodeType?c:document.createTextNode(String(c))); return n; }
@@ -37,28 +37,34 @@ async function subscribeRemoteList(){
   state.unsubscribeAssessments=await state.repository.subscribeAssessments((records,meta={})=>{ if(records){ state.assessments=records; if(state.view==='home') renderHome(records); if(meta.hasPendingWrites) $('saveStatus').textContent='Guardando…'; } else { state.storageError=meta.error; updateConnectionStatus(); } });
 }
 async function subscribeOpenAssessment(id){
-  if(state.unsubscribeAssessment){
-    state.unsubscribeAssessment();
-  }
-
-  state.unsubscribeAssessment = await state.repository.subscribeAssessment(
-    id,
-    (remote, meta = {}) => {
-      if(!state.assessment) return;
-      if(state.assessment.id !== id) return;
-      if(!remote) return;
-
-      // No considerar como externos los cambios que este dispositivo
-      // todavía está enviando a Firebase.
-      if(meta.hasPendingWrites) return;
-
-      // Una revisión igual o anterior ya es conocida por este dispositivo.
-      if(remote.revision <= state.openedRevision) return;
-
-      state.remoteConflict = remote;
-      $('conflictNotice').classList.remove('hidden');
+  if(state.unsubscribeAssessment){ state.unsubscribeAssessment(); state.unsubscribeAssessment=null; }
+  let documentWasSeen=false;
+  const repository=state.repository;
+  state.unsubscribeAssessment=await repository.subscribeAssessment(id,(remote,meta={})=>{
+    if(state.repository!==repository || state.assessment?.id!==id) return;
+    if(meta.error){ state.storageError=meta.error; updateConnectionStatus(); return; }
+    if(meta.hasPendingWrites) return;
+    if(remote){
+      documentWasSeen=true;
+      if(remote.revision>(state.openedRevision ?? 0)){
+        state.remoteConflict=remote;
+        $('conflictNotice').querySelector('p').textContent='Esta evaluación fue modificada en otro dispositivo. No se sobrescribirán cambios locales pendientes.';
+        $('reloadRemoteBtn').classList.remove('hidden');
+        $('keepLocalBtn').classList.remove('hidden');
+        $('conflictNotice').classList.remove('hidden');
+      }
+      return;
     }
-  );
+    if(!documentWasSeen) return;
+    state.remoteDeleted=true;
+    state.saveCoordinator?.cancel();
+    state.remoteConflict=null;
+    $('conflictNotice').querySelector('p').textContent='Esta evaluación ha sido eliminada desde otro dispositivo. Los cambios locales se han detenido y no volverán a crearla.';
+    $('reloadRemoteBtn').classList.add('hidden');
+    $('keepLocalBtn').classList.add('hidden');
+    $('conflictNotice').classList.remove('hidden');
+    $('saveStatus').textContent='Evaluación eliminada remotamente.';
+  });
 }
 function showLogin(){ $('loginView').classList.remove('hidden'); $('appShell').classList.add('hidden'); updateConnectionStatus(); }
 function showApp(){ $('loginView').classList.add('hidden'); $('appShell').classList.remove('hidden'); updateConnectionStatus(); }
@@ -94,10 +100,23 @@ async function initDataOnce(){
 function currentAge(){ if (!state.assessment) return null; if (state.assessment.manualAgeOverride) return state.assessment.ageMonths; const r=calculateAgeMonths(state.assessment.birthDate,state.assessment.assessmentDate); return r.ok ? r.months : null; }
 function updateAge(){ const a=state.assessment; const r=calculateAgeMonths(a.birthDate,a.assessmentDate); if(!a.manualAgeOverride) a.ageMonths=r.ok?r.months:null; const manualInvalid=a.manualAgeOverride && !Number.isInteger(a.ageMonths); const band=ageBandForMonths(a.ageMonths); const msg=manualInvalid?'La anulación manual de edad está vacía o fuera de 0–95 meses.':(r.ok||a.manualAgeOverride ? `${formatAge(a.ageMonths)} · tramo ${band?.label ?? 'fuera de baremo'}` : r.message); setText('ageBandLabel', msg); $('ageMonths').value = a.ageMonths ?? ''; return !manualInvalid && (a.manualAgeOverride ? Number.isInteger(a.ageMonths) : r.ok); }
 function snapshotAssessment(){ state.assessment.workflowStatus=toRecordStatus(); return createAssessmentRecord(state.assessment); }
-function ensureSaveCoordinator(){ if(state.saveCoordinator) return state.saveCoordinator; state.saveCoordinator=createSaveCoordinator({ saveSnapshot:(snapshot)=>state.repository.saveAssessment(snapshot, state.openedRevision), applySaved:(saved)=>{ if(state.assessment?.id===saved.id){ state.assessment={...saved, ...state.assessment, updatedAt:saved.updatedAt, revision:saved.revision}; state.openedRevision=saved.revision; state.lastSavedAt=saved.updatedAt; } state.storageError=null; $('conflictNotice').classList.add('hidden'); if(state.view==='home') renderHome(); }, onError:(err)=>{ state.storageError=err; if(err.code===COLLECTION_ERROR.CONFLICT) $('conflictNotice').classList.remove('hidden'); }, onStatus:(text)=>{ $('saveStatus').textContent=text==='Guardado.'?'Guardado en Neurointegra':text; updateConnectionStatus(text); } }); return state.saveCoordinator; }
-async function save(){ if(!state.assessment) return {ok:true}; return ensureSaveCoordinator().enqueue(snapshotAssessment()); }
-function scheduleSave(delay=0){ if(!state.assessment) return; ensureSaveCoordinator().schedule(snapshotAssessment(), delay); }
-async function flushSave(){ if(!state.assessment) return {ok:true}; return ensureSaveCoordinator().flush(snapshotAssessment()); }
+function ensureSaveCoordinator(){
+  const assessmentId=state.assessment?.id;
+  if(!assessmentId || state.remoteDeleted) return null;
+  if(state.saveCoordinator?.assessmentId===assessmentId) return state.saveCoordinator;
+  state.saveCoordinator?.cancel();
+  const repository=state.repository;
+  state.saveCoordinator=createSaveCoordinator({assessmentId,initialRevision:state.openedRevision ?? 0,
+    saveSnapshot:(snapshot,expectedRevision)=>repository.saveAssessment(snapshot,expectedRevision),
+    applySaved:(saved)=>{ if(state.repository!==repository || state.assessment?.id!==saved.id || state.remoteDeleted) return; state.assessment={...saved,...state.assessment,updatedAt:saved.updatedAt,revision:saved.revision}; state.openedRevision=saved.revision; state.lastSavedAt=saved.updatedAt; state.storageError=null; state.remoteConflict=null; $('conflictNotice').classList.add('hidden'); },
+    onError:(err)=>{ if(state.repository!==repository || state.assessment?.id!==assessmentId) return; state.storageError=err; if(err.code===COLLECTION_ERROR.CONFLICT){ state.remoteConflict=err.current ?? state.remoteConflict; $('conflictNotice').classList.remove('hidden'); } },
+    onStatus:(text)=>{ if(state.repository!==repository || state.assessment?.id!==assessmentId) return; $('saveStatus').textContent=text==='Guardado.'?'Guardado en Neurointegra':text; updateConnectionStatus(text); }
+  });
+  return state.saveCoordinator;
+}
+async function save(){ if(!state.assessment || state.remoteDeleted) return {ok:!state.remoteDeleted,deleted:state.remoteDeleted}; return ensureSaveCoordinator().enqueue(snapshotAssessment()); }
+function scheduleSave(delay=0){ if(!state.assessment || state.remoteDeleted) return; ensureSaveCoordinator().schedule(snapshotAssessment(),delay); }
+async function flushSave(){ if(!state.assessment) return {ok:true}; if(state.remoteDeleted) return {ok:false,deleted:true}; return ensureSaveCoordinator().flush(snapshotAssessment()); }
 function toRecordStatus(){ return workflowFromEvaluationStatus(state.evaluationStatus, state.assessment); }
 function fromRecordStatus(s){ return workflowToEvaluationStatus(s); }
 function hasBlockingScoreError(){ return (state.correction?.errors ?? []).length > 0; }
@@ -112,8 +131,11 @@ async function startNew(force=false){
     if(!ok) return;
   }
 
+  state.saveCoordinator?.cancel();
+  if(state.unsubscribeAssessment){ state.unsubscribeAssessment(); state.unsubscribeAssessment=null; }
   state.saveCoordinator = null;
 state.remoteConflict = null;
+state.remoteDeleted = false;
 state.storageError = null;
 $('conflictNotice').classList.add('hidden');
 
@@ -141,8 +163,28 @@ state.assessment = createAssessmentRecord(createAssessment());
 }
 function showHome(){ state.view='home'; $('homeView').classList.remove('hidden'); $('assessmentView').classList.add('hidden'); renderHome(); }
 function showAssessment(){ state.view='assessment'; $('homeView').classList.add('hidden'); $('assessmentView').classList.remove('hidden'); }
-async function openAssessment(id){ const rec=await state.repository.getAssessment(id); if(!rec) return; state.assessment=rec; state.openedRevision=rec.revision; state.evaluationStatus=fromRecordStatus(rec.workflowStatus); state.viewMode=rec.workflowStatus===WORKFLOW_STATUS.CORRECTED?VIEW_MODE.RESULTS:VIEW_MODE.ADMINISTRATION; state.score=null; state.correction=null; showAssessment(); bindAssessment(); renderAreas(); renderItems(); await subscribeOpenAssessment(id); if(rec.workflowStatus===WORKFLOW_STATUS.CORRECTED) reconstructCorrectedOnce(); else if(rec.workflowStatus===WORKFLOW_STATUS.BLOCKED) reconstructBlockedOnce(); else updateResults(); }
-async function backToHome(){ await guardBeforeLeaving({save:flushSave,onSuccess:()=>{ state.assessment=null; state.score=null; state.correction=null; state.saveCoordinator=null; showHome(); }}); }
+function hydrateAssessment(rec){
+  state.assessment=rec; state.openedRevision=rec.revision; state.remoteConflict=null; state.remoteDeleted=false; state.storageError=null;
+  state.evaluationStatus=fromRecordStatus(rec.workflowStatus); state.viewMode=rec.workflowStatus===WORKFLOW_STATUS.CORRECTED?VIEW_MODE.RESULTS:VIEW_MODE.ADMINISTRATION; state.score=null; state.correction=null;
+  bindAssessment(); renderAreas(); renderItems();
+  if(rec.workflowStatus===WORKFLOW_STATUS.CORRECTED) reconstructCorrectedOnce(); else if(rec.workflowStatus===WORKFLOW_STATUS.BLOCKED) reconstructBlockedOnce(); else { updateResults(); updateVisibleItemsEffective(); }
+}
+async function openAssessment(id){
+  if(state.assessment && state.assessment.id!==id && !(await guardBeforeLeaving({save:flushSave}))) return;
+  state.saveCoordinator?.cancel(); state.saveCoordinator=null;
+  const rec=await state.repository.getAssessment(id); if(!rec) return;
+  showAssessment(); hydrateAssessment(rec); await subscribeOpenAssessment(id);
+}
+async function reloadRemoteAssessment(){
+  const remote=state.remoteConflict; if(!remote || remote.id!==state.assessment?.id) return;
+  state.saveCoordinator?.cancel(); state.saveCoordinator=null; hydrateAssessment(remote);
+  $('conflictNotice').classList.add('hidden');
+}
+async function backToHome(){
+  const canLeave=state.remoteDeleted || await guardBeforeLeaving({save:flushSave}); if(!canLeave) return;
+  state.saveCoordinator?.cancel(); if(state.unsubscribeAssessment){ state.unsubscribeAssessment(); state.unsubscribeAssessment=null; }
+  Object.assign(state,{assessment:null,score:null,correction:null,saveCoordinator:null,openedRevision:null,remoteConflict:null,remoteDeleted:false}); showHome();
+}
 function correctionRunner(){ return runCorrection({assessment:state.assessment,items:state.items,model:state.model,normativeData:state.normativeData,scoreAssessment}); }
 function reconstructCorrectedOnce(){ const reopened=reopenCorrected({assessment:state.assessment, runCorrection:correctionRunner}); Object.assign(state,{assessment:reopened.assessment, correction:reopened.correction, score:reopened.score, viewMode:reopened.viewMode, evaluationStatus:reopened.evaluationStatus}); if(state.evaluationStatus==='resultado_desactualizado') save(); updateResults(); updateVisibleItemsEffective(); }
 function reconstructBlockedOnce(){ const reopened=reopenBlocked({assessment:state.assessment, runCorrection:correctionRunner}); Object.assign(state,{assessment:reopened.assessment, correction:reopened.correction, score:reopened.score, viewMode:reopened.viewMode, evaluationStatus:reopened.evaluationStatus}); updateResults(); updateVisibleItemsEffective(); }
@@ -190,10 +232,12 @@ function runUiCorrection(){ state.evaluationStatus='corrigiendo'; updateResults(
 async function renderHome(preloaded=null){ const status={ok:true}; const host=$('assessmentsList'); if(!status.ok){ $('assessmentCount').textContent='Colección local con problemas'; host.replaceChildren(el('div',{class:'notice',role:'alert'},'No se pueden listar ni sobrescribir evaluaciones porque la colección local está corrupta. En una fase posterior se ofrecerá exportarla o descartarla.')); return; } state.assessments=preloaded || await state.repository.listAssessments(); const filtered=filterAssessments(state.assessments,{query:$('assessmentSearch')?.value||'', filter:$('assessmentFilter')?.value||'all'}); $('assessmentCount').textContent=`${filtered.length} de ${state.assessments.length} evaluaciones`; $('createFirstBtn').classList.toggle('hidden', state.assessments.length!==0); if(!filtered.length){ host.replaceChildren(el('p',{class:'empty-state'},'No hay evaluaciones guardadas todavía.')); return; } const labels={borrador:'Borrador',pendiente_completar:'Pendiente de completar',correccion_bloqueada:'Corrección bloqueada',corregida:'Corregida',resultado_desactualizado:'Resultado desactualizado'}; const omittedNotice=state.assessments.meta?.omitted ? [el('p',{class:'notice'},`Se omitieron ${state.assessments.meta.omitted} registros inválidos. No se sobrescribirá la colección hasta resolverlo.`)] : []; const rows=filtered.map(r=>el('tr',{},td(patientLabel(r.name)),td(displayDate(r.birthDate)),td(displayDate(r.assessmentDate)),td(formatAge(r.ageMonths)),el('td',{},el('span',{class:'status-pill'},labels[r.workflowStatus]||r.workflowStatus)),td(r.progress?.label||''),td(new Date(r.updatedAt).toLocaleString('es-ES')),el('td',{class:'actions'},el('button',{class:'secondary-button open-assessment',dataset:{id:r.id}},'Abrir'),el('button',{class:'danger-button delete-assessment',dataset:{id:r.id}},'Eliminar')))); host.replaceChildren(...omittedNotice, renderTable(['Paciente','Nacimiento','Evaluación','Edad cronológica','Estado','Progreso','Última modificación','Acciones'], rows, 'assessments-table')); }
 async function removeAssessment(id){ const rec=await state.repository.getAssessment(id); if(!rec) return; const ok=confirm(`Eliminar ${patientLabel(rec.name)} · evaluación ${displayDate(rec.assessmentDate)}. Se eliminarán puntuaciones y observaciones de Neurointegra.`); if(!ok) return; try{ await state.repository.deleteAssessment(id, rec.revision); $('saveStatus').textContent='Evaluación eliminada.'; }catch(err){ $('saveStatus').textContent=err.code===COLLECTION_ERROR.CONFLICT?'Conflicto: la evaluación cambió antes de eliminar.':'Error al eliminar.'; } await renderHome(); }
 async function init(){ showLogin(); try{ await observeAuthState(async(user)=>{ if(!user){ await clearActiveSessionState(); showLogin(); return; } try{ const authorized=await ensureAuthorized(user); await handleAuthorizedUser(authorized); }catch(err){ $('loginMessage').textContent=friendlyAuthError(err); await signOutNeurointegra(); showLogin(); } }); }catch(err){ $('loginMessage').textContent=friendlyAuthError(err); }}
-document.addEventListener('click',async (e)=>{ if(['newAssessmentBtn','homeNewAssessmentBtn','createFirstBtn'].includes(e.target.id)) await startNew(); if(e.target.id==='backToHomeBtn') await backToHome(); if(e.target.id==='signOutBtn') await signOutFlow(); if(e.target.id==='reloadRemoteBtn' && state.remoteConflict){ state.assessment=state.remoteConflict; state.openedRevision=state.assessment.revision; bindAssessment(); renderAreas(); renderItems(); updateResults(); $('conflictNotice').classList.add('hidden'); } if(e.target.id==='keepLocalBtn') $('conflictNotice').classList.add('hidden'); if(e.target.id==='importLocalBtn'){ const r=await importLocalAssessments({repository:state.repository}); $('importLocalResult').textContent=`Importadas: ${r.imported}; omitidas: ${r.skipped}; inválidas: ${r.invalid}; conflictivas: ${r.conflicts}.`; await checkLocalImport(); } if(e.target.matches('.open-assessment')) await openAssessment(e.target.dataset.id); if(e.target.matches('.delete-assessment')) await removeAssessment(e.target.dataset.id); if(e.target.id==='discardLegacyBtn'){ localStorage.removeItem(LEGACY_KEY); localStorage.setItem('battelleAssessmentsV3:migratedV2','done'); $('legacyNotice').classList.add('hidden'); } if(e.target.id==='discardDraftBtn'){ localStorage.removeItem(STORAGE_KEY); $('draftNotice').classList.add('hidden'); await startNew(true); } if(e.target.id==='discardInvalidBtn'){ localStorage.removeItem(STORAGE_KEY); await startNew(true); } if(e.target.id==='correctBtn') runUiCorrection(); if(e.target.id==='editScoresBtn'){ state.viewMode=VIEW_MODE.ADMINISTRATION; updateResults(); updateVisibleItemsEffective(); } if(e.target.matches('.goto-item')) gotoItem(e.target.dataset.code); if(e.target.matches('.area-tab')){ state.activeArea=e.target.dataset.area; renderAreas(); renderItems(); } if(e.target.matches('.score-btn')) setObservedScore(e.target);});
+document.addEventListener('click',async (e)=>{ if(['newAssessmentBtn','homeNewAssessmentBtn','createFirstBtn'].includes(e.target.id)) await startNew(); if(e.target.id==='backToHomeBtn') await backToHome(); if(e.target.id==='signOutBtn') await signOutFlow(); if(e.target.id==='reloadRemoteBtn') await reloadRemoteAssessment(); if(e.target.id==='keepLocalBtn') $('conflictNotice').classList.add('hidden'); if(e.target.id==='importLocalBtn'){ const r=await importLocalAssessments({repository:state.repository}); $('importLocalResult').textContent=`Importadas: ${r.imported}; omitidas: ${r.skipped}; inválidas: ${r.invalid}; conflictivas: ${r.conflicts}.`; await checkLocalImport(); } if(e.target.matches('.open-assessment')) await openAssessment(e.target.dataset.id); if(e.target.matches('.delete-assessment')) await removeAssessment(e.target.dataset.id); if(e.target.id==='discardLegacyBtn'){ localStorage.removeItem(LEGACY_KEY); localStorage.setItem('battelleAssessmentsV3:migratedV2','done'); $('legacyNotice').classList.add('hidden'); } if(e.target.id==='discardDraftBtn'){ localStorage.removeItem(STORAGE_KEY); $('draftNotice').classList.add('hidden'); await startNew(true); } if(e.target.id==='discardInvalidBtn'){ localStorage.removeItem(STORAGE_KEY); await startNew(true); } if(e.target.id==='correctBtn') runUiCorrection(); if(e.target.id==='editScoresBtn'){ state.viewMode=VIEW_MODE.ADMINISTRATION; updateResults(); updateVisibleItemsEffective(); } if(e.target.matches('.goto-item')) gotoItem(e.target.dataset.code); if(e.target.matches('.area-tab')){ state.activeArea=e.target.dataset.area; renderAreas(); renderItems(); } if(e.target.matches('.score-btn')) setObservedScore(e.target);});
 document.addEventListener('input',(e)=>{ if(['assessmentSearch'].includes(e.target.id)) renderHome(); if(['patientName','birthDate','assessmentDate','ageMonths'].includes(e.target.id)) onMeta(e); if(e.target.matches('textarea[data-obs]')){ state.assessment.observations[e.target.dataset.obs]=e.target.value; maybeInvalidateCorrection(false); }});
 document.addEventListener('keydown',(e)=>{ if(!e.target.matches('.score-btn')) return; if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName) || e.target.isContentEditable) return; const row=e.target.closest('.item-card'); const scoreMap={0:'0',1:'1',2:'2',n:'null',N:'null',Delete:'null',Backspace:'null'}; if(Object.prototype.hasOwnProperty.call(scoreMap,e.key)){ e.preventDefault(); const btn=row?.querySelector(`.score-btn[data-score="${scoreMap[e.key]}"]`); if(btn) setObservedScore(btn); return; } if(e.key==='ArrowDown' || e.key==='ArrowUp'){ e.preventDefault(); const rows=[...document.querySelectorAll('.item-card')]; const current=rows.indexOf(row); const next=rows[current + (e.key==='ArrowDown'?1:-1)]; const score=e.target.dataset.score; (next?.querySelector(`.score-btn[data-score="${score}"]`) || next?.querySelector('.score-btn'))?.focus(); } }); document.addEventListener('change',(e)=>{ if(e.target.id==='assessmentFilter') renderHome(); if(e.target.id==='manualAgeOverride') onMeta(e); });
 document.addEventListener('submit',async(e)=>{ if(e.target.id!=='loginForm') return; e.preventDefault(); $('loginMessage').textContent=''; try{ await signInNeurointegra({email:$('loginEmail').value.trim(),password:$('loginPassword').value,remember:$('rememberSession').checked}); }catch(err){ $('loginMessage').textContent=friendlyAuthError(err); } });
-window.addEventListener('pagehide',()=>{ flushSave(); });
-document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') flushSave(); });
+window.addEventListener('beforeunload',(event)=>{ if(state.saveCoordinator?.hasPending()){ event.preventDefault(); event.returnValue=''; } });
+// Best effort only: browsers do not promise to await asynchronous Firestore writes here.
+window.addEventListener('pagehide',()=>{ void flushSave(); });
+document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') void flushSave(); });
 init();

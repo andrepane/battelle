@@ -22,7 +22,6 @@ service cloud.firestore {
         && request.resource.data.schemaVersion == 3
         && request.resource.data.revision is int
         && request.resource.data.revision > 0
-        && request.resource.data.createdBy == request.auth.uid
         && request.resource.data.updatedBy == request.auth.uid
         && request.resource.data.name is string
         && request.resource.data.birthDate is string
@@ -40,6 +39,7 @@ service cloud.firestore {
     function validAssessmentCreate(assessmentId) {
       return validAssessmentShape(assessmentId)
         && request.resource.data.revision == 1
+        && request.resource.data.createdBy == request.auth.uid
         && request.resource.data.createdAt == request.time;
     }
     function validAssessmentUpdate(assessmentId) {

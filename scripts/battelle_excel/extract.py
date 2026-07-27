@@ -2,7 +2,7 @@ from pathlib import Path
 import re, json, datetime
 from .xlsx_reader import read_workbook, sha256_file
 from .normalization import as_int, as_float
-from .common import ROOT,FUENTES,TRAMOS,VERSION
+from .common import ROOT,FUENTES,TRAMOS,VERSION,generation_date
 from .model import maximos_teoricos
 
 
@@ -57,7 +57,7 @@ def source(path, sheet, row, columna=None, celda=None):
  if columna is not None: data['columna']=columna
  if celda is not None: data['celda']=celda
  return data
-def with_meta(regs, fuentes, tablas): return {'version_esquema':VERSION,'fecha_generacion':datetime.date.today().isoformat(),'fuentes':fuentes,'tablas_incluidas':tablas,'registros':regs}
+def with_meta(regs, fuentes, tablas): return {'version_esquema':VERSION,'fecha_generacion':generation_date(),'fuentes':fuentes,'tablas_incluidas':tablas,'registros':regs}
 
 def percentiles():
  maxs=maximos_teoricos(); regs=[]; fuentes=[]

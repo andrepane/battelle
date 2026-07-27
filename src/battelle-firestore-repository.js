@@ -23,8 +23,6 @@ export function toFirestorePayload(record, uid){
   if(!clean || record.id!==clean.id) return null;
   if(record.organizationId && record.organizationId!==ORGANIZATION_ID) return null;
   if(record.schemaVersion && record.schemaVersion!==SCHEMA_VERSION) return null;
-  if(record.createdBy && record.createdBy!==uid) return null;
-  if(record.updatedBy && record.updatedBy!==uid) return null;
   return {...clean, organizationId:ORGANIZATION_ID};
 }
 export function createFirestoreAssessmentRepository({user, servicesPromise=getFirebaseServices()}={}){
