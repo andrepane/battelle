@@ -84,7 +84,7 @@ test('guardar y reabrir reconstruye el mismo nivel desde la edad guardada',()=>{
 
 test('la UI conserva los textos clínicos y los atributos accesibles requeridos',async()=>{
   const [source,styles]=await Promise.all([readFile('script.js','utf8'),readFile('styles.css','utf8')]);
-  for(const text of ['2 basal','0 techo','Obs.','PUNTO DE PARTIDA','Comenzar en el nivel']) assert.equal(source.includes(text),true);
+  for(const text of ['Derivados por basal','Derivados por techo','Observados','PUNTO DE PARTIDA','Comenzar en el nivel']) assert.equal(source.includes(text),true);
   for(const token of ['startingLevel','startingItem','ariaPressed']) assert.equal(source.includes(token),true);
   assert.match(styles,/starting-item/);
 });

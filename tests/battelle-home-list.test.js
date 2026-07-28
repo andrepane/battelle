@@ -28,5 +28,5 @@ test('renderHome conserva estados vacíos específicos para ambas listas', async
 
   assert.match(source, /if\(!filtered\.length\)/);
   assert.match(source, /La papelera está vacía\./);
-  assert.match(source, /No hay evaluaciones guardadas todavía\./);
+  assert.match(source, /No hay evaluaciones todavía\./);
 });
