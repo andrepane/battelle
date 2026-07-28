@@ -109,6 +109,13 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   await assertFails(setDoc(assessmentRef, createAssessment({serverTimestamp, overrides:{revision:2}})));
   await assertFails(setDoc(assessmentRef, baseAssessment({createdAt: Timestamp.fromDate(new Date('2026-01-01T00:00:00.000Z')), updatedAt: Timestamp.fromDate(new Date('2026-01-01T00:00:00.000Z'))})));
 
+  const therapistRef=(id)=>doc(authedDb, `organizations/neurointegra/assessments/${id}`);
+  const therapistPayload=(id,value)=>createAssessment({serverTimestamp,overrides:{id,...(value===undefined?{}:{therapistName:value})}});
+  await assertSucceeds(setDoc(therapistRef('bat-therapist-valid'),therapistPayload('bat-therapist-valid','Andrea Panepinto')));
+  await assertSucceeds(setDoc(therapistRef('bat-therapist-null'),therapistPayload('bat-therapist-null',null)));
+  await assertSucceeds(setDoc(therapistRef('bat-therapist-legacy'),therapistPayload('bat-therapist-legacy',undefined)));
+  for(const [id,value] of [['object',{}],['array',[]],['number',42],['empty',''],['spaces','   '],['long','a'.repeat(101)]]) await assertFails(setDoc(therapistRef(`bat-therapist-${id}`),therapistPayload(`bat-therapist-${id}`,value)));
+
   await assertSucceeds(setDoc(assessmentRef, createAssessment({serverTimestamp})));
   const stored = await getDoc(assessmentRef);
   assert.equal(stored.exists(), true);
