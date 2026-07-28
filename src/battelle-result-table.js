@@ -22,6 +22,15 @@ export const RESULT_FORMATS=Object.freeze({
 });
 export const RESULT_COLUMN_PRESETS=Object.freeze(Object.fromEntries(Object.entries(RESULT_FORMATS).map(([id,format])=>[id,format.defaultColumns])));
 const COMPACT_LABELS=Object.freeze({personal_social_total:'Personal/Social',adaptativa_total:'Adaptativa',motora_gruesa:'Motora gruesa',motora_fina:'Motora fina',motora_total:'Motora',comunicacion_receptiva:'Comunicación receptiva',comunicacion_expresiva:'Comunicación expresiva',comunicacion_total:'Comunicación',cognitiva_total:'Cognitiva',battelle_total:'Battelle total'});
+const PIAT_COMPONENT_ROWS=new Set(['motora_gruesa','motora_fina','comunicacion_receptiva','comunicacion_expresiva']);
+const MAIN_TOTAL_ROWS=new Set(['personal_social_total','adaptativa_total','motora_total','comunicacion_total','cognitiva_total']);
+
+function presentationRowType(row,formatId){
+  if(row.id==='battelle_total')return 'grand-total';
+  if(formatId==='piat')return PIAT_COMPONENT_ROWS.has(row.id)?'component':'total';
+  if(formatId==='mainAreas')return MAIN_TOTAL_ROWS.has(row.id)?'total':row.type;
+  return row.type;
+}
 
 export function selectResultColumns(selection=RESULT_COLUMN_PRESETS.piat){
   const selected=new Set(Array.isArray(selection)?selection:[]); selected.add('label');
@@ -40,7 +49,7 @@ export function createResultPresentation(model,{formatId='complete',columns}={})
   const selectedColumns=selectResultColumns(columns??format.defaultColumns).map(column=>column.id==='label'&&format.presentation==='compact'?Object.freeze({...column,label:'Área'}):column);
   const byId=new Map(model.rows.map(row=>[row.id,row]));
   const sourceRows=format.rowIds?format.rowIds.map(id=>byId.get(id)).filter(Boolean):model.rows;
-  const rows=sourceRows.map(row=>Object.freeze({...row,label:format.presentation==='compact'?(COMPACT_LABELS[row.id]??row.canonicalLabel):row.label}));
+  const rows=sourceRows.map(row=>Object.freeze({...row,label:format.presentation==='compact'?(COMPACT_LABELS[row.id]??row.canonicalLabel):row.label,type:presentationRowType(row,format.id)}));
   const orientation=selectedColumns.length<=4?'portrait':'landscape';
   return Object.freeze({...model,format,columns:selectedColumns,rows:Object.freeze(rows),orientation});
 }
@@ -48,7 +57,7 @@ function escapeHtml(value){return displayValue(value).replace(/[&<>"']/g,char=>(
 export function serializeResultTableHtml(model,selection){
   const view=isPresentationModel(model)?model:createResultPresentation(model,{columns:selection});
   const cells=view.columns.map(column=>`<th style="border:1px solid #999;padding:6px;background:#eee;text-align:${column.alignment}">${escapeHtml(column.label)}</th>`).join('');
-  const rows=view.rows.map(row=>`<tr>${view.columns.map(column=>`<${column.id==='label'?'th':'td'} style="border:1px solid #999;padding:6px;text-align:${column.alignment}${row.type!=='subarea'?';font-weight:bold;background:#f7f7f7':''}">${escapeHtml(row[column.value])}</${column.id==='label'?'th':'td'}>`).join('')}</tr>`).join('');
+  const rows=view.rows.map(row=>`<tr data-row-type="${row.type}">${view.columns.map(column=>{const emphasis=row.type==='grand-total'?';font-weight:900;background:#e7eef8;border-top:3px solid #2357a4':row.type==='total'?';font-weight:bold;background:#f4f7fb;border-top:2px solid #8295ad':'';const indent=row.type==='component'&&column.id==='label'?';padding-left:18px':'';return `<${column.id==='label'?'th':'td'} style="border:1px solid #999;padding:6px;text-align:${column.alignment}${emphasis}${indent}">${escapeHtml(row[column.value])}</${column.id==='label'?'th':'td'}>`;}).join('')}</tr>`).join('');
   return `<table style="border-collapse:collapse;font-family:Arial,sans-serif"><thead><tr>${cells}</tr></thead><tbody>${rows}</tbody></table>`;
 }
 export async function copyResultTable(model,{clipboard=globalThis.navigator?.clipboard,ClipboardItemCtor=globalThis.ClipboardItem}={}){

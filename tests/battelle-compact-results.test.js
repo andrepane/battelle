@@ -16,15 +16,32 @@ test('formatos explícitos seleccionan 10, 6 y 30 filas en orden estable',()=>{
  assert.equal(piat.rows.find(row=>row.id==='motora_fina').pd,38);assert.equal(piat.rows.find(row=>row.id==='motora_fina').equivalentAge,'34 meses');
  assert.ok(!piat.rows.some(row=>row.id==='adaptativa_atencion'));assert.ok(!main.rows.some(row=>row.id==='motora_fina'));
 });
+test('cada formato recibe su jerarquía visual por identificador canónico sin alterar valores',()=>{
+ const piat=createResultPresentation(base,{formatId:'piat'}),main=createResultPresentation(base,{formatId:'mainAreas'}),complete=createResultPresentation(base,{formatId:'complete'});
+ const piatTypes=Object.fromEntries(piat.rows.map(row=>[row.id,row.type]));
+ for(const id of ['motora_gruesa','motora_fina','comunicacion_receptiva','comunicacion_expresiva'])assert.equal(piatTypes[id],'component');
+ for(const id of ['motora_total','comunicacion_total'])assert.equal(piatTypes[id],'total');
+ assert.equal(piatTypes.battelle_total,'grand-total');
+ for(const id of ['personal_social_total','adaptativa_total','motora_total','comunicacion_total','cognitiva_total'])assert.equal(main.rows.find(row=>row.id===id).type,'total');
+ assert.equal(main.rows.find(row=>row.id==='battelle_total').type,'grand-total');
+ assert.equal(complete.rows.find(row=>row.id==='motora_gruesa').type,'total');assert.equal(complete.rows.find(row=>row.id==='motora_fina').type,'total');
+ const clinicalFields=['pd','pc','z','T','CI','ECN','equivalentAge'];
+ for(const view of [piat,main,complete])for(const row of view.rows){const original=base.rows.find(candidate=>candidate.id===row.id);for(const field of clinicalFields)assert.equal(row[field],original[field]);}
+});
 test('filas y columnas son decisiones independientes y Área es obligatoria',()=>{
  const custom=createResultPresentation(base,{formatId:'piat',columns:['pc','T']});assert.equal(custom.rows.length,10);assert.deepEqual(custom.columns.map(c=>c.id),['label','pc','T']);
  const reset=createResultPresentation(base,{formatId:'mainAreas'});assert.equal(reset.rows.length,6);assert.deepEqual(reset.columns.map(c=>c.id),RESULT_FORMATS.mainAreas.defaultColumns);
 });
 test('HTML y texto tabulado comparten exclusivamente el mismo modelo seguro',()=>{
  const view=createResultPresentation(base,{formatId:'mainAreas',columns:['pd','equivalentAge']});const plain=serializeResultTable(view),html=serializeResultTableHtml(view);
- assert.match(html,/^<table[^>]*><thead><tr>/);assert.equal((html.match(/<tr>/g)||[]).length,7);assert.equal(plain.split('\n').length,7);
+ assert.match(html,/^<table[^>]*><thead><tr>/);assert.equal((html.match(/<tr(?: |>)/g)||[]).length,7);assert.equal(plain.split('\n').length,7);
  assert.deepEqual(plain.split('\n')[0].split('\t'),['Área','PD','Edad equivalente']);assert.doesNotMatch(html,/FULL motora_fina|<script|class=/);assert.doesNotMatch(plain+html,/undefined|null|\[object Object\]/);
  for(const line of plain.split('\n').slice(1)){for(const cell of line.split('\t'))assert.ok(html.includes(cell));}
+});
+test('HTML copiado consume tipos del modelo e indenta componentes PIAT',()=>{
+ const view=createResultPresentation(base,{formatId:'piat'}),html=serializeResultTableHtml(view);
+ assert.equal((html.match(/data-row-type="component"/g)||[]).length,4);assert.match(html,/data-row-type="component"[^]*padding-left:18px/);
+ assert.equal((html.match(/data-row-type="total"/g)||[]).length,5);assert.equal((html.match(/data-row-type="grand-total"/g)||[]).length,1);
 });
 test('portapapeles escribe HTML y texto a la vez, con alternativa tabulada',async()=>{
  const view=createResultPresentation(base,{formatId:'piat'});let item;
@@ -37,4 +54,11 @@ test('PDF respeta filas, columnas y orientación reproducible',()=>{
  for(const [view,count,box] of [[piat,10,'595.28 841.89'],[main,6,'595.28 841.89'],[complete,30,'841.89 595.28']]){const out=pdf(view);assert.match(out,new RegExp(`/MediaBox \\[0 0 ${box.replace('.','\\.')}\\]`));for(const row of view.rows)assert.match(out,new RegExp(row.label.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));assert.equal(view.rows.length,count);}
  assert.equal(createResultPresentation(base,{formatId:'piat',columns:['pd','pc','T']}).orientation,'portrait');
  assert.equal(createResultPresentation(base,{formatId:'piat',columns:['pd','pc','T','CI']}).orientation,'landscape');
+});
+test('PDF usa el tipo de presentación para el peso de componentes y totales',()=>{
+ const output=pdf(createResultPresentation(base,{formatId:'piat'}));
+ assert.match(output,/BT \/F1 7\.7 Tf [^\n]+ \(Motora gruesa\) Tj ET/);
+ assert.match(output,/BT \/F1 7\.7 Tf [^\n]+ \(Comunicación expresiva\) Tj ET/);
+ assert.match(output,/BT \/F2 7\.7 Tf [^\n]+ \(Motora\) Tj ET/);
+ assert.match(output,/BT \/F2 7\.7 Tf [^\n]+ \(Battelle total\) Tj ET/);
 });

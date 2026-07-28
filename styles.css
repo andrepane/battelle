@@ -29,6 +29,7 @@
 .clinical-results tr.total th,.clinical-results tr.total td{font-weight:800;background:#f4f7fb;border-top:2px solid #8295ad;letter-spacing:normal}
 .clinical-results tr.grand-total th,.clinical-results tr.grand-total td{font-weight:900;background:#e7eef8;border-top:3px solid #2357a4;letter-spacing:normal}
 .clinical-results tr.total th{background:#f4f7fb}.clinical-results tr.grand-total th{background:#e7eef8}
+.clinical-results tr.component th:first-child{font-weight:500;padding-left:1.5rem}.clinical-results tr.component td{font-weight:400}
 @media(min-width:801px){.clinical-results th:first-child{position:static}.table-wrap{overflow-x:visible}}
 @media(max-width:1100px){.clinical-metadata{grid-template-columns:repeat(3,minmax(0,1fr))}.clinical-results th,.clinical-results td{padding:.5rem .55rem}}
 @media(max-width:800px){body{overflow-x:hidden}.clinical-metadata{grid-template-columns:repeat(2,minmax(0,1fr))}.clinical-header{align-items:flex-start}.table-wrap{max-width:100%;overflow-x:auto}.clinical-results th:first-child{position:sticky;left:0;z-index:2}.clinical-results td,.clinical-results th{padding:.48rem .55rem}}
