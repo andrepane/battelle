@@ -68,6 +68,7 @@ const ORDER=Object.freeze([
 ]);
 const DISPLAY=Object.freeze({personal_social_total:'TOTAL PERSONAL/SOCIAL',adaptativa_total:'TOTAL ADAPTATIVA',motora_gruesa:'PUNTUACIÓN MOTORA GRUESA',motora_fina:'PUNTUACIÓN MOTORA FINA',motora_total:'TOTAL MOTORA',comunicacion_total:'TOTAL COMUNICACIÓN',cognitiva_total:'TOTAL COGNITIVA',battelle_total:'PUNTUACIÓN TOTAL BATTELLE'});
 const AGGREGATES=new Set(Object.keys(DISPLAY));
+const SCALE_ROWS=new Set(PIAT_ROWS);
 
 function value(v){ return v===null||v===undefined||typeof v==='object'||(typeof v==='number'&&!Number.isFinite(v))?NOT_APPLICABLE:v; }
 function pcOf(source,id,results){
@@ -82,7 +83,7 @@ export function buildNormalizedResultRow({id,source,model,results,normativeData}
 }
 export function buildResultTableModel({results,model,normativeData,professional=''}){
   if(!results||!model) throw new TypeError('Resultados y modelo son obligatorios.');
-  const rows=ORDER.map(id=>buildNormalizedResultRow({id,source:results.subareas?.[id]??results.scales?.[id],model,results,normativeData}));
+  const rows=ORDER.map(id=>buildNormalizedResultRow({id,source:SCALE_ROWS.has(id)?results.scales?.[id]:results.subareas?.[id],model,results,normativeData}));
   const metadata={...results.metadata,ageMonths:results.summary.ageMonths,correctedAt:results.summary.correctedAt??results.correctedAt,professional:professional||'Usuario autenticado'};
   metadata.display=Object.freeze({birthDate:formatSpanishDate(metadata.birthDate),assessmentDate:formatSpanishDate(metadata.assessmentDate),correctedAt:formatSpanishDateTime(metadata.correctedAt),age:formatClinicalAge(metadata.ageMonths),professional:safePresentationText(metadata.professional)});
   return Object.freeze({columns:RESULT_COLUMN_DEFINITIONS,rows,metadata,warnings:(results.warnings??[]).map(w=>({item:safePresentationText(w.codigo??w.code??w.subarea??'Evaluación'),message:safePresentationText(w.mensaje??w.message??String(w))}))});

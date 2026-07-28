@@ -34,6 +34,14 @@ test('Motora fina comparte exactamente la edad equivalente entre tabla web y PDF
  assert.equal(row.equivalentAge,'34'); assert.equal(row.provenance.equivalentAge.table,'N-59');
  const pdf=new TextDecoder('latin1').decode(generateBattellePdf(table)); assert.match(pdf,/PUNTUACIÓN MOTORA FINA/); assert.match(pdf,/\(34\) Tj/);
 });
+test('Comunicación receptiva y expresiva toman la edad equivalente de sus escalas',()=>{
+ const ids=['comunicacion_receptiva','comunicacion_expresiva'];
+ const scales=Object.fromEntries(ids.map((id,index)=>{const record=equivalentAges.registros.find(r=>r.escala_id===id);return [id,{pd:record.pd_min,equivalentAge:lookupEquivalentAge({scaleId:id,directScore:record.pd_min,normativeData})}]}));
+ const subareas=Object.fromEntries(ids.map(id=>[id,{pd:999,percentile:null}]));
+ const results={metadata:{},summary:{ageMonths:24},subareas,scales,warnings:[]};
+ const table=buildResultTableModel({results,model,normativeData});
+ for(const [index,id] of ids.entries()){const row=table.rows.find(candidate=>candidate.id===id);assert.equal(row.pd,scales[id].pd);assert.equal(row.equivalentAge,scales[id].equivalentAge.text);assert.equal(row.provenance.equivalentAge.table,`N-${61+index}`);}
+});
 test('fila normalizada encadena PC a N-1 exactamente y conserva procedencia',()=>{
  const row=buildNormalizedResultRow({id:'adaptativa_total',source:{pd:42,percentile:{ok:true,percentile:50,table:'N-10',provenance:'test'},equivalentAge:{ok:false}},model,results:{},normativeData});
  assert.deepEqual([row.pd,row.pc,row.z,row.T,row.CI,row.ECN],[42,50,0,50,100,50]); assert.equal(row.pcKind,'percentil');assert.equal(row.provenance.conversion.table,'N-1');
