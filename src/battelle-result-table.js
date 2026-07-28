@@ -12,16 +12,52 @@ export const RESULT_COLUMN_DEFINITIONS=Object.freeze([
   {id:'equivalentAge',label:'Edad equivalente',value:'equivalentAge',alignment:'center',recommendedWidth:2}
 ].map(Object.freeze));
 export const RESULT_COLUMNS=Object.freeze(RESULT_COLUMN_DEFINITIONS.map(column=>column.label));
-export const RESULT_COLUMN_PRESETS=Object.freeze({piat:Object.freeze(['label','pd','equivalentAge']),complete:Object.freeze(RESULT_COLUMN_DEFINITIONS.map(column=>column.id))});
+const PIAT_ROWS=['personal_social_total','adaptativa_total','motora_gruesa','motora_fina','motora_total','comunicacion_receptiva','comunicacion_expresiva','comunicacion_total','cognitiva_total','battelle_total'];
+const MAIN_AREA_ROWS=['personal_social_total','adaptativa_total','motora_total','comunicacion_total','cognitiva_total','battelle_total'];
+const COMPACT_COLUMNS=['label','pd','equivalentAge'];
+export const RESULT_FORMATS=Object.freeze({
+  piat:Object.freeze({id:'piat',label:'Resumen PIAT',rowIds:Object.freeze(PIAT_ROWS),defaultColumns:Object.freeze(COMPACT_COLUMNS),presentation:'compact',pdfOrientation:'portrait'}),
+  mainAreas:Object.freeze({id:'mainAreas',label:'Áreas principales',rowIds:Object.freeze(MAIN_AREA_ROWS),defaultColumns:Object.freeze(COMPACT_COLUMNS),presentation:'compact',pdfOrientation:'portrait'}),
+  complete:Object.freeze({id:'complete',label:'Tabla completa',rowIds:null,defaultColumns:Object.freeze(RESULT_COLUMN_DEFINITIONS.map(column=>column.id)),presentation:'hierarchical',pdfOrientation:'landscape'})
+});
+export const RESULT_COLUMN_PRESETS=Object.freeze(Object.fromEntries(Object.entries(RESULT_FORMATS).map(([id,format])=>[id,format.defaultColumns])));
+const COMPACT_LABELS=Object.freeze({personal_social_total:'Personal/Social',adaptativa_total:'Adaptativa',motora_gruesa:'Motora gruesa',motora_fina:'Motora fina',motora_total:'Motora',comunicacion_receptiva:'Comunicación receptiva',comunicacion_expresiva:'Comunicación expresiva',comunicacion_total:'Comunicación',cognitiva_total:'Cognitiva',battelle_total:'Battelle total'});
 
 export function selectResultColumns(selection=RESULT_COLUMN_PRESETS.piat){
   const selected=new Set(Array.isArray(selection)?selection:[]); selected.add('label');
   return RESULT_COLUMN_DEFINITIONS.filter(column=>selected.has(column.id));
 }
 export function serializeResultTable(model,selection){
-  const columns=selectResultColumns(selection); const lines=[columns.map(column=>column.label).join('\t')];
-  for(const row of model?.rows??[]) lines.push(columns.map(column=>displayValue(row[column.value])).join('\t'));
+  const view=isPresentationModel(model)?model:createResultPresentation(model,{columns:selection});
+  const lines=[view.columns.map(column=>column.label).join('\t')];
+  for(const row of view.rows) lines.push(view.columns.map(column=>displayValue(row[column.value])).join('\t'));
   return lines.join('\n');
+}
+function isPresentationModel(model){return Boolean(model?.format&&Array.isArray(model?.columns)&&Array.isArray(model?.rows));}
+export function createResultPresentation(model,{formatId='complete',columns}={}){
+  if(!model?.rows)throw new TypeError('Modelo de resultados vacío.');
+  const format=RESULT_FORMATS[formatId]??RESULT_FORMATS.complete;
+  const selectedColumns=selectResultColumns(columns??format.defaultColumns).map(column=>column.id==='label'&&format.presentation==='compact'?Object.freeze({...column,label:'Área'}):column);
+  const byId=new Map(model.rows.map(row=>[row.id,row]));
+  const sourceRows=format.rowIds?format.rowIds.map(id=>byId.get(id)).filter(Boolean):model.rows;
+  const rows=sourceRows.map(row=>Object.freeze({...row,label:format.presentation==='compact'?(COMPACT_LABELS[row.id]??row.canonicalLabel):row.label}));
+  const orientation=selectedColumns.length<=4?'portrait':'landscape';
+  return Object.freeze({...model,format,columns:selectedColumns,rows:Object.freeze(rows),orientation});
+}
+function escapeHtml(value){return displayValue(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
+export function serializeResultTableHtml(model,selection){
+  const view=isPresentationModel(model)?model:createResultPresentation(model,{columns:selection});
+  const cells=view.columns.map(column=>`<th style="border:1px solid #999;padding:6px;background:#eee;text-align:${column.alignment}">${escapeHtml(column.label)}</th>`).join('');
+  const rows=view.rows.map(row=>`<tr>${view.columns.map(column=>`<${column.id==='label'?'th':'td'} style="border:1px solid #999;padding:6px;text-align:${column.alignment}${row.type!=='subarea'?';font-weight:bold;background:#f7f7f7':''}">${escapeHtml(row[column.value])}</${column.id==='label'?'th':'td'}>`).join('')}</tr>`).join('');
+  return `<table style="border-collapse:collapse;font-family:Arial,sans-serif"><thead><tr>${cells}</tr></thead><tbody>${rows}</tbody></table>`;
+}
+export async function copyResultTable(model,{clipboard=globalThis.navigator?.clipboard,ClipboardItemCtor=globalThis.ClipboardItem}={}){
+  const plain=serializeResultTable(model),html=serializeResultTableHtml(model);
+  if(clipboard?.write&&ClipboardItemCtor){
+    try{await clipboard.write([new ClipboardItemCtor({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([plain],{type:'text/plain'})})]);return 'formatted';}catch{/* Intenta la alternativa tabulada. */}
+  }
+  if(clipboard?.writeText){try{await clipboard.writeText(plain);return 'text';}catch{/* Mensaje uniforme en la interfaz. */}}
+  throw new Error('clipboard-unavailable');
 }
 const ORDER=Object.freeze([
   'personal_social_interaccion_con_el_adulto','personal_social_expresion_de_sentimientos_afecto','personal_social_autoconcepto','personal_social_interaccion_con_los_companeros','personal_social_colaboracion','personal_social_rol_social','personal_social_total',
