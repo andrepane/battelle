@@ -1,7 +1,28 @@
 import { lookupGeneralConversion } from './battelle-conversions.js';
 
 export const NOT_APPLICABLE='—';
-export const RESULT_COLUMNS=Object.freeze(['Área / subárea','PD','PC','z','T','CI','ECN','Edad equivalente']);
+export const RESULT_COLUMN_DEFINITIONS=Object.freeze([
+  {id:'label',label:'Área / subárea',value:'label',alignment:'left',recommendedWidth:3.8,required:true},
+  {id:'pd',label:'PD',value:'pd',alignment:'center',recommendedWidth:1},
+  {id:'pc',label:'PC',value:'pc',alignment:'center',recommendedWidth:1},
+  {id:'z',label:'z',value:'z',alignment:'center',recommendedWidth:1},
+  {id:'T',label:'T',value:'T',alignment:'center',recommendedWidth:1},
+  {id:'CI',label:'CI',value:'CI',alignment:'center',recommendedWidth:1},
+  {id:'ECN',label:'ECN',value:'ECN',alignment:'center',recommendedWidth:1},
+  {id:'equivalentAge',label:'Edad equivalente',value:'equivalentAge',alignment:'center',recommendedWidth:2}
+].map(Object.freeze));
+export const RESULT_COLUMNS=Object.freeze(RESULT_COLUMN_DEFINITIONS.map(column=>column.label));
+export const RESULT_COLUMN_PRESETS=Object.freeze({piat:Object.freeze(['label','pd','equivalentAge']),complete:Object.freeze(RESULT_COLUMN_DEFINITIONS.map(column=>column.id))});
+
+export function selectResultColumns(selection=RESULT_COLUMN_PRESETS.piat){
+  const selected=new Set(Array.isArray(selection)?selection:[]); selected.add('label');
+  return RESULT_COLUMN_DEFINITIONS.filter(column=>selected.has(column.id));
+}
+export function serializeResultTable(model,selection){
+  const columns=selectResultColumns(selection); const lines=[columns.map(column=>column.label).join('\t')];
+  for(const row of model?.rows??[]) lines.push(columns.map(column=>displayValue(row[column.value])).join('\t'));
+  return lines.join('\n');
+}
 const ORDER=Object.freeze([
   'personal_social_interaccion_con_el_adulto','personal_social_expresion_de_sentimientos_afecto','personal_social_autoconcepto','personal_social_interaccion_con_los_companeros','personal_social_colaboracion','personal_social_rol_social','personal_social_total',
   'adaptativa_atencion','adaptativa_comida','adaptativa_vestido','adaptativa_responsabilidad_personal','adaptativa_aseo','adaptativa_total',
@@ -28,7 +49,7 @@ export function buildResultTableModel({results,model,normativeData,professional=
   const rows=ORDER.map(id=>buildNormalizedResultRow({id,source:results.subareas?.[id]??results.scales?.[id],model,results,normativeData}));
   const metadata={...results.metadata,ageMonths:results.summary.ageMonths,correctedAt:results.summary.correctedAt??results.correctedAt,professional:professional||'Usuario autenticado'};
   metadata.display=Object.freeze({birthDate:formatSpanishDate(metadata.birthDate),assessmentDate:formatSpanishDate(metadata.assessmentDate),correctedAt:formatSpanishDateTime(metadata.correctedAt),age:formatClinicalAge(metadata.ageMonths),professional:safePresentationText(metadata.professional)});
-  return Object.freeze({columns:RESULT_COLUMNS,rows,metadata,warnings:(results.warnings??[]).map(w=>({item:safePresentationText(w.codigo??w.code??w.subarea??'Evaluación'),message:safePresentationText(w.mensaje??w.message??String(w))}))});
+  return Object.freeze({columns:RESULT_COLUMN_DEFINITIONS,rows,metadata,warnings:(results.warnings??[]).map(w=>({item:safePresentationText(w.codigo??w.code??w.subarea??'Evaluación'),message:safePresentationText(w.mensaje??w.message??String(w))}))});
 }
 export function resultRowOrder(){ return [...ORDER]; }
 export function displayValue(value){ return value===NOT_APPLICABLE?NOT_APPLICABLE:String(value); }

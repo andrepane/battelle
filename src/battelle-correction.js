@@ -49,9 +49,25 @@ export function buildCorrectionResults({ assessment, scoring, model, normativeDa
   return deepFreeze({ metadata:{ name:assessment.name, birthDate:assessment.birthDate, assessmentDate:assessment.assessmentDate }, summary:{ name:assessment.name, birthDate:assessment.birthDate, assessmentDate:assessment.assessmentDate, ageMonths, ageBand:ageBandForMonths(ageMonths)?.label ?? null, correctedAt, observedResponses:observed, derivedByBasal:derivedBasal, derivedByCeiling:derivedCeiling, directScoreTotal: total?.pd ?? null, totalCentile, generalConversion:n1, totalEquivalentAge:totalEq }, subareas, scales, percentiles:Object.fromEntries(Object.entries(scales).map(([k,v])=>[k,v.percentile])), totalCentile, generalConversion:n1, equivalentAges:Object.fromEntries(Object.entries(scales).map(([k,v])=>[k,v.equivalentAge])), warnings, errors, provenance, normative:{version:normativeData?.metadata?.version_esquema??'baremos-json-v1',id:canonicalNormativeId(normativeData),dataVersion,modelVersion} });
 }
 export function buildDescriptiveSummary({ results }){
-  const out=['Síntesis descriptiva automática basada exclusivamente en resultados válidos. La interpretación clínica corresponde al profesional.']; const age=results.summary.ageMonths; if(Number.isInteger(age)) out.push(`La edad cronológica es de ${age} meses.`);
-  for(const [id,s] of Object.entries(results.scales)){ if(s.equivalentAgeLabel) { out.push(`${s.name} obtiene una edad equivalente de ${s.equivalentAgeLabel}.`); if(Number.isInteger(age) && s.equivalentAge?.ok){ const min=age-s.equivalentAge.maxMonths, max=age-s.equivalentAge.minMonths; if(min>0) out.push(`La edad equivalente de ${s.name} se sitúa aproximadamente ${min===max?min:`${min}–${max}`} meses por debajo de la edad cronológica.`); } } if(s.percentile?.status==='valido') out.push(`El percentil de ${s.name} es ${s.percentile.percentile}.`);  }
-  return out.filter(t=>!/retraso|leve|moderado|grave|diagn[oó]stico|ECN|puntuaci[oó]n z|\bT\b/i.test(t));
+  const note='Texto descriptivo automático. La interpretación clínica corresponde al profesional.';
+  const insufficient='No hay suficientes edades equivalentes válidas para generar la conclusión.';
+  const age=results?.summary?.ageMonths;
+  const areas=[['personal_social_total','Personal/Social'],['adaptativa_total','Adaptativa'],['motora_total','Motora'],['comunicacion_total','Comunicación'],['cognitiva_total','Cognitiva']]
+    .map(([id,name])=>{const scale=results?.scales?.[id],eq=scale?.equivalentAge;return {id,name,equivalentAge:eq,label:scale?.equivalentAgeLabel??(eq?.ok?(eq.minMonths===eq.maxMonths?`${eq.minMonths} meses`:`${eq.minMonths}–${eq.maxMonths} meses`):null)};})
+    .filter(area=>area.equivalentAge?.ok&&Number.isFinite(area.equivalentAge.minMonths)&&Number.isFinite(area.equivalentAge.maxMonths)&&area.label)
+    .map(area=>({...area,orderValue:(area.equivalentAge.minMonths+area.equivalentAge.maxMonths)/2}));
+  if(!Number.isInteger(age)||areas.length<2) return Object.freeze({ok:false,text:insufficient,note,areas:Object.freeze(areas)});
+  const min=Math.min(...areas.map(area=>area.orderValue)),max=Math.max(...areas.map(area=>area.orderValue));
+  const lows=areas.filter(area=>area.orderValue===min),highs=areas.filter(area=>area.orderValue===max);
+  const names=list=>new Intl.ListFormat('es',{style:'long',type:'conjunction'}).format(list.map(area=>area.name));
+  const values=list=>new Set(list.map(area=>area.label));
+  const describe=list=>values(list).size===1?`${names(list)}, con una edad equivalente de ${list[0].label}`:new Intl.ListFormat('es',{style:'long',type:'conjunction'}).format(list.map(area=>`${area.name} (${area.label})`));
+  const prefix=`En el momento de administración de la escala, el menor tenía ${age} meses de edad.`;
+  let text;
+  if(min===max&&values(areas).size===1) text=`${prefix} Las áreas ${names(areas)} presentan la misma edad equivalente, de ${areas[0].label}.`;
+  else if(min===max) text=`${prefix} Las áreas presentan edades equivalentes con el mismo punto medio normativo: ${describe(areas)}.`;
+  else text=`${prefix} ${lows.length===1?'El área que presenta una menor edad equivalente es':'Las áreas que presentan una menor edad equivalente son'} ${describe(lows)}. ${highs.length===1?'El área con mayor edad equivalente es':'Las áreas con mayor edad equivalente son'} ${describe(highs)}.`;
+  return Object.freeze({ok:true,text,note,areas:Object.freeze(areas),criterion:'Los intervalos se ordenan por su punto medio; para mostrar se conserva el intervalo normativo literal.'});
 }
 export function runCorrection({ assessment, items, model, normativeData, scoreAssessment, dataVersion, modelVersion, now = new Date() }){
   const normative=validateNormativeData(normativeData, model); const fingerprint=createCorrectionFingerprint({assessment,dataVersion,modelVersion,normativeVersion:normative.id});
