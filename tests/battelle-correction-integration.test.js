@@ -4,7 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { loadAndNormalizeItems } from '../src/battelle-data.js';
 import { loadScaleModel, validateScaleModel } from '../src/battelle-scales.js';
 import { scoreAssessment } from '../src/battelle-scoring.js';
-import { runCorrection } from '../src/battelle-correction.js';
+import { inspectCorrection, runCorrection } from '../src/battelle-correction.js';
+import { buildCorrectionPreflight } from '../src/battelle-correction-preflight.js';
 import { lookupEquivalentAge, lookupGeneralConversion, lookupPercentile, lookupTotalCentile } from '../src/battelle-conversions.js';
 const j=async f=>JSON.parse(await readFile(f,'utf8'));
 const normativeData=await (async()=>({percentiles:await j('data/percentiles_battelle.json'),total:await j('data/conversion_total_battelle.json'),pcGeneral:await j('data/conversion_pc_general.json'),equivalentAges:await j('data/edades_equivalentes.json'),metadata:await j('data/baremos_metadata.json'),incidences:await j('data/baremos_incidencias.json')}))();
@@ -36,6 +37,13 @@ test('integración real: una subárea con puntuación cero y sin basal no bloque
   assert.equal(subarea.basal.agotado,true);
   assert.equal(subarea.pd,0);
   assert.equal(subarea.counts.derivedByCeiling,subarea.codigos.length-2);
+});
+
+test('preflight permite subárea completamente observada en cero y basal cero sin falso bloqueo',async()=>{
+  const [items,model]=await Promise.all([loadAndNormalizeItems(),loadScaleModel()]); const assessment=makeAssessment(items,1,37);
+  for(const item of items.filter(item=>item.area==='Personal/Social'&&item.subarea==='Interacción con el adulto')) assessment.observedResponses[item.codigo_canonico]=0;
+  const inspected=inspectCorrection({assessment,items,model,normativeData,scoreAssessment}); const preflight=buildCorrectionPreflight(inspected); const subarea=inspected.scoring.subareas.personal_social_interaccion_con_el_adulto;
+  assert.equal(inspected.ok,true); assert.equal(preflight.allowed,true); assert.notEqual(preflight.status,'blocked'); assert.equal(subarea.pd,0); assert.equal(subarea.basal.confirmado,false); assert.equal(subarea.basal.agotado,true);
 });
 
 test('end-to-end esperado desde filas reales independientes del algoritmo', async()=>{

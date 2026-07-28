@@ -69,17 +69,23 @@ export function buildDescriptiveSummary({ results }){
   else text=`${prefix} ${lows.length===1?'El área que presenta una menor edad equivalente es':'Las áreas que presentan una menor edad equivalente son'} ${describe(lows)}. ${highs.length===1?'El área con mayor edad equivalente es':'Las áreas con mayor edad equivalente son'} ${describe(highs)}.`;
   return Object.freeze({ok:true,text,note,areas:Object.freeze(areas),criterion:'Los intervalos se ordenan por su punto medio; para mostrar se conserva el intervalo normativo literal.'});
 }
-export function runCorrection({ assessment, items, model, normativeData, scoreAssessment, dataVersion, modelVersion, now = new Date() }){
+export function inspectCorrection({ assessment, items, model, normativeData, scoreAssessment, dataVersion, modelVersion }){
   const normative=validateNormativeData(normativeData, model); const fingerprint=createCorrectionFingerprint({assessment,dataVersion,modelVersion,normativeVersion:normative.id});
   if(!normative.ok) return {ok:false,status:'correccion_bloqueada',fingerprint,normativeVersion:normative.id,correctedAt:null,scoring:null,results:null,pendingReport:{total:0,byArea:{},bySubarea:{},items:[]},errors:normative.errors.map(message=>({type:'baremos_invalidos',message})),inconsistencies:[],summary:[]};
   const pre=validateCorrectionPrerequisites({assessment,items});
   if(!pre.ok) return {ok:false,status:'correccion_bloqueada',fingerprint,correctedAt:null,scoring:null,results:null,pendingReport:{total:0,byArea:{},bySubarea:{},items:[]},errors:pre.errors,inconsistencies:[],summary:[]};
   let scoring; try{ scoring=scoreAssessment(items, model, assessment.observedResponses); }catch(error){ return {ok:false,status:'correccion_bloqueada',fingerprint,correctedAt:null,scoring:null,results:null,pendingReport:{total:0,byArea:{},bySubarea:{},items:[]},errors:[{type:'error_motor',message:error.message}],inconsistencies:[],summary:[]}; }
   const pendingReport=buildPendingItemsReport({scoring,items}); const errors=[...(scoring.errores??[]).map(e=>({type:'error_motor',message:e.mensaje??e.message}))];
-  for(const sub of Object.values(scoring.subareas??{})){ if(sub.techo?.provisional) errors.push({type:'techo_provisional',message:`Techo provisional en ${sub.subarea}.`}); if(sub.requiere_revision) errors.push({type:'requiere_revision',message:`${sub.subarea} requiere revisión.`}); if(!sub.completa) errors.push({type:'subarea_incompleta',message:`Subárea incompleta: ${sub.subarea}.`}); }
+  for(const sub of Object.values(scoring.subareas??{})){ const location={area:sub.area,subarea:sub.subarea,code:sub.pendientes?.[0]}; if(sub.techo?.provisional) errors.push({type:'techo_provisional',message:`Techo provisional en ${sub.subarea}.`,...location}); if(sub.requiere_revision) errors.push({type:'requiere_revision',message:`${sub.subarea} requiere revisión.`,...location}); if(!sub.completa) errors.push({type:'subarea_incompleta',message:`Subárea incompleta: ${sub.subarea}.`,...location}); }
   for(const [id,s] of Object.entries(scoring.escalas??{})) if(!s.completa) errors.push({type:'escala_incompleta',message:`Escala principal incompleta: ${model.escalas[id]?.nombre ?? id}.`});
   if(pendingReport.total) errors.push({type:'items_pendientes',message:`Hay ${pendingReport.total} ítems sin puntuación efectiva.`});
-  if(errors.length) return {ok:false,status:'correccion_bloqueada',fingerprint,correctedAt:null,scoring:null,results:null,pendingReport,errors,inconsistencies:scoring.inconsistencias??[],summary:[]};
+  if(errors.length) return {ok:false,status:'correccion_bloqueada',fingerprint,normativeVersion:normative.id,correctedAt:null,scoring,results:null,pendingReport,errors,inconsistencies:scoring.inconsistencias??[],summary:[]};
+  return {ok:true,status:'lista',fingerprint,normativeVersion:normative.id,correctedAt:null,scoring,results:null,pendingReport,errors:[],inconsistencies:[],summary:[]};
+}
+export function runCorrection({ assessment, items, model, normativeData, scoreAssessment, dataVersion, modelVersion, now = new Date() }){
+  const inspected=inspectCorrection({assessment,items,model,normativeData,scoreAssessment,dataVersion,modelVersion});
+  if(!inspected.ok) return {...inspected,scoring:null};
+  const {scoring,pendingReport,fingerprint,normativeVersion}=inspected;
   const correctedAt=now.toISOString(); const results=buildCorrectionResults({assessment,scoring,model,normativeData,dataVersion,modelVersion,correctedAt}); const summary=buildDescriptiveSummary({results});
-  return {ok:true,status:'corregida',fingerprint,normativeVersion:normative.id,correctedAt,scoring,results,pendingReport,errors:[],inconsistencies:[],summary};
+  return {ok:true,status:'corregida',fingerprint,normativeVersion,correctedAt,scoring,results,pendingReport,errors:[],inconsistencies:[],summary};
 }
