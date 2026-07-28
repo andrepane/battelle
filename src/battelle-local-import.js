@@ -7,7 +7,7 @@ export async function importLocalAssessments({repository, storage=localStorage})
   for(const [id,rec] of Object.entries(status.records)){
     const clean=sanitizeRecord(rec); if(!clean || clean.id!==id){ result.invalid++; result.details.push({id,status:'invalid'}); continue; }
     const remote=await repository.getAssessment(id);
-    if(remote){ const same=['id','schemaVersion','name','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','workflowStatus','correctionMetadata'].every(k=>JSON.stringify(remote[k])===JSON.stringify(clean[k])); if(same){ result.skipped++; result.details.push({id,status:'skipped'}); } else { result.conflicts++; result.details.push({id,status:'conflict'}); } continue; }
+    if(remote){ const same=['id','schemaVersion','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','workflowStatus','correctionMetadata'].every(k=>JSON.stringify(remote[k])===JSON.stringify(clean[k])); if(same){ result.skipped++; result.details.push({id,status:'skipped'}); } else { result.conflicts++; result.details.push({id,status:'conflict'}); } continue; }
     await repository.saveAssessment(clean, 0); result.imported++; result.details.push({id,status:'imported'});
   }
   if(result.invalid===0 && result.conflicts===0) storage.setItem(FIREBASE_IMPORT_MARK_KEY,'done');
