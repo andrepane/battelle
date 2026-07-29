@@ -96,3 +96,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   .patient-card .form-grid{grid-template-columns:minmax(0,1fr)}
   .age-override>summary{align-items:flex-start}
 }
+.comparison-bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin:.75rem 0;padding:.7rem .85rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--color-primary-soft)}
+.comparison-bar strong{margin-right:auto}.comparison-selected{background:var(--color-primary-soft)}.comparison-select{text-align:center}.comparison-select input{width:1.1rem;height:1.1rem}
+#comparisonView{max-width:1400px;margin:auto}.comparison-metadata{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.comparison-assessment{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem}.comparison-assessment h3{margin-top:0}.comparison-interval{margin:1rem 0}.comparison-table{width:100%;min-width:760px}.comparison-warning{margin-bottom:1rem}
+@media(max-width:700px){.comparison-metadata{grid-template-columns:1fr}#comparisonView .table-wrap{overflow-x:auto;max-width:100%}}
