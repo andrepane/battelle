@@ -73,3 +73,26 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .clinical-results tr.total th,.clinical-results tr.total td,.clinical-results tr.total td:first-child{background:var(--color-total-soft);border-top-color:var(--color-border)}.clinical-results tr.grand-total th,.clinical-results tr.grand-total td,.clinical-results tr.grand-total td:first-child{background:var(--color-primary-soft);border-top-color:var(--color-primary)}
 .preflight-dialog>div{border-color:var(--color-basal)}.preflight-dialog[data-status=warnings]>div{border-color:var(--color-ceiling);background:var(--color-warning-soft)}.preflight-dialog[data-status=blocked]>div{border-color:var(--color-danger);background:var(--color-danger-soft)}
 .field-error{display:block;min-height:1.2em;color:var(--bad);font-size:.8rem;font-weight:650}.form-grid input[aria-invalid="true"]{border-color:var(--bad)}
+
+/* Distribución responsive de los datos de la evaluación. */
+.patient-card .form-grid{
+  grid-template-columns:minmax(0,1.3fr) minmax(0,1.3fr) minmax(180px,1fr) minmax(180px,1fr);
+  align-items:start;
+}
+.patient-card .form-grid>label{
+  min-width:0;
+  grid-template-rows:auto var(--control-height) auto;
+  align-content:start;
+}
+.patient-card .form-grid input:not([type=checkbox]){min-width:0;height:var(--control-height)}
+.age-override{width:100%}
+.age-override>summary{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.age-summary{min-width:0}
+.modify-age{flex:none}
+@media(max-width:1050px){
+  .patient-card .form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+  .patient-card .form-grid{grid-template-columns:minmax(0,1fr)}
+  .age-override>summary{align-items:flex-start}
+}
