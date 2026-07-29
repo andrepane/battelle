@@ -52,6 +52,6 @@ test('editar terapeuta no cambia huella ni datos clínicos y resultados/PDF no u
 
 test('contrato accesible incluye creación, filtro, columna y vista móvil',async()=>{
  const [html,script,css]=await Promise.all(['index.html','script.js','styles.css'].map(p=>readFile(p,'utf8')));
- assert.match(html,/Terapeuta responsable/); assert.match(html,/list="therapistSuggestions"/); assert.match(html,/placeholder="NH, paciente o terapeuta"/); assert.match(html,/id="therapistFilter"/);
- assert.match(script,/\['NH','Paciente','Terapeuta'/); assert.match(script,/therapistName.*focus/); assert.match(script,/Indica el terapeuta responsable/); assert.match(css,/@media\(max-width:800px\)/); assert.match(css,/data-label/);
+ assert.match(html,/Terapeuta responsable/); assert.match(html,/list="therapistSuggestions"/); assert.match(html,/placeholder="Paciente o terapeuta"/); assert.match(html,/id="therapistFilter"/);
+ assert.match(script,/\['Paciente','Terapeuta'/); assert.match(script,/therapistName.*focus/); assert.match(script,/Indica el terapeuta responsable/); assert.match(css,/@media\(max-width:800px\)/); assert.match(css,/data-label/);
 });
