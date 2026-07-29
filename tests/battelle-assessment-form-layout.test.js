@@ -5,13 +5,13 @@ import { readFile } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const read = path => readFile(new URL(path, root), 'utf8');
 
-test('los cinco campos conservan el orden de lectura, atributos y datalist', async () => {
+test('los cuatro campos conservan el orden de lectura, atributos y datalist', async () => {
   const html = await read('index.html');
   const form = html.match(/<div class="form-grid">([\s\S]*?)<\/div><details class="age-override">/)?.[1];
   assert.ok(form, 'debe existir la rejilla seguida por la zona de edad');
 
   const ids = [...form.matchAll(/<input id="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(ids, ['historyNumber', 'patientName', 'therapistName', 'birthDate', 'assessmentDate']);
+  assert.deepEqual(ids, ['patientName', 'therapistName', 'birthDate', 'assessmentDate']);
   assert.match(form, /id="therapistName"[^>]*list="therapistSuggestions"[^>]*required/);
   assert.match(form, /<datalist id="therapistSuggestions"><\/datalist>/);
   assert.match(form, /id="birthDate" type="date"/);

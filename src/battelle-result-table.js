@@ -90,11 +90,11 @@ export function buildNormalizedResultRow({id,source,model,results,normativeData}
   const equivalent=source?.equivalentAge?.ok?(source.equivalentAge.text??source.equivalentAgeLabel):NOT_APPLICABLE;
   return Object.freeze({id,label:DISPLAY[id]??canonical,canonicalLabel:canonical,type:id==='battelle_total'?'grand-total':AGGREGATES.has(id)?'total':'subarea',pd:value(source?.pd),pc:value(pc?.value),pcKind:pc?.kind??null,z:value(conversion?.ok?conversion.z:null),T:value(conversion?.ok?conversion.T:null),CI:value(conversion?.ok?conversion.CI:null),ECN:value(conversion?.ok?conversion.ECN:null),equivalentAge:value(equivalent),provenance:{pc,conversion:conversion?.ok?{table:conversion.table,source:conversion.provenance}:null,equivalentAge:source?.equivalentAge?.ok?{table:source.equivalentAge.table,source:source.equivalentAge.provenance}:null},technicalError:pc&&!conversion?.ok?conversion.error:null});
 }
-export function buildResultTableModel({results,model,normativeData,therapistName=null,professional='',historyNumber=null}){
+export function buildResultTableModel({results,model,normativeData,therapistName=null,professional=''}){
   if(!results||!model) throw new TypeError('Resultados y modelo son obligatorios.');
   const rows=ORDER.map(id=>buildNormalizedResultRow({id,source:SCALE_ROWS.has(id)?results.scales?.[id]:results.subareas?.[id],model,results,normativeData}));
   const therapist=safePresentationText(therapistName??professional,'Sin asignar');
-  const metadata={...results.metadata,historyNumber,ageMonths:results.summary.ageMonths,correctedAt:results.summary.correctedAt??results.correctedAt,therapistName:therapist};
+  const metadata={...results.metadata,ageMonths:results.summary.ageMonths,correctedAt:results.summary.correctedAt??results.correctedAt,therapistName:therapist};
   metadata.display=Object.freeze({birthDate:formatSpanishDate(metadata.birthDate),assessmentDate:formatSpanishDate(metadata.assessmentDate),correctedAt:formatSpanishDateTime(metadata.correctedAt),age:formatClinicalAge(metadata.ageMonths),therapistName:therapist});
   return Object.freeze({columns:RESULT_COLUMN_DEFINITIONS,rows,metadata,warnings:(results.warnings??[]).map(w=>({item:safePresentationText(w.codigo??w.code??w.subarea??'Evaluación'),message:safePresentationText(w.mensaje??w.message??String(w))}))});
 }
