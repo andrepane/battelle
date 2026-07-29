@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { loadAndNormalizeItems } from '../src/battelle-data.js';
+import { loadScaleModel } from '../src/battelle-scales.js';
+import { scoreAssessment } from '../src/battelle-scoring.js';
+import { buildAssessmentComparison, COMPARISON_ROWS, identifyingDataDiffer, monthsBetween, orderAssessments } from '../src/battelle-comparison.js';
+const json=async path=>JSON.parse(await readFile(path,'utf8'));
+const normativeData={percentiles:await json('data/percentiles_battelle.json'),total:await json('data/conversion_total_battelle.json'),pcGeneral:await json('data/conversion_pc_general.json'),equivalentAges:await json('data/edades_equivalentes.json'),metadata:await json('data/baremos_metadata.json'),incidences:await json('data/baremos_incidencias.json')};
+const items=await loadAndNormalizeItems(),model=await loadScaleModel();
+function assessment(id,date,score=1){return {id,schemaVersion:3,name:'Paciente',therapistName:'Terapeuta',birthDate:'2020-01-01',assessmentDate:date,ageMonths:37,manualAgeOverride:true,observedResponses:Object.fromEntries(items.map(item=>[item.codigo_canonico,score])),observations:{nota:`nota-${id}`},workflowStatus:'corregida',revision:4,createdAt:'2024-01-01T00:00:00.000Z',updatedAt:'2024-02-01T00:00:00.000Z',correctionMetadata:{}};}
+
+test('comparación pura conserva íntegros e independientes los dos documentos',()=>{const a=assessment('aaa','2024-01-10'),b=assessment('bbb','2024-07-10',2),before=structuredClone([a,b]);const result=buildAssessmentComparison({firstAssessment:b,secondAssessment:a,items,model,normativeData,scoreAssessment});assert.deepEqual([a,b],before);assert.equal(result.assessments[0].id,'aaa');assert.equal(result.assessments[1].id,'bbb');assert.equal(result.rows.length,10);assert.deepEqual(result.rows.map(r=>r.id),COMPARISON_ROWS);assert.notEqual(result.rows.find(r=>r.id==='motora_fina').previousEquivalentAge,undefined);assert.equal(result.monthsBetween,6);});
+test('orden temporal y empate por ID son deterministas',()=>{const a=assessment('bbb','2024-01-10'),b=assessment('aaa','2024-01-10');const ordered=orderAssessments(a,b);assert.equal(ordered.sameDate,true);assert.deepEqual(ordered.assessments.map(x=>x.id),['aaa','bbb']);});
+test('advertencia identificativa no bloqueante y cálculo de meses',()=>{assert.equal(identifyingDataDiffer(assessment('aaa','2024-01-01'),{...assessment('bbb','2024-02-01'),name:'Otra'}),true);assert.equal(monthsBetween('2024-01-31','2024-03-30'),1);assert.equal(monthsBetween('','2024-03-30'),null);});
+test('contrato UI expone botón, selección y cinco columnas exactas',async()=>{const html=await readFile('index.html','utf8'),script=await readFile('script.js','utf8');assert.match(html,/id="compareBattelleBtn"[^>]*>Comparar Battelle/);assert.match(html,/Selecciona dos Battelle corregidas/);assert.match(script,/state\.comparisonIds=\[\.\.\.selected\]\.slice\(0,2\)/);assert.match(script,/\['Área','PD anterior','PD actual','Edad equivalente anterior','Edad equivalente actual'\]/);assert.doesNotMatch(script.slice(script.indexOf('async function viewSelectedComparison'),script.indexOf('async function renderHome')),/saveAssessment|openAssessment|hydrateAssessment|ensureSaveCoordinator/);});
