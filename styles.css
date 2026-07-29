@@ -96,3 +96,5 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   .patient-card .form-grid{grid-template-columns:minmax(0,1fr)}
   .age-override>summary{align-items:flex-start}
 }
+
+.follow-up-action{display:flex;align-items:center;gap:.75rem;margin-top:.75rem}.patient-card .form-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.patient-card .form-grid>label{grid-column:span 2}.patient-card .form-grid>label:nth-child(n+4){grid-column:span 3}@media(max-width:1050px){.patient-card .form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.patient-card .form-grid>label{grid-column:auto}}@media(max-width:520px){.patient-card .form-grid{grid-template-columns:minmax(0,1fr)}.follow-up-action{align-items:flex-start;flex-direction:column}}
