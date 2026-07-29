@@ -10,7 +10,7 @@ service cloud.firestore {
         && authDoc().data.organizationId == 'neurointegra';
     }
     function assessmentFields() {
-      return ['id','schemaVersion','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy','deletedAt','deletedBy','deletionRevision'];
+      return ['id','schemaVersion','historyNumber','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy','deletedAt','deletedBy','deletionRevision'];
     }
     function validWorkflowStatus() {
       return request.resource.data.workflowStatus in ['borrador','pendiente_completar','correccion_bloqueada','corregida','resultado_desactualizado'];
@@ -23,6 +23,7 @@ service cloud.firestore {
         && request.resource.data.revision is int
         && request.resource.data.revision > 0
         && request.resource.data.updatedBy == request.auth.uid
+        && (!request.resource.data.keys().hasAny(['historyNumber']) || request.resource.data.historyNumber == null || (request.resource.data.historyNumber is string && request.resource.data.historyNumber.size() > 0 && request.resource.data.historyNumber.size() <= 50 && request.resource.data.historyNumber.matches('[^<>\\x00-\\x1F\\x7F]+')))
         && request.resource.data.name is string
         && (!request.resource.data.keys().hasAny(['therapistName']) || request.resource.data.therapistName == null || (request.resource.data.therapistName is string && request.resource.data.therapistName.matches('.*[^\\s].*') && request.resource.data.therapistName.size() <= 100))
         && request.resource.data.birthDate is string
