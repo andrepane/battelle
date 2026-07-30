@@ -104,3 +104,13 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 /* Referencia clínica de solo lectura para una administración independiente. */
 .score-column{display:grid;gap:.3rem;justify-items:end}.previous-score{display:inline-block;color:#52677f;background:#edf2f7;border:1px solid #ccd7e3;border-radius:99px;padding:.2rem .55rem;font-size:.82rem;font-weight:700}.reference-subarea-actions{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:.65rem .85rem;border-bottom:1px solid var(--line);background:#f7f9fc}.reference-subarea-actions p{flex:1;min-width:230px}.score-btn[data-origin=observado][aria-pressed=true]{background:#2357a4;color:#fff}.score-btn[data-origin=basal][aria-pressed=true]{background:#287a45;color:#fff}.score-btn[data-origin=techo][aria-pressed=true]{background:#b85c13;color:#fff}
 @media(max-width:800px){.score-column{justify-items:start}.previous-score{order:-1}.reference-subarea-actions{align-items:flex-start;flex-direction:column}.reference-subarea-actions .secondary-button{width:100%}}
+
+/* Confirmación propia: advertencia reversible, accesible y coherente con las tarjetas. */
+.confirmation-dialog{width:min(34rem,calc(100% - 2rem));padding:0;border:0;border-radius:var(--radius);background:var(--color-surface);color:var(--color-text);box-shadow:0 22px 65px #18324a66}
+.confirmation-dialog::backdrop{background:#18324a99}
+.confirmation-dialog form{margin:0;border-top:6px solid var(--color-warning);border-radius:inherit}
+.confirmation-dialog__body{padding:1.25rem}.confirmation-dialog__body h2{margin-bottom:.55rem}.confirmation-dialog__body p{margin:0;color:var(--color-text-muted)}
+.confirmation-dialog__actions{display:flex;justify-content:flex-end;gap:.65rem;padding:0 1.25rem 1.25rem}.confirmation-dialog__actions .confirmation-confirm{background:var(--color-warning);border-color:var(--color-warning)}
+.comparison-back-actions{display:flex;align-items:flex-start;gap:.35rem;flex-direction:column}
+@media(max-width:520px){.confirmation-dialog{width:calc(100% - 1rem)}.confirmation-dialog__body{padding:1rem}.confirmation-dialog__actions{padding:0 1rem 1rem;flex-direction:column}.confirmation-dialog__actions button{width:100%}}
+@media(prefers-reduced-motion:reduce){.confirmation-dialog{scroll-behavior:auto;transition:none;animation:none}}
