@@ -115,7 +115,26 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 @media(max-width:520px){.confirmation-dialog{width:calc(100% - 1rem)}.confirmation-dialog__body{padding:1rem}.confirmation-dialog__actions{padding:0 1rem 1rem;flex-direction:column}.confirmation-dialog__actions button{width:100%}}
 @media(prefers-reduced-motion:reduce){.confirmation-dialog{scroll-behavior:auto;transition:none;animation:none}}
 
-/* Gráficos descriptivos de edades equivalentes. */
-.result-display-tabs{display:flex;gap:.5rem;flex-wrap:wrap}.result-display-tabs button[aria-pressed=true]{background:var(--color-primary);border-color:var(--color-primary);color:#fff}.equivalent-age-chart-panel{min-width:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem}.chart-panel-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}.chart-panel-header h3{margin:0}.chart-panel-header p{margin:.25rem 0}.chart-actions{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.equivalent-age-chart-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}.equivalent-age-chart{display:block;min-width:760px;max-width:none;height:auto;background:#fff}.equivalent-age-chart .chart-marker{cursor:default}.equivalent-age-chart .chart-marker:focus{outline:3px solid var(--color-primary);outline-offset:3px}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.include-chart-pdf{display:flex;align-items:center;gap:.35rem}.comparison-series{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem}.comparison-series p{margin:.35rem 0}
-@media(max-width:700px){.chart-panel-header{display:grid}.chart-actions,.chart-actions button{width:100%}.chart-actions button{flex:1}.result-display-tabs{display:grid}.result-display-tabs button{width:100%}}
+/* Vista alternativa de edades equivalentes: flujo único y ancho completo. */
+main{width:min(100%,1460px)}
+#assessmentView.results-mode .layout,#assessmentView.results-mode .content-panel,#assessmentView.results-mode .results-panel,#assessmentView.results-mode .results-view{display:block;width:100%;max-width:none;min-width:0}
+#assessmentView.results-mode .results-view>*+*{margin-top:.85rem}
+.clinical-header{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.clinical-header>div:first-child{flex:1 1 260px}.clinical-header .results-actions{flex:1 1 560px}
+.clinical-metadata{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));width:100%;gap:.75rem 1rem}
+.clinical-metadata div,.clinical-metadata dd{min-width:0;max-width:100%}.clinical-metadata dd{overflow-wrap:anywhere;word-break:normal}
+.result-display-tabs{display:inline-grid;grid-auto-flow:column;grid-auto-columns:minmax(112px,1fr);gap:0;padding:3px;border:1px solid var(--color-border);border-radius:10px;background:#f3f6fa;vertical-align:middle}
+.result-display-tabs button{min-height:36px;border:0;border-radius:7px;padding:.4rem .9rem;background:transparent;color:var(--color-text);font:inherit;font-weight:700;cursor:pointer}
+.result-display-tabs button[aria-pressed=true]{background:var(--color-primary);color:#fff}.result-display-tabs button:focus-visible{outline:3px solid var(--color-primary);outline-offset:2px}
+.comparison-display-tabs{grid-auto-columns:minmax(175px,1fr)}
+.chart-customizer{padding:.7rem 1rem}.chart-customizer fieldset{padding-top:.35rem}
+.equivalent-age-chart-panel{display:block;width:100%;max-width:none;min-width:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem}
+.chart-panel-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}.chart-panel-header>div:first-child{flex:1 1 320px}.chart-panel-header h3{margin:0;font-size:1.15rem}.chart-panel-header p{margin:.25rem 0 0}
+.chart-actions{display:flex;align-items:center;justify-content:flex-end;gap:.5rem;flex:0 1 auto;flex-wrap:wrap}.chart-copy-status{flex-basis:100%;text-align:right}
+.chart-host{width:100%;min-width:0;margin-top:.75rem}.equivalent-age-chart-scroll{display:block;width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-inline:contain}
+.equivalent-age-chart{display:block;width:100%;min-width:900px;max-width:none;height:auto;background:#fff}
+.equivalent-age-chart .chart-marker{cursor:default}.equivalent-age-chart .chart-marker:focus{outline:3px solid var(--color-primary);outline-offset:3px}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:900px){.clinical-header .results-actions{justify-content:flex-start}.clinical-metadata{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.clinical-metadata{grid-template-columns:minmax(0,1fr)}.result-display-tabs{display:grid;width:100%;grid-auto-columns:1fr}.chart-panel-header{display:block}.chart-actions{justify-content:stretch;margin-top:.75rem}.chart-actions button{flex:1 1 140px}.chart-copy-status{text-align:left}}
 @media(prefers-reduced-motion:reduce){.equivalent-age-chart,.equivalent-age-chart *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
