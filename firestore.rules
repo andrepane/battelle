@@ -10,7 +10,7 @@ service cloud.firestore {
         && authDoc().data.organizationId == 'neurointegra';
     }
     function assessmentFields() {
-      return ['id','schemaVersion','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy','deletedAt','deletedBy','deletionRevision'];
+      return ['id','schemaVersion','referenceAssessmentId','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy','deletedAt','deletedBy','deletionRevision'];
     }
     function validWorkflowStatus() {
       return request.resource.data.workflowStatus in ['borrador','pendiente_completar','correccion_bloqueada','corregida','resultado_desactualizado'];
@@ -20,6 +20,7 @@ service cloud.firestore {
         && request.resource.data.id == assessmentId
         && request.resource.data.organizationId == 'neurointegra'
         && request.resource.data.schemaVersion == 3
+        && (!request.resource.data.keys().hasAny(['referenceAssessmentId']) || request.resource.data.referenceAssessmentId == null || (request.resource.data.referenceAssessmentId is string && request.resource.data.referenceAssessmentId.matches('^[A-Za-z0-9][A-Za-z0-9_-]{2,80}$') && request.resource.data.referenceAssessmentId != assessmentId))
         && request.resource.data.revision is int
         && request.resource.data.revision > 0
         && request.resource.data.updatedBy == request.auth.uid

@@ -163,3 +163,9 @@ test('reglas exigen papelera antes de borrado físico y campos de servidor',()=>
   assert.match(rules,/request\.resource\.data\.deletedBy == request\.auth\.uid/);
   assert.match(rules,/deletionRevision == request\.resource\.data\.revision/);
 });
+
+test('referenceAssessmentId es opcional, anulable, validado y no autorreferenciable',()=>{
+  assert.match(rules,/referenceAssessmentId/);
+  assert.match(rules,/referenceAssessmentId != assessmentId/);
+  assert.match(rules,/\{2,80\}/);
+});
