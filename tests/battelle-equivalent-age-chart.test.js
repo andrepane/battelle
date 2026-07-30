@@ -30,7 +30,12 @@ test('modelo es puro, usa edad corregida y separa evaluaciones por fecha',()=>{
 
 test('diferencia solo para dos puntos utiliza etiqueta descriptiva prudente',()=>{
  const chart=buildEquivalentAgeChartModel({assessments:[{assessment:{assessmentDate:'2026-01-15'},model:result({motora_fina:'40'})},{assessment:{assessmentDate:'2026-07-20'},model:result({motora_fina:'43'})}],formatId:'piat'});
- assert.equal(chart.differences.motora_fina,'Diferencia entre resultados: +3 meses');assert.doesNotMatch(chart.differences.motora_fina,/mejor/i);
+ assert.deepEqual(chart.differences.motora_fina,{value:3,display:'+3 meses',accessible:'Diferencia entre resultados: más 3 meses'});assert.doesNotMatch(chart.differences.motora_fina.accessible,/mejor/i);
+});
+
+test('jerarquía visual deriva solo de identificadores canónicos y no altera resultados',()=>{
+ const source=result({motora_fina:'55–56'}),snapshot=structuredClone(source);const chart=buildEquivalentAgeChartModel({assessments:[{model:source}],formatId:'piat'});
+ assert.deepEqual(source,snapshot);assert.equal(chart.rows.find(row=>row.id==='motora_fina').hierarchy,'component');assert.equal(chart.rows.find(row=>row.id==='comunicacion_receptiva').hierarchy,'component');assert.equal(chart.rows.find(row=>row.id==='motora_total').hierarchy,'area');assert.equal(chart.rows.at(-1).hierarchy,'grand-total');
 });
 
 test('SVG accesible dibuja rangos, referencias y no ubica ausentes en cero',()=>{
