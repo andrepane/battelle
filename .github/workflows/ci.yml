@@ -27,6 +27,8 @@ jobs:
         run: npm ci
       - name: Check JavaScript syntax
         run: npm run check:syntax
+      - name: Reject native application dialogs
+        run: npm run check:native-dialogs
       - name: JavaScript tests
         run: npm test
       - name: Python tests

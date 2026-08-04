@@ -2,8 +2,9 @@
   "type": "module",
   "scripts": {
     "check:syntax": "find . -type f -name '*.js' -not -path './node_modules/*' -print0 | xargs -0 -n1 node --check",
-    "test": "node --test $(find tests -type f -name '*.test.js' ! -name 'firestore-rules.test.js' -print)",
-    "test:firestore-rules": "FIRESTORE_RULES_REQUIRED=1 firebase emulators:exec --only firestore \"node --test tests/firestore-rules.test.js\""
+    "test": "npm run check:native-dialogs && node --test $(find tests -type f -name '*.test.js' ! -name 'firestore-rules.test.js' -print)",
+    "test:firestore-rules": "FIRESTORE_RULES_REQUIRED=1 firebase emulators:exec --only firestore \"node --test tests/firestore-rules.test.js\"",
+    "check:native-dialogs": "node scripts/check-native-dialogs.js"
   },
   "devDependencies": {
     "@firebase/rules-unit-testing": "^5.0.1",
