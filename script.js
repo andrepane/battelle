@@ -19,7 +19,7 @@ import { itemIsInStartingLevel, startingLevelForAge, startingLevelSummary } from
 import { canonicalTherapistName, sanitizeTherapistName, therapistLabel, therapistSuggestions } from './src/battelle-therapist.js';
 import { buildAssessmentComparison } from './src/battelle-comparison.js';
 import { buildPreviousScoreReference, copyObservedResponsesForSubarea, createFollowUpAssessmentSeed, restoreResponsesForSubarea } from './src/battelle-follow-up.js';
-import { captureAdministrationNavigation, comparisonControls, resolveAdministrationLocation } from './src/battelle-navigation.js';
+import { captureAdministrationNavigation, comparisonControls, initialAdministrationLocation, resolveAdministrationLocation } from './src/battelle-navigation.js';
 import { showConfirmDialog, showMessageDialog, showToast } from './src/battelle-dialogs.js';
 import { buildEquivalentAgeChartModel, renderEquivalentAgeChart, chartPngBlob, downloadChartBlob, copyChartPng, safeChartFilename } from './src/battelle-equivalent-age-chart.js';
 
@@ -30,6 +30,12 @@ const areas = ['Personal/Social','Adaptativa','Motora','Comunicación','Cognitiv
 let lastStartingScrollKey = null;
 let correctionConfirmationPending = false;
 const assessmentOperations = new Set();
+function resetAssessmentNavigation(){
+  const location=initialAdministrationLocation(state.items);
+  state.activeArea=location.areaId;
+  state.activeSubarea=location.subareaId;
+  lastStartingScrollKey=null;
+}
 function el(tag, attrs={}, ...children){ const n=document.createElement(tag); for(const [k,v] of Object.entries(attrs)){ if(k==='class') n.className=v; else if(k.startsWith('aria')) n.setAttribute(k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()), v); else if(k==='dataset') Object.assign(n.dataset,v); else if(k==='for') n.htmlFor=v; else n[k]=v; } for(const c of children) n.append(c?.nodeType?c:document.createTextNode(String(c))); return n; }
 function setText(id, text){ $(id).textContent = text; }
 
@@ -162,6 +168,7 @@ state.storageError = null;
 $('conflictNotice').classList.add('hidden');
 
 state.assessment = createAssessmentRecord(createAssessment());
+  resetAssessmentNavigation();
   state.openedRevision = state.assessment?.revision ?? 0;
   state.score = null;
   state.correction = null;
@@ -197,6 +204,7 @@ async function createAssessmentWithReference(){
   const blank=createAssessment(); const seed=createAssessmentRecord(createFollowUpAssessmentSeed({previousAssessment:previous,now:new Date(),id:blank.id}));
   const saved=await state.repository.saveAssessment(seed,0);
   state.saveCoordinator?.cancel();state.saveCoordinator=null;if(state.unsubscribeAssessment){state.unsubscribeAssessment();state.unsubscribeAssessment=null;}
+  resetAssessmentNavigation();
   showAssessment();hydrateAssessment(saved);await subscribeOpenAssessment(saved.id);
 }
 function restoreAdministrationNavigation(snapshot){
@@ -226,6 +234,7 @@ async function openAssessment(id){
   if(state.assessment && state.assessment.id!==id && !(await guardBeforeLeaving({save:flushSave}))) return;
   state.saveCoordinator?.cancel(); state.saveCoordinator=null;
   const rec=await state.repository.getAssessment(id); if(!rec) return;
+  resetAssessmentNavigation();
   showAssessment(); hydrateAssessment(rec); await subscribeOpenAssessment(id);
 }
 async function reloadRemoteAssessment(){

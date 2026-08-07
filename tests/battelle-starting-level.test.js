@@ -51,6 +51,28 @@ test('el contrato UI actualiza al cambiar edad y solo desplaza al cambiar edad o
   assert.doesNotMatch(scoringHandler,/scrollIntoView|updateStartingLevelVisuals/);
 });
 
+test('la navegación se reinicia al crear y abrir, pero el cambio manual de área se conserva al modificar la edad',async()=>{
+  const source=await readFile('script.js','utf8');
+  const reset=source.slice(source.indexOf('function resetAssessmentNavigation'),source.indexOf('function el('));
+  const startNew=source.slice(source.indexOf('async function startNew'),source.indexOf('async function loadPreviousReference'));
+  const openAssessment=source.slice(source.indexOf('async function openAssessment'),source.indexOf('async function reloadRemoteAssessment'));
+  const areaClick=source.slice(source.indexOf("if(e.target.matches('.area-tab'))"),source.indexOf("if(e.target.matches('.score-btn'))"));
+  assert.match(reset,/initialAdministrationLocation\(state\.items\)/);
+  assert.match(reset,/lastStartingScrollKey=null/);
+  assert.match(startNew,/resetAssessmentNavigation\(\)/);
+  assert.match(openAssessment,/resetAssessmentNavigation\(\)/);
+  assert.match(areaClick,/state\.activeArea=e\.target\.dataset\.area/);
+  assert.doesNotMatch(source.slice(source.indexOf('function onMeta'),source.indexOf('function renderAreas')),/resetAssessmentNavigation/);
+});
+
+test('el scroll por edad usa el área activa y únicamente la subárea abierta',async()=>{
+  const source=await readFile('script.js','utf8');
+  const visuals=source.slice(source.indexOf('function updateStartingLevelVisuals'),source.indexOf('function renderSubareaObservation'));
+  assert.match(visuals,/item\.area===state\.activeArea&&item\.subarea===sub/);
+  assert.match(visuals,/scroll&&details\.open&&first/);
+  assert.match(visuals,/first\.scrollIntoView/);
+});
+
 test('cambiar la edad no modifica observedResponses ni el motor clínico',async()=>{
   const items=await loadAndNormalizeItems();
   const model=await loadScaleModel();

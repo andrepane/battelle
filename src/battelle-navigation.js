@@ -1,3 +1,9 @@
+export const INITIAL_ADMINISTRATION_AREA = 'Personal/Social';
+
+export function initialAdministrationLocation(items){
+  return resolveAdministrationLocation({items,areaId:INITIAL_ADMINISTRATION_AREA,subareaId:null});
+}
+
 export function resolveAdministrationLocation({items,areaId,subareaId}){
   const areaItems=items.filter(item=>item.area===areaId);
   const safeArea=areaItems.length?areaId:items[0]?.area??null;
