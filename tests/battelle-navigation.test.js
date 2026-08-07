@@ -1,14 +1,23 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { captureAdministrationNavigation, comparisonControls, resolveAdministrationLocation } from '../src/battelle-navigation.js';
+import { captureAdministrationNavigation, comparisonControls, initialAdministrationLocation, resolveAdministrationLocation } from '../src/battelle-navigation.js';
 
 const items=[
+  {area:'Personal/Social',subarea:'Interacción con el adulto'},
+  {area:'Personal/Social',subarea:'Expresión de sentimientos/afecto'},
   {area:'Cognitiva',subarea:'Discriminación perceptiva'},
   {area:'Cognitiva',subarea:'Memoria'},
   {area:'Cognitiva',subarea:'Razonamiento y habilidades escolares'},
   {area:'Cognitiva',subarea:'Desarrollo conceptual'},
   {area:'Motora',subarea:'Control muscular'}
 ];
+
+test('una evaluación nueva o guardada comienza en la primera subárea de Personal/Social',()=>{
+  assert.deepEqual(initialAdministrationLocation(items),{
+    areaId:'Personal/Social',
+    subareaId:'Interacción con el adulto'
+  });
+});
 
 test('la ubicación canónica conserva la primera, tercera y cuarta subárea',()=>{
   for(const subarea of ['Discriminación perceptiva','Razonamiento y habilidades escolares','Desarrollo conceptual']){
