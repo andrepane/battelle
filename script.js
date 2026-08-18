@@ -8,7 +8,7 @@ import { downloadBattellePdf } from './src/battelle-pdf.js';
 import { loadJson } from './src/battelle-data.js';
 import { NORMATIVE_ERROR_MESSAGE, loadNormativeData, validateNormativeData } from './src/battelle-conversions.js';
 import { createAssessment, hasAssessmentChanges, calculateAgeMonths, formatAge, LEGACY_KEY, STORAGE_KEY } from './src/battelle-state.js';
-import { WORKFLOW_STATUS, COLLECTION_ERROR, createAssessmentRecord, filterAssessments } from './src/battelle-assessment-repository.js';
+import { WORKFLOW_STATUS, COLLECTION_ERROR, classifyAssessment, createAssessmentRecord, filterAssessments } from './src/battelle-assessment-repository.js';
 import { signInNeurointegra, observeAuthState, ensureAuthorized, signOutNeurointegra, friendlyAuthError } from './src/battelle-auth.js';
 import { createFirestoreAssessmentRepository } from './src/battelle-firestore-repository.js';
 import { detectLocalAssessments, importLocalAssessments } from './src/battelle-local-import.js';
@@ -375,14 +375,13 @@ async function renderHome(preloaded=null){
   $('comparisonSelectionCount').textContent=`${state.comparisonIds.length} de 2 seleccionadas`; $('viewComparisonBtn').disabled=state.comparisonIds.length!==2;
   const filtering=Boolean(($('assessmentSearch')?.value||'').trim())||(!state.trashMode&&$('assessmentFilter')?.value!=='all')||$('therapistFilter')?.value!=='all'; $('assessmentCount').textContent=filtering?`${filtered.length} de ${records.length} evaluaciones`:`${records.length} ${state.trashMode?'eliminadas':'evaluaciones'}`;
   const host=$('assessmentsList'); if(!filtered.length){host.replaceChildren(el('p',{class:'empty-state'},state.trashMode?'La papelera está vacía.':(filtering?'No se encontraron evaluaciones.':'No hay evaluaciones todavía.')));return;}
-  const labels={borrador:'Borrador',pendiente_completar:'Pendiente',correccion_bloqueada:'Pendiente',corregida:'Corregida',resultado_desactualizado:'Resultado desactualizado'};
   let rows;
   if(state.trashMode){
     rows=filtered.map(r=>el('tr',{},
       td(patientLabel(r.name),{dataset:{label:'Paciente'}}),
       td(therapistLabel(r.therapistName),{dataset:{label:'Terapeuta'}}),
       td(displayDate(r.assessmentDate)),
-      td(labels[r.workflowStatus]||r.workflowStatus),
+      td(classifyAssessment(r).label),
       td(displayDateTime(r.deletedAt)),
       td(r.deletedBy||'Usuario autenticado'),
       el('td',{class:'actions'},
@@ -398,7 +397,7 @@ async function renderHome(preloaded=null){
       td(displayDate(r.birthDate)),
       td(displayDate(r.assessmentDate)),
       el('td',{title:Number.isInteger(r.ageMonths)?`${r.ageMonths} meses`:''},compactAge(r.ageMonths)),
-      el('td',{},el('span',{class:'status-pill'},labels[r.workflowStatus]||r.workflowStatus)),
+      el('td',{},el('span',{class:'status-pill'},classifyAssessment(r).label)),
       td(displayDateTime(r.updatedAt)),
       state.comparisonMode?td('—',{class:'actions'}):el('td',{class:'actions'},el('button',{class:'secondary-button open-assessment',dataset:{id:r.id}},'Abrir'),el('button',{class:'danger-button delete-assessment',dataset:{id:r.id}},'Mover a la papelera'))
     );});
