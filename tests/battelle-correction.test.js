@@ -28,7 +28,7 @@ test('36-95 no falla por percentiles, Battelle total no inventa percentil y erro
 
 test('huella cambia con respuesta y edad, no con nombre ni observación; persistencia no guarda derivados',()=>{ const a=assessment({A1:2}); const fp=createCorrectionFingerprint({assessment:a}); a.name='Otro'; a.observations.A1='nota'; assert.equal(createCorrectionFingerprint({assessment:a}),fp); a.observedResponses.A1=1; assert.notEqual(createCorrectionFingerprint({assessment:a}),fp); const saved=parseStoredAssessment(serializeAssessment(a)); assert.equal(saved.ok,true); assert.equal(saved.assessment.results,undefined); assert.equal(saved.assessment.fingerprint,undefined); });
 
-test('síntesis exige al menos dos áreas principales y no contiene diagnósticos',()=>{ const summary=buildDescriptiveSummary({results:{summary:{ageMonths:52},scales:{comunicacion_total:{equivalentAgeLabel:'40–41 meses',equivalentAge:{ok:true,minMonths:40,maxMonths:41}}}}}); assert.equal(summary.ok,false); assert.match(summary.text,/No hay suficientes/); assert(!`${summary.text} ${summary.note}`.match(/retraso|leve|moderado|grave|diagnóstico/i)); });
+test('síntesis admite una sola área principal y no contiene diagnósticos',()=>{ const summary=buildDescriptiveSummary({results:{summary:{ageMonths:52},scales:{comunicacion_total:{equivalentAgeLabel:'40–41 meses',equivalentAge:{ok:true,minMonths:40,maxMonths:41}}}}}); assert.equal(summary.ok,true); assert.match(summary.text,/única área.*Comunicación.*40–41 meses/); assert(!`${summary.text} ${summary.note}`.match(/retraso|leve|moderado|grave|diagnóstico/i)); });
 
 test('fecha de evaluación anterior al nacimiento bloquea aunque haya o no anulación manual y no ejecuta motor',()=>{
   for (const manualAgeOverride of [false,true]) {
