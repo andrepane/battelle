@@ -96,7 +96,20 @@ export function buildResultTableModel({results,model,normativeData,therapistName
   const therapist=safePresentationText(therapistName??professional,'Sin asignar');
   const metadata={...results.metadata,ageMonths:results.summary.ageMonths,correctedAt:results.summary.correctedAt??results.correctedAt,therapistName:therapist};
   metadata.display=Object.freeze({birthDate:formatSpanishDate(metadata.birthDate),assessmentDate:formatSpanishDate(metadata.assessmentDate),correctedAt:formatSpanishDateTime(metadata.correctedAt),age:formatClinicalAge(metadata.ageMonths),therapistName:therapist});
-  return Object.freeze({columns:RESULT_COLUMN_DEFINITIONS,rows,metadata,warnings:(results.warnings??[]).map(w=>({item:safePresentationText(w.codigo??w.code??w.subarea??'Evaluación'),message:safePresentationText(w.mensaje??w.message??String(w))}))});
+  return Object.freeze({columns:RESULT_COLUMN_DEFINITIONS,rows,metadata,warnings:reviewScoreMessages(results.warnings??[])});
+}
+export function reviewScoreMessages(incidences=[]){
+  const messages=[]; const seen=new Set();
+  for(const incidence of incidences){
+    const item=safePresentationText(incidence?.codigo??incidence?.code,null);
+    const message=incidence?.tipo==='discrepancia_basal'&&item
+      ?`Revisa ${item}: tiene una puntuación inferior a 2 antes del basal establecido.`
+      :incidence?.tipo==='inconsistencia_techo'&&item
+        ?`Revisa ${item}: tiene una puntuación superior a 0 después del techo establecido.`
+        :null;
+    if(message&&!seen.has(message)){seen.add(message);messages.push(Object.freeze({item,type:incidence.tipo,message}));}
+  }
+  return Object.freeze(messages);
 }
 export function resultRowOrder(){ return [...ORDER]; }
 export function displayValue(value){ return value===NOT_APPLICABLE?NOT_APPLICABLE:String(value); }

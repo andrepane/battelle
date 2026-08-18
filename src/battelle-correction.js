@@ -56,17 +56,25 @@ export function buildDescriptiveSummary({ results }){
     .map(([id,name])=>{const scale=results?.scales?.[id],eq=scale?.equivalentAge;return {id,name,equivalentAge:eq,label:scale?.equivalentAgeLabel??(eq?.ok?(eq.minMonths===eq.maxMonths?`${eq.minMonths} meses`:`${eq.minMonths}–${eq.maxMonths} meses`):null)};})
     .filter(area=>area.equivalentAge?.ok&&Number.isFinite(area.equivalentAge.minMonths)&&Number.isFinite(area.equivalentAge.maxMonths)&&area.label)
     .map(area=>({...area,orderValue:(area.equivalentAge.minMonths+area.equivalentAge.maxMonths)/2}));
-  if(!Number.isInteger(age)||areas.length<2) return Object.freeze({ok:false,text:insufficient,note,areas:Object.freeze(areas)});
+  if(!Number.isInteger(age)||areas.length===0) return Object.freeze({ok:false,text:insufficient,note,areas:Object.freeze(areas)});
   const min=Math.min(...areas.map(area=>area.orderValue)),max=Math.max(...areas.map(area=>area.orderValue));
   const lows=areas.filter(area=>area.orderValue===min),highs=areas.filter(area=>area.orderValue===max);
   const names=list=>new Intl.ListFormat('es',{style:'long',type:'conjunction'}).format(list.map(area=>area.name));
   const values=list=>new Set(list.map(area=>area.label));
   const describe=list=>values(list).size===1?`${names(list)}, con una edad equivalente de ${list[0].label}`:new Intl.ListFormat('es',{style:'long',type:'conjunction'}).format(list.map(area=>`${area.name} (${area.label})`));
-  const prefix=`En el momento de administración de la escala, el menor tenía ${age} meses de edad.`;
+  const prefix=`En el momento de la evaluación, el menor tenía ${age} meses.`;
   let text;
-  if(min===max&&values(areas).size===1) text=`${prefix} Las áreas ${names(areas)} presentan la misma edad equivalente, de ${areas[0].label}.`;
-  else if(min===max) text=`${prefix} Las áreas presentan edades equivalentes con el mismo punto medio normativo: ${describe(areas)}.`;
-  else text=`${prefix} ${lows.length===1?'El área que presenta una menor edad equivalente es':'Las áreas que presentan una menor edad equivalente son'} ${describe(lows)}. ${highs.length===1?'El área con mayor edad equivalente es':'Las áreas con mayor edad equivalente son'} ${describe(highs)}.`;
+  if(areas.length===1) text=`${prefix} La única área con una edad equivalente disponible es ${areas[0].name}, con ${areas[0].label}.`;
+  else if(min===max&&values(areas).size===1) text=`${prefix} Las ${areas.length} áreas con datos disponibles presentan la misma edad equivalente: ${areas[0].label}.`;
+  else {
+    const rangeMin=Math.min(...areas.map(area=>area.equivalentAge.minMonths));
+    const rangeMax=Math.max(...areas.map(area=>area.equivalentAge.maxMonths));
+    const range=rangeMin===rangeMax?`${rangeMin} meses`:`${rangeMin} y ${rangeMax} meses`;
+    const lowSubject=lows.length===1?lows[0].name:names(lows);
+    const highSubject=highs.length===1?highs[0].name:names(highs);
+    const lowVerb=lows.length===1?'presenta':'presentan'; const highVerb=highs.length===1?'alcanza':'alcanzan';
+    text=`${prefix} Las edades equivalentes obtenidas en las diferentes áreas se sitúan entre ${range}. ${lowSubject} ${lowVerb} ${lows.length===1?'el resultado más bajo':'los resultados más bajos'}, con ${values(lows).size===1?lows[0].label:describe(lows)}, mientras que ${highSubject} ${highVerb} ${highs.length===1?'el más alto':'los más altos'}, con ${values(highs).size===1?highs[0].label:describe(highs)}.`;
+  }
   return Object.freeze({ok:true,text,note,areas:Object.freeze(areas),criterion:'Los intervalos se ordenan por su punto medio; para mostrar se conserva el intervalo normativo literal.'});
 }
 export function inspectCorrection({ assessment, items, model, normativeData, scoreAssessment, dataVersion, modelVersion }){
