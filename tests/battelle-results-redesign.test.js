@@ -46,6 +46,13 @@ test('fila normalizada encadena PC a N-1 exactamente y conserva procedencia',()=
  const row=buildNormalizedResultRow({id:'adaptativa_total',source:{pd:42,percentile:{ok:true,percentile:50,table:'N-10',provenance:'test'},equivalentAge:{ok:false}},model,results:{},normativeData});
  assert.deepEqual([row.pd,row.pc,row.z,row.T,row.CI,row.ECN],[42,50,0,50,100,50]); assert.equal(row.pcKind,'percentil');assert.equal(row.provenance.conversion.table,'N-1');
 });
+test('la procedencia normativa se conserva internamente aunque no se renderice',()=>{
+ const source={pd:42,percentile:{ok:true,percentile:50,table:'N-10',provenance:{archivo:'baremos.xlsx',hoja:'N-10',celda:'B7'}},equivalentAge:{ok:false}};
+ const results={metadata:{},summary:{ageMonths:24},subareas:{},scales:{adaptativa_total:source},warnings:[],normative:{version:'baremos-json-v1',id:'normativa-auditada',dataVersion:'items-v1',modelVersion:'model-v1'}};
+ const table=buildResultTableModel({results,model,normativeData}); const row=table.rows.find(candidate=>candidate.id==='adaptativa_total');
+ assert.deepEqual(row.provenance.pc.provenance,source.percentile.provenance); assert.equal(row.provenance.pc.table,'N-10');
+ assert.deepEqual(results.normative,{version:'baremos-json-v1',id:'normativa-auditada',dataVersion:'items-v1',modelVersion:'model-v1'});
+});
 test('ausencias nunca producen cero ni valores técnicos y edad equivalente solo si existe',()=>{
  const row=buildNormalizedResultRow({id:'adaptativa_atencion',source:{pd:null},model,results:{},normativeData});
  assert.deepEqual([row.pd,row.pc,row.z,row.T,row.CI,row.ECN,row.equivalentAge],Array(7).fill(NOT_APPLICABLE));assert.doesNotMatch(JSON.stringify(row),/undefined|NaN|\[object Object\]/);
