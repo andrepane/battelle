@@ -21,6 +21,19 @@ test('punto, intervalo literal, ausente y error tienen semántica explícita',()
  const error=parseEquivalentAge('error técnico');assert.equal(error.kind,'error');assert.equal(error.numeric,false);
 });
 
+test('límite abierto conserva el umbral normativo y se distingue de punto e intervalo',()=>{
+ const open=parseEquivalentAge('117+');assert.deepEqual(open,{kind:'open',text:'117+',numeric:true,min:117,max:null,value:null,accessibleText:'117 meses o más'});
+ const chart=buildEquivalentAgeChartModel({assessments:[{model:result({personal_social_total:'117+'},70)}],formatId:'piat'}),svg=equivalentAgeChartSvg(chart);
+ assert.equal(chart.rows[0].series[0].min,117);assert.match(svg,/open-limit-marker/);assert.match(svg,/Edad equivalente: 117 meses o más/);assert.doesNotMatch(svg,/Diferencia:[^\"]*117/);
+});
+
+test('tooltip incluye percentil válido y omite percentiles ausentes o inválidos',()=>{
+ const model=result({personal_social_total:'54'},70);model.rows[0].pc=2;model.rows[1].pc=NaN;
+ const svg=equivalentAgeChartSvg(buildEquivalentAgeChartModel({assessments:[{model}],formatId:'piat'}));
+ const personal=svg.slice(svg.indexOf('data-tooltip="Personal'),svg.indexOf('"><path',svg.indexOf('data-tooltip="Personal')));assert.match(personal,/Percentil: 2/);assert.match(personal,/Diferencia: −16 meses/);
+ const adaptativa=svg.slice(svg.indexOf('data-tooltip="Adaptativa'),svg.indexOf('"><path',svg.indexOf('data-tooltip="Adaptativa')));assert.doesNotMatch(adaptativa,/Percentil/);
+});
+
 test('modelo es puro, usa edad corregida y separa evaluaciones por fecha',()=>{
  const previous=result({motora_fina:'55-56'},48,'2026-01-15'),current=result({motora_fina:'—'},54,'2026-07-20');const before=structuredClone(previous);
  const chart=buildEquivalentAgeChartModel({assessments:[{assessment:{id:'a',assessmentDate:'2026-01-15'},model:previous},{assessment:{id:'b',assessmentDate:'2026-07-20'},model:current}],formatId:'piat'});
@@ -40,7 +53,7 @@ test('jerarquía visual deriva solo de identificadores canónicos y no altera re
 
 test('SVG accesible dibuja rangos, referencias y no ubica ausentes en cero',()=>{
  const chart=buildEquivalentAgeChartModel({assessments:[{assessment:{assessmentDate:'2026-01-15'},model:result({motora_fina:'55–56',cognitiva_total:'—'})},{assessment:{assessmentDate:'2026-07-20'},model:result({},58)}],formatId:'piat'});
- const svg=equivalentAgeChartSvg(chart);assert.match(svg,/<title id=/);assert.match(svg,/<desc id=/);assert.match(svg,/bar-interval/);assert.match(svg,/Edad cronológica|Edad anterior · 52 meses/);assert.match(svg,/Motora fina/);assert.match(svg,/Comunicación receptiva/);assert.match(svg,/Sin edad equivalente disponible/);assert.doesNotMatch(svg,/aria-label="[^"]*Sin edad equivalente disponible[^"]*"[^>]*><circle[^>]*cx="235"/);assert.match(svg,/chronological-line/);assert.match(svg,/stroke-dasharray/);
+ const svg=equivalentAgeChartSvg(chart);assert.match(svg,/<title id=/);assert.match(svg,/<desc id=/);assert.match(svg,/interval-marker/);assert.match(svg,/Edad cronológica|Edad anterior · 52 meses/);assert.match(svg,/Motora fina/);assert.match(svg,/Comunicación receptiva/);assert.match(svg,/Sin edad equivalente disponible/);assert.doesNotMatch(svg,/aria-label="[^"]*Sin edad equivalente disponible[^"]*"[^>]*><circle[^>]*cx="235"/);assert.match(svg,/chronological-line/);assert.match(svg,/stroke-dasharray/);
 });
 
 test('archivo es seguro y portapapeles comunica los errores',async()=>{

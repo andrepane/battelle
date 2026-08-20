@@ -23,8 +23,8 @@ test('ancho mínimo depende de categorías y modo comparativo',()=>{
 
 test('individual crea barras desde cero, intervalo segmentado y ausencia sin barra cero',()=>{
  const model=individual({personal_social_total:'65',adaptativa_total:'90–95',cognitiva_total:'—'}),geometry=equivalentAgeBarGeometry(model),svg=equivalentAgeChartSvg(model);
- assert.equal((svg.match(/class="vertical-bar series-1"/g)||[]).length,9);assert.match(svg,/Personal\/Social: edad equivalente de 65 meses/);assert.match(svg,/class="bar-solid"/);assert.match(svg,/>65</);
- assert.match(svg,/class="bar-interval"/);assert.match(svg,/class="interval-limit"/);assert.match(svg,/>90–95</);assert.doesNotMatch(svg,/92[,.]5/);
+ assert.equal((svg.match(/class="bar-target vertical-bar hierarchy-[^"]+ series-1"/g)||[]).length,9);assert.match(svg,/Personal\/Social[.][^"]*Edad equivalente: 65 meses/);assert.match(svg,/class="bar-solid"/);assert.match(svg,/>65</);
+ assert.match(svg,/class="interval-marker"/);assert.equal((svg.match(/<line/g)||[]).length>3,true);assert.match(svg,/>90–95</);assert.doesNotMatch(svg,/92[,.]5/);
  const range=geometry.groups[1].bars[0];assert.ok(range.rangeTop<range.solidTop);assert.equal(range.baseline,geometry.plotBottom);
  const missing=svg.slice(svg.indexOf('data-tooltip="Cognitiva'),svg.indexOf('</g>',svg.indexOf('data-tooltip="Cognitiva')));assert.match(missing,/>—</);assert.doesNotMatch(missing,/vertical-bar/);
 });
@@ -32,13 +32,13 @@ test('individual crea barras desde cero, intervalo segmentado y ausencia sin bar
 test('comparativo agrupa dos posiciones sin solape, conexión ni flechas',()=>{
  const model=comparison({personal_social_total:'52',adaptativa_total:'—',motora_fina:'50–52'},{personal_social_total:'65',adaptativa_total:'48',motora_fina:'60–64'}),geometry=equivalentAgeBarGeometry(model),svg=equivalentAgeChartSvg(model);
  for(const group of geometry.groups){assert.equal(group.bars.length,2);assert.ok(group.bars[0].x+group.bars[0].width<group.bars[1].x);assert.equal(group.bars[0].baseline,group.bars[1].baseline);}
- assert.match(svg,/vertical-bar series-0/);assert.match(svg,/vertical-bar series-1/);assert.match(svg,/Anterior · 15\/01\/2026/);assert.match(svg,/Actual · 30\/07\/2026/);
+ assert.match(svg,/vertical-bar hierarchy-area series-0/);assert.match(svg,/bar-target vertical-bar hierarchy-area series-1/);assert.match(svg,/Anterior · 15\/01\/2026/);assert.match(svg,/Actual · 30\/07\/2026/);
  assert.doesNotMatch(svg,/evolution-connector|dumbbell|marker-end|arrow|flecha/i);assert.ok(svg.indexOf('<g class="bars-layer">')<svg.indexOf('<g class="chronological-layer">'));assert.ok(svg.indexOf('<g class="chronological-layer">')<svg.indexOf('<g class="chronological-label-layer">'));
 });
 
 test('coincidencias conservan dos barras y ausencia reserva cada posición',()=>{
  const model=comparison({personal_social_total:'52',adaptativa_total:'—'},{personal_social_total:'52',adaptativa_total:'48'},[60,60]),geometry=equivalentAgeBarGeometry(model),svg=equivalentAgeChartSvg(model);
- const same=geometry.groups[0].bars;assert.notEqual(same[0].x,same[1].x);assert.equal(same[0].solidTop,same[1].solidTop);assert.match(svg,/Sin diferencia entre resultados/);
+ const same=geometry.groups[0].bars;assert.notEqual(same[0].x,same[1].x);assert.equal(same[0].solidTop,same[1].solidTop);assert.equal(model.differences.personal_social_total.value,0);
  assert.equal(geometry.groups[1].bars.length,2);assert.equal(geometry.groups[1].bars[0].value.numeric,false);assert.equal(geometry.groups[1].bars[1].value.numeric,true);
 });
 
@@ -63,11 +63,18 @@ test('etiquetas completas se dividen sin rotación y conservan jerarquía',()=>{
  assert.match(svg,/<tspan[^>]*>Comunicación<\/tspan><tspan[^>]*>receptiva<\/tspan>/);assert.match(svg,/<tspan[^>]*>Motora<\/tspan><tspan[^>]*>fina<\/tspan>/);assert.doesNotMatch(svg,/x-label[^>]*transform=.*rotate\(-?90/);assert.match(svg,/hierarchy-component/);assert.match(svg,/hierarchy-grand-total/);
 });
 
+test('separa los bloques de subáreas y Battelle total sin alterar alturas',()=>{
+ const model=individual(),geometry=equivalentAgeBarGeometry(model),centers=geometry.groups.map(group=>group.center),steps=centers.slice(1).map((center,index)=>center-centers[index]);
+ assert.ok(steps[2]>steps[1]);assert.ok(steps[5]>steps[4]);assert.ok(steps[8]>steps[7]);
+ for(const [index,row] of model.rows.entries())assert.equal(geometry.groups[index].bars[0].solidTop,geometry.y(row.series[0].kind==='point'?row.series[0].value:row.series[0].min));
+});
+
 test('tooltips de barra respetan punto, intervalo, teclado y exportación',async()=>{
- const point=equivalentAgeChartSvg(individual({personal_social_total:'65'}));assert.match(point,/data-tooltip="Personal\/Social[\s\S]*Edad equivalente: 65 meses[\s\S]*Edad cronológica: 60 meses[\s\S]*Diferencia descriptiva: \+5 meses/);
- const ranged=equivalentAgeChartSvg(individual({adaptativa_total:'90–95'}));const start=ranged.indexOf('data-tooltip="Adaptativa'),tooltip=ranged.slice(start,ranged.indexOf('"><rect',start));assert.match(tooltip,/90–95 meses/);assert.doesNotMatch(tooltip,/Diferencia descriptiva/);
- assert.match(point,/tabindex="0" role="group"/);const exported=point.slice(point.indexOf('<svg'),point.indexOf('</svg>')+6);assert.match(exported,/vertical-age-chart/);assert.doesNotMatch(exported,/chart-tooltip|button|copy-chart|download-chart/);
+ const point=equivalentAgeChartSvg(individual({personal_social_total:'65'}));assert.match(point,/data-tooltip="Personal\/Social[\s\S]*Edad equivalente: 65 meses[\s\S]*Edad cronológica: 60 meses[\s\S]*Diferencia: \+5 meses/);
+ const ranged=equivalentAgeChartSvg(individual({adaptativa_total:'90–95'}));const start=ranged.indexOf('data-tooltip="Adaptativa'),tooltip=ranged.slice(start,ranged.indexOf('"><path',start));assert.match(tooltip,/entre 90 y 95 meses/);assert.doesNotMatch(tooltip,/Diferencia:/);
+ assert.match(point,/bar-target[^>]*tabindex="0" role="img"/);const exported=point.slice(point.indexOf('<svg'),point.indexOf('</svg>')+6);assert.match(exported,/vertical-age-chart/);assert.doesNotMatch(exported,/chart-tooltip|button|copy-chart|download-chart/);
  const source=await readFile(new URL('../src/battelle-equivalent-age-chart.js',import.meta.url),'utf8');assert.match(source,/event\.key==='Escape'/);
+ assert.match(source,/item\.addEventListener\('click'/);assert.match(source,/is-selected/);assert.doesNotMatch(point,/category-focus/);
 });
 
 test('panel responsive y cambios de vista no persisten',async()=>{
