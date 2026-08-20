@@ -33,7 +33,7 @@ test('comparativo agrupa dos posiciones sin solape, conexión ni flechas',()=>{
  const model=comparison({personal_social_total:'52',adaptativa_total:'—',motora_fina:'50–52'},{personal_social_total:'65',adaptativa_total:'48',motora_fina:'60–64'}),geometry=equivalentAgeBarGeometry(model),svg=equivalentAgeChartSvg(model);
  for(const group of geometry.groups){assert.equal(group.bars.length,2);assert.ok(group.bars[0].x+group.bars[0].width<group.bars[1].x);assert.equal(group.bars[0].baseline,group.bars[1].baseline);}
  assert.match(svg,/vertical-bar series-0/);assert.match(svg,/vertical-bar series-1/);assert.match(svg,/Anterior · 15\/01\/2026/);assert.match(svg,/Actual · 30\/07\/2026/);
- assert.doesNotMatch(svg,/evolution-connector|dumbbell|marker-end|arrow|flecha/i);assert.ok(svg.indexOf('chronological-layer')<svg.indexOf('bars-layer'));
+ assert.doesNotMatch(svg,/evolution-connector|dumbbell|marker-end|arrow|flecha/i);assert.ok(svg.indexOf('<g class="bars-layer">')<svg.indexOf('<g class="chronological-layer">'));assert.ok(svg.indexOf('<g class="chronological-layer">')<svg.indexOf('<g class="chronological-label-layer">'));
 });
 
 test('coincidencias conservan dos barras y ausencia reserva cada posición',()=>{
@@ -47,6 +47,15 @@ test('cronología usa líneas horizontales únicas o dobles y separa etiquetas p
  svg=equivalentAgeChartSvg(comparison({}, {},[60,61]));assert.equal((svg.match(/class="chronological-line"/g)||[]).length,2);assert.match(svg,/Edad anterior · 60 meses/);assert.match(svg,/Edad actual · 61 meses/);
  const refs=[...svg.matchAll(/class="chronological-label" x="([^"]+)" y="([^"]+)" text-anchor="([^"]+)"/g)];assert.equal(refs.length,2);assert.notEqual(refs[0][1],refs[1][1]);assert.notEqual(refs[0][3],refs[1][3]);
  assert.doesNotMatch(svg,/x1="[^\"]+" y1="150" x2="\1"/);
+});
+
+test('referencias cronológicas quedan sobre barras, hover y Battelle total a cualquier ancho',()=>{
+ for(const width of [320,768,1440]){
+  const svg=equivalentAgeChartSvg(individual({personal_social_total:'40',adaptativa_total:'60',motora_gruesa:'75',battelle_total:'90'}),{width});
+  const bars=svg.indexOf('<g class="bars-layer">'),lines=svg.indexOf('<g class="chronological-layer">'),labels=svg.indexOf('<g class="chronological-label-layer">');
+  assert.ok(bars<lines&&lines<labels);assert.match(svg,/hierarchy-grand-total/);assert.match(svg,/chronological-label-background/);assert.match(svg,/chronological-layer,.chronological-label-layer\{pointer-events:none\}/);
+  const label=[...svg.matchAll(/class="chronological-label" x="([\d.]+)" y="([\d.]+)"/g)][0];assert.ok(Number(label[1])>=86&&Number(label[1])<=equivalentAgeChartLayout(individual(),{width}).width-28);assert.ok(Number(label[2])>=150);
+ }
 });
 
 test('etiquetas completas se dividen sin rotación y conservan jerarquía',()=>{
