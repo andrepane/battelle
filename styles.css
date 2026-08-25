@@ -143,3 +143,53 @@ main{width:min(100%,1460px)}
 @media(max-width:900px){.clinical-header .results-actions{justify-content:flex-start}.clinical-metadata{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.clinical-metadata{grid-template-columns:minmax(0,1fr)}.result-display-tabs{display:grid;width:100%;grid-auto-columns:1fr}.chart-panel-header{display:block}.chart-actions{justify-content:stretch;margin-top:.75rem}.chart-actions button{flex:1 1 140px}.chart-copy-status{text-align:left}}
 @media(prefers-reduced-motion:reduce){.equivalent-age-chart,.equivalent-age-chart *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Filtros de evaluaciones: controles sobrios y coherentes con la interfaz clínica. */
+.list-tools{
+  display:grid;
+  grid-template-columns:minmax(260px,1.25fr) repeat(2,minmax(210px,1fr));
+  align-items:end;
+  gap:.8rem 1rem;
+  padding:.9rem;
+  border:1px solid var(--color-border);
+  border-radius:var(--radius);
+  background:#f8fafc;
+}
+.list-tools label{min-width:0;gap:.4rem;color:var(--color-brand-dark);font-size:.82rem;letter-spacing:.015em}
+.list-tools input,.list-tools select{
+  width:100%;
+  min-width:0;
+  height:42px;
+  border:1px solid #c7d3df;
+  border-radius:9px;
+  background-color:var(--color-surface);
+  color:var(--color-text);
+  font:inherit;
+  font-size:.92rem;
+  font-weight:500;
+  box-shadow:0 1px 2px rgba(24,50,74,.04);
+  transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease;
+}
+.list-tools input[type=search]{
+  padding-inline:2.35rem .75rem;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:.75rem center;
+}
+.list-tools select{
+  appearance:none;
+  padding-inline:.8rem 2.5rem;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232f6faf' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right .8rem center;
+  cursor:pointer;
+}
+.list-tools input::placeholder{color:#7b8797;opacity:1}
+.list-tools input:hover,.list-tools select:hover{border-color:#8eabc8;background-color:#fbfdff}
+.list-tools input:focus-visible,.list-tools select:focus-visible{
+  border-color:var(--color-primary);
+  outline:0;
+  box-shadow:0 0 0 3px rgba(47,111,175,.14);
+}
+@media(max-width:800px){.list-tools{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.list-tools label:first-child{grid-column:1/-1}}
+@media(max-width:520px){.list-tools{grid-template-columns:minmax(0,1fr);padding:.75rem}.list-tools label:first-child{grid-column:auto}}
