@@ -10,7 +10,7 @@ const items=await loadAndNormalizeItems();
 const model=await loadScaleModel();
 const derive=(observed)=>scoreAssessment(items,model,observed);
 const basalSupport={PS6:2,PS7:2,PS8:2};
-const ceilingSupport={PS1:2,PS2:2,PS3:2,PS4:2,PS5:2,PS8:0,PS9:0};
+const ceilingSupport={PS1:2,PS2:2,PS3:2,PS4:2,PS5:2,PS9:0,PS10:0};
 
 function selected(response){ return [null,0,1,2].filter(score=>scoreButtonAccessibility('PS',score,response).pressed); }
 
@@ -23,11 +23,11 @@ test('un ítem inferior al basal selecciona 2 BASAL, nunca guion, sin persistirl
 });
 
 test('un ítem posterior al techo selecciona 0 TECHO, nunca guion, sin persistirlo como observado',()=>{
-  const scoring=derive(ceilingSupport); const response=scoring.respuestas_efectivas.PS10;
+  const scoring=derive(ceilingSupport); const response=scoring.respuestas_efectivas.PS11;
   assert.deepEqual(scorePresentation(response),{origin:'techo',score:0,label:'0 TECHO'});
   assert.deepEqual(selected(response),[0]);
-  assert.equal(Object.hasOwn(scoring.respuestas_observadas,'PS10'),false);
-  assert.match(scoreButtonAccessibility('PS10',0,response).ariaLabel,/0 derivado por techo/);
+  assert.equal(Object.hasOwn(scoring.respuestas_observadas,'PS11'),false);
+  assert.match(scoreButtonAccessibility('PS11',0,response).ariaLabel,/0 derivado por techo/);
 });
 
 test('editar un derivado lo convierte en observado y eliminarlo recupera la derivación',()=>{
@@ -46,11 +46,11 @@ test('editar un derivado lo convierte en observado y eliminarlo recupera la deri
 test('cambiar sustentos elimina inmediatamente las selecciones derivadas obsoletas',()=>{
   let response=derive(basalSupport).respuestas_efectivas.PS1;
   assert.deepEqual(selected(response),[2]);
-  response=derive({...basalSupport,PS8:1}).respuestas_efectivas.PS1;
+  response=derive({...basalSupport,PS7:1}).respuestas_efectivas.PS1;
   assert.deepEqual(selected(response),[null]);
-  response=derive(ceilingSupport).respuestas_efectivas.PS10;
+  response=derive(ceilingSupport).respuestas_efectivas.PS11;
   assert.deepEqual(selected(response),[0]);
-  response=derive({...ceilingSupport,PS9:1}).respuestas_efectivas.PS10;
+  response=derive({...ceilingSupport,PS10:1}).respuestas_efectivas.PS11;
   assert.deepEqual(selected(response),[null]);
 });
 
