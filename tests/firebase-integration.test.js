@@ -35,6 +35,7 @@ test('modelo Firestore sanea documentos y ruta compartida',()=>{
   const payload=toFirestorePayload(rec,'uid1');
   assert.equal(ASSESSMENTS_PATH,'organizations/neurointegra/assessments');
   assert.equal(payload.organizationId,'neurointegra'); assert.equal(payload.updatedBy,undefined);
+  assert.equal(payload.scoringRulesVersion,undefined); assert.equal(payload.correctionMetadata.scoringRulesVersion,rec.scoringRulesVersion);
   assert.equal(toFirestorePayload({...rec, observedResponses:{constructor:1}},'uid1'),null);
   assert.equal(fromFirestoreDocument('bat-f1',{...payload, organizationId:'otro'}),null);
 });

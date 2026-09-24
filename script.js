@@ -148,7 +148,7 @@ function toRecordStatus(){ return workflowFromEvaluationStatus(state.evaluationS
 function fromRecordStatus(s){ return workflowToEvaluationStatus(s); }
 function hasBlockingScoreError(){ return (state.correction?.errors ?? []).length > 0; }
 function conversionsAllowed(){ return state.evaluationStatus==='corregida' && !hasBlockingScoreError() && updateAge(); }
-function provisionalScore(){ state.score=state.assessment ? scoreAssessment(state.items,state.model,state.assessment.observedResponses??{}) : null; }
+function provisionalScore(){ state.score=state.assessment ? scoreAssessment(state.items,state.model,state.assessment.observedResponses??{},state.assessment.scoringRulesVersion) : null; }
 function resetCorrection(next='administrando', {clearMetadata=false}={}){ provisionalScore(); state.correction=null; state.evaluationStatus=next; state.viewMode=VIEW_MODE.ADMINISTRATION; if(clearMetadata) state.assessment.correctionMetadata={}; updateResults(); updateVisibleItemsEffective(); scheduleSave(); }
 function maybeInvalidateCorrection(changedScoringData=true){ if(!changedScoringData){ scheduleSave(300); updateResults(); return; } if(state.assessment?.workflowStatus===WORKFLOW_STATUS.CORRECTED || state.assessment?.correctionMetadata?.fingerprint){ state.correction=null; state.evaluationStatus='resultado_desactualizado'; state.assessment.workflowStatus=WORKFLOW_STATUS.STALE; state.viewMode=VIEW_MODE.ADMINISTRATION; } else if(state.evaluationStatus!=='correccion_bloqueada') state.evaluationStatus='administrando'; provisionalScore(); updateResults(); updateVisibleItemsEffective(); scheduleSave(); }
 async function startNew(force=false){

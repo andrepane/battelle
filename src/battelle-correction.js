@@ -1,13 +1,16 @@
 import { normalizeItemCode } from './battelle-data.js';
 import { SCHEMA_VERSION, calculateAgeMonths } from './battelle-state.js';
 import { ageBandForMonths, canonicalNormativeId, equivalentAgeForScale, lookupGeneralConversion, lookupTotalCentile, percentileForScale, validateNormativeData } from './battelle-conversions.js';
+import { SCORING_RULES_VERSION, normalizeScoringRulesVersion } from './battelle-scoring.js';
 
 export const CORRECTION_STATUSES = Object.freeze(['administrando','corrigiendo','corregida','resultado_desactualizado','correccion_bloqueada']);
 const MAIN_SCALES = ['personal_social_total','adaptativa_total','motora_gruesa','motora_fina','motora_total','comunicacion_receptiva','comunicacion_expresiva','comunicacion_total','cognitiva_total','battelle_total'];
 function stable(value){ if(Array.isArray(value)) return `[${value.map(stable).join(',')}]`; if(value && typeof value==='object'){ return `{${Object.keys(value).sort().map(k=>`${JSON.stringify(k)}:${stable(value[k])}`).join(',')}}`; } return JSON.stringify(value); }
 export function effectiveAgeMonths(assessment){ if(!assessment) return null; if(assessment.manualAgeOverride) return Number.isInteger(assessment.ageMonths) ? assessment.ageMonths : null; const r=calculateAgeMonths(assessment.birthDate, assessment.assessmentDate); return r.ok ? r.months : null; }
 export function createCorrectionFingerprint({ assessment, dataVersion='items-v1', modelVersion='model-v1', normativeVersion='baremos-json-v1' }){
-  return stable({ schemaVersion: SCHEMA_VERSION, dataVersion, modelVersion, normativeVersion, birthDate:assessment?.birthDate ?? '', assessmentDate:assessment?.assessmentDate ?? '', manualAgeOverride:!!assessment?.manualAgeOverride, ageMonths:effectiveAgeMonths(assessment), observedResponses:assessment?.observedResponses ?? {} });
+  const input={ schemaVersion: SCHEMA_VERSION, dataVersion, modelVersion, normativeVersion, birthDate:assessment?.birthDate ?? '', assessmentDate:assessment?.assessmentDate ?? '', manualAgeOverride:!!assessment?.manualAgeOverride, ageMonths:effectiveAgeMonths(assessment), observedResponses:assessment?.observedResponses ?? {} };
+  if(normalizeScoringRulesVersion(assessment?.scoringRulesVersion)===SCORING_RULES_VERSION.CURRENT) input.scoringRulesVersion=SCORING_RULES_VERSION.CURRENT;
+  return stable(input);
 }
 export function isCorrectionStale({ assessment, correction, dataVersion, modelVersion }){ return !correction?.fingerprint || correction.fingerprint !== createCorrectionFingerprint({ assessment, dataVersion, modelVersion, normativeVersion: correction.normativeVersion }); }
 export function validateCorrectionPrerequisites({ assessment, items }){
@@ -82,7 +85,7 @@ export function inspectCorrection({ assessment, items, model, normativeData, sco
   if(!normative.ok) return {ok:false,status:'correccion_bloqueada',fingerprint,normativeVersion:normative.id,correctedAt:null,scoring:null,results:null,pendingReport:{total:0,byArea:{},bySubarea:{},items:[]},errors:normative.errors.map(message=>({type:'baremos_invalidos',message})),inconsistencies:[],summary:[]};
   const pre=validateCorrectionPrerequisites({assessment,items});
   if(!pre.ok) return {ok:false,status:'correccion_bloqueada',fingerprint,correctedAt:null,scoring:null,results:null,pendingReport:{total:0,byArea:{},bySubarea:{},items:[]},errors:pre.errors,inconsistencies:[],summary:[]};
-  let scoring; try{ scoring=scoreAssessment(items, model, assessment.observedResponses); }catch(error){ return {ok:false,status:'correccion_bloqueada',fingerprint,correctedAt:null,scoring:null,results:null,pendingReport:{total:0,byArea:{},bySubarea:{},items:[]},errors:[{type:'error_motor',message:error.message}],inconsistencies:[],summary:[]}; }
+  let scoring; try{ scoring=scoreAssessment(items, model, assessment.observedResponses, assessment.scoringRulesVersion); }catch(error){ return {ok:false,status:'correccion_bloqueada',fingerprint,correctedAt:null,scoring:null,results:null,pendingReport:{total:0,byArea:{},bySubarea:{},items:[]},errors:[{type:'error_motor',message:error.message}],inconsistencies:[],summary:[]}; }
   const pendingReport=buildPendingItemsReport({scoring,items}); const errors=[...(scoring.errores??[]).map(e=>({type:'error_motor',message:e.mensaje??e.message}))];
   for(const sub of Object.values(scoring.subareas??{})){ const location={area:sub.area,subarea:sub.subarea,code:sub.pendientes?.[0]}; if(sub.techo?.provisional) errors.push({type:'techo_provisional',message:`Techo provisional en ${sub.subarea}.`,...location}); if(sub.requiere_revision) errors.push({type:'requiere_revision',message:`${sub.subarea} requiere revisión.`,...location}); if(!sub.completa) errors.push({type:'subarea_incompleta',message:`Subárea incompleta: ${sub.subarea}.`,...location}); }
   for(const [id,s] of Object.entries(scoring.escalas??{})) if(!s.completa) errors.push({type:'escala_incompleta',message:`Escala principal incompleta: ${model.escalas[id]?.nombre ?? id}.`});

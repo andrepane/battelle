@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadAndNormalizeItems } from '../src/battelle-data.js';
 import { loadScaleModel } from '../src/battelle-scales.js';
-import { validateResponse, scoreAssessment, detectBasal } from '../src/battelle-scoring.js';
+import { validateResponse, scoreAssessment, detectBasal, SCORING_RULES_VERSION } from '../src/battelle-scoring.js';
 const items = await loadAndNormalizeItems(); const model = await loadScaleModel();
 const sub = (area, subarea)=>items.filter(i=>i.area===area&&i.subarea===subarea);
 
@@ -54,6 +54,19 @@ test('techo usa ceros observados consecutivos incluso entre niveles y rechaza 0,
   r=scoreAssessment(items, model, {...basal,PS8:0,PS9:0,PS10:1});
   assert.equal(r.respuestas_efectivas.PS10.puntuacion, 1); assert.equal(r.respuestas_efectivas.PS10.origen,'observado');
   assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_techo'), true);
+});
+
+test('motor nuevo exige dos ítems consecutivos del mismo rango para basal y techo',()=>{
+  const current=SCORING_RULES_VERSION.CURRENT;
+  let r=scoreAssessment(items,model,{PS6:2,PS7:2},current);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado,true);
+  r=scoreAssessment(items,model,{PS13:2},current);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado,false);
+  const basal={PS1:2,PS2:2};
+  r=scoreAssessment(items,model,{...basal,PS8:0,PS9:0},current);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado,false);
+  r=scoreAssessment(items,model,{...basal,PS9:0,PS10:0},current);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado,true);
 });
 
 test('cambiar sustentos invalida basal o techo y elimina derivaciones sin tocar observaciones',()=>{
