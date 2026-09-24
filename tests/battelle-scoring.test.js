@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadAndNormalizeItems } from '../src/battelle-data.js';
 import { loadScaleModel } from '../src/battelle-scales.js';
-import { validateResponse, scoreAssessment, detectBasal } from '../src/battelle-scoring.js';
+import { validateResponse, scoreAssessment, detectBasal, detectCeiling } from '../src/battelle-scoring.js';
 const items = await loadAndNormalizeItems(); const model = await loadScaleModel();
 const sub = (area, subarea)=>items.filter(i=>i.area===area&&i.subarea===subarea);
 
@@ -13,56 +13,57 @@ test('respuestas: null no suma, acepta 0/1/2, rechaza otros y no muta', () => {
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.pd, null); assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.pd_parcial, 1);
 });
 
-test('basal exige todos los ítems del nivel, admite nivel unitario y deriva solo niveles inferiores', () => {
+test('basal usa dos doses observados consecutivos del mismo nivel y deriva solo ítems anteriores', () => {
   let r=scoreAssessment(items, model, {PS14:2,PS15:2});
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, true);
   assert.equal(r.respuestas_efectivas.PS13.origen, 'basal');
   assert.equal(r.respuestas_efectivas.PS16.origen, null);
   r=scoreAssessment(items, model, {PS6:2,PS7:2});
-  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, false);
-  assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.basal.pendientes,['PS8']);
-  r=scoreAssessment(items, model, {PS6:2,PS7:2,PS8:2});
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, true);
   r=scoreAssessment(items, model, {PS13:2});
-  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, true);
-  assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.basal.sustentan,['PS13']);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado, false);
   r=scoreAssessment(items, model, {PS1:1,PS14:2,PS15:2});
   assert.equal(r.respuestas_efectivas.PS1.puntuacion, 1); assert.equal(r.respuestas_efectivas.PS1.origen,'observado');
   assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_basal'), false);
   assert.equal(r.advertencias.some(w=>w.tipo==='discrepancia_basal'), true);
 });
 
-test('ejemplo clínico: cuatro ítems 36–47 requieren cuatro doses y se retrocede al nivel aprobado',()=>{
+test('ejemplo clínico: dos doses consecutivos bastan dentro de un nivel con cuatro ítems',()=>{
   const level=(code,min,max)=>({codigo_canonico:code,rango_edad:`${min}-${max}`,rango_edad_min_meses:min,rango_edad_max_meses:max});
   const sample=[level('CR10',24,35),level('CR11',36,47),level('CR12',36,47),level('CR13',36,47),level('CR14',36,47)];
   let observed={CR11:{puntuacion:2},CR12:{puntuacion:2}};
-  assert.equal(detectBasal(sample,observed).confirmado,false);
-  observed={CR11:{puntuacion:2},CR12:{puntuacion:2},CR13:{puntuacion:2},CR14:{puntuacion:2}};
   assert.equal(detectBasal(sample,observed).confirmado,true);
-  observed={CR10:{puntuacion:2},CR11:{puntuacion:1},CR12:{puntuacion:2},CR13:{puntuacion:2},CR14:{puntuacion:2}};
-  const backedUp=detectBasal(sample,observed); assert.equal(backedUp.confirmado,true); assert.equal(backedUp.rango_edad,'24-35');
+  observed={CR10:{puntuacion:2},CR11:{puntuacion:1},CR12:{puntuacion:2},CR13:{puntuacion:1},CR14:{puntuacion:2}};
+  assert.equal(detectBasal(sample,observed).confirmado,false);
 });
 
-test('techo usa ceros observados consecutivos incluso entre niveles y rechaza 0,1,0', () => {
+test('techo usa ceros observados consecutivos del mismo nivel y rechaza 0,1,0', () => {
   const basal={PS1:2,PS2:2,PS3:2,PS4:2,PS5:2};
-  let r=scoreAssessment(items, model, {...basal,PS8:0,PS9:0});
+  let r=scoreAssessment(items, model, {...basal,PS9:0,PS10:0});
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado, true);
-  assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.techo.sustentan,['PS8','PS9']);
-  assert.equal(r.respuestas_efectivas.PS10.origen, 'techo');
-  r=scoreAssessment(items, model, {...basal,PS8:0,PS9:1,PS10:0});
+  assert.deepEqual(r.subareas.personal_social_interaccion_con_el_adulto.techo.sustentan,['PS9','PS10']);
+  assert.equal(r.respuestas_efectivas.PS11.origen, 'techo');
+  r=scoreAssessment(items, model, {...basal,PS9:0,PS10:1,PS11:0});
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado, false);
-  r=scoreAssessment(items, model, {...basal,PS8:0,PS9:0,PS10:1});
-  assert.equal(r.respuestas_efectivas.PS10.puntuacion, 1); assert.equal(r.respuestas_efectivas.PS10.origen,'observado');
+  r=scoreAssessment(items, model, {...basal,PS9:0,PS10:0,PS11:1});
+  assert.equal(r.respuestas_efectivas.PS11.puntuacion, 1); assert.equal(r.respuestas_efectivas.PS11.origen,'observado');
   assert.equal(r.inconsistencias.some(w=>w.tipo==='inconsistencia_techo'), true);
+});
+
+test('basal y techo nunca se forman cruzando niveles de edad',()=>{
+  const level=(code,min,max)=>({codigo_canonico:code,rango_edad:`${min}-${max}`,rango_edad_min_meses:min,rango_edad_max_meses:max});
+  const sample=[level('A1',24,35),level('A2',24,35),level('A3',36,47),level('A4',36,47)];
+  assert.equal(detectBasal(sample,{A2:{puntuacion:2},A3:{puntuacion:2}}).confirmado,false);
+  assert.equal(detectCeiling(sample,{A2:{puntuacion:0},A3:{puntuacion:0}}).confirmado,false);
 });
 
 test('cambiar sustentos invalida basal o techo y elimina derivaciones sin tocar observaciones',()=>{
   let responses={PS6:2,PS7:2,PS8:2}; let r=scoreAssessment(items,model,responses);
-  assert.equal(r.respuestas_efectivas.PS1.origen,'basal'); responses={...responses,PS8:1}; r=scoreAssessment(items,model,responses);
+  assert.equal(r.respuestas_efectivas.PS1.origen,'basal'); responses={...responses,PS7:1}; r=scoreAssessment(items,model,responses);
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado,false); assert.equal(r.respuestas_efectivas.PS1.origen,null);
-  responses={PS1:2,PS2:2,PS3:2,PS4:2,PS5:2,PS8:0,PS9:0}; r=scoreAssessment(items,model,responses);
-  assert.equal(r.respuestas_efectivas.PS10.origen,'techo'); responses={...responses,PS9:1}; r=scoreAssessment(items,model,responses);
-  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado,false); assert.equal(r.respuestas_efectivas.PS10.origen,null);
+  responses={PS1:2,PS2:2,PS3:2,PS4:2,PS5:2,PS9:0,PS10:0}; r=scoreAssessment(items,model,responses);
+  assert.equal(r.respuestas_efectivas.PS11.origen,'techo'); responses={...responses,PS10:1}; r=scoreAssessment(items,model,responses);
+  assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado,false); assert.equal(r.respuestas_efectivas.PS11.origen,null);
   assert.deepEqual(Object.fromEntries(Object.entries(r.respuestas_observadas).map(([k,v])=>[k,v.puntuacion])),responses);
 });
 
