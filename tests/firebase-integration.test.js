@@ -35,13 +35,14 @@ test('modelo Firestore sanea documentos y ruta compartida',()=>{
   const payload=toFirestorePayload(rec,'uid1');
   assert.equal(ASSESSMENTS_PATH,'organizations/neurointegra/assessments');
   assert.equal(payload.organizationId,'neurointegra'); assert.equal(payload.updatedBy,undefined);
+  assert.equal(payload.scoringRulesVersion,undefined); assert.equal(payload.correctionMetadata.scoringRulesVersion,rec.scoringRulesVersion);
   assert.equal(toFirestorePayload({...rec, observedResponses:{constructor:1}},'uid1'),null);
   assert.equal(fromFirestoreDocument('bat-f1',{...payload, organizationId:'otro'}),null);
 });
 
 test('repositorio Firestore incrementa revision, detecta conflicto y elimina con revision', async()=>{
   const rec=createAssessmentRecord({id:'bat-f1'}); const services=makeServices(); const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'}, servicesPromise:services});
-  const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1); assert.equal(saved.createdBy,'uid1'); assert.equal(saved.updatedBy,'uid1'); assert.equal(services.store.get('bat-f1').id,'bat-f1'); assert.equal(typeof services.store.get('bat-f1').createdAt.toDate,'function'); assert.equal(typeof services.store.get('bat-f1').updatedAt.toDate,'function');
+  const saved=await repo.saveAssessment(rec,0); assert.equal(saved.revision,1); assert.equal(saved.scoringRulesVersion,rec.scoringRulesVersion); assert.equal(services.store.get('bat-f1').scoringRulesVersion,undefined); assert.equal(saved.createdBy,'uid1'); assert.equal(saved.updatedBy,'uid1'); assert.equal(services.store.get('bat-f1').id,'bat-f1'); assert.equal(typeof services.store.get('bat-f1').createdAt.toDate,'function'); assert.equal(typeof services.store.get('bat-f1').updatedAt.toDate,'function');
   await assert.rejects(repo.saveAssessment({...saved,name:'stale'},0),e=>e.code==='assessment_conflict');
   const trashed=await repo.deleteAssessment('bat-f1',1); assert.equal(trashed.deletedBy,'uid1'); assert.ok((await repo.getAssessment('bat-f1')).deletedAt);
   await assert.rejects(repo.saveAssessment({...saved,name:'no reaparece'},trashed.revision),e=>e.code===FIRESTORE_ERROR.DELETED);
@@ -70,6 +71,7 @@ test('importación local idempotente, conflicto de ID, corrupta y no borra datos
   assert.equal(detectLocalAssessments(s).count,1); const repo=fakeRepository(); const result=await importLocalAssessments({repository:repo,storage:s});
   assert.equal(result.imported,1); assert.equal(s.getItem(ASSESSMENTS_KEY).includes('bat-i1'),true);
   const retry=await importLocalAssessments({repository:repo,storage:s}); assert.equal(retry.skipped,1);
+  const transported=fakeRepository({'bat-i1':{...rec,correctionMetadata:{...rec.correctionMetadata,scoringRulesVersion:rec.scoringRulesVersion}}}); const transportedRetry=await importLocalAssessments({repository:transported,storage:s}); assert.equal(transportedRetry.skipped,1);
   const conflictRepo=fakeRepository({'bat-i1':{...rec,name:'otro'}}); const conflict=await importLocalAssessments({repository:conflictRepo,storage:s}); assert.equal(conflict.conflicts,1);
   const bad=new Mem; bad.setItem(ASSESSMENTS_KEY,'{bad'); const corrupt=await importLocalAssessments({repository:repo,storage:bad}); assert.equal(corrupt.invalid,1);
 });

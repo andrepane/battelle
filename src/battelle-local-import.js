@@ -1,5 +1,6 @@
 import { ASSESSMENTS_KEY, SCHEMA_VERSION, readCollectionStatus, sanitizeRecord } from './battelle-assessment-repository.js';
 export const FIREBASE_IMPORT_MARK_KEY='battelleAssessmentsV3:firebaseImportConfirmed';
+function comparableMetadata(metadata={}){ const {scoringRulesVersion,...clinical}=metadata; return clinical; }
 export function detectLocalAssessments(storage=localStorage){ const status=readCollectionStatus(storage); return {...status,count:status.ok?Object.keys(status.records).length:0, completed:storage.getItem(FIREBASE_IMPORT_MARK_KEY)==='done'}; }
 export async function importLocalAssessments({repository, storage=localStorage}){
   const status=readCollectionStatus(storage); const result={imported:0,skipped:0,invalid:0,conflicts:0,details:[]};
@@ -7,7 +8,7 @@ export async function importLocalAssessments({repository, storage=localStorage})
   for(const [id,rec] of Object.entries(status.records)){
     const clean=sanitizeRecord(rec); if(!clean || clean.id!==id){ result.invalid++; result.details.push({id,status:'invalid'}); continue; }
     const remote=await repository.getAssessment(id);
-    if(remote){ const same=['id','schemaVersion','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','workflowStatus','correctionMetadata'].every(k=>JSON.stringify(remote[k])===JSON.stringify(clean[k])); if(same){ result.skipped++; result.details.push({id,status:'skipped'}); } else { result.conflicts++; result.details.push({id,status:'conflict'}); } continue; }
+    if(remote){ const same=['id','schemaVersion','scoringRulesVersion','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','workflowStatus'].every(k=>JSON.stringify(remote[k])===JSON.stringify(clean[k]))&&JSON.stringify(comparableMetadata(remote.correctionMetadata))===JSON.stringify(comparableMetadata(clean.correctionMetadata)); if(same){ result.skipped++; result.details.push({id,status:'skipped'}); } else { result.conflicts++; result.details.push({id,status:'conflict'}); } continue; }
     await repository.saveAssessment(clean, 0); result.imported++; result.details.push({id,status:'imported'});
   }
   if(result.invalid===0 && result.conflicts===0) storage.setItem(FIREBASE_IMPORT_MARK_KEY,'done');

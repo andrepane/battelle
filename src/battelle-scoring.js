@@ -22,6 +22,9 @@ function groupBy(items, fn){ const m=new Map(); for (const item of items){ const
 const ageKey=(item)=>`${item.rango_edad_min_meses}|${item.rango_edad_max_meses}`;
 function ageLevels(items){ return [...groupBy(items, ageKey).values()]; }
 
+export const SCORING_RULES_VERSION = Object.freeze({ LEGACY:'legacy-v1', CURRENT:'manual-v2' });
+export function normalizeScoringRulesVersion(value){ return value===SCORING_RULES_VERSION.CURRENT ? SCORING_RULES_VERSION.CURRENT : SCORING_RULES_VERSION.LEGACY; }
+
 export function detectBasal(items, observed) {
   const levels=ageLevels(items);
   // The highest fully passed administered level is the useful basal: all lower,
@@ -54,21 +57,58 @@ export function detectCeiling(items, observed, basal=null) {
   return {confirmado:false, inconsistencias};
 }
 
-export function deriveScores(items, responses = {}) {
+export function detectBasalCurrent(items, observed) {
+  const levels=ageLevels(items);
+  for(let i=items.length-2;i>=0;i--){
+    if(ageKey(items[i])!==ageKey(items[i+1])) continue;
+    if(observed[items[i].codigo_canonico]?.puntuacion===2&&observed[items[i+1].codigo_canonico]?.puntuacion===2){
+      const levelIndex=levels.findIndex(level=>level.includes(items[i]));
+      return {confirmado:true,inicio:items[i].codigo_canonico,fin:items[i+1].codigo_canonico,indice_inicio:i,indice_fin:i+1,nivel_indice:levelIndex,rango_edad:items[i].rango_edad,sustentan:[items[i].codigo_canonico,items[i+1].codigo_canonico]};
+    }
+  }
+  const attempted=[...levels].reverse().find(level=>level.some(item=>observed[item.codigo_canonico]));
+  const pendientes=[];
+  if(attempted?.length>1) for(let i=0;i<attempted.length-1;i++){
+    const pair=[attempted[i],attempted[i+1]];
+    if(pair.some(item=>observed[item.codigo_canonico]?.puntuacion===2)) for(const item of pair){
+      if(!observed[item.codigo_canonico]&&!pendientes.includes(item.codigo_canonico)) pendientes.push(item.codigo_canonico);
+    }
+  }
+  return {confirmado:false,rango_edad:attempted?.[0]?.rango_edad,pendientes};
+}
+
+export function detectCeilingCurrent(items, observed, basal=null) {
+  const inconsistencias=[]; let provisional=false;
+  for(let i=0;i<items.length-1;i++){
+    if(basal?.confirmado&&i<=basal.indice_fin) continue;
+    if(ageKey(items[i])!==ageKey(items[i+1])) continue;
+    if(observed[items[i].codigo_canonico]?.puntuacion===0&&observed[items[i+1].codigo_canonico]?.puntuacion===0){
+      const sueloComprobado=!basal?.confirmado&&items.slice(0,i+2).every(item=>observed[item.codigo_canonico]);
+      provisional=!basal?.confirmado&&!sueloComprobado;
+      if(provisional) inconsistencias.push({tipo:'techo_provisional',mensaje:'Techo detectado sin basal confirmado ni suelo comprobado.'});
+      return {confirmado:true,inicio:items[i].codigo_canonico,fin:items[i+1].codigo_canonico,indice_inicio:i,indice_fin:i+1,rango_edad:items[i].rango_edad,provisional,inconsistencias,sustentan:[items[i].codigo_canonico,items[i+1].codigo_canonico]};
+    }
+  }
+  return {confirmado:false,inconsistencias};
+}
+
+export function deriveScores(items, responses = {}, scoringRulesVersion=SCORING_RULES_VERSION.LEGACY) {
   const validCodes = new Set(items.map((i)=>i.codigo_canonico));
   const observed = normalizeObservedResponses(responses, validCodes);
   const effective = blank(items);
   for (const [code, response] of Object.entries(observed)) if (validCodes.has(code)) effective[code] = response;
   const inconsistencias=[]; const advertencias=[]; const bySub = groupBy(items, (i)=>`${i.area}|${i.subarea}`); const limites={};
+  const rules=normalizeScoringRulesVersion(scoringRulesVersion);
   for (const [key, subItems] of bySub) {
-    let basal = detectBasal(subItems, observed); const techo = detectCeiling(subItems, observed, basal);
+    let basal = rules===SCORING_RULES_VERSION.CURRENT ? detectBasalCurrent(subItems,observed) : detectBasal(subItems,observed);
+    const techo = rules===SCORING_RULES_VERSION.CURRENT ? detectCeilingCurrent(subItems,observed,basal) : detectCeiling(subItems,observed,basal);
     if(!basal.confirmado && techo.confirmado && !techo.provisional) basal={...basal, agotado:true};
     limites[key]={basal, techo};
     if (basal.confirmado) for (let i=0;i<basal.indice_inicio;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:2,origen:'basal',observacion:''}; else if (observed[code].puntuacion<2) advertencias.push({tipo:'discrepancia_basal', codigo:code, subarea:key, mensaje:'Respuesta observada inferior al basal conservada para revisión clínica.'}); }
     if (techo.confirmado && !techo.provisional) for (let i=techo.indice_fin+1;i<subItems.length;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:0,origen:'techo',observacion:''}; else if (observed[code].puntuacion>0) inconsistencias.push({tipo:'inconsistencia_techo', codigo:code, subarea:key, mensaje:'Respuesta observada posterior contradice el techo.'}); }
     inconsistencias.push(...(techo.inconsistencias??[]).map((w)=>({...w, subarea:key})));
   }
-  return { respuestas_observadas: observed, respuestas_efectivas: effective, limites, inconsistencias, advertencias };
+  return { respuestas_observadas: observed, respuestas_efectivas: effective, limites, inconsistencias, advertencias, scoringRulesVersion:rules };
 }
 
 export function administrationSummary(items, scoring) {
@@ -110,9 +150,9 @@ export function calculateAllScores(items, model, effective, subareas = {}) {
 }
 export function assessCompleteness(result) { return Object.values(result.escalas).every((s)=>s.completa); }
 
-export function scoreAssessment(items, model, responses = {}) {
+export function scoreAssessment(items, model, responses = {}, scoringRulesVersion=SCORING_RULES_VERSION.LEGACY) {
   try {
-    const deriv = deriveScores(items, responses); const subareas={};
+    const deriv = deriveScores(items, responses, scoringRulesVersion); const subareas={};
     for (const [id, definition] of declaredSubareaEntries(model)) {
       const codes = itemCodesForSubarea(definition, items);
       const inconsistencias = deriv.inconsistencias.filter((w)=>w.subarea===definition.clave);
