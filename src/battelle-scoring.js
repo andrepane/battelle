@@ -24,17 +24,23 @@ function ageLevels(items){ return [...groupBy(items, ageKey).values()]; }
 
 export function detectBasal(items, observed) {
   const levels=ageLevels(items);
-  // The highest fully passed administered level is the useful basal: all lower,
-  // unadministered levels can then be derived without changing observations.
-  for (let levelIndex=levels.length-1;levelIndex>=0;levelIndex--) {
-    const level=levels[levelIndex];
-    if (level.every((item)=>observed[item.codigo_canonico]?.puntuacion===2)) {
-      const start=items.indexOf(level[0]); const end=items.indexOf(level.at(-1));
-      return {confirmado:true, inicio:level[0].codigo_canonico, fin:level.at(-1).codigo_canonico, indice_inicio:start, indice_fin:end, nivel_indice:levelIndex, rango_edad:level[0].rango_edad, sustentan:level.map((i)=>i.codigo_canonico)};
+  // Use the highest observed 2-2 pair without crossing an age-level boundary.
+  // Derived scores never establish another basal.
+  for (let i=items.length-2;i>=0;i--) {
+    if (ageKey(items[i])!==ageKey(items[i+1])) continue;
+    if (observed[items[i].codigo_canonico]?.puntuacion===2 && observed[items[i+1].codigo_canonico]?.puntuacion===2) {
+      const levelIndex=levels.findIndex((level)=>level.includes(items[i]));
+      return {confirmado:true, inicio:items[i].codigo_canonico, fin:items[i+1].codigo_canonico, indice_inicio:i, indice_fin:i+1, nivel_indice:levelIndex, rango_edad:items[i].rango_edad, sustentan:[items[i].codigo_canonico,items[i+1].codigo_canonico]};
     }
   }
   const attempted=[...levels].reverse().find((level)=>level.some((item)=>observed[item.codigo_canonico]));
-  const pendientes=attempted?.filter((item)=>!observed[item.codigo_canonico]).map((item)=>item.codigo_canonico) ?? [];
+  const pendientes=[];
+  if (attempted?.length>1) for (let i=0;i<attempted.length-1;i++) {
+    const pair=[attempted[i],attempted[i+1]];
+    if (pair.some((item)=>observed[item.codigo_canonico]?.puntuacion===2)) {
+      for (const item of pair) if (!observed[item.codigo_canonico] && !pendientes.includes(item.codigo_canonico)) pendientes.push(item.codigo_canonico);
+    }
+  }
   return {confirmado:false, rango_edad:attempted?.[0]?.rango_edad, pendientes};
 }
 
@@ -42,6 +48,7 @@ export function detectCeiling(items, observed, basal=null) {
   const inconsistencias=[]; let provisional=false;
   for (let i=0;i<items.length-1;i++) {
     if (basal?.confirmado && i <= basal.indice_fin) continue;
+    if (ageKey(items[i])!==ageKey(items[i+1])) continue;
     if (observed[items[i].codigo_canonico]?.puntuacion===0 && observed[items[i+1].codigo_canonico]?.puntuacion===0) {
       // Reaching the first item and scoring every item up to the ceiling is a
       // valid floor administration: some children never establish a basal.
