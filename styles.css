@@ -193,3 +193,4 @@ main{width:min(100%,1460px)}
 }
 @media(max-width:800px){.list-tools{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.list-tools label:first-child{grid-column:1/-1}}
 @media(max-width:520px){.list-tools{grid-template-columns:minmax(0,1fr);padding:.75rem}.list-tools label:first-child{grid-column:auto}}
+.password-field{position:relative;display:block}.password-field input{padding-right:5.3rem!important}.password-toggle{position:absolute;right:.35rem;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--primary);font:inherit;font-size:.85rem;font-weight:700;padding:.45rem;cursor:pointer}.password-toggle:hover{text-decoration:underline}.password-toggle:focus-visible{outline:2px solid var(--primary);outline-offset:1px;border-radius:.35rem}
