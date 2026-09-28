@@ -13,17 +13,13 @@ Este documento describe el motor independiente de interfaz para cargar los 341 �
 - Agregaciones de subáreas y escalas principales.
 - Validación de los 341 ítems, las 22 subáreas, el modelo de escalas y las reglas de puntuación.
 
-## Qué se ha retirado
+## Fuentes normativas actuales
 
-Se retiraron del árbol actual las fuentes antiguas: documentos PDF, hojas Excel derivadas, salidas OCR, extractores PDF/imagen, auditorías visuales, inventarios de tablas, informes de extracción y JSON normativos anteriores. La historia Git conserva esos archivos en commits previos; el respaldo local de esta limpieza queda documentado en `docs/limpieza_fuentes.md`.
+Las fuentes autorizadas están estructuradas en hojas Excel dentro de `fuentes/`. A partir de ellas se generan los JSON de `data/` usados por la aplicación para percentiles, edades equivalentes y conversiones generales. Las tablas no están incrustadas manualmente en JavaScript.
 
-## Estado temporal sin baremos
+La aplicación realiza la corrección normativa completa y puede calcular, según la escala correspondiente, percentiles, edades equivalentes, z, T, CI y ECN. Los metadatos e incidencias de los baremos quedan registrados en `data/baremos_metadata.json` y `data/baremos_incidencias.json`.
 
-La aplicación arranca sin datos normativos activos. La corrección válida no calcula ni muestra percentiles, edades equivalentes, z, T, CI ni ECN. En su lugar, la interfaz y el módulo de corrección muestran el aviso:
-
-> Baremos pendientes de incorporar desde las nuevas fuentes estructuradas.
-
-No existen fallbacks antiguos ni tablas manuales incrustadas en JavaScript. Esta versión no debe utilizarse para una corrección normativa completa.
+Los scripts de validación comprueban la estructura y coherencia de las fuentes, la correspondencia de las tablas generadas y la ausencia de fuentes normativas antiguas o duplicadas fuera de las ubicaciones autorizadas.
 
 ## Esquema real de los ítems
 
@@ -59,6 +55,6 @@ Confirmado el basal, los ítems anteriores no administrados de la subárea recib
 
 Cada subárea o escala informa `pd_parcial` como suma de ítems con puntuación efectiva. La PD puede ser `null` aunque exista `pd_parcial` si falta algún ítem, si la subárea requiere revisión o si un agregado depende de una subárea en revisión. La PD solo es válida cuando todos los ítems que componen la escala están observados o derivados y no hay inconsistencias dependientes.
 
-## Fuentes futuras
+## Organización de las fuentes
 
-Las próximas fuentes autorizadas se incorporarán en `fuentes/` como Excel manuales estructurados, separados por percentiles, edades equivalentes, conversiones generales y screening. El screening seguirá separado del Battelle completo.
+Las fuentes se mantienen separadas por percentiles, edades equivalentes, conversiones generales y screening. El screening permanece separado del Battelle completo. Cualquier actualización normativa debe realizarse en las hojas estructuradas de `fuentes/`, regenerar los JSON correspondientes y superar todos los validadores antes de publicarse.

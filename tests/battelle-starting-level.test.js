@@ -56,12 +56,13 @@ test('la navegación se reinicia al crear y abrir, pero el cambio manual de áre
   const reset=source.slice(source.indexOf('function resetAssessmentNavigation'),source.indexOf('function el('));
   const startNew=source.slice(source.indexOf('async function startNew'),source.indexOf('async function loadPreviousReference'));
   const openAssessment=source.slice(source.indexOf('async function openAssessment'),source.indexOf('async function reloadRemoteAssessment'));
-  const areaClick=source.slice(source.indexOf("if(e.target.matches('.area-tab'))"),source.indexOf("if(e.target.matches('.score-btn'))"));
+  const areaClick=source.slice(source.indexOf("const areaTab=e.target.closest?.('.area-tab')"),source.indexOf("if(e.target.matches('.score-btn'))"));
   assert.match(reset,/initialAdministrationLocation\(state\.items\)/);
   assert.match(reset,/lastStartingScrollKey=null/);
   assert.match(startNew,/resetAssessmentNavigation\(\)/);
   assert.match(openAssessment,/resetAssessmentNavigation\(\)/);
-  assert.match(areaClick,/state\.activeArea=e\.target\.dataset\.area/);
+  assert.match(areaClick,/state\.activeArea=areaTab\.dataset\.area/);
+  assert.match(areaClick,/if\(areaTab\)/);
   assert.doesNotMatch(source.slice(source.indexOf('function onMeta'),source.indexOf('function renderAreas')),/resetAssessmentNavigation/);
 });
 
