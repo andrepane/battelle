@@ -43,10 +43,16 @@ test('una edad inválida no produce resaltado y muestra la indicación necesaria
   assert.equal(startingLevelSummary(null),'Edad necesaria para calcular el inicio');
 });
 
-test('el contrato UI actualiza al cambiar edad y solo desplaza al cambiar edad o abrir',async()=>{
-  const source=await readFile('script.js','utf8');
-  assert.match(source,/updateStartingLevelVisuals\(\{scroll:true, reason:'age'\}\)/);
+test('el contrato UI recalcula al editar y solo desplaza al aplicar la edad o abrir una subárea',async()=>{
+  const [source,styles]=await Promise.all([readFile('script.js','utf8'),readFile('styles.css','utf8')]);
+  const metadataHandler=source.slice(source.indexOf('function onMeta'),source.indexOf('function renderAreas'));
+  assert.match(metadataHandler,/updateStartingLevelVisuals\(\)/);
+  assert.doesNotMatch(metadataHandler,/scroll:true/);
+  assert.match(source,/id:'applyAgeBtn'/);
+  assert.match(source,/Aplicar edad/);
+  assert.match(source,/updateStartingLevelVisuals\(\{scroll:true,reason:'apply-age'\}\)/);
   assert.match(source,/reason:'open'/);
+  assert.match(styles,/\.age-apply/);
   const scoringHandler=source.slice(source.indexOf('function setObservedScore'),source.indexOf('function updateVisibleItemsEffective'));
   assert.doesNotMatch(scoringHandler,/scrollIntoView|updateStartingLevelVisuals/);
 });
