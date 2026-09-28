@@ -13,7 +13,7 @@ test('geometría vertical empieza en cero, incluye máximos y escala proporciona
  const model=individual({motora_fina:'90–95'}),geometry=equivalentAgeBarGeometry(model);
  assert.equal(geometry.axisMin,0);assert.ok(geometry.axisMax>=95);assert.ok(geometry.axisMax>=60);assert.equal(geometry.groups.length,10);assert.equal(geometry.groups[0].bars[0].baseline,geometry.plotBottom);
  assert.equal(geometry.y(0),geometry.plotBottom);assert.ok(geometry.y(80)<geometry.y(40));assert.ok(Math.abs((geometry.y(40)-geometry.y(80))-(geometry.y(0)-geometry.y(40)))<1e-9);
- const layout=equivalentAgeChartLayout(model);assert.equal(layout.height,720);assert.ok(layout.plotBottom+70<layout.height);
+ const layout=equivalentAgeChartLayout(model);assert.equal(layout.height,690);assert.equal(layout.top,116);assert.ok(layout.plotBottom+70<layout.height);
 });
 
 test('ancho mínimo depende de categorías y modo comparativo',()=>{
@@ -54,7 +54,7 @@ test('referencias cronológicas quedan sobre barras, hover y Battelle total a cu
   const svg=equivalentAgeChartSvg(individual({personal_social_total:'40',adaptativa_total:'60',motora_gruesa:'75',battelle_total:'90'}),{width});
   const bars=svg.indexOf('<g class="bars-layer">'),lines=svg.indexOf('<g class="chronological-layer">'),labels=svg.indexOf('<g class="chronological-label-layer">');
   assert.ok(bars<lines&&lines<labels);assert.match(svg,/hierarchy-grand-total/);assert.match(svg,/chronological-label-background/);assert.match(svg,/chronological-layer,.chronological-label-layer\{pointer-events:none\}/);
-  const label=[...svg.matchAll(/class="chronological-label" x="([\d.]+)" y="([\d.]+)"/g)][0];assert.ok(Number(label[1])>=86&&Number(label[1])<=equivalentAgeChartLayout(individual(),{width}).width-28);assert.ok(Number(label[2])>=150);
+  const label=[...svg.matchAll(/class="chronological-label" x="([\d.]+)" y="([\d.]+)"/g)][0];assert.ok(Number(label[1])>=86&&Number(label[1])<=equivalentAgeChartLayout(individual(),{width}).width-28);assert.ok(Number(label[2])>=116);
  }
 });
 
@@ -67,6 +67,15 @@ test('separa los bloques de subáreas y Battelle total sin alterar alturas',()=>
  const model=individual(),geometry=equivalentAgeBarGeometry(model),centers=geometry.groups.map(group=>group.center),steps=centers.slice(1).map((center,index)=>center-centers[index]);
  assert.ok(steps[2]>steps[1]);assert.ok(steps[5]>steps[4]);assert.ok(steps[8]>steps[7]);
  for(const [index,row] of model.rows.entries())assert.equal(geometry.groups[index].bars[0].solidTop,geometry.y(row.series[0].kind==='point'?row.series[0].value:row.series[0].min));
+ const svg=equivalentAgeChartSvg(model);assert.equal((svg.match(/class="clinical-group-divider"/g)||[]).length,4);
+});
+
+test('la tipografía del SVG es legible y no hereda contornos de las series',()=>{
+ const svg=equivalentAgeChartSvg(individual());
+ assert.match(svg,/font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif/);
+ assert.match(svg,/text\{[^}]*stroke:none/);
+ assert.match(svg,/\.legend-chip text\{font-size:13px;font-weight:600;fill:#27415f;stroke:none\}/);
+ assert.doesNotMatch(svg,/\.series-[01]\{fill:[^}]+;stroke:/);
 });
 
 test('tooltips de barra respetan punto, intervalo, teclado y exportación',async()=>{
