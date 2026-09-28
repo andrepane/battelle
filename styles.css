@@ -195,3 +195,38 @@ main{width:min(100%,1460px)}
 @media(max-width:520px){.list-tools{grid-template-columns:minmax(0,1fr);padding:.75rem}.list-tools label:first-child{grid-column:auto}}
 .age-apply{display:flex;align-items:center;gap:.75rem;margin-top:.75rem}.age-apply p{margin:0}.age-apply .primary-button{flex:0 0 auto}@media(max-width:600px){.age-apply{align-items:stretch;flex-direction:column}.age-apply .primary-button{width:100%}}
 .password-field{position:relative;display:block}.password-field input{padding-right:5.3rem!important}.password-toggle{position:absolute;right:.35rem;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--primary);font:inherit;font-size:.85rem;font-weight:700;padding:.45rem;cursor:pointer}.password-toggle:hover{text-decoration:underline}.password-toggle:focus-visible{outline:2px solid var(--primary);outline-offset:1px;border-radius:.35rem}
+
+/* Pulido visual final: jerarquía más clara sin alterar el flujo clínico. */
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+main{padding-inline:clamp(.85rem,2vw,1.5rem)}
+.primary-button,.secondary-button,.danger-button,.area-tab,.score-btn{white-space:nowrap;transition:background-color .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease}
+.saved-panel,.patient-card,.subarea-card,.results-header,.report-section{border-color:#cfd9e5}
+.saved-header{padding-bottom:.85rem;border-bottom:1px solid var(--color-border)}
+.saved-header .results-actions{align-items:center}
+.patient-card h2{padding-bottom:.55rem;border-bottom:1px solid var(--color-border);color:var(--color-brand-dark)}
+.patient-card .form-grid input:not([type=checkbox]){background:#fff;border-color:#c7d3df;box-shadow:0 1px 2px rgba(24,50,74,.04)}
+.patient-card .form-grid input:not([type=checkbox]):hover{border-color:#8eabc8}
+.patient-card .form-grid input:not([type=checkbox]):focus{border-color:var(--color-primary);outline:0;box-shadow:0 0 0 3px rgba(47,111,175,.14)}
+.age-apply{padding:.65rem .75rem;border:1px solid #c8d9ed;border-radius:9px;background:var(--color-primary-soft)}
+.age-apply p{color:#4f6278;font-size:.86rem;line-height:1.35}
+.layout>.area-nav{padding:.5rem;border:1px solid #d4deea;border-radius:var(--radius);background:var(--color-surface);box-shadow:var(--shadow)}
+.area-tab{width:100%}.area-tab:hover:not([aria-pressed=true]){box-shadow:inset 3px 0 0 var(--color-primary)}
+.subarea-card>summary.subarea-summary:hover{background:#f2f6fb}.subarea-card[open]>summary.subarea-summary{background:#f5f8fc}
+.score-btn{box-shadow:0 1px 2px rgba(24,50,74,.06)}
+.score-btn[aria-pressed=true]{box-shadow:inset 0 0 0 2px #fff,0 0 0 1px currentColor}
+.results-actions button,.actions button,.chart-actions button{white-space:nowrap}
+.assessments-table tbody tr:last-child td{border-bottom:0}
+@media(max-width:800px){
+  .layout>.area-nav{padding:.4rem;scrollbar-width:thin}
+  .area-tab{width:auto}
+  .saved-header .results-actions{width:100%;justify-content:flex-start}
+}
+@media(max-width:520px){
+  .saved-panel,.patient-card{padding:.85rem}
+  .saved-header .results-actions{display:grid;grid-template-columns:1fr 1fr}
+  .saved-header .results-actions .primary-button{grid-column:1/-1}
+  .saved-header .results-actions button{width:100%}
+  .view-nav{column-gap:.5rem}
+  .view-nav strong{font-size:.92rem}
+  .age-apply{gap:.55rem;padding:.65rem}
+}
