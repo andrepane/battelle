@@ -23,7 +23,9 @@ for p in ROOT.rglob('*'):
     if rel!='scripts/validar_limpieza_fuentes.py' and p.suffix.lower() in {'.html','.js','.mjs','.cjs','.py','.json','.css'}:
         for ref in ['data/tablas_conversion_battelle.json','battelle_tablas de corrección.pdf','battelle_db_transcripcion_v4']:
             if ref in txt: fail(f'Referencia a dato eliminado en {rel}: {ref}')
-    if p.suffix.lower()=='.js':
+    # Las pruebas pueden contener valores literales para comprobar la presentación.
+    # Este control busca baremos incrustados únicamente en el código ejecutado por la app.
+    if p.suffix.lower()=='.js' and not rel.startswith(('tests/','test/')):
         if re.search(r'percentil\s*[:=]\s*\d+', txt): fail(f'Posible baremo incrustado en JavaScript: {rel}')
 required=['data/items_areas_subareas.json','data/modelo_escalas_battelle.json','data/reglas_puntuacion_basal_techo.json','src/battelle-scoring.js','src/battelle-scales.js','src/battelle-state.js','src/battelle-correction.js','fuentes/README.md','fuentes/percentiles/.gitkeep','fuentes/edades_equivalentes/.gitkeep','fuentes/conversiones_generales/.gitkeep','fuentes/screening/.gitkeep']
 for rel in required:
