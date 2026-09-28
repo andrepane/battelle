@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createAssessmentRecord, filterAssessments, saveAssessment, getAssessment, deleteAssessment, restoreAssessment } from '../src/battelle-assessment-repository.js';
-import { canonicalTherapistName, normalizeForComparison, sanitizeTherapistName, therapistLabel, therapistSuggestions } from '../src/battelle-therapist.js';
+import { THERAPIST_ROSTER, canonicalTherapistName, normalizeForComparison, sanitizeTherapistName, therapistLabel, therapistSuggestions } from '../src/battelle-therapist.js';
 import { createCorrectionFingerprint } from '../src/battelle-correction.js';
 import { buildResultTableModel } from '../src/battelle-result-table.js';
 import { generateBattellePdf } from '../src/battelle-pdf.js';
@@ -17,10 +17,18 @@ test('normaliza espacios, rechaza entradas inválidas y compara sin mayúsculas 
  assert.equal(therapistLabel(null),'Sin asignar');
 });
 
-test('sugerencias deduplican y reutilizan la primera grafía canónica existente',()=>{
+test('el listado oficial está completo, deduplica y conserva nombres adicionales',()=>{
  const records=[record('bat-one','P1','Andrea Panepinto'),record('bat-two','P2','ANDREA   PANEPINTO'),record('bat-three','P3','Ángela Núñez')];
- assert.deepEqual(therapistSuggestions(records),['Andrea Panepinto','Ángela Núñez']);
+ const suggestions=therapistSuggestions(records);assert.equal(THERAPIST_ROSTER.length,24);assert.ok(THERAPIST_ROSTER.every(name=>suggestions.includes(name)));assert.ok(suggestions.includes('Ángela Núñez'));
  assert.equal(canonicalTherapistName(' andrea  panepinto ',records),'Andrea Panepinto');
+});
+
+test('los tres nombres anteriores se sustituyen sin modificar otros campos',()=>{
+ assert.equal(sanitizeTherapistName('Andrea'),'Andrea Panepinto LG');
+ assert.equal(sanitizeTherapistName('María FT'),'María Benito FT');
+ assert.equal(sanitizeTherapistName('Berta'),'Berta De Andrés FT');
+ assert.equal(therapistLabel('Andrea'),'Andrea Panepinto LG');
+ const old=record('bat-old-name','Paciente','María FT');assert.equal(old.therapistName,'María Benito FT');assert.equal(old.name,'Paciente');
 });
 
 test('documento antiguo obtiene null; guardar, papelera y restaurar conservan terapeuta aisladamente',async()=>{
