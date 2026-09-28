@@ -49,7 +49,8 @@ test('el contrato UI recalcula al editar y solo desplaza al aplicar la edad o ab
   assert.match(metadataHandler,/updateStartingLevelVisuals\(\)/);
   assert.doesNotMatch(metadataHandler,/scroll:true/);
   assert.match(source,/id:'applyAgeBtn'/);
-  assert.match(source,/Aplicar edad/);
+  assert.match(source,/Confirmar edad/);
+  assert.match(source,/Confirma la edad para ir al primer ítem que corresponde administrar\./);
   assert.match(source,/updateStartingLevelVisuals\(\{scroll:true,reason:'apply-age'\}\)/);
   assert.match(source,/reason:'open'/);
   assert.match(styles,/\.age-apply/);
