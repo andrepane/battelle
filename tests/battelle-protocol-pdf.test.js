@@ -23,11 +23,11 @@ test('PDF completo contiene los 341 ítems una sola vez en un diseño compacto',
   assert.match(pdf,new RegExp(`Página ${pages} de ${pages}`));
 });
 
-test('distingue observado, basal, techo y pendiente sin alterar los datos',()=>{
+test('muestra solo la puntuación efectiva sin exponer su origen y no altera los datos',()=>{
   const tiny=items.slice(0,4);const clinical={respuestas_efectivas:{[tiny[0].codigo_canonico]:{puntuacion:1,origen:'observado'},[tiny[1].codigo_canonico]:{puntuacion:2,origen:'basal'},[tiny[2].codigo_canonico]:{puntuacion:0,origen:'techo'},[tiny[3].codigo_canonico]:{puntuacion:null,origen:null}}};
   const before=structuredClone({tiny,assessment,clinical});
   const pdf=new TextDecoder('latin1').decode(generateCompleteTestPdf({items:tiny,assessment,scoring:clinical}));
-  assert.match(pdf,/1 OBS\./);assert.match(pdf,/2 B/);assert.match(pdf,/0 T/);assert.deepEqual({tiny,assessment,clinical},before);
+  assert.match(pdf,/\(1\) Tj/);assert.match(pdf,/\(2\) Tj/);assert.match(pdf,/\(0\) Tj/);assert.doesNotMatch(pdf,/OBS\.|basal|techo|\(2 B\)|\(0 T\)/i);assert.deepEqual({tiny,assessment,clinical},before);
 });
 
 test('nombre de archivo seguro y botón con el texto acordado',async()=>{
