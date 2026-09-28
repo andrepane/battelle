@@ -69,6 +69,19 @@ test('motor nuevo exige dos ítems consecutivos del mismo rango para basal y tec
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.techo.confirmado,true);
 });
 
+test('motor nuevo conserva y permite corregir una puntuación positiva posterior al techo',()=>{
+  const current=SCORING_RULES_VERSION.CURRENT;
+  const r=scoreAssessment(items,model,{PS1:2,PS2:2,PS3:2,PS4:2,PS5:2,PS6:2,PS7:2,PS8:2,PS9:0,PS10:0,PS11:1},current);
+  const s=r.subareas.personal_social_interaccion_con_el_adulto;
+  assert.equal(s.techo.confirmado,true);
+  assert.equal(r.respuestas_efectivas.PS11.puntuacion,1);
+  assert.equal(r.respuestas_efectivas.PS11.origen,'observado');
+  assert.equal(s.advertencias.some(w=>w.tipo==='discrepancia_techo'&&w.codigo==='PS11'),true);
+  assert.equal(s.requiere_revision,false);
+  assert.equal(s.completa,true);
+  assert.equal(typeof s.pd,'number');
+});
+
 test('cambiar sustentos invalida basal o techo y elimina derivaciones sin tocar observaciones',()=>{
   let responses={PS6:2,PS7:2,PS8:2}; let r=scoreAssessment(items,model,responses);
   assert.equal(r.respuestas_efectivas.PS1.origen,'basal'); responses={...responses,PS8:1}; r=scoreAssessment(items,model,responses);
