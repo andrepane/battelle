@@ -104,7 +104,7 @@ export function reviewScoreMessages(incidences=[]){
     const item=safePresentationText(incidence?.codigo??incidence?.code,null);
     const message=incidence?.tipo==='discrepancia_basal'&&item
       ?`Revisa ${item}: tiene una puntuación inferior a 2 antes del basal establecido.`
-      :incidence?.tipo==='inconsistencia_techo'&&item
+      :['inconsistencia_techo','discrepancia_techo'].includes(incidence?.tipo)&&item
         ?`Revisa ${item}: tiene una puntuación superior a 0 después del techo establecido.`
         :null;
     if(message&&!seen.has(message)){seen.add(message);messages.push(Object.freeze({item,type:incidence.tipo,message}));}
