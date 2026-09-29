@@ -15,6 +15,6 @@ export function copyObservedResponsesForSubarea({ currentResponses={}, previousO
 export function restoreResponsesForSubarea({ currentResponses={}, previousCurrentResponses={}, itemCodes=[] }) { return copyObservedResponsesForSubarea({currentResponses,previousObservedResponses:previousCurrentResponses,itemCodes}); }
 export function buildPreviousScoreReference({ previousAssessment, items, model, scoreAssessment }) {
   if(!previousAssessment||previousAssessment.deletedAt||!Array.isArray(items)||typeof scoreAssessment!=='function')return null;
-  const assessment=structuredClone(previousAssessment); const scoring=scoreAssessment(structuredClone(items),structuredClone(model),structuredClone(assessment.observedResponses??{}),assessment.scoringRulesVersion); const scores={};
+  const assessment=structuredClone(previousAssessment); const scoring=scoreAssessment(structuredClone(items),structuredClone(model),structuredClone(assessment.observedResponses??{}),assessment.scoringRulesVersion,{ageMonths:assessment.ageMonths}); const scores={};
   for(const item of items)scores[item.codigo_canonico]=scorePresentation(scoring.respuestas_efectivas?.[item.codigo_canonico]); return {assessmentId:assessment.id,scores};
 }
