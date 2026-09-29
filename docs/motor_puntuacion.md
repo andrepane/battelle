@@ -47,7 +47,7 @@ Las respuestas observadas del examinador se clonan y se mantienen separadas de l
 
 ## Basal y techo
 
-La implementación procede solo de las reglas disponibles en `data/reglas_puntuacion_basal_techo.json`: basal con dos puntuaciones `2` consecutivas en un mismo nivel de edad; techo con dos puntuaciones `0` consecutivas en un mismo nivel de edad. No cruza subáreas ni niveles de edad, y no usa puntuaciones derivadas para detectar nuevas parejas.
+Las evaluaciones conservan de forma inmutable la versión del motor con la que fueron creadas. `legacy-v1` y `manual-v2` mantienen exactamente sus reglas históricas. Las evaluaciones nuevas usan `manual-v3`: en el nivel inicial correspondiente a la edad se busca una pareja de puntuaciones `2` consecutivas; si no aparece, se completan todos sus ítems y se retrocede. En cada nivel inferior el basal solo queda establecido cuando todos sus ítems obtienen `2`. El techo exige dos puntuaciones `0` consecutivas dentro del mismo nivel de edad. Ninguna versión usa respuestas derivadas para detectar nuevas reglas.
 
 Confirmado el basal, los ítems anteriores no administrados de la subárea reciben `2` derivado. Confirmado el techo, los ítems posteriores no administrados reciben `0` derivado. Las respuestas observadas no se sobrescriben.
 
