@@ -49,6 +49,8 @@ Las respuestas observadas del examinador se clonan y se mantienen separadas de l
 
 Las evaluaciones conservan de forma inmutable la versión del motor con la que fueron creadas. `legacy-v1` y `manual-v2` mantienen exactamente sus reglas históricas. Las evaluaciones nuevas usan `manual-v3`: en el nivel inicial correspondiente a la edad se busca una pareja de puntuaciones `2` consecutivas; si no aparece, se completan todos sus ítems y se retrocede. En cada nivel inferior el basal solo queda establecido cuando todos sus ítems obtienen `2`. El techo exige dos puntuaciones `0` consecutivas dentro del mismo nivel de edad. Ninguna versión usa respuestas derivadas para detectar nuevas reglas.
 
+La edad efectiva de la evaluación se entrega explícitamente al motor `manual-v3`; no se deduce del orden de introducción de las respuestas. Los seguimientos nuevos utilizan la versión vigente, mientras que su evaluación de referencia se reconstruye siempre con la versión que tenga guardada.
+
 Confirmado el basal, los ítems anteriores no administrados de la subárea reciben `2` derivado. Confirmado el techo, los ítems posteriores no administrados reciben `0` derivado. Las respuestas observadas no se sobrescriben.
 
 ## PD parcial y PD válida
