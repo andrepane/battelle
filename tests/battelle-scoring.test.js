@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadAndNormalizeItems } from '../src/battelle-data.js';
 import { loadScaleModel } from '../src/battelle-scales.js';
-import { validateResponse, scoreAssessment, detectBasal, SCORING_RULES_VERSION } from '../src/battelle-scoring.js';
+import { validateResponse, scoreAssessment, detectBasal, detectBasalManualV3, SCORING_RULES_VERSION } from '../src/battelle-scoring.js';
 const items = await loadAndNormalizeItems(); const model = await loadScaleModel();
 const sub = (area, subarea)=>items.filter(i=>i.area===area&&i.subarea===subarea);
 
@@ -57,7 +57,7 @@ test('techo usa ceros observados consecutivos incluso entre niveles y rechaza 0,
 });
 
 test('motor nuevo exige dos ítems consecutivos del mismo rango para basal y techo',()=>{
-  const current=SCORING_RULES_VERSION.CURRENT;
+  const current=SCORING_RULES_VERSION.MANUAL_V2;
   let r=scoreAssessment(items,model,{PS6:2,PS7:2},current);
   assert.equal(r.subareas.personal_social_interaccion_con_el_adulto.basal.confirmado,true);
   r=scoreAssessment(items,model,{PS13:2},current);
@@ -70,7 +70,7 @@ test('motor nuevo exige dos ítems consecutivos del mismo rango para basal y tec
 });
 
 test('motor nuevo conserva y permite corregir una puntuación positiva posterior al techo',()=>{
-  const current=SCORING_RULES_VERSION.CURRENT;
+  const current=SCORING_RULES_VERSION.MANUAL_V2;
   const r=scoreAssessment(items,model,{PS1:2,PS2:2,PS3:2,PS4:2,PS5:2,PS6:2,PS7:2,PS8:2,PS9:0,PS10:0,PS11:1},current);
   const s=r.subareas.personal_social_interaccion_con_el_adulto;
   assert.equal(s.techo.confirmado,true);
@@ -80,6 +80,37 @@ test('motor nuevo conserva y permite corregir una puntuación positiva posterior
   assert.equal(s.requiere_revision,false);
   assert.equal(s.completa,true);
   assert.equal(typeof s.pd,'number');
+});
+
+test('manual-v3 completa el nivel inicial y exige todos los doses al retroceder',()=>{
+  const level=(code,min,max)=>({codigo_canonico:code,rango_edad:`${min}-${max}`,rango_edad_min_meses:min,rango_edad_max_meses:max});
+  const sample=[level('A1',6,11),level('A2',12,17),level('A3',12,17),level('A4',12,17),level('A5',18,23),level('A6',18,23),level('A7',18,23),level('A8',18,23)];
+  let observed={A5:{puntuacion:2},A6:{puntuacion:1}};
+  let basal=detectBasalManualV3(sample,observed,20);
+  assert.equal(basal.confirmado,false); assert.deepEqual(basal.pendientes,['A7','A8']);
+  observed={...observed,A7:{puntuacion:2},A8:{puntuacion:1},A2:{puntuacion:2},A3:{puntuacion:2},A4:{puntuacion:1}};
+  basal=detectBasalManualV3(sample,observed,20);
+  assert.equal(basal.confirmado,false); assert.equal(basal.rango_edad,'6-11');
+  observed={...observed,A4:{puntuacion:2}};
+  basal=detectBasalManualV3(sample,observed,20);
+  assert.equal(basal.confirmado,true); assert.equal(basal.rango_edad,'12-17'); assert.deepEqual(basal.sustentan,['A2','A3','A4']);
+});
+
+test('manual-v3 acepta una pareja consecutiva dentro del nivel inicial',()=>{
+  const level=(code,min,max)=>({codigo_canonico:code,rango_edad:`${min}-${max}`,rango_edad_min_meses:min,rango_edad_max_meses:max});
+  const sample=[level('A1',12,17),level('A2',18,23),level('A3',18,23),level('A4',18,23),level('A5',18,23)];
+  const basal=detectBasalManualV3(sample,{A2:{puntuacion:1},A3:{puntuacion:2},A4:{puntuacion:2}},20);
+  assert.equal(basal.confirmado,true); assert.deepEqual(basal.sustentan,['A3','A4']);
+});
+
+test('manual-v3 admite un nivel inicial unitario y retrocede al alcanzar techo inicial',()=>{
+  const level=(code,min,max)=>({codigo_canonico:code,rango_edad:`${min}-${max}`,rango_edad_min_meses:min,rango_edad_max_meses:max});
+  let sample=[level('A1',12,17),level('A2',18,23)];
+  let basal=detectBasalManualV3(sample,{A2:{puntuacion:2}},20);
+  assert.equal(basal.confirmado,true); assert.deepEqual(basal.sustentan,['A2']);
+  sample=[level('A1',12,17),level('A2',12,17),level('A3',18,23),level('A4',18,23),level('A5',18,23)];
+  basal=detectBasalManualV3(sample,{A3:{puntuacion:0},A4:{puntuacion:0}},20);
+  assert.equal(basal.confirmado,false); assert.equal(basal.rango_edad,'12-17'); assert.deepEqual(basal.pendientes,[]);
 });
 
 test('cambiar sustentos invalida basal o techo y elimina derivaciones sin tocar observaciones',()=>{
