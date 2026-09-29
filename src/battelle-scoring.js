@@ -1,5 +1,6 @@
 import { normalizeItemCode } from './battelle-data.js';
 import { itemCodesForScale, declaredSubareaEntries, itemCodesForSubarea } from './battelle-scales.js';
+import { startingLevelForAge } from './battelle-starting-level.js';
 
 export function validateResponse(value) { if (![0,1,2].includes(value)) throw new Error(`Puntuación inválida: ${value}`); return value; }
 
@@ -22,8 +23,11 @@ function groupBy(items, fn){ const m=new Map(); for (const item of items){ const
 const ageKey=(item)=>`${item.rango_edad_min_meses}|${item.rango_edad_max_meses}`;
 function ageLevels(items){ return [...groupBy(items, ageKey).values()]; }
 
-export const SCORING_RULES_VERSION = Object.freeze({ LEGACY:'legacy-v1', CURRENT:'manual-v2' });
-export function normalizeScoringRulesVersion(value){ return value===SCORING_RULES_VERSION.CURRENT ? SCORING_RULES_VERSION.CURRENT : SCORING_RULES_VERSION.LEGACY; }
+export const SCORING_RULES_VERSION = Object.freeze({ LEGACY:'legacy-v1', MANUAL_V2:'manual-v2', CURRENT:'manual-v3' });
+export function normalizeScoringRulesVersion(value){
+  if(value===SCORING_RULES_VERSION.MANUAL_V2) return SCORING_RULES_VERSION.MANUAL_V2;
+  return value===SCORING_RULES_VERSION.CURRENT ? SCORING_RULES_VERSION.CURRENT : SCORING_RULES_VERSION.LEGACY;
+}
 
 export function detectBasal(items, observed) {
   const levels=ageLevels(items);
@@ -77,6 +81,37 @@ export function detectBasalCurrent(items, observed) {
   return {confirmado:false,rango_edad:attempted?.[0]?.rango_edad,pendientes};
 }
 
+/** Procedimiento literal del manual: pareja 2–2 en el nivel inicial y,
+ * si hay que retroceder, puntuación 2 en todos los ítems del nivel inferior. */
+export function detectBasalManualV3(items, observed, ageMonths) {
+  const levels=ageLevels(items),starting=startingLevelForAge(items,ageMonths);
+  const startingIndex=starting ? levels.findIndex(level=>ageKey(level[0])===`${starting.min}|${starting.max}`) : -1;
+  if(startingIndex<0) return detectBasalCurrent(items,observed);
+  const initial=levels[startingIndex];
+  if(initial.length===1&&observed[initial[0].codigo_canonico]?.puntuacion===2){
+    const index=items.indexOf(initial[0]);
+    return {confirmado:true,inicio:initial[0].codigo_canonico,fin:initial[0].codigo_canonico,indice_inicio:index,indice_fin:index,nivel_indice:startingIndex,rango_edad:initial[0].rango_edad,sustentan:[initial[0].codigo_canonico]};
+  }
+  for(let i=0;i<initial.length-1;i++) if(observed[initial[i].codigo_canonico]?.puntuacion===2&&observed[initial[i+1].codigo_canonico]?.puntuacion===2){
+    const start=items.indexOf(initial[i]),end=items.indexOf(initial[i+1]);
+    return {confirmado:true,inicio:initial[i].codigo_canonico,fin:initial[i+1].codigo_canonico,indice_inicio:start,indice_fin:end,nivel_indice:startingIndex,rango_edad:initial[0].rango_edad,sustentan:[initial[i].codigo_canonico,initial[i+1].codigo_canonico]};
+  }
+  const initialCeiling=initial.some((item,index)=>index<initial.length-1&&observed[item.codigo_canonico]?.puntuacion===0&&observed[initial[index+1].codigo_canonico]?.puntuacion===0);
+  const initialPending=initial.filter(item=>!observed[item.codigo_canonico]).map(item=>item.codigo_canonico);
+  if(initialPending.length&&!initialCeiling) return {confirmado:false,rango_edad:initial[0].rango_edad,pendientes:initialPending,fase:'nivel_inicial'};
+  for(let levelIndex=startingIndex-1;levelIndex>=0;levelIndex--){
+    const level=levels[levelIndex],attempted=level.some(item=>observed[item.codigo_canonico]);
+    if(!attempted) return {confirmado:false,rango_edad:level[0].rango_edad,pendientes:[],fase:'retroceso'};
+    const pendientes=level.filter(item=>!observed[item.codigo_canonico]).map(item=>item.codigo_canonico);
+    if(pendientes.length) return {confirmado:false,rango_edad:level[0].rango_edad,pendientes,fase:'retroceso'};
+    if(level.every(item=>observed[item.codigo_canonico]?.puntuacion===2)){
+      const start=items.indexOf(level[0]),end=items.indexOf(level.at(-1));
+      return {confirmado:true,inicio:level[0].codigo_canonico,fin:level.at(-1).codigo_canonico,indice_inicio:start,indice_fin:end,nivel_indice:levelIndex,rango_edad:level[0].rango_edad,sustentan:level.map(item=>item.codigo_canonico)};
+    }
+  }
+  return {confirmado:false,rango_edad:levels[0]?.[0]?.rango_edad,pendientes:[],agotado:true,fase:'suelo'};
+}
+
 export function detectCeilingCurrent(items, observed, basal=null) {
   const inconsistencias=[]; let provisional=false;
   for(let i=0;i<items.length-1;i++){
@@ -92,7 +127,7 @@ export function detectCeilingCurrent(items, observed, basal=null) {
   return {confirmado:false,inconsistencias};
 }
 
-export function deriveScores(items, responses = {}, scoringRulesVersion=SCORING_RULES_VERSION.LEGACY) {
+export function deriveScores(items, responses = {}, scoringRulesVersion=SCORING_RULES_VERSION.LEGACY, context={}) {
   const validCodes = new Set(items.map((i)=>i.codigo_canonico));
   const observed = normalizeObservedResponses(responses, validCodes);
   const effective = blank(items);
@@ -100,12 +135,12 @@ export function deriveScores(items, responses = {}, scoringRulesVersion=SCORING_
   const inconsistencias=[]; const advertencias=[]; const bySub = groupBy(items, (i)=>`${i.area}|${i.subarea}`); const limites={};
   const rules=normalizeScoringRulesVersion(scoringRulesVersion);
   for (const [key, subItems] of bySub) {
-    let basal = rules===SCORING_RULES_VERSION.CURRENT ? detectBasalCurrent(subItems,observed) : detectBasal(subItems,observed);
-    const techo = rules===SCORING_RULES_VERSION.CURRENT ? detectCeilingCurrent(subItems,observed,basal) : detectCeiling(subItems,observed,basal);
+    let basal = rules===SCORING_RULES_VERSION.CURRENT ? detectBasalManualV3(subItems,observed,context.ageMonths) : rules===SCORING_RULES_VERSION.MANUAL_V2 ? detectBasalCurrent(subItems,observed) : detectBasal(subItems,observed);
+    const techo = rules===SCORING_RULES_VERSION.LEGACY ? detectCeiling(subItems,observed,basal) : detectCeilingCurrent(subItems,observed,basal);
     if(!basal.confirmado && techo.confirmado && !techo.provisional) basal={...basal, agotado:true};
     limites[key]={basal, techo};
     if (basal.confirmado) for (let i=0;i<basal.indice_inicio;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:2,origen:'basal',observacion:''}; else if (observed[code].puntuacion<2) advertencias.push({tipo:'discrepancia_basal', codigo:code, subarea:key, mensaje:'Respuesta observada inferior al basal conservada para revisión clínica.'}); }
-    if (techo.confirmado && !techo.provisional) for (let i=techo.indice_fin+1;i<subItems.length;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:0,origen:'techo',observacion:''}; else if (observed[code].puntuacion>0) { const incidencia={tipo:rules===SCORING_RULES_VERSION.CURRENT?'discrepancia_techo':'inconsistencia_techo', codigo:code, subarea:key, mensaje:'Respuesta observada superior a 0 después del techo; se conserva la puntuación observada.'}; (rules===SCORING_RULES_VERSION.CURRENT?advertencias:inconsistencias).push(incidencia); } }
+    if (techo.confirmado && !techo.provisional) for (let i=techo.indice_fin+1;i<subItems.length;i++){ const code=subItems[i].codigo_canonico; if (!observed[code]) effective[code]={estado:'derivado',puntuacion:0,origen:'techo',observacion:''}; else if (observed[code].puntuacion>0) { const flexible=rules!==SCORING_RULES_VERSION.LEGACY; const incidencia={tipo:flexible?'discrepancia_techo':'inconsistencia_techo', codigo:code, subarea:key, mensaje:'Respuesta observada superior a 0 después del techo; se conserva la puntuación observada.'}; (flexible?advertencias:inconsistencias).push(incidencia); } }
     inconsistencias.push(...(techo.inconsistencias??[]).map((w)=>({...w, subarea:key})));
   }
   return { respuestas_observadas: observed, respuestas_efectivas: effective, limites, inconsistencias, advertencias, scoringRulesVersion:rules };
@@ -150,9 +185,9 @@ export function calculateAllScores(items, model, effective, subareas = {}) {
 }
 export function assessCompleteness(result) { return Object.values(result.escalas).every((s)=>s.completa); }
 
-export function scoreAssessment(items, model, responses = {}, scoringRulesVersion=SCORING_RULES_VERSION.LEGACY) {
+export function scoreAssessment(items, model, responses = {}, scoringRulesVersion=SCORING_RULES_VERSION.LEGACY, context={}) {
   try {
-    const deriv = deriveScores(items, responses, scoringRulesVersion); const subareas={};
+    const deriv = deriveScores(items, responses, scoringRulesVersion, context); const subareas={};
     for (const [id, definition] of declaredSubareaEntries(model)) {
       const codes = itemCodesForSubarea(definition, items);
       const inconsistencias = deriv.inconsistencias.filter((w)=>w.subarea===definition.clave);
