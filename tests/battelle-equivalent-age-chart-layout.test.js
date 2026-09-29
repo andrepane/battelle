@@ -74,7 +74,7 @@ test('la tipografía del SVG es legible y no hereda contornos de las series',()=
  const svg=equivalentAgeChartSvg(individual());
  assert.match(svg,/font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif/);
  assert.match(svg,/text\{[^}]*stroke:none/);
- assert.match(svg,/\.legend-chip text\{font-size:13px;font-weight:600;fill:#27415f;stroke:none\}/);
+ assert.match(svg,/\.legend-chip text\{font-size:13px;font-weight:600;fill:#214a44;stroke:none\}/);
  assert.doesNotMatch(svg,/\.series-[01]\{fill:[^}]+;stroke:/);
 });
 
