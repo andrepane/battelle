@@ -230,3 +230,10 @@ main{padding-inline:clamp(.85rem,2vw,1.5rem)}
   .view-nav strong{font-size:.92rem}
   .age-apply{gap:.55rem;padding:.65rem}
 }
+
+/* Keep the application title visible above the scrolling content. */
+.app-header{position:sticky;top:0;z-index:100;flex-wrap:wrap;box-shadow:0 4px 8px rgba(10,27,48,.16),0 12px 24px rgba(10,27,48,.14);border-bottom:1px solid rgba(255,255,255,.12)}
+.app-header h1{min-width:0;line-height:1.25;flex:1 1 320px}
+html{scroll-padding-top:calc(var(--app-header-height,58px) + 1rem)}
+@media(min-width:801px){.area-nav{top:calc(var(--app-header-height,58px) + 1rem);max-height:calc(100dvh - var(--app-header-height,58px) - 2rem);overflow-y:auto}}
+@media(max-width:520px){.app-header h1{font-size:1.1rem;flex-basis:100%}.app-header .header-actions{margin-left:0}.app-header{gap:.5rem}}
