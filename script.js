@@ -433,3 +433,11 @@ document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==
 setupPasswordVisibility();
 setupAgeApplication();
 init();
+
+// Account for title wrapping and status changes when positioning the sticky area menu.
+const appHeader=document.querySelector('.app-header');
+if(appHeader){
+  const updateHeaderHeight=()=>{const height=appHeader.getBoundingClientRect().height;if(height>0)document.documentElement.style.setProperty('--app-header-height',`${height}px`);};
+  new ResizeObserver(updateHeaderHeight).observe(appHeader);
+  updateHeaderHeight();
+}
