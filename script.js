@@ -23,9 +23,10 @@ import { buildPreviousScoreReference, copyObservedResponsesForSubarea, createFol
 import { captureAdministrationNavigation, comparisonControls, initialAdministrationLocation, resolveAdministrationLocation } from './src/battelle-navigation.js';
 import { showConfirmDialog, showMessageDialog, showToast } from './src/battelle-dialogs.js';
 import { buildEquivalentAgeChartModel, renderEquivalentAgeChart, chartPngBlob, downloadChartBlob, copyChartPng, safeChartFilename } from './src/battelle-equivalent-age-chart.js';
+import { MAINTENANCE_MODE, activeSessions, createMaintenanceRepository, maintenanceControlAllowed } from './src/battelle-maintenance.js';
 
 const $ = (id) => document.getElementById(id);
-const state = { ready:false, items:[], model:null, normativeData:null, normativeValidation:null, assessment:null, score:null, correction:null, evaluationStatus:'administrando', activeArea:'Personal/Social', activeSubarea:null, assessments:[], view:'home', viewMode:VIEW_MODE.ADMINISTRATION, saveTimer:null, saveCoordinator:null, lastSavedAt:null, openedRevision:null, storageError:null, user:null, initializingUid:null, authorizationPromise:null, repository:null, unsubscribeAssessments:null, unsubscribeAssessment:null, remoteConflict:null, remoteDeleted:false, trashMode:false, comparisonMode:false, comparisonIds:[], comparisonModel:null, comparisonContext:'general', comparisonNotice:'', resultTableModel:null, equivalentAgeChartModel:null, resultsDisplay:'table', comparisonDisplay:'table', resultFormatId:'piat', resultColumnSelection:[...RESULT_FORMATS.piat.defaultColumns], previousAssessment:null, previousScoreReference:null, referenceLoadToken:0, subareaUndo:{} };
+const state = { ready:false, items:[], model:null, normativeData:null, normativeValidation:null, assessment:null, score:null, correction:null, evaluationStatus:'administrando', activeArea:'Personal/Social', activeSubarea:null, assessments:[], view:'home', viewMode:VIEW_MODE.ADMINISTRATION, saveTimer:null, saveCoordinator:null, lastSavedAt:null, openedRevision:null, storageError:null, user:null, initializingUid:null, authorizationPromise:null, repository:null, unsubscribeAssessments:null, unsubscribeAssessment:null, remoteConflict:null, remoteDeleted:false, trashMode:false, comparisonMode:false, comparisonIds:[], comparisonModel:null, comparisonContext:'general', comparisonNotice:'', resultTableModel:null, equivalentAgeChartModel:null, resultsDisplay:'table', comparisonDisplay:'table', resultFormatId:'piat', resultColumnSelection:[...RESULT_FORMATS.piat.defaultColumns], previousAssessment:null, previousScoreReference:null, referenceLoadToken:0, subareaUndo:{}, maintenanceRepository:null,maintenance:{mode:MAINTENANCE_MODE.OPEN,message:''},maintenanceSessions:[],unsubscribeMaintenance:null,unsubscribeMaintenanceSessions:null,presence:null };
 const scaleOrder = ['personal_social_total','adaptativa_total','motora_gruesa','motora_fina','motora_total','comunicacion_receptiva','comunicacion_expresiva','comunicacion_total','cognitiva_total','battelle_total'];
 const areas = ['Personal/Social','Adaptativa','Motora','Comunicación','Cognitiva'];
 let lastStartingScrollKey = null;
@@ -39,6 +40,42 @@ function resetAssessmentNavigation(){
 }
 function el(tag, attrs={}, ...children){ const n=document.createElement(tag); for(const [k,v] of Object.entries(attrs)){ if(k==='class') n.className=v; else if(k.startsWith('aria')) n.setAttribute(k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()), v); else if(k==='dataset') Object.assign(n.dataset,v); else if(k==='for') n.htmlFor=v; else n[k]=v; } for(const c of children) n.append(c?.nodeType?c:document.createTextNode(String(c))); return n; }
 function setText(id, text){ $(id).textContent = text; }
+
+function setupMaintenanceUi(){
+  if($('maintenanceGate'))return;
+  const gate=el('section',{id:'maintenanceGate',class:'maintenance-gate hidden',role:'alert',ariaLive:'assertive'},el('div',{class:'maintenance-gate-card'},el('p',{class:'eyebrow'},'Neurointegra'),el('h2',{id:'maintenanceGateTitle'},'Mantenimiento temporal'),el('p',{id:'maintenanceGateText'},'La aplicación no está disponible temporalmente.'),el('button',{id:'maintenanceReloadBtn',class:'primary-button',type:'button'},'Comprobar de nuevo')));
+  $('appShell').prepend(gate);
+  const panel=el('section',{id:'maintenanceAdminPanel',class:'maintenance-admin hidden',ariaLabel:'Administración del mantenimiento'},el('div',{class:'maintenance-admin-heading'},el('div',{},el('p',{class:'eyebrow'},'Administración'),el('h2',{},'Modo mantenimiento')),el('span',{id:'maintenanceModeBadge',class:'maintenance-mode-badge'},'Funcionamiento normal')),el('p',{id:'maintenanceAdminSummary',class:'muted'},'Comprobando sesiones activas…'),el('div',{id:'maintenanceSessionList',class:'maintenance-session-list'}),el('p',{id:'maintenancePreviewWarning',class:'notice hidden',role:'status'},'Modo de simulación: estos controles solo afectan a esta preview y nunca bloquean la web oficial.'),el('div',{class:'maintenance-admin-actions'},el('button',{id:'prepareMaintenanceBtn',class:'secondary-button',type:'button'},'Preparar mantenimiento'),el('button',{id:'activateMaintenanceBtn',class:'danger-button',type:'button'},'Activar mantenimiento'),el('button',{id:'endMaintenanceBtn',class:'primary-button',type:'button'},'Finalizar mantenimiento')));
+  $('homeView').prepend(panel);
+}
+function presenceSnapshot(){return {view:state.assessment?'assessment':'home',assessmentId:state.assessment?.id??null,therapistName:state.assessment?.therapistName??null,pending:Boolean(state.saveCoordinator?.hasPending())};}
+function touchPresence(){void state.presence?.touch().catch(()=>{});}
+function assessmentWorkSessions(){return activeSessions(state.maintenanceSessions).filter(session=>session.view==='assessment'&&session.id!==state.maintenanceRepository?.sessionId);}
+function maintenanceBlocksNewWork(){return state.user?.role!=='admin'&&state.maintenance.mode!==MAINTENANCE_MODE.OPEN;}
+function renderMaintenance(){
+  setupMaintenanceUi();
+  const admin=state.user?.role==='admin',mode=state.maintenance.mode,production=maintenanceControlAllowed(location.hostname),working=assessmentWorkSessions();
+  $('maintenanceAdminPanel').classList.toggle('hidden',!admin);
+  if(admin){
+    const labels={[MAINTENANCE_MODE.OPEN]:'Funcionamiento normal',[MAINTENANCE_MODE.DRAINING]:'Cerrando sesiones',[MAINTENANCE_MODE.ACTIVE]:'Mantenimiento activo'};
+    $('maintenanceModeBadge').textContent=labels[mode];
+    $('maintenanceAdminSummary').textContent=working.length?`${working.length} sesión${working.length===1?'':'es'} trabajando en una evaluación.`:'No hay otras sesiones trabajando en evaluaciones.';
+    $('maintenanceSessionList').replaceChildren(...working.map(session=>el('p',{class:'maintenance-session-row'},el('strong',{},session.therapistName||session.email||'Sesión activa'),el('span',{},session.pending?'Cambios pendientes de guardar':'Sin cambios pendientes'))));
+    $('maintenancePreviewWarning').textContent='Modo de simulación: estos controles solo afectan a esta preview y nunca bloquean la web oficial.';
+    $('maintenancePreviewWarning').classList.toggle('hidden',production);
+    $('prepareMaintenanceBtn').disabled=mode!==MAINTENANCE_MODE.OPEN;
+    $('activateMaintenanceBtn').disabled=mode!==MAINTENANCE_MODE.DRAINING||working.length>0;
+    $('endMaintenanceBtn').disabled=mode===MAINTENANCE_MODE.OPEN;
+  }
+  const blocked=!admin&&mode===MAINTENANCE_MODE.ACTIVE;
+  $('maintenanceGate').classList.toggle('hidden',!blocked);
+  if(blocked){$('maintenanceGateTitle').textContent='Battelle en mantenimiento';$('maintenanceGateText').textContent=state.maintenance.message||'La aplicación está temporalmente cerrada mientras se realizan mejoras. Ningún dato se ha eliminado.';}
+  const draining=!admin&&mode===MAINTENANCE_MODE.DRAINING;
+  let banner=$('maintenanceDrainNotice');
+  if(draining&&!banner){banner=el('section',{id:'maintenanceDrainNotice',class:'notice maintenance-drain-notice',role:'alert'},el('strong',{},'La aplicación se cerrará por mantenimiento.'),el('p',{},'No inicies nuevas evaluaciones. Si estás trabajando, guarda los cambios y vuelve al listado.'));$('appShell').querySelector('main').prepend(banner);}
+  banner?.classList.toggle('hidden',!draining);
+  if($('homeNewAssessmentBtn'))$('homeNewAssessmentBtn').disabled=!state.ready||maintenanceBlocksNewWork();
+}
 
 function updateConnectionStatus(text=''){
   if(!$('connectionStatus')) return;
@@ -55,6 +92,26 @@ async function checkLocalImport(){
 async function subscribeRemoteList(){
   if(state.unsubscribeAssessments) state.unsubscribeAssessments();
   state.unsubscribeAssessments=await state.repository.subscribeAssessments((records,meta={})=>{ if(records){ state.assessments=records; if(state.comparisonIds.some(id=>!records.some(record=>record.id===id))){state.comparisonMode=false;state.comparisonIds=[];state.comparisonModel=null;state.comparisonNotice='Una evaluación seleccionada se eliminó remotamente. La comparación se ha cancelado.';if(state.view==='comparison')showHome();} if(state.view==='home') renderHome(records); if(meta.hasPendingWrites) $('saveStatus').textContent='Guardando…'; } else { state.storageError=meta.error; updateConnectionStatus(); } });
+}
+async function subscribeMaintenance(){
+  if(state.unsubscribeMaintenance){state.unsubscribeMaintenance();state.unsubscribeMaintenance=null;}
+  const repository=state.maintenanceRepository;
+  let initialized=false;
+  return new Promise(async(resolve,reject)=>{
+    try{state.unsubscribeMaintenance=await repository.subscribeMaintenance((maintenance,meta={})=>{
+      if(state.maintenanceRepository!==repository)return;
+      if(meta.error){if(!initialized){initialized=true;reject(meta.error);}return;}
+      const previous=state.maintenance.mode;
+      state.maintenance=maintenance;renderMaintenance();
+      if(previous===MAINTENANCE_MODE.ACTIVE&&maintenance.mode===MAINTENANCE_MODE.OPEN&&state.user?.role!=='admin')location.reload();
+      if(!initialized){initialized=true;resolve(maintenance);}
+    });}catch(error){reject(error);}
+  });
+}
+async function startPresence(){
+  if(state.presence)await state.presence.stop();
+  state.presence=await state.maintenanceRepository.writePresence(presenceSnapshot);
+  if(state.user?.role==='admin')state.unsubscribeMaintenanceSessions=await state.maintenanceRepository.subscribeSessions((sessions,meta={})=>{if(!meta.error){state.maintenanceSessions=sessions;renderMaintenance();}});
 }
 async function subscribeOpenAssessment(id){
   if(state.unsubscribeAssessment){ state.unsubscribeAssessment(); state.unsubscribeAssessment=null; }
@@ -102,13 +159,16 @@ async function handleAuthorizedUser(user){
   state.authorizationPromise=(async()=>{
     if(state.unsubscribeAssessments){ state.unsubscribeAssessments(); state.unsubscribeAssessments=null; }
     if(state.unsubscribeAssessment){ state.unsubscribeAssessment(); state.unsubscribeAssessment=null; }
-    state.user=user; state.repository=createFirestoreAssessmentRepository({user}); showApp(); await initDataOnce(); await subscribeRemoteList(); await checkLocalImport(); showHome();
+    state.user=user; state.repository=createFirestoreAssessmentRepository({user}); state.maintenanceRepository=createMaintenanceRepository({user}); showApp(); setupMaintenanceUi(); await subscribeMaintenance(); await startPresence();
+    if(user.role!=='admin'&&state.maintenance.mode===MAINTENANCE_MODE.ACTIVE){renderMaintenance();return;}
+    await initDataOnce(); await subscribeRemoteList(); await checkLocalImport(); showHome(); renderMaintenance();touchPresence();
   })();
   try{ await state.authorizationPromise; } finally { if(state.initializingUid===user.uid) state.initializingUid=null; }
 }
 async function clearActiveSessionState(){
   if(state.unsubscribeAssessments){ state.unsubscribeAssessments(); state.unsubscribeAssessments=null; } if(state.unsubscribeAssessment){ state.unsubscribeAssessment(); state.unsubscribeAssessment=null; }
-  Object.assign(state,{user:null,initializingUid:null,authorizationPromise:null,repository:null,assessment:null,score:null,correction:null,assessments:[],saveCoordinator:null,openedRevision:null,lastSavedAt:null,remoteConflict:null,storageError:null});
+  if(state.unsubscribeMaintenance){state.unsubscribeMaintenance();state.unsubscribeMaintenance=null;}if(state.unsubscribeMaintenanceSessions){state.unsubscribeMaintenanceSessions();state.unsubscribeMaintenanceSessions=null;}if(state.presence){await state.presence.stop();state.presence=null;}
+  Object.assign(state,{user:null,initializingUid:null,authorizationPromise:null,repository:null,maintenanceRepository:null,maintenance:{mode:MAINTENANCE_MODE.OPEN,message:''},maintenanceSessions:[],assessment:null,score:null,correction:null,assessments:[],saveCoordinator:null,openedRevision:null,lastSavedAt:null,remoteConflict:null,storageError:null});
 }
 async function signOutFlow(){
   const result=await flushSave();
@@ -137,14 +197,14 @@ function ensureSaveCoordinator(){
   const repository=state.repository;
   state.saveCoordinator=createSaveCoordinator({assessmentId,initialRevision:state.openedRevision ?? 0,
     saveSnapshot:(snapshot,expectedRevision)=>repository.saveAssessment(snapshot,expectedRevision),
-    applySaved:(saved)=>{ if(state.repository!==repository || state.assessment?.id!==saved.id || state.remoteDeleted) return; state.assessment={...saved,...state.assessment,updatedAt:saved.updatedAt,revision:saved.revision}; state.openedRevision=saved.revision; state.lastSavedAt=saved.updatedAt; state.storageError=null; state.remoteConflict=null; $('conflictNotice').classList.add('hidden'); },
+    applySaved:(saved)=>{ if(state.repository!==repository || state.assessment?.id!==saved.id || state.remoteDeleted) return; state.assessment={...saved,...state.assessment,updatedAt:saved.updatedAt,revision:saved.revision}; state.openedRevision=saved.revision; state.lastSavedAt=saved.updatedAt; state.storageError=null; state.remoteConflict=null; $('conflictNotice').classList.add('hidden'); touchPresence(); },
     onError:(err)=>{ if(state.repository!==repository || state.assessment?.id!==assessmentId) return; state.storageError=err; if(err.code===COLLECTION_ERROR.CONFLICT){ state.remoteConflict=err.current ?? state.remoteConflict; $('conflictNotice').classList.remove('hidden'); } },
     onStatus:(text)=>{ if(state.repository!==repository || state.assessment?.id!==assessmentId) return; $('saveStatus').textContent=text==='Guardado.'?'Guardado en Neurointegra':text; updateConnectionStatus(text); }
   });
   return state.saveCoordinator;
 }
 async function save(){ if(!state.assessment || state.remoteDeleted) return {ok:!state.remoteDeleted,deleted:state.remoteDeleted}; return ensureSaveCoordinator().enqueue(snapshotAssessment()); }
-function scheduleSave(delay=0){ if(!state.assessment || state.remoteDeleted) return; ensureSaveCoordinator().schedule(snapshotAssessment(),delay); }
+function scheduleSave(delay=0){ if(!state.assessment || state.remoteDeleted) return; ensureSaveCoordinator().schedule(snapshotAssessment(),delay); touchPresence(); }
 async function flushSave(){ if(!state.assessment) return {ok:true}; if(state.remoteDeleted) return {ok:false,deleted:true}; return ensureSaveCoordinator().flush(snapshotAssessment()); }
 function toRecordStatus(){ return workflowFromEvaluationStatus(state.evaluationStatus, state.assessment); }
 function fromRecordStatus(s){ return workflowToEvaluationStatus(s); }
@@ -154,7 +214,7 @@ function provisionalScore(){ state.score=state.assessment ? scoreAssessment(stat
 function resetCorrection(next='administrando', {clearMetadata=false}={}){ provisionalScore(); state.correction=null; state.evaluationStatus=next; state.viewMode=VIEW_MODE.ADMINISTRATION; if(clearMetadata) state.assessment.correctionMetadata={}; updateResults(); updateVisibleItemsEffective(); scheduleSave(); }
 function maybeInvalidateCorrection(changedScoringData=true){ if(!changedScoringData){ scheduleSave(300); updateResults(); return; } if(state.assessment?.workflowStatus===WORKFLOW_STATUS.CORRECTED || state.assessment?.correctionMetadata?.fingerprint){ state.correction=null; state.evaluationStatus='resultado_desactualizado'; state.assessment.workflowStatus=WORKFLOW_STATUS.STALE; state.viewMode=VIEW_MODE.ADMINISTRATION; } else if(state.evaluationStatus!=='correccion_bloqueada') state.evaluationStatus='administrando'; provisionalScore(); updateResults(); updateVisibleItemsEffective(); scheduleSave(); }
 async function startNew(force=false){
-  if(!state.ready) return;
+  if(!state.ready||maintenanceBlocksNewWork()) return;
 
   if(state.assessment){
     const ok = await guardBeforeLeaving({save:flushSave});
@@ -186,6 +246,7 @@ state.assessment = createAssessmentRecord(createAssessment());
   renderItems();
   updateResults();
   $('therapistName').focus();
+  touchPresence();
 }
 async function loadPreviousReference(assessment){
   const token=++state.referenceLoadToken; state.previousAssessment=null; state.previousScoreReference=null; state.subareaUndo={};
@@ -222,8 +283,8 @@ async function applyPreviousSubarea(subarea,trigger){
   state.subareaUndo[subarea]=before;state.assessment.observedResponses=copyObservedResponsesForSubarea({currentResponses:state.assessment.observedResponses,previousObservedResponses:state.previousAssessment.observedResponses,itemCodes:codes});maybeInvalidateCorrection(true);restoreAdministrationNavigation(navigation);
 }
 function undoPreviousSubarea(subarea,trigger){const before=state.subareaUndo[subarea];if(!before)return;const navigation=captureAdministrationNavigation({areaId:state.activeArea,subareaId:subarea,trigger,scrollY:window.scrollY});const codes=state.items.filter(item=>item.area===state.activeArea&&item.subarea===subarea).map(item=>item.codigo_canonico);state.assessment.observedResponses=restoreResponsesForSubarea({currentResponses:state.assessment.observedResponses,previousCurrentResponses:before,itemCodes:codes});delete state.subareaUndo[subarea];maybeInvalidateCorrection(true);restoreAdministrationNavigation(navigation);}
-function showHome(){ state.view='home'; $('homeView').classList.remove('hidden'); $('assessmentView').classList.add('hidden'); $('comparisonView').classList.add('hidden'); renderHome(); }
-function showAssessment(){ state.view='assessment'; $('homeView').classList.add('hidden'); $('comparisonView').classList.add('hidden'); $('assessmentView').classList.remove('hidden'); }
+function showHome(){ state.view='home'; $('homeView').classList.remove('hidden'); $('assessmentView').classList.add('hidden'); $('comparisonView').classList.add('hidden'); renderHome(); touchPresence(); }
+function showAssessment(){ state.view='assessment'; $('homeView').classList.add('hidden'); $('comparisonView').classList.add('hidden'); $('assessmentView').classList.remove('hidden'); touchPresence(); }
 function hydrateAssessment(rec){
   state.assessment=rec; state.openedRevision=rec.revision; state.remoteConflict=null; state.remoteDeleted=false; state.storageError=null;
   state.evaluationStatus=fromRecordStatus(rec.workflowStatus); state.viewMode=rec.workflowStatus===WORKFLOW_STATUS.CORRECTED?VIEW_MODE.RESULTS:VIEW_MODE.ADMINISTRATION; state.score=null; state.correction=null; provisionalScore();
@@ -233,11 +294,12 @@ function hydrateAssessment(rec){
   void loadPreviousReference(rec);
 }
 async function openAssessment(id){
+  if(maintenanceBlocksNewWork())return;
   if(state.assessment && state.assessment.id!==id && !(await guardBeforeLeaving({save:flushSave}))) return;
   state.saveCoordinator?.cancel(); state.saveCoordinator=null;
   const rec=await state.repository.getAssessment(id); if(!rec) return;
   resetAssessmentNavigation();
-  showAssessment(); hydrateAssessment(rec); await subscribeOpenAssessment(id);
+  showAssessment(); hydrateAssessment(rec); await subscribeOpenAssessment(id);touchPresence();
 }
 async function reloadRemoteAssessment(){
   const remote=state.remoteConflict; if(!remote || remote.id!==state.assessment?.id) return;
@@ -412,6 +474,21 @@ async function removeAssessment(id,trigger=document.activeElement){
   const ok=await showConfirmDialog({title:'Mover a la papelera',message:`¿Quieres mover la evaluación de ${patientLabel(rec.name)} del ${displayDate(rec.assessmentDate)} a la papelera?\n\nPodrás restaurarla más adelante.`,confirmLabel:'Mover a la papelera',cancelLabel:'Cancelar',pendingLabel:'Moviendo…',tone:'warning',trigger,errorMessage:'No se pudo mover la evaluación a la papelera. Comprueba la conexión e inténtalo de nuevo.',onConfirm:async()=>{if(state.repository!==repository||assessmentOperations.has(id))throw new Error('stale-operation');const current=await repository.getAssessment(id);if(!current||current.revision!==rec.revision)throw new Error('stale-assessment');assessmentOperations.add(id);try{await repository.deleteAssessment(id,current.revision);}finally{assessmentOperations.delete(id);}}});
   if(ok){showToast({message:'Evaluación movida a la papelera',tone:'success'});await renderHome();}
 }
+async function prepareMaintenance(trigger){
+  if(state.user?.role!=='admin')return;
+  const ok=await showConfirmDialog({title:'Preparar mantenimiento',message:'Se impedirá iniciar o abrir evaluaciones nuevas. Quienes ya estén trabajando podrán guardar y volver al listado.',confirmLabel:'Preparar mantenimiento',cancelLabel:'Cancelar',tone:'warning',trigger});
+  if(ok)await state.maintenanceRepository.setMode(MAINTENANCE_MODE.DRAINING,'La aplicación se cerrará temporalmente por mantenimiento.');
+}
+async function activateMaintenance(trigger){
+  if(state.user?.role!=='admin'||assessmentWorkSessions().length)return;
+  const ok=await showConfirmDialog({title:'Activar mantenimiento',message:'No se detectan otras sesiones trabajando. Se bloqueará el acceso a las evaluaciones hasta que finalices el mantenimiento.',confirmLabel:'Activar mantenimiento',cancelLabel:'Cancelar',tone:'danger',trigger});
+  if(ok)await state.maintenanceRepository.setMode(MAINTENANCE_MODE.ACTIVE,'Estamos realizando mejoras. Vuelve a intentarlo dentro de unos minutos.');
+}
+async function endMaintenance(trigger){
+  if(state.user?.role!=='admin')return;
+  const ok=await showConfirmDialog({title:'Finalizar mantenimiento',message:'La aplicación volverá a permitir el acceso y la administración de evaluaciones.',confirmLabel:'Volver a abrir',cancelLabel:'Cancelar',tone:'info',trigger});
+  if(ok)await state.maintenanceRepository.setMode(MAINTENANCE_MODE.OPEN,'');
+}
 async function init(){ showLogin(); try{ await observeAuthState(async(user)=>{ if(!user){ await clearActiveSessionState(); showLogin(); return; } try{ const authorized=await ensureAuthorized(user); await handleAuthorizedUser(authorized); }catch(err){ $('loginMessage').textContent=friendlyAuthError(err); await signOutNeurointegra(); showLogin(); } }); }catch(err){ $('loginMessage').textContent=friendlyAuthError(err); }}
 async function restoreDeleted(id,trigger=document.activeElement){const repository=state.repository,rec=(await repository.listDeletedAssessments()).find(r=>r.id===id);if(!rec||assessmentOperations.has(id))return;const ok=await showConfirmDialog({title:'Restaurar evaluación',message:`Se restaurará la evaluación de ${patientLabel(rec.name)} del ${displayDate(rec.assessmentDate)}.`,confirmLabel:'Restaurar',cancelLabel:'Cancelar',pendingLabel:'Restaurando…',tone:'info',trigger,errorMessage:'No se pudo restaurar la evaluación. Comprueba la conexión e inténtalo de nuevo.',onConfirm:async()=>{if(state.repository!==repository||assessmentOperations.has(id))throw new Error('stale-operation');const current=(await repository.listDeletedAssessments()).find(r=>r.id===id);if(!current||current.revision!==rec.revision)throw new Error('stale-assessment');assessmentOperations.add(id);try{await repository.restoreAssessment(id,current.revision);}finally{assessmentOperations.delete(id);}}});if(ok){showToast({message:'Evaluación restaurada',tone:'success'});await renderHome();}}
 async function purgeDeleted(id,trigger=document.activeElement){const repository=state.repository,rec=(await repository.listDeletedAssessments()).find(r=>r.id===id);if(!rec||assessmentOperations.has(id))return;const ok=await showConfirmDialog({title:'Eliminar definitivamente',message:'Esta evaluación se eliminará de forma permanente y no podrá restaurarse.',details:[`${patientLabel(rec.name)} · ${displayDate(rec.assessmentDate)}`],confirmLabel:'Eliminar definitivamente',cancelLabel:'Cancelar',pendingLabel:'Eliminando…',tone:'danger',trigger,errorMessage:'No se pudo eliminar definitivamente. La evaluación continúa en la papelera.',onConfirm:async()=>{if(state.repository!==repository||assessmentOperations.has(id))throw new Error('stale-operation');const current=(await repository.listDeletedAssessments()).find(r=>r.id===id);if(!current||current.revision!==rec.revision)throw new Error('stale-assessment');assessmentOperations.add(id);try{await repository.permanentlyDeleteAssessment(id,current.revision);}finally{assessmentOperations.delete(id);}}});if(ok){showToast({message:'Evaluación eliminada definitivamente',tone:'success'});await renderHome();}}
@@ -422,6 +499,7 @@ document.addEventListener('input',(e)=>{ if(['assessmentSearch'].includes(e.targ
 document.addEventListener('keydown',(e)=>{ if(!e.target.matches('.score-btn')) return; if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName) || e.target.isContentEditable) return; const row=e.target.closest('.item-card'); const scoreMap={0:'0',1:'1',2:'2',n:'null',N:'null',Delete:'null',Backspace:'null'}; if(Object.prototype.hasOwnProperty.call(scoreMap,e.key)){ e.preventDefault(); const btn=row?.querySelector(`.score-btn[data-score="${scoreMap[e.key]}"]`); if(btn) setObservedScore(btn); return; } if(e.key==='ArrowDown' || e.key==='ArrowUp'){ e.preventDefault(); const rows=[...document.querySelectorAll('.item-card')]; const current=rows.indexOf(row); const next=rows[current + (e.key==='ArrowDown'?1:-1)]; const score=e.target.dataset.score; (next?.querySelector(`.score-btn[data-score="${score}"]`) || next?.querySelector('.score-btn'))?.focus(); } }); document.addEventListener('change',(e)=>{ if(e.target.matches('.comparison-checkbox')){const id=e.target.dataset.id;const selected=new Set(state.comparisonIds);e.target.checked?selected.add(id):selected.delete(id);state.comparisonIds=[...selected].slice(0,2);renderHome();} if(['assessmentFilter','therapistFilter'].includes(e.target.id)) renderHome(); if(e.target.id==='therapistName') onMeta(e); if(e.target.id==='manualAgeOverride') onMeta(e); if(e.target.matches('.result-format-toggle')){state.resultFormatId=e.target.value;state.resultColumnSelection=[...RESULT_FORMATS[state.resultFormatId].defaultColumns];updateResults();} if(e.target.matches('.result-column-toggle')){const id=e.target.dataset.columnId;if(id==='label'){e.target.checked=true;return;}const selected=new Set(state.resultColumnSelection);e.target.checked?selected.add(id):selected.delete(id);state.resultColumnSelection=RESULT_COLUMN_DEFINITIONS.map(column=>column.id).filter(columnId=>selected.has(columnId)||columnId==='label');updateResults();} });
 $('correctionPreflightDialog').addEventListener('cancel',(e)=>{e.preventDefault();closeCorrectionPreflight();});
 document.addEventListener('toggle',(e)=>{ if(e.target.matches?.('.subarea-card')&&e.target.open){state.activeSubarea=e.target.dataset.subarea;updateStartingLevelVisuals({scroll:true,reason:'open'});} },true);
+document.addEventListener('click',async(e)=>{if(!['maintenanceReloadBtn','prepareMaintenanceBtn','activateMaintenanceBtn','endMaintenanceBtn'].includes(e.target.id))return;e.stopImmediatePropagation();if(e.target.id==='maintenanceReloadBtn')location.reload();if(e.target.id==='prepareMaintenanceBtn')await prepareMaintenance(e.target);if(e.target.id==='activateMaintenanceBtn')await activateMaintenance(e.target);if(e.target.id==='endMaintenanceBtn')await endMaintenance(e.target);});
 function setupPasswordVisibility(){const input=$('loginPassword');if(!input||$('togglePasswordBtn'))return;const field=el('span',{class:'password-field'}),button=el('button',{id:'togglePasswordBtn',class:'password-toggle',type:'button',ariaPressed:'false',ariaLabel:'Mostrar contraseña'},'Mostrar');input.before(field);field.append(input,button);}
 document.addEventListener('click',(e)=>{if(e.target.id!=='togglePasswordBtn')return;const password=$('loginPassword'),show=password.type==='password';password.type=show?'text':'password';e.target.textContent=show?'Ocultar':'Mostrar';e.target.setAttribute('aria-pressed',String(show));e.target.setAttribute('aria-label',show?'Ocultar contraseña':'Mostrar contraseña');password.focus();});
 document.addEventListener('click',(e)=>{if(e.target.id!=='applyAgeBtn'||!state.assessment)return;if(!updateAge()){(state.assessment.manualAgeOverride?$('ageMonths'):$('assessmentDate')).focus();return;}updateStartingLevelVisuals({scroll:true,reason:'apply-age'});});

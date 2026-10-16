@@ -9,6 +9,34 @@ service cloud.firestore {
         && authDoc().data.active == true
         && authDoc().data.organizationId == 'neurointegra';
     }
+    function adminNeurointegra() {
+      return authorizedNeurointegra() && authDoc().data.role == 'admin';
+    }
+    function maintenanceActive() {
+      return exists(/databases/$(database)/documents/organizations/neurointegra/system/maintenance)
+        && get(/databases/$(database)/documents/organizations/neurointegra/system/maintenance).data.mode == 'maintenance';
+    }
+    function assessmentsAvailable() { return !maintenanceActive() || adminNeurointegra(); }
+    function validMaintenanceDocument() {
+      return request.resource.data.keys().hasOnly(['mode','message','updatedAt','updatedBy'])
+        && request.resource.data.mode in ['open','draining','maintenance']
+        && request.resource.data.message is string
+        && request.resource.data.message.size() <= 240
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.updatedBy == request.auth.uid;
+    }
+    function validSessionDocument(sessionId) {
+      return request.resource.data.keys().hasOnly(['id','uid','role','email','view','assessmentId','therapistName','pending','lastSeen'])
+        && request.resource.data.id == sessionId
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.role == (authDoc().data.role == 'admin' ? 'admin' : 'shared')
+        && request.resource.data.email is string
+        && request.resource.data.view in ['home','assessment']
+        && (request.resource.data.assessmentId == null || request.resource.data.assessmentId is string)
+        && (request.resource.data.therapistName == null || request.resource.data.therapistName is string)
+        && request.resource.data.pending is bool
+        && request.resource.data.lastSeen == request.time;
+    }
     function assessmentFields() {
       return ['id','schemaVersion','referenceAssessmentId','name','therapistName','birthDate','assessmentDate','manualAgeOverride','ageMonths','observedResponses','observations','createdAt','updatedAt','revision','workflowStatus','correctionMetadata','progress','organizationId','createdBy','updatedBy','deletedAt','deletedBy','deletionRevision'];
     }
@@ -56,10 +84,30 @@ service cloud.firestore {
       allow list, create, update, delete: if false;
     }
     match /organizations/neurointegra/assessments/{assessmentId} {
+      allow read: if authorizedNeurointegra() && assessmentsAvailable();
+      allow create: if authorizedNeurointegra() && assessmentsAvailable() && validAssessmentCreate(assessmentId);
+      allow update: if authorizedNeurointegra() && assessmentsAvailable() && validAssessmentUpdate(assessmentId);
+      allow delete: if authorizedNeurointegra() && assessmentsAvailable() && resource.data.deletedAt != null;
+    }
+    match /organizations/neurointegra/system/maintenance {
       allow read: if authorizedNeurointegra();
-      allow create: if authorizedNeurointegra() && validAssessmentCreate(assessmentId);
-      allow update: if authorizedNeurointegra() && validAssessmentUpdate(assessmentId);
-      allow delete: if authorizedNeurointegra() && resource.data.deletedAt != null;
+      allow create, update: if adminNeurointegra() && validMaintenanceDocument();
+      allow delete: if false;
+    }
+    match /organizations/neurointegra/sessions/{sessionId} {
+      allow read: if adminNeurointegra();
+      allow create, update: if authorizedNeurointegra() && validSessionDocument(sessionId);
+      allow delete: if authorizedNeurointegra() && (resource.data.uid == request.auth.uid || adminNeurointegra());
+    }
+    match /organizations/neurointegra/previewMaintenance/{environmentId} {
+      allow read: if authorizedNeurointegra();
+      allow create, update: if adminNeurointegra() && validMaintenanceDocument();
+      allow delete: if adminNeurointegra();
+    }
+    match /organizations/neurointegra/previewSessions/{environmentId}/sessions/{sessionId} {
+      allow read: if adminNeurointegra();
+      allow create, update: if authorizedNeurointegra() && validSessionDocument(sessionId);
+      allow delete: if authorizedNeurointegra() && (resource.data.uid == request.auth.uid || adminNeurointegra());
     }
     match /{document=**} { allow read, write: if false; }
   }
