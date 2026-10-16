@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 const rules = readFileSync(new URL('../firestore.rules', import.meta.url), 'utf8');
 const projectId = `battelle-rules-${Date.now()}`;
 const AUTHORIZED = 'authorized-user';
+const ADMIN = 'admin-user';
 const OTHER = 'other-user';
 const DENIED = 'denied-user';
 const REQUIRED = process.env.FIRESTORE_RULES_REQUIRED === '1';
@@ -86,11 +87,13 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   await env.clearFirestore();
   await env.withSecurityRulesDisabled(async(ctx)=>{
     const adminDb = ctx.firestore();
-    await setDoc(doc(adminDb, `authorizedUsers/${AUTHORIZED}`), {active:true, organizationId:'neurointegra'});
-    await setDoc(doc(adminDb, `authorizedUsers/${OTHER}`), {active:true, organizationId:'neurointegra'});
+    await setDoc(doc(adminDb, `authorizedUsers/${AUTHORIZED}`), {active:true, organizationId:'neurointegra',role:'shared'});
+    await setDoc(doc(adminDb, `authorizedUsers/${ADMIN}`), {active:true, organizationId:'neurointegra',role:'admin'});
+    await setDoc(doc(adminDb, `authorizedUsers/${OTHER}`), {active:true, organizationId:'neurointegra',role:'shared'});
     await setDoc(doc(adminDb, `authorizedUsers/${DENIED}`), {active:false, organizationId:'neurointegra'});
   });
   const authedDb = env.authenticatedContext(AUTHORIZED, { firebase: { sign_in_provider: 'password' } }).firestore();
+  const adminUserDb = env.authenticatedContext(ADMIN, { firebase: { sign_in_provider: 'password' } }).firestore();
   const otherDb = env.authenticatedContext(OTHER, { firebase: { sign_in_provider: 'password' } }).firestore();
   const deniedDb = env.authenticatedContext(DENIED, { firebase: { sign_in_provider: 'password' } }).firestore();
   const unauthDb = env.unauthenticatedContext().firestore();
@@ -146,6 +149,25 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   // Documento heredado sin campos de papelera: sigue siendo legible y se puede actualizar.
   await env.withSecurityRulesDisabled(async ctx=>{const legacy=baseAssessment({id:'legacy-1'});delete legacy.deletedAt;delete legacy.deletedBy;delete legacy.deletionRevision;await setDoc(doc(ctx.firestore(),'organizations/neurointegra/assessments/legacy-1'),{...legacy,createdAt:Timestamp.now(),updatedAt:Timestamp.now()});});
   const legacyRef=doc(authedDb,'organizations/neurointegra/assessments/legacy-1');assert.equal((await getDoc(legacyRef)).exists(),true);
+
+  const maintenanceShared=doc(authedDb,'organizations/neurointegra/system/maintenance');
+  const maintenanceAdmin=doc(adminUserDb,'organizations/neurointegra/system/maintenance');
+  await assertSucceeds(getDoc(maintenanceShared));
+  await assertFails(setDoc(maintenanceShared,{mode:'maintenance',message:'No permitido',updatedAt:serverTimestamp(),updatedBy:AUTHORIZED}));
+  await assertSucceeds(setDoc(maintenanceAdmin,{mode:'draining',message:'Cerrando',updatedAt:serverTimestamp(),updatedBy:ADMIN}));
+  await assertSucceeds(getDoc(legacyRef)); // draining deja terminar y guardar sesiones existentes
+  await assertSucceeds(setDoc(maintenanceAdmin,{mode:'maintenance',message:'Mantenimiento',updatedAt:serverTimestamp(),updatedBy:ADMIN}));
+  await assertFails(getDoc(legacyRef));
+  await assertSucceeds(getDoc(doc(adminUserDb,'organizations/neurointegra/assessments/legacy-1')));
+
+  const sharedSession=doc(authedDb,'organizations/neurointegra/sessions/session-shared');
+  const sessionPayload={id:'session-shared',uid:AUTHORIZED,role:'shared',email:'equipo@example.test',view:'assessment',assessmentId:'legacy-1',therapistName:'Andrea Panepinto LG',pending:false,lastSeen:serverTimestamp()};
+  await assertSucceeds(setDoc(sharedSession,sessionPayload));
+  await assertFails(getDoc(sharedSession));
+  await assertFails(setDoc(sharedSession,{...sessionPayload,role:'admin',lastSeen:serverTimestamp()}));
+  await assertSucceeds(getDoc(doc(adminUserDb,'organizations/neurointegra/sessions/session-shared')));
+  await assertSucceeds(setDoc(maintenanceAdmin,{mode:'open',message:'',updatedAt:serverTimestamp(),updatedBy:ADMIN}));
+  await assertSucceeds(getDoc(legacyRef));
 });
 
 test('firestore.rules contiene validaciones cerradas exigidas', ()=>{
@@ -155,6 +177,9 @@ test('firestore.rules contiene validaciones cerradas exigidas', ()=>{
   assert.match(rules,/request\.resource\.data\.revision == resource\.data\.revision \+ 1/);
   assert.match(rules,/request\.resource\.data\.createdAt == resource\.data\.createdAt/);
   assert.match(rules,/request\.resource\.data\.updatedAt == request\.time/);
+  assert.match(rules,/adminNeurointegra/);
+  assert.match(rules,/maintenanceActive/);
+  assert.match(rules,/assessmentsAvailable/);
 });
 
 test('reglas exigen papelera antes de borrado físico y campos de servidor',()=>{

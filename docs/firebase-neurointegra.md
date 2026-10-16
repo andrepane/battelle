@@ -22,6 +22,14 @@ No compartas correo ni contraseña en GitHub, código, tests, issues o documenta
 
 Limitación actual: al usar una cuenta compartida, `createdBy` y `updatedBy` identifican el UID compartido, no qué trabajador concreto realizó cada cambio.
 
+## Cuenta administradora y mantenimiento
+
+Una cuenta administradora utiliza el mismo documento de autorización, pero con `role: "admin"`. Conserva acceso normal a todas las evaluaciones y añade exclusivamente los controles de mantenimiento. La cuenta compartida continúa con `role: "shared"`.
+
+El estado se guarda aparte en `organizations/neurointegra/system/maintenance` y admite `open`, `draining` y `maintenance`. No se modifica ni se migra ningún documento de `assessments` al cambiar de modo. En `draining` la interfaz impide empezar o abrir evaluaciones nuevas y permite que una sesión ya abierta guarde y salga. En `maintenance`, las reglas bloquean las lecturas y escrituras de evaluaciones para cuentas compartidas; la cuenta administradora conserva acceso para verificar el sistema y volver a abrirlo.
+
+Las sesiones efímeras se registran en `organizations/neurointegra/sessions`. Una señal cada 20 segundos permite al panel administrativo mostrar quién sigue dentro de una evaluación. Las señales con más de 90 segundos se consideran caducadas. Cada preview utiliza documentos aislados bajo `previewMaintenance` y `previewSessions`: permite probar todo el flujo visual sin cambiar el estado de `battelle.vercel.app` ni bloquear a sus usuarios.
+
 ## Ruta y esquema persistido
 Colección principal: `organizations/neurointegra/assessments/{assessmentId}`.
 
