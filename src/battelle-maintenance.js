@@ -21,8 +21,8 @@ export function normalizeMaintenance(data){
 }
 
 export function refreshAckKey(environmentId){return `${REFRESH_ACK_PREFIX}${previewEnvironmentId(environmentId)}`;}
-export function refreshRequired(maintenance,{storage=globalThis.localStorage,environmentId='production',tabStartedAt=Date.now()}={}){if(maintenance?.mode!==MAINTENANCE_MODE.OPEN||!maintenance?.refreshId)return false;const releasedAt=Date.parse(maintenance.updatedAt);if(Number.isFinite(releasedAt)&&releasedAt>tabStartedAt)return true;try{return storage?.getItem(refreshAckKey(environmentId))!==maintenance.refreshId;}catch{return true;}}
-export function acknowledgeRefresh(refreshId,{storage=globalThis.localStorage,environmentId='production'}={}){if(!refreshId)return false;try{storage?.setItem(refreshAckKey(environmentId),refreshId);return storage?.getItem(refreshAckKey(environmentId))===refreshId;}catch{return false;}}
+export function refreshRequired(maintenance,{storage=globalThis.sessionStorage,environmentId='production'}={}){if(maintenance?.mode!==MAINTENANCE_MODE.OPEN||!maintenance?.refreshId)return false;try{return storage?.getItem(refreshAckKey(environmentId))!==maintenance.refreshId;}catch{return true;}}
+export function acknowledgeRefresh(refreshId,{storage=globalThis.sessionStorage,environmentId='production'}={}){if(!refreshId)return false;try{storage?.setItem(refreshAckKey(environmentId),refreshId);return storage?.getItem(refreshAckKey(environmentId))===refreshId;}catch{return false;}}
 
 export function normalizeSession(id,data){
   if(!data||data.id!==id||typeof data.uid!=='string')return null;
@@ -69,9 +69,10 @@ export function createMaintenanceRepository({user,servicesPromise=getFirebaseSer
       const remove=async()=>{try{const {modules,ref}=await sessionRef();await modules.firestore.deleteDoc(ref);}catch{/* La caducidad elimina el efecto de una sesión que no pudo borrarse. */}};
       await write();
       const resume=()=>{if(!env.document||env.document.visibilityState==='visible')void safeWrite();};
+      const offline=()=>onError(new Error('offline'));
       const timer=env.setInterval(()=>{void safeWrite();},15_000);
-      env.addEventListener?.('online',resume);env.addEventListener?.('focus',resume);env.addEventListener?.('pageshow',resume);env.document?.addEventListener?.('visibilitychange',resume);
-      return {touch:safeWrite,stop:async()=>{env.clearInterval(timer);env.removeEventListener?.('online',resume);env.removeEventListener?.('focus',resume);env.removeEventListener?.('pageshow',resume);env.document?.removeEventListener?.('visibilitychange',resume);await remove();}};
+      env.addEventListener?.('offline',offline);env.addEventListener?.('online',resume);env.addEventListener?.('focus',resume);env.addEventListener?.('pageshow',resume);env.document?.addEventListener?.('visibilitychange',resume);
+      return {touch:safeWrite,stop:async()=>{env.clearInterval(timer);env.removeEventListener?.('offline',offline);env.removeEventListener?.('online',resume);env.removeEventListener?.('focus',resume);env.removeEventListener?.('pageshow',resume);env.document?.removeEventListener?.('visibilitychange',resume);await remove();}};
     }
   };
 }
