@@ -1,12 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { MAINTENANCE_MODE, activeSessions, createMaintenanceRepository, maintenanceControlAllowed, normalizeMaintenance, normalizeSession } from '../src/battelle-maintenance.js';
+import { readFileSync } from 'node:fs';
+import { MAINTENANCE_MODE, acknowledgeRefresh, activeSessions, createMaintenanceRepository, maintenanceControlAllowed, normalizeMaintenance, normalizeSession, refreshRequired } from '../src/battelle-maintenance.js';
 
 const timestamp=iso=>({toDate:()=>new Date(iso)});
 
 test('la ausencia de configuración mantiene la aplicación abierta',()=>{
   assert.equal(normalizeMaintenance(null).mode,MAINTENANCE_MODE.OPEN);
   assert.equal(normalizeMaintenance({mode:'valor-invalido'}).mode,MAINTENANCE_MODE.OPEN);
+});
+
+test('cada dispositivo debe confirmar la actualización una vez',()=>{
+  const values=new Map(),storage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)},maintenance=normalizeMaintenance({mode:'open',refreshId:'release-2'});
+  assert.equal(refreshRequired(maintenance,{storage,environmentId:'production'}),true);
+  assert.equal(acknowledgeRefresh(maintenance.refreshId,{storage,environmentId:'production'}),true);
+  assert.equal(refreshRequired(maintenance,{storage,environmentId:'production'}),false);
+  assert.equal(refreshRequired(normalizeMaintenance({mode:'maintenance',refreshId:'release-3'}),{storage,environmentId:'production'}),false);
 });
 
 test('solo cuentan como activas las sesiones con señal reciente',()=>{
@@ -34,9 +43,11 @@ test('cambiar el mantenimiento escribe solo configuración y nunca evaluaciones'
   const repository=createMaintenanceRepository({user:{uid:'admin-uid',email:'admin@example.test',role:'admin'},servicesPromise:{db:{},modules:{firestore}},env});
   await repository.setMode(MAINTENANCE_MODE.DRAINING,'Cerrando');
   await repository.setMode(MAINTENANCE_MODE.ACTIVE,'Mantenimiento');
-  await repository.setMode(MAINTENANCE_MODE.OPEN,'');
+  await repository.setMode(MAINTENANCE_MODE.OPEN,'',{requireRefresh:true});
   assert.deepEqual(writes.map(write=>write.path),Array(3).fill('organizations/neurointegra/system/maintenance'));
   assert.equal(writes.some(write=>write.path.includes('/assessments')),false);
+  assert.equal(writes[0].payload.refreshId,null);
+  assert.match(writes[2].payload.refreshId,/^refresh-/);
 });
 
 test('una cuenta compartida no puede cambiar el modo desde el repositorio',async()=>{
@@ -52,4 +63,15 @@ test('una preview usa configuración aislada de producción',async()=>{
   await repository.setMode(MAINTENANCE_MODE.DRAINING,'Prueba');
   assert.equal(repository.isProduction,false);
   assert.deepEqual(writes,['organizations/neurointegra/previewMaintenance/battelle-pr-99.vercel.app']);
+});
+
+test('finalizar mantenimiento muestra una actualización bloqueante y recarga con versión única',()=>{
+  const script=readFileSync(new URL('../script.js',import.meta.url),'utf8');
+  assert.match(script,/La aplicación se ha actualizado/);
+  assert.match(script,/Actualizar la web/);
+  assert.match(script,/ariaModal:'true'/);
+  assert.match(script,/requireRefresh:true/);
+  assert.match(script,/_battelle_refresh/);
+  assert.match(script,/location\.replace\(url\.href\)/);
+  assert.match(script,/\.inert=blocked\|\|refreshPending/);
 });

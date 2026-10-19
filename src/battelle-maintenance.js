@@ -5,6 +5,7 @@ export const MAINTENANCE_PATH='organizations/neurointegra/system/maintenance';
 export const SESSIONS_PATH='organizations/neurointegra/sessions';
 export const SESSION_STALE_MS=90_000;
 export const PRODUCTION_HOSTS=Object.freeze(['battelle.vercel.app']);
+export const REFRESH_ACK_PREFIX='battelleMaintenanceRefresh:';
 
 function timestampToIso(value){
   if(typeof value==='string')return value;
@@ -15,8 +16,12 @@ function timestampToIso(value){
 
 export function normalizeMaintenance(data){
   const mode=Object.values(MAINTENANCE_MODE).includes(data?.mode)?data.mode:MAINTENANCE_MODE.OPEN;
-  return Object.freeze({mode,message:typeof data?.message==='string'?data.message:'',updatedAt:timestampToIso(data?.updatedAt),updatedBy:typeof data?.updatedBy==='string'?data.updatedBy:null});
+  return Object.freeze({mode,message:typeof data?.message==='string'?data.message:'',refreshId:typeof data?.refreshId==='string'&&data.refreshId?data.refreshId:null,updatedAt:timestampToIso(data?.updatedAt),updatedBy:typeof data?.updatedBy==='string'?data.updatedBy:null});
 }
+
+export function refreshAckKey(environmentId){return `${REFRESH_ACK_PREFIX}${previewEnvironmentId(environmentId)}`;}
+export function refreshRequired(maintenance,{storage=globalThis.localStorage,environmentId='production'}={}){if(maintenance?.mode!==MAINTENANCE_MODE.OPEN||!maintenance?.refreshId)return false;try{return storage?.getItem(refreshAckKey(environmentId))!==maintenance.refreshId;}catch{return true;}}
+export function acknowledgeRefresh(refreshId,{storage=globalThis.localStorage,environmentId='production'}={}){if(!refreshId)return false;try{storage?.setItem(refreshAckKey(environmentId),refreshId);return true;}catch{return false;}}
 
 export function normalizeSession(id,data){
   if(!data||data.id!==id||typeof data.uid!=='string')return null;
@@ -45,7 +50,7 @@ export function createMaintenanceRepository({user,servicesPromise=getFirebaseSer
   return {
     sessionId:id,isProduction,environmentId,
     async subscribeMaintenance(callback){const {modules,ref}=await maintenanceRef();return modules.firestore.onSnapshot(ref,snap=>callback(normalizeMaintenance(snap.exists()?snap.data():null)),error=>callback(null,{error}));},
-    async setMode(mode,message=''){if(user.role!=='admin'||!Object.values(MAINTENANCE_MODE).includes(mode))throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await maintenanceRef();await modules.firestore.setDoc(ref,{mode,message:String(message).slice(0,240),updatedAt:modules.firestore.serverTimestamp(),updatedBy:user.uid});},
+    async setMode(mode,message='',{requireRefresh=false}={}){if(user.role!=='admin'||!Object.values(MAINTENANCE_MODE).includes(mode))throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await maintenanceRef(),refreshId=requireRefresh?`refresh-${Date.now()}-${sessionId(env)}`:null;await modules.firestore.setDoc(ref,{mode,message:String(message).slice(0,240),refreshId,updatedAt:modules.firestore.serverTimestamp(),updatedBy:user.uid});},
     async subscribeSessions(callback){if(user.role!=='admin')throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await sessionsRef();return modules.firestore.onSnapshot(ref,snap=>callback(snap.docs.map(doc=>normalizeSession(doc.id,doc.data())).filter(Boolean)),error=>callback(null,{error}));},
     async writePresence(getState){
       const write=async()=>{const current=getState?.()??{};const {modules,ref}=await sessionRef();await modules.firestore.setDoc(ref,{id,uid:user.uid,role:user.role==='admin'?'admin':'shared',email:String(user.email??'').slice(0,160),view:current.view==='assessment'?'assessment':'home',assessmentId:current.assessmentId??null,therapistName:current.therapistName?String(current.therapistName).slice(0,100):null,pending:Boolean(current.pending),lastSeen:modules.firestore.serverTimestamp()});};
