@@ -6,6 +6,7 @@ export const SESSIONS_PATH='organizations/neurointegra/sessions';
 export const SESSION_STALE_MS=300_000;
 export const PRODUCTION_HOSTS=Object.freeze(['battelle.vercel.app','www.battelle.vercel.app']);
 export const REFRESH_ACK_PREFIX='battelleMaintenanceRefresh:';
+export const PRESENCE_SESSION_KEY='battellePresenceSessionId:v1';
 
 function timestampToIso(value){
   if(typeof value==='string')return value;
@@ -37,8 +38,18 @@ export function activeSessions(sessions,now=Date.now(),staleMs=SESSION_STALE_MS)
 export function maintenanceControlAllowed(hostname){return PRODUCTION_HOSTS.includes(String(hostname??'').toLowerCase());}
 export function previewEnvironmentId(hostname){return String(hostname??'preview').toLowerCase().replace(/[^a-z0-9.-]/g,'-').slice(0,120)||'preview';}
 
-function sessionId(env=globalThis){
+function randomId(env=globalThis){
   return env.crypto?.randomUUID?.()??`session-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function sessionId(env=globalThis){
+  try{
+    const stored=env.sessionStorage?.getItem(PRESENCE_SESSION_KEY);
+    if(stored)return stored;
+    const created=randomId(env);
+    env.sessionStorage?.setItem(PRESENCE_SESSION_KEY,created);
+    return env.sessionStorage?.getItem(PRESENCE_SESSION_KEY)??created;
+  }catch{return randomId(env);}
 }
 
 export function createMaintenanceRepository({user,servicesPromise=getFirebaseServices(),env=globalThis}={}){
@@ -50,7 +61,7 @@ export function createMaintenanceRepository({user,servicesPromise=getFirebaseSer
   return {
     sessionId:id,isProduction,environmentId,
     async subscribeMaintenance(callback){const {modules,ref}=await maintenanceRef();return modules.firestore.onSnapshot(ref,snap=>callback(normalizeMaintenance(snap.exists()?snap.data():null)),error=>callback(null,{error}));},
-    async setMode(mode,message='',{requireRefresh=false}={}){if(user.role!=='admin'||!Object.values(MAINTENANCE_MODE).includes(mode))throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await maintenanceRef(),refreshId=requireRefresh?`refresh-${Date.now()}-${sessionId(env)}`:null;await modules.firestore.setDoc(ref,{mode,message:String(message).slice(0,240),refreshId,updatedAt:modules.firestore.serverTimestamp(),updatedBy:user.uid});},
+    async setMode(mode,message='',{requireRefresh=false}={}){if(user.role!=='admin'||!Object.values(MAINTENANCE_MODE).includes(mode))throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await maintenanceRef(),refreshId=requireRefresh?`refresh-${Date.now()}-${randomId(env)}`:null;await modules.firestore.setDoc(ref,{mode,message:String(message).slice(0,240),refreshId,updatedAt:modules.firestore.serverTimestamp(),updatedBy:user.uid});},
     async subscribeSessions(callback){if(user.role!=='admin')throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await sessionsRef();return modules.firestore.onSnapshot(ref,snap=>callback(snap.docs.map(doc=>normalizeSession(doc.id,doc.data())).filter(Boolean)),error=>callback(null,{error}));},
     async writePresence(getState,{onError=()=>{},onSuccess=()=>{}}={}){
       const write=async()=>{const current=getState?.()??{};const {modules,ref}=await sessionRef();await modules.firestore.setDoc(ref,{id,uid:user.uid,role:user.role==='admin'?'admin':'shared',email:String(user.email??'').slice(0,160),view:current.view==='assessment'?'assessment':'home',assessmentId:current.assessmentId??null,therapistName:current.therapistName?String(current.therapistName).slice(0,100):null,pending:Boolean(current.pending),lastSeen:modules.firestore.serverTimestamp()});};
