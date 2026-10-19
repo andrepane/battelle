@@ -18,10 +18,11 @@ service cloud.firestore {
     }
     function assessmentsAvailable() { return !maintenanceActive() || adminNeurointegra(); }
     function validMaintenanceDocument() {
-      return request.resource.data.keys().hasOnly(['mode','message','updatedAt','updatedBy'])
+      return request.resource.data.keys().hasOnly(['mode','message','refreshId','updatedAt','updatedBy'])
         && request.resource.data.mode in ['open','draining','maintenance']
         && request.resource.data.message is string
         && request.resource.data.message.size() <= 240
+        && (!request.resource.data.keys().hasAny(['refreshId']) || request.resource.data.refreshId == null || (request.resource.data.refreshId is string && request.resource.data.refreshId.size() <= 100))
         && request.resource.data.updatedAt == request.time
         && request.resource.data.updatedBy == request.auth.uid;
     }

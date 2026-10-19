@@ -166,7 +166,8 @@ test('reglas Firestore reales con Emulator', async (t)=>{
   await assertFails(getDoc(sharedSession));
   await assertFails(setDoc(sharedSession,{...sessionPayload,role:'admin',lastSeen:serverTimestamp()}));
   await assertSucceeds(getDoc(doc(adminUserDb,'organizations/neurointegra/sessions/session-shared')));
-  await assertSucceeds(setDoc(maintenanceAdmin,{mode:'open',message:'',updatedAt:serverTimestamp(),updatedBy:ADMIN}));
+  await assertSucceeds(setDoc(maintenanceAdmin,{mode:'open',message:'',refreshId:'release-2026-10-19',updatedAt:serverTimestamp(),updatedBy:ADMIN}));
+  await assertFails(setDoc(maintenanceAdmin,{mode:'open',message:'',refreshId:'x'.repeat(101),updatedAt:serverTimestamp(),updatedBy:ADMIN}));
   await assertSucceeds(getDoc(legacyRef));
 });
 

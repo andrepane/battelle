@@ -23,7 +23,7 @@ import { buildPreviousScoreReference, copyObservedResponsesForSubarea, createFol
 import { captureAdministrationNavigation, comparisonControls, initialAdministrationLocation, resolveAdministrationLocation } from './src/battelle-navigation.js';
 import { showConfirmDialog, showMessageDialog, showToast } from './src/battelle-dialogs.js';
 import { buildEquivalentAgeChartModel, renderEquivalentAgeChart, chartPngBlob, downloadChartBlob, copyChartPng, safeChartFilename } from './src/battelle-equivalent-age-chart.js';
-import { MAINTENANCE_MODE, activeSessions, createMaintenanceRepository, maintenanceControlAllowed } from './src/battelle-maintenance.js';
+import { MAINTENANCE_MODE, acknowledgeRefresh, activeSessions, createMaintenanceRepository, maintenanceControlAllowed, refreshRequired } from './src/battelle-maintenance.js';
 
 const $ = (id) => document.getElementById(id);
 const state = { ready:false, items:[], model:null, normativeData:null, normativeValidation:null, assessment:null, score:null, correction:null, evaluationStatus:'administrando', activeArea:'Personal/Social', activeSubarea:null, assessments:[], view:'home', viewMode:VIEW_MODE.ADMINISTRATION, saveTimer:null, saveCoordinator:null, lastSavedAt:null, openedRevision:null, storageError:null, user:null, initializingUid:null, authorizationPromise:null, repository:null, unsubscribeAssessments:null, unsubscribeAssessment:null, remoteConflict:null, remoteDeleted:false, trashMode:false, comparisonMode:false, comparisonIds:[], comparisonModel:null, comparisonContext:'general', comparisonNotice:'', resultTableModel:null, equivalentAgeChartModel:null, resultsDisplay:'table', comparisonDisplay:'table', resultFormatId:'piat', resultColumnSelection:[...RESULT_FORMATS.piat.defaultColumns], previousAssessment:null, previousScoreReference:null, referenceLoadToken:0, subareaUndo:{}, maintenanceRepository:null,maintenance:{mode:MAINTENANCE_MODE.OPEN,message:''},maintenanceSessions:[],unsubscribeMaintenance:null,unsubscribeMaintenanceSessions:null,presence:null,list:{page:1,pageSize:20,cursors:[null],records:[],hasNext:false,total:0,global:null,globalPromise:null,renderToken:0} };
@@ -44,10 +44,13 @@ function setText(id, text){ $(id).textContent = text; }
 function setupMaintenanceUi(){
   if($('maintenanceGate'))return;
   const gate=el('section',{id:'maintenanceGate',class:'maintenance-gate hidden',role:'alert',ariaLive:'assertive'},el('div',{class:'maintenance-gate-card'},el('p',{class:'eyebrow'},'Neurointegra'),el('h2',{id:'maintenanceGateTitle'},'Mantenimiento temporal'),el('p',{id:'maintenanceGateText'},'La aplicación no está disponible temporalmente.'),el('button',{id:'maintenanceReloadBtn',class:'primary-button',type:'button'},'Comprobar de nuevo')));
-  $('appShell').prepend(gate);
+  const refreshGate=el('section',{id:'maintenanceRefreshGate',class:'maintenance-gate maintenance-refresh-gate hidden',role:'alertdialog',ariaModal:'true',ariaLabelledby:'maintenanceRefreshTitle'},el('div',{class:'maintenance-gate-card'},el('p',{class:'eyebrow'},'Actualización disponible'),el('h2',{id:'maintenanceRefreshTitle'},'La aplicación se ha actualizado'),el('p',{},'Se han aplicado cambios después del mantenimiento. Actualiza la web antes de continuar para utilizar la versión más reciente.'),el('button',{id:'maintenanceRefreshBtn',class:'primary-button',type:'button'},'Actualizar la web'),el('p',{id:'maintenanceRefreshStatus',class:'error',role:'alert',ariaLive:'assertive'})));
+  $('appShell').prepend(gate,refreshGate);
   const panel=el('section',{id:'maintenanceAdminPanel',class:'maintenance-admin hidden',ariaLabel:'Administración del mantenimiento'},el('div',{class:'maintenance-admin-heading'},el('div',{},el('p',{class:'eyebrow'},'Administración'),el('h2',{},'Modo mantenimiento')),el('span',{id:'maintenanceModeBadge',class:'maintenance-mode-badge'},'Funcionamiento normal')),el('p',{id:'maintenanceAdminSummary',class:'muted'},'Comprobando sesiones activas…'),el('div',{id:'maintenanceSessionList',class:'maintenance-session-list'}),el('p',{id:'maintenancePreviewWarning',class:'notice hidden',role:'status'},'Modo de simulación: estos controles solo afectan a esta preview y nunca bloquean la web oficial.'),el('div',{class:'maintenance-admin-actions'},el('button',{id:'prepareMaintenanceBtn',class:'secondary-button',type:'button'},'Preparar mantenimiento'),el('button',{id:'activateMaintenanceBtn',class:'danger-button',type:'button'},'Activar mantenimiento'),el('button',{id:'endMaintenanceBtn',class:'primary-button',type:'button'},'Finalizar mantenimiento')));
   $('homeView').prepend(panel);
 }
+function refreshEnvironmentId(){return state.maintenanceRepository?.isProduction?'production':state.maintenanceRepository?.environmentId||location.hostname;}
+function maintenanceRefreshPending(){const id=state.maintenance.refreshId;if(!id)return false;const url=new URL(location.href);if(url.searchParams.get('_battelle_refresh')===id){acknowledgeRefresh(id,{environmentId:refreshEnvironmentId()});url.searchParams.delete('_battelle_refresh');history.replaceState(null,'',url);return false;}return refreshRequired(state.maintenance,{environmentId:refreshEnvironmentId()});}
 function presenceSnapshot(){return {view:state.assessment?'assessment':'home',assessmentId:state.assessment?.id??null,therapistName:state.assessment?.therapistName??null,pending:Boolean(state.saveCoordinator?.hasPending())};}
 function touchPresence(){void state.presence?.touch().catch(()=>{});}
 function assessmentWorkSessions(){return activeSessions(state.maintenanceSessions).filter(session=>session.view==='assessment'&&session.id!==state.maintenanceRepository?.sessionId);}
@@ -74,6 +77,11 @@ function renderMaintenance(){
   let banner=$('maintenanceDrainNotice');
   if(draining&&!banner){banner=el('section',{id:'maintenanceDrainNotice',class:'notice maintenance-drain-notice',role:'alert'},el('strong',{},'La aplicación se cerrará por mantenimiento.'),el('p',{},'No inicies nuevas evaluaciones. Si estás trabajando, guarda los cambios y vuelve al listado.'));$('appShell').querySelector('main').prepend(banner);}
   banner?.classList.toggle('hidden',!draining);
+  const refreshPending=mode===MAINTENANCE_MODE.OPEN&&maintenanceRefreshPending();
+  $('maintenanceRefreshGate').classList.toggle('hidden',!refreshPending);
+  $('appShell').querySelector('header').inert=blocked||refreshPending;
+  $('appShell').querySelector('main').inert=blocked||refreshPending;
+  if(refreshPending)requestAnimationFrame(()=>$('maintenanceRefreshBtn')?.focus());
   if($('homeNewAssessmentBtn'))$('homeNewAssessmentBtn').disabled=!state.ready||maintenanceBlocksNewWork();
 }
 
@@ -108,7 +116,6 @@ async function subscribeMaintenance(){
       if(meta.error){if(!initialized){initialized=true;reject(meta.error);}return;}
       const previous=state.maintenance.mode;
       state.maintenance=maintenance;renderMaintenance();
-      if(previous===MAINTENANCE_MODE.ACTIVE&&maintenance.mode===MAINTENANCE_MODE.OPEN&&state.user?.role!=='admin')location.reload();
       if(!initialized){initialized=true;resolve(maintenance);}
     });}catch(error){reject(error);}
   });
@@ -498,7 +505,7 @@ async function activateMaintenance(trigger){
 async function endMaintenance(trigger){
   if(state.user?.role!=='admin')return;
   const ok=await showConfirmDialog({title:'Finalizar mantenimiento',message:'La aplicación volverá a permitir el acceso y la administración de evaluaciones.',confirmLabel:'Volver a abrir',cancelLabel:'Cancelar',tone:'info',trigger});
-  if(ok)await state.maintenanceRepository.setMode(MAINTENANCE_MODE.OPEN,'');
+  if(ok)await state.maintenanceRepository.setMode(MAINTENANCE_MODE.OPEN,'',{requireRefresh:true});
 }
 async function init(){ showLogin(); try{ await observeAuthState(async(user)=>{ if(!user){ await clearActiveSessionState(); showLogin(); return; } try{ const authorized=await ensureAuthorized(user); await handleAuthorizedUser(authorized); }catch(err){ $('loginMessage').textContent=friendlyAuthError(err); await signOutNeurointegra(); showLogin(); } }); }catch(err){ $('loginMessage').textContent=friendlyAuthError(err); }}
 async function restoreDeleted(id,trigger=document.activeElement){const repository=state.repository,rec=(await repository.listDeletedAssessments()).find(r=>r.id===id);if(!rec||assessmentOperations.has(id))return;const ok=await showConfirmDialog({title:'Restaurar evaluación',message:`Se restaurará la evaluación de ${patientLabel(rec.name)} del ${displayDate(rec.assessmentDate)}.`,confirmLabel:'Restaurar',cancelLabel:'Cancelar',pendingLabel:'Restaurando…',tone:'info',trigger,errorMessage:'No se pudo restaurar la evaluación. Comprueba la conexión e inténtalo de nuevo.',onConfirm:async()=>{if(state.repository!==repository||assessmentOperations.has(id))throw new Error('stale-operation');const current=(await repository.listDeletedAssessments()).find(r=>r.id===id);if(!current||current.revision!==rec.revision)throw new Error('stale-assessment');assessmentOperations.add(id);try{await repository.restoreAssessment(id,current.revision);}finally{assessmentOperations.delete(id);}}});if(ok){showToast({message:'Evaluación restaurada',tone:'success'});await renderHome();}}
@@ -511,6 +518,7 @@ document.addEventListener('keydown',(e)=>{ if(!e.target.matches('.score-btn')) r
 $('correctionPreflightDialog').addEventListener('cancel',(e)=>{e.preventDefault();closeCorrectionPreflight();});
 document.addEventListener('toggle',(e)=>{ if(e.target.matches?.('.subarea-card')&&e.target.open){state.activeSubarea=e.target.dataset.subarea;updateStartingLevelVisuals({scroll:true,reason:'open'});} },true);
 document.addEventListener('click',async(e)=>{if(!['previousAssessmentsPage','nextAssessmentsPage'].includes(e.target.id))return;e.stopImmediatePropagation();const direction=e.target.id==='nextAssessmentsPage'?1:-1,next=state.list.page+direction;if(next<1)return;if(listFiltering()||state.trashMode){state.list.page=next;await renderHome();}else await subscribeRemoteList({page:next});});
+document.addEventListener('click',async(e)=>{if(e.target.id!=='maintenanceRefreshBtn')return;e.stopImmediatePropagation();const button=e.target,status=$('maintenanceRefreshStatus'),refreshId=state.maintenance.refreshId;if(!refreshId)return;button.disabled=true;button.textContent='Actualizando…';status.textContent='';const saved=await flushSave();if(saved?.ok===false){button.disabled=false;button.textContent='Actualizar la web';status.textContent='No se pudieron guardar los cambios pendientes. Comprueba la conexión y vuelve a intentarlo.';return;}const url=new URL(location.href);url.searchParams.set('_battelle_refresh',refreshId);location.replace(url.href);});
 document.addEventListener('click',async(e)=>{if(!['maintenanceReloadBtn','prepareMaintenanceBtn','activateMaintenanceBtn','endMaintenanceBtn'].includes(e.target.id))return;e.stopImmediatePropagation();if(e.target.id==='maintenanceReloadBtn')location.reload();if(e.target.id==='prepareMaintenanceBtn')await prepareMaintenance(e.target);if(e.target.id==='activateMaintenanceBtn')await activateMaintenance(e.target);if(e.target.id==='endMaintenanceBtn')await endMaintenance(e.target);});
 function setupPasswordVisibility(){const input=$('loginPassword');if(!input||$('togglePasswordBtn'))return;const field=el('span',{class:'password-field'}),button=el('button',{id:'togglePasswordBtn',class:'password-toggle',type:'button',ariaPressed:'false',ariaLabel:'Mostrar contraseña'},'Mostrar');input.before(field);field.append(input,button);}
 document.addEventListener('click',(e)=>{if(e.target.id!=='togglePasswordBtn')return;const password=$('loginPassword'),show=password.type==='password';password.type=show?'text':'password';e.target.textContent=show?'Ocultar':'Mostrar';e.target.setAttribute('aria-pressed',String(show));e.target.setAttribute('aria-label',show?'Ocultar contraseña':'Mostrar contraseña');password.focus();});
