@@ -3,8 +3,8 @@ import { getFirebaseServices } from './firebase-app.js';
 export const MAINTENANCE_MODE=Object.freeze({OPEN:'open',DRAINING:'draining',ACTIVE:'maintenance'});
 export const MAINTENANCE_PATH='organizations/neurointegra/system/maintenance';
 export const SESSIONS_PATH='organizations/neurointegra/sessions';
-export const SESSION_STALE_MS=90_000;
-export const PRODUCTION_HOSTS=Object.freeze(['battelle.vercel.app']);
+export const SESSION_STALE_MS=300_000;
+export const PRODUCTION_HOSTS=Object.freeze(['battelle.vercel.app','www.battelle.vercel.app']);
 export const REFRESH_ACK_PREFIX='battelleMaintenanceRefresh:';
 
 function timestampToIso(value){
@@ -20,8 +20,8 @@ export function normalizeMaintenance(data){
 }
 
 export function refreshAckKey(environmentId){return `${REFRESH_ACK_PREFIX}${previewEnvironmentId(environmentId)}`;}
-export function refreshRequired(maintenance,{storage=globalThis.localStorage,environmentId='production'}={}){if(maintenance?.mode!==MAINTENANCE_MODE.OPEN||!maintenance?.refreshId)return false;try{return storage?.getItem(refreshAckKey(environmentId))!==maintenance.refreshId;}catch{return true;}}
-export function acknowledgeRefresh(refreshId,{storage=globalThis.localStorage,environmentId='production'}={}){if(!refreshId)return false;try{storage?.setItem(refreshAckKey(environmentId),refreshId);return true;}catch{return false;}}
+export function refreshRequired(maintenance,{storage=globalThis.localStorage,environmentId='production',tabStartedAt=Date.now()}={}){if(maintenance?.mode!==MAINTENANCE_MODE.OPEN||!maintenance?.refreshId)return false;const releasedAt=Date.parse(maintenance.updatedAt);if(Number.isFinite(releasedAt)&&releasedAt>tabStartedAt)return true;try{return storage?.getItem(refreshAckKey(environmentId))!==maintenance.refreshId;}catch{return true;}}
+export function acknowledgeRefresh(refreshId,{storage=globalThis.localStorage,environmentId='production'}={}){if(!refreshId)return false;try{storage?.setItem(refreshAckKey(environmentId),refreshId);return storage?.getItem(refreshAckKey(environmentId))===refreshId;}catch{return false;}}
 
 export function normalizeSession(id,data){
   if(!data||data.id!==id||typeof data.uid!=='string')return null;
@@ -52,12 +52,15 @@ export function createMaintenanceRepository({user,servicesPromise=getFirebaseSer
     async subscribeMaintenance(callback){const {modules,ref}=await maintenanceRef();return modules.firestore.onSnapshot(ref,snap=>callback(normalizeMaintenance(snap.exists()?snap.data():null)),error=>callback(null,{error}));},
     async setMode(mode,message='',{requireRefresh=false}={}){if(user.role!=='admin'||!Object.values(MAINTENANCE_MODE).includes(mode))throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await maintenanceRef(),refreshId=requireRefresh?`refresh-${Date.now()}-${sessionId(env)}`:null;await modules.firestore.setDoc(ref,{mode,message:String(message).slice(0,240),refreshId,updatedAt:modules.firestore.serverTimestamp(),updatedBy:user.uid});},
     async subscribeSessions(callback){if(user.role!=='admin')throw new Error('Operación administrativa no autorizada.');const {modules,ref}=await sessionsRef();return modules.firestore.onSnapshot(ref,snap=>callback(snap.docs.map(doc=>normalizeSession(doc.id,doc.data())).filter(Boolean)),error=>callback(null,{error}));},
-    async writePresence(getState){
+    async writePresence(getState,{onError=()=>{},onSuccess=()=>{}}={}){
       const write=async()=>{const current=getState?.()??{};const {modules,ref}=await sessionRef();await modules.firestore.setDoc(ref,{id,uid:user.uid,role:user.role==='admin'?'admin':'shared',email:String(user.email??'').slice(0,160),view:current.view==='assessment'?'assessment':'home',assessmentId:current.assessmentId??null,therapistName:current.therapistName?String(current.therapistName).slice(0,100):null,pending:Boolean(current.pending),lastSeen:modules.firestore.serverTimestamp()});};
+      const safeWrite=async()=>{try{await write();onSuccess();}catch(error){onError(error);}};
       const remove=async()=>{try{const {modules,ref}=await sessionRef();await modules.firestore.deleteDoc(ref);}catch{/* La caducidad elimina el efecto de una sesión que no pudo borrarse. */}};
       await write();
-      const timer=env.setInterval(()=>{void write();},20_000);
-      return {touch:write,stop:async()=>{env.clearInterval(timer);await remove();}};
+      const resume=()=>{if(!env.document||env.document.visibilityState==='visible')void safeWrite();};
+      const timer=env.setInterval(()=>{void safeWrite();},15_000);
+      env.addEventListener?.('online',resume);env.addEventListener?.('focus',resume);env.addEventListener?.('pageshow',resume);env.document?.addEventListener?.('visibilitychange',resume);
+      return {touch:safeWrite,stop:async()=>{env.clearInterval(timer);env.removeEventListener?.('online',resume);env.removeEventListener?.('focus',resume);env.removeEventListener?.('pageshow',resume);env.document?.removeEventListener?.('visibilitychange',resume);await remove();}};
     }
   };
 }
