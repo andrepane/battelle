@@ -33,10 +33,9 @@ test('renderHome conserva estados vacíos específicos para ambas listas', async
 
 test('la búsqueda usa el conjunto global antes de paginar sus resultados',async()=>{
   const script=await readFile('script.js','utf8');
-  assert.match(script,/const active=filtering\?await globalAssessments\(\)/);
-  assert.match(script,/const visible=clientPaged\?filtered\.slice/);
+  assert.match(script,/const active=state\.list\.global\.length\?state\.list\.global/);
+  assert.match(script,/const visible=filtered\.slice/);
   assert.match(script,/pageSize:20/);
-  assert.match(script,/subscribeAssessmentPage/);
-  assert.match(script,/fallbackUnsubscribe=await repository\.subscribeAssessments/);
-  assert.match(script,/all\.slice\(\(page-1\)\*state\.list\.pageSize/);
+  assert.match(script,/state\.unsubscribeAssessments=await repository\.subscribeAssessments/);
+  assert.doesNotMatch(script,/fallbackUnsubscribe/);
 });
