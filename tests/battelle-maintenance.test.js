@@ -18,10 +18,17 @@ test('cada dispositivo debe confirmar la actualización una vez',()=>{
   assert.equal(refreshRequired(normalizeMaintenance({mode:'maintenance',refreshId:'release-3'}),{storage,environmentId:'production'}),false);
 });
 
+test('una pestaña anterior al cambio debe actualizar aunque otra ya confirmase',()=>{
+  const values=new Map([['battelleMaintenanceRefresh:production','release-3']]),storage={getItem:key=>values.get(key)??null};
+  const maintenance=normalizeMaintenance({mode:'open',refreshId:'release-3',updatedAt:timestamp('2026-10-19T15:00:00.000Z')});
+  assert.equal(refreshRequired(maintenance,{storage,environmentId:'production',tabStartedAt:Date.parse('2026-10-19T14:59:00.000Z')}),true);
+  assert.equal(refreshRequired(maintenance,{storage,environmentId:'production',tabStartedAt:Date.parse('2026-10-19T15:01:00.000Z')}),false);
+});
+
 test('solo cuentan como activas las sesiones con señal reciente',()=>{
   const now=Date.parse('2026-10-16T10:00:00.000Z');
   const recent=normalizeSession('recent',{id:'recent',uid:'shared',view:'assessment',lastSeen:timestamp('2026-10-16T09:59:20.000Z')});
-  const stale=normalizeSession('stale',{id:'stale',uid:'shared',view:'assessment',lastSeen:timestamp('2026-10-16T09:57:00.000Z')});
+  const stale=normalizeSession('stale',{id:'stale',uid:'shared',view:'assessment',lastSeen:timestamp('2026-10-16T09:54:00.000Z')});
   assert.deepEqual(activeSessions([recent,stale],now).map(session=>session.id),['recent']);
 });
 
