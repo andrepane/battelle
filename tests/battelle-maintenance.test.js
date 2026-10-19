@@ -18,11 +18,14 @@ test('cada dispositivo debe confirmar la actualización una vez',()=>{
   assert.equal(refreshRequired(normalizeMaintenance({mode:'maintenance',refreshId:'release-3'}),{storage,environmentId:'production'}),false);
 });
 
-test('una pestaña anterior al cambio debe actualizar aunque otra ya confirmase',()=>{
-  const values=new Map([['battelleMaintenanceRefresh:production','release-3']]),storage={getItem:key=>values.get(key)??null};
-  const maintenance=normalizeMaintenance({mode:'open',refreshId:'release-3',updatedAt:timestamp('2026-10-19T15:00:00.000Z')});
-  assert.equal(refreshRequired(maintenance,{storage,environmentId:'production',tabStartedAt:Date.parse('2026-10-19T14:59:00.000Z')}),true);
-  assert.equal(refreshRequired(maintenance,{storage,environmentId:'production',tabStartedAt:Date.parse('2026-10-19T15:01:00.000Z')}),false);
+test('cada pestaña confirma la actualización independientemente y sin comparar relojes',()=>{
+  const firstValues=new Map([['battelleMaintenanceRefresh:production','release-3']]),firstTab={getItem:key=>firstValues.get(key)??null};
+  const secondValues=new Map(),secondTab={getItem:key=>secondValues.get(key)??null,setItem:(key,value)=>secondValues.set(key,value)};
+  const maintenance=normalizeMaintenance({mode:'open',refreshId:'release-3',updatedAt:timestamp('1990-01-01T00:00:00.000Z')});
+  assert.equal(refreshRequired(maintenance,{storage:firstTab,environmentId:'production'}),false);
+  assert.equal(refreshRequired(maintenance,{storage:secondTab,environmentId:'production'}),true);
+  assert.equal(acknowledgeRefresh('release-3',{storage:secondTab,environmentId:'production'}),true);
+  assert.equal(refreshRequired(maintenance,{storage:secondTab,environmentId:'production'}),false);
 });
 
 test('solo cuentan como activas las sesiones con señal reciente',()=>{
@@ -44,6 +47,27 @@ test('recargar una pestaña reutiliza su sesión de presencia y una pestaña nue
   assert.equal(firstLoad.sessionId,'session-1');
   assert.equal(reload.sessionId,firstLoad.sessionId);
   assert.equal(secondTab.sessionId,'session-2');
+});
+
+test('perder conexión marca la presencia como no fiable hasta confirmar un nuevo latido',async()=>{
+  const listeners=new Map(),storage=new Map();
+  const env={
+    location:{hostname:'battelle.vercel.app'},crypto:{randomUUID:()=> 'session-offline'},
+    sessionStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value)},
+    setInterval:()=>1,clearInterval:()=>{},addEventListener:(type,handler)=>listeners.set(type,handler),removeEventListener:(type)=>listeners.delete(type)
+  };
+  const firestore={doc:(db,...segments)=>({path:segments.join('/')}),serverTimestamp:()=>({server:true}),setDoc:async()=>{},deleteDoc:async()=>{}};
+  const repository=createMaintenanceRepository({user:{uid:'admin-uid',role:'admin'},servicesPromise:{db:{},modules:{firestore}},env});
+  let failures=0,successes=0;
+  const presence=await repository.writePresence(()=>({view:'home'}),{onError:()=>{failures+=1;},onSuccess:()=>{successes+=1;}});
+  listeners.get('offline')();
+  assert.equal(failures,1);
+  assert.equal(successes,0);
+  listeners.get('online')();
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(successes,1);
+  await presence.stop();
+  assert.equal(listeners.has('offline'),false);
 });
 
 test('los controles reales solo se habilitan en el dominio de producción',()=>{
