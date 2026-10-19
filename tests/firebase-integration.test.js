@@ -107,6 +107,7 @@ test('suscripciones se deduplican y se limpian al cambiar o cerrar sesión',()=>
   const script=readFileSync(new URL('../script.js', import.meta.url),'utf8');
   assert.match(script,/if\(state\.unsubscribeAssessments\) state\.unsubscribeAssessments\(\)/);
   assert.match(script,/state\.unsubscribeAssessments=await repository\.subscribeAssessmentPage/);
+  assert.match(script,/fallbackUnsubscribe=await repository\.subscribeAssessments/);
   assert.match(script,/if\(state\.unsubscribeAssessments\)\{ state\.unsubscribeAssessments\(\); state\.unsubscribeAssessments=null; \}/);
   assert.match(script,/if\(state\.unsubscribeAssessment\)\{ state\.unsubscribeAssessment\(\); state\.unsubscribeAssessment=null; \}/);
   assert.match(script,/assessments:\[\].*storageError:null/);
