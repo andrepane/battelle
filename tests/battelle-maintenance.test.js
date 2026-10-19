@@ -32,6 +32,20 @@ test('solo cuentan como activas las sesiones con señal reciente',()=>{
   assert.deepEqual(activeSessions([recent,stale],now).map(session=>session.id),['recent']);
 });
 
+test('recargar una pestaña reutiliza su sesión de presencia y una pestaña nueva crea otra',()=>{
+  const createStorage=()=>{const values=new Map();return {getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};};
+  const servicesPromise={db:{},modules:{firestore:{}}};
+  const firstTabStorage=createStorage();
+  let sequence=0;
+  const firstTab={location:{hostname:'battelle.vercel.app'},sessionStorage:firstTabStorage,crypto:{randomUUID:()=>`session-${++sequence}`}};
+  const firstLoad=createMaintenanceRepository({user:{uid:'shared-uid'},servicesPromise,env:firstTab});
+  const reload=createMaintenanceRepository({user:{uid:'shared-uid'},servicesPromise,env:firstTab});
+  const secondTab=createMaintenanceRepository({user:{uid:'shared-uid'},servicesPromise,env:{...firstTab,sessionStorage:createStorage()}});
+  assert.equal(firstLoad.sessionId,'session-1');
+  assert.equal(reload.sessionId,firstLoad.sessionId);
+  assert.equal(secondTab.sessionId,'session-2');
+});
+
 test('los controles reales solo se habilitan en el dominio de producción',()=>{
   assert.equal(maintenanceControlAllowed('battelle.vercel.app'),true);
   assert.equal(maintenanceControlAllowed('battelle-git-preview.vercel.app'),false);
