@@ -37,4 +37,6 @@ test('la búsqueda usa el conjunto global antes de paginar sus resultados',async
   assert.match(script,/const visible=clientPaged\?filtered\.slice/);
   assert.match(script,/pageSize:20/);
   assert.match(script,/subscribeAssessmentPage/);
+  assert.match(script,/const all=await repository\.listAssessments\(\)/);
+  assert.match(script,/all\.slice\(\(page-1\)\*state\.list\.pageSize/);
 });

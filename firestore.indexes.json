@@ -5,6 +5,7 @@
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "deletedAt", "order": "ASCENDING" },
+        { "fieldPath": "assessmentDate", "order": "DESCENDING" },
         { "fieldPath": "updatedAt", "order": "DESCENDING" }
       ]
     }

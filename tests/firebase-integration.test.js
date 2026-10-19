@@ -65,6 +65,13 @@ test('paginación Firestore limita a 20 y conserva un cursor para la página sig
   assert.equal(page.records.length,20);assert.equal(page.hasNext,true);assert.ok(page.nextCursor);
 });
 
+test('el listado global ordena por fecha de evaluación y no por última edición',async()=>{
+  const olderEdited=createAssessmentRecord({id:'bat-old',name:'Antigua',assessmentDate:'2026-01-10'}),newer=createAssessmentRecord({id:'bat-new',name:'Reciente',assessmentDate:'2026-10-10'});
+  const services=makeServices({'bat-old':{...olderEdited,updatedAt:'2026-12-01T00:00:00.000Z',revision:1,organizationId:'neurointegra',createdBy:'u',updatedBy:'u'},'bat-new':{...newer,updatedAt:'2026-10-10T00:00:00.000Z',revision:1,organizationId:'neurointegra',createdBy:'u',updatedBy:'u'}});
+  const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'},servicesPromise:services});
+  assert.deepEqual((await repo.listAssessments()).map(row=>row.id),['bat-new','bat-old']);
+});
+
 test('error de red no produce estado Guardado en Neurointegra', async()=>{
   const script=readFileSync(new URL('../script.js', import.meta.url),'utf8');
   assert.match(script,/Guardado en Neurointegra/); assert.match(script,/Sin conexión \/ cambios pendientes/); assert.match(script,/onError/);

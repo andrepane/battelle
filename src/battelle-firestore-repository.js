@@ -38,7 +38,7 @@ export function createFirestoreAssessmentRepository({user, servicesPromise=getFi
     const {modules,ref}=await col();
     const constraints=deleted
       ? [modules.firestore.where('deletedAt','!=',null),modules.firestore.orderBy('deletedAt','desc')]
-      : [modules.firestore.where('deletedAt','==',null),modules.firestore.orderBy('updatedAt','desc')];
+      : [modules.firestore.where('deletedAt','==',null),modules.firestore.orderBy('assessmentDate','desc'),modules.firestore.orderBy('updatedAt','desc')];
     if(cursor) constraints.push(modules.firestore.startAfter(cursor));
     constraints.push(modules.firestore.limit(pageSize+1));
     return {modules,query:modules.firestore.query(ref,...constraints),pageSize};
@@ -49,7 +49,7 @@ export function createFirestoreAssessmentRepository({user, servicesPromise=getFi
   }
   return {
     async listDeletedAssessments(){ const {modules,ref}=await col(); const snap=await modules.firestore.getDocs(modules.firestore.query(ref,modules.firestore.orderBy('updatedAt','desc'))); return snap.docs.map(d=>fromFirestoreDocument(d.id,d.data())).filter(r=>r?.deletedAt); },
-    async listAssessments(){ const {modules,ref}=await col(); const q=modules.firestore.query(ref, modules.firestore.orderBy('updatedAt','desc')); const snap=await modules.firestore.getDocs(q); return snap.docs.map(d=>fromFirestoreDocument(d.id,d.data())).filter(r=>r&&!r.deletedAt); },
+    async listAssessments(){ const {modules,ref}=await col(); const q=modules.firestore.query(ref, modules.firestore.orderBy('assessmentDate','desc')); const snap=await modules.firestore.getDocs(q); return snap.docs.map(d=>fromFirestoreDocument(d.id,d.data())).filter(r=>r&&!r.deletedAt).sort((a,b)=>b.assessmentDate.localeCompare(a.assessmentDate)||b.updatedAt.localeCompare(a.updatedAt)||a.id.localeCompare(b.id)); },
     async countAssessments({deleted=false}={}){const {modules,ref}=await col();const q=deleted?modules.firestore.query(ref,modules.firestore.where('deletedAt','!=',null)):modules.firestore.query(ref,modules.firestore.where('deletedAt','==',null));const snap=await modules.firestore.getCountFromServer(q);return snap.data().count;},
     async getAssessmentPage(options={}){const {modules,query,pageSize}=await pageQuery(options);const snap=await modules.firestore.getDocs(query);return pageFromSnapshot(snap,pageSize,Boolean(options.deleted));},
     async getAssessment(id){ const {modules}=await ready; const snap=await modules.firestore.getDoc(await docRef(id)); return snap.exists()?fromFirestoreDocument(snap.id,snap.data()):null; },
