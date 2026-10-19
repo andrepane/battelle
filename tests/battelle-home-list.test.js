@@ -14,13 +14,13 @@ const renderHomeSource = async () => {
 test('renderHome construye por separado las listas normal y de papelera', async () => {
   const source = await renderHomeSource();
 
-  assert.match(source, /if\(state\.trashMode\)\{\s*rows=filtered\.map/);
+  assert.match(source, /if\(state\.trashMode\)\{\s*rows=visible\.map/);
   assert.match(source, /restore-assessment/);
   assert.match(source, /purge-assessment/);
-  assert.match(source, /\}else\{\s*rows=filtered\.map/);
+  assert.match(source, /\}else\{\s*rows=visible\.map/);
   assert.match(source, /open-assessment/);
   assert.match(source, /delete-assessment/);
-  assert.equal((source.match(/rows=filtered\.map/g) ?? []).length, 2);
+  assert.equal((source.match(/rows=visible\.map/g) ?? []).length, 2);
 });
 
 test('renderHome conserva estados vacíos específicos para ambas listas', async () => {
@@ -29,4 +29,12 @@ test('renderHome conserva estados vacíos específicos para ambas listas', async
   assert.match(source, /if\(!filtered\.length\)/);
   assert.match(source, /La papelera está vacía\./);
   assert.match(source, /No hay evaluaciones todavía\./);
+});
+
+test('la búsqueda usa el conjunto global antes de paginar sus resultados',async()=>{
+  const script=await readFile('script.js','utf8');
+  assert.match(script,/const active=filtering\?await globalAssessments\(\)/);
+  assert.match(script,/const visible=clientPaged\?filtered\.slice/);
+  assert.match(script,/pageSize:20/);
+  assert.match(script,/subscribeAssessmentPage/);
 });

@@ -11,10 +11,11 @@ function fakeRepository(existing={}){ const records=new Map(Object.entries(exist
 function makeServices(initial={}){
   const store=new Map(Object.entries(initial)); const listeners=[];
   const modules={firestore:{
-    collection:(db,...path)=>({path:path.join('/')}), doc:(db,...path)=>({id:path.at(-1), path:path.join('/')}), orderBy:(f,d)=>({f,d}), query:(ref)=>ref,
+    collection:(db,...path)=>({path:path.join('/')}), doc:(db,...path)=>({id:path.at(-1), path:path.join('/')}), orderBy:(f,d)=>({type:'orderBy',f,d}), where:(f,op,value)=>({type:'where',f,op,value}), limit:value=>({type:'limit',value}), startAfter:value=>({type:'startAfter',value}), query:(ref,...constraints)=>({ref,constraints}),
     serverTimestamp:()=>({toDate:()=>new Date('2026-01-01T00:00:00.000Z')}),
     getDoc:async(ref)=>({exists:()=>store.has(ref.id), id:ref.id, data:()=>store.get(ref.id)}),
     getDocs:async()=>({docs:[...store.entries()].map(([id,data])=>({id,data:()=>data}))}),
+    getCountFromServer:async()=>({data:()=>({count:[...store.values()].filter(data=>!data.deletedAt).length})}),
     runTransaction:async(db,fn)=>fn({get:async(ref)=>({exists:()=>store.has(ref.id), id:ref.id, data:()=>store.get(ref.id)}), set:(ref,data)=>store.set(ref.id,data), delete:(ref)=>store.delete(ref.id)}),
     onSnapshot:(ref,ok)=>{listeners.push(ok); ok({docs:[...store.entries()].map(([id,data])=>({id,data:()=>data})), metadata:{fromCache:false,hasPendingWrites:false}}); return ()=>{};}
   }};
@@ -56,6 +57,14 @@ test('tiempo real notifica cambios remotos sin IndexedDB persistente', async()=>
   assert.doesNotMatch(readFileSync(new URL('../src/firebase-app.js', import.meta.url),'utf8'),/enableIndexedDbPersistence|persistentLocalCache/);
 });
 
+test('paginación Firestore limita a 20 y conserva un cursor para la página siguiente',async()=>{
+  const initial=Object.fromEntries(Array.from({length:25},(_,index)=>{const id=`bat-page-${String(index).padStart(2,'0')}`,record=createAssessmentRecord({id,name:`Paciente ${index}`});return [id,{...record,revision:1,organizationId:'neurointegra',createdBy:'u',updatedBy:'u'}];}));
+  const repo=createFirestoreAssessmentRepository({user:{uid:'uid1'},servicesPromise:makeServices(initial)});
+  assert.equal(await repo.countAssessments(),25);
+  const page=await repo.getAssessmentPage({pageSize:20});
+  assert.equal(page.records.length,20);assert.equal(page.hasNext,true);assert.ok(page.nextCursor);
+});
+
 test('error de red no produce estado Guardado en Neurointegra', async()=>{
   const script=readFileSync(new URL('../script.js', import.meta.url),'utf8');
   assert.match(script,/Guardado en Neurointegra/); assert.match(script,/Sin conexión \/ cambios pendientes/); assert.match(script,/onError/);
@@ -90,7 +99,7 @@ test('autenticación centralizada evita doble inicialización y sesiones parcial
 test('suscripciones se deduplican y se limpian al cambiar o cerrar sesión',()=>{
   const script=readFileSync(new URL('../script.js', import.meta.url),'utf8');
   assert.match(script,/if\(state\.unsubscribeAssessments\) state\.unsubscribeAssessments\(\)/);
-  assert.match(script,/state\.unsubscribeAssessments=await state\.repository\.subscribeAssessments/);
+  assert.match(script,/state\.unsubscribeAssessments=await repository\.subscribeAssessmentPage/);
   assert.match(script,/if\(state\.unsubscribeAssessments\)\{ state\.unsubscribeAssessments\(\); state\.unsubscribeAssessments=null; \}/);
   assert.match(script,/if\(state\.unsubscribeAssessment\)\{ state\.unsubscribeAssessment\(\); state\.unsubscribeAssessment=null; \}/);
   assert.match(script,/assessments:\[\].*storageError:null/);
